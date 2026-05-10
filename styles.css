@@ -1,0 +1,594 @@
+/*
+ * Folio
+ * Styles for the blog-style metadata header and enhanced title.
+ */
+
+/* Utility: hide elements without inline style */
+.folio-hidden {
+    display: none !important;
+}
+
+/* Increases inline title font size (fallback — overridden dynamically by plugin settings) */
+.inline-title {
+    font-size: var(--folio-title-size, 3em) !important;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+/* Remove a linha inferior do título da página */
+body:not(.is-phone):not(.inline-title-divider-remove) .inline-title:not(.mk-inline-title) {
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+
+/* ============================================================
+   METADATA HEADER
+   Flex container with date/reading-time text and updated badge.
+   ============================================================ */
+
+/* Wrapper: horizontal flex layout */
+.folio-metadata-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Hide empty wrappers to prevent blank space when no fields have values */
+.folio-metadata-header:empty {
+    display: none;
+}
+
+/* Reduce gap when metadata header is directly above the title */
+.folio-metadata-header:has(+ .inline-title) {
+    margin-bottom: 0.35rem;
+}
+
+/* When above the breadcrumb or top row, give it a bit more breathing room */
+.folio-metadata-header:has(+ .folio-breadcrumb),
+.folio-metadata-header:has(+ .folio-top-row) {
+    margin-bottom: 0.75rem;
+}
+
+/* Date + reading time — muted gray text */
+.folio-metadata-date {
+    color: var(--text-muted);
+    font-size: calc(var(--folio-badge-size, 0.75rem) + 0.05rem);
+    line-height: 1.4;
+}
+
+/* "Last Updated" pill badge */
+.folio-metadata-badge {
+    display: inline-flex;
+    align-items: center;
+    background-color: color-mix(in srgb, var(--color-accent) 15%, transparent);
+    color: var(--color-accent);
+    font-size: var(--folio-badge-size, 0.75rem);
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 6px;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+
+/* ============================================================
+   CUSTOM FIELDS
+   Styles for user-defined frontmatter fields.
+   ============================================================ */
+
+/* Custom text — same muted style as the date, with matching vertical padding */
+.folio-custom-text {
+    color: var(--text-muted);
+    font-size: calc(var(--folio-badge-size, 0.75rem) + 0.05rem);
+    line-height: 1.4;
+    padding: 4px 0;
+}
+
+/* Custom badge — pill shape, default green tint (overridden by inline style if user sets color) */
+.folio-custom-badge {
+    display: inline-flex;
+    align-items: center;
+    background-color: color-mix(in srgb, var(--color-green) 15%, transparent);
+    color: var(--color-green);
+    font-size: var(--folio-badge-size, 0.75rem);
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 6px;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+/* Custom link — subtle underlined style */
+.folio-custom-link {
+    color: var(--color-accent);
+    font-size: calc(var(--folio-badge-size, 0.75rem) + 0.05rem);
+    text-decoration: none;
+    border-bottom: 1px dashed color-mix(in srgb, var(--color-accent) 40%, transparent);
+    transition: border-color 0.15s ease;
+    padding: 4px 0;
+}
+
+.folio-custom-link:hover {
+    border-bottom-color: var(--color-accent);
+}
+
+/* Container for array-based pills (tags, multi-select) */
+.folio-custom-pills {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+}
+
+/* Tags container — uses native Obsidian .tag class, no overrides needed */
+.folio-tags-container .tag {
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+/* Fallback pill style for .multi-select-pill in the header context.
+   If Typify is installed, it overrides this with custom colors. */
+.folio-metadata-header .multi-select-pill,
+.folio-metadata-header .tag {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: var(--folio-badge-size, 0.75rem);
+    font-weight: 500;
+    padding: 0.15rem 0.55rem !important;
+    /* Unified, perfectly balanced padding */
+    border-radius: var(--tag-radius);
+    line-height: 1.4 !important;
+    white-space: nowrap;
+    cursor: default;
+
+    /* Prevent native Obsidian max-width and flex from clipping */
+    max-width: none !important;
+    overflow: visible !important;
+    flex-shrink: 0 !important;
+}
+
+.folio-metadata-header .multi-select-pill {
+    background: var(--tag-background);
+    color: var(--tag-color);
+    border: var(--tag-border-width) solid var(--tag-border-color);
+}
+
+/* Hide any invisible pseudo-elements injected by themes on native tags */
+.folio-metadata-header .tag::before,
+.folio-metadata-header .tag::after {
+    display: none !important;
+}
+
+/* Ensure Typify styled pills also get the extra space */
+.folio-metadata-header .multi-select-pill.custom-status-icon-pill {
+    padding: 0.15rem 0.55rem !important;
+}
+
+/* Hide empty icon space if Typify configures a pill without an icon */
+.folio-metadata-header .multi-select-pill.folio-no-icon .multi-select-pill-content::before {
+    display: none !important;
+}
+
+.folio-metadata-header .multi-select-pill-content {
+    max-width: none !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+    /* Neutralize native Obsidian right-margin */
+    padding: 0 !important;
+}
+
+.folio-metadata-header .multi-select-pill:hover {
+    background: var(--tag-background-hover);
+    color: var(--tag-color-hover);
+}
+
+/* Internal links inside the header */
+.folio-metadata-header .internal-link {
+    color: var(--link-color);
+    font-size: calc(var(--folio-badge-size, 0.75rem) + 0.05rem);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.folio-metadata-header .internal-link:hover {
+    color: var(--link-color-hover);
+    text-decoration: none;
+}
+
+
+/* ============================================================
+   FIELD MANAGER MODAL
+   Styles for the custom field management modal.
+   ============================================================ */
+
+.folio-manager-count {
+    font-size: var(--font-ui-smaller);
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.folio-manager-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.folio-manager-group-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--font-ui-smaller);
+    font-weight: 600;
+    color: var(--text-muted);
+    padding: 12px 0 6px;
+    margin-top: 8px;
+}
+
+.folio-manager-group-header::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--background-modifier-border);
+}
+
+.folio-manager-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    border-radius: 6px;
+    background: var(--background-secondary);
+    position: relative;
+}
+
+.folio-manager-item:hover {
+    background: var(--background-modifier-hover);
+}
+
+.folio-manager-item-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+}
+
+.folio-manager-type-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.folio-manager-item-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.folio-manager-item-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.folio-manager-meta {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.folio-manager-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.folio-manager-empty {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    padding: 20px 0;
+}
+
+/* Inline delete confirmation overlay */
+.folio-manager-confirm {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--background-secondary);
+    border-radius: 6px;
+    z-index: 1;
+}
+
+.folio-manager-confirm-text {
+    font-size: 0.8rem;
+}
+
+.folio-manager-confirm-btns {
+    display: flex;
+    gap: 6px;
+}
+
+/* ============================================================
+   MOBILE — TABLET
+   Moderate reductions for tablet-sized screens.
+   ============================================================ */
+
+body.is-tablet .inline-title {
+    font-size: calc(var(--folio-title-size, 3em) * 0.73) !important;
+    margin-bottom: 14px;
+}
+
+body.is-tablet .folio-metadata-header {
+    gap: 0.5rem;
+}
+
+body.is-tablet .folio-metadata-date {
+    font-size: var(--folio-badge-size, 0.75rem);
+}
+
+body.is-tablet .folio-metadata-badge {
+    font-size: calc(var(--folio-badge-size, 0.75rem) - 0.05rem);
+    padding: 3px 8px;
+}
+
+body.is-tablet .folio-custom-text {
+    font-size: var(--folio-badge-size, 0.75rem);
+}
+
+body.is-tablet .folio-custom-badge {
+    font-size: calc(var(--folio-badge-size, 0.75rem) - 0.05rem);
+    padding: 3px 8px;
+}
+
+body.is-tablet .folio-custom-link {
+    font-size: var(--folio-badge-size, 0.75rem);
+}
+
+
+/* ============================================================
+   MOBILE — PHONE
+   Compact layout for small screens.
+   ============================================================ */
+
+body.is-phone .inline-title {
+    font-size: calc(var(--folio-title-size, 3em) * 0.6) !important;
+    line-height: 1.15;
+    margin-bottom: 10px;
+}
+
+body.is-phone .folio-metadata-header {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem;
+    margin-bottom: 0.75rem;
+}
+
+body.is-phone .folio-metadata-date {
+    font-size: calc(var(--folio-badge-size, 0.75rem) - 0.05rem);
+}
+
+body.is-phone .folio-metadata-badge {
+    font-size: calc(var(--folio-badge-size, 0.75rem) - 0.1rem);
+    padding: 2px 7px;
+    border-radius: 4px;
+}
+
+body.is-phone .folio-custom-text {
+    font-size: calc(var(--folio-badge-size, 0.75rem) - 0.05rem);
+}
+
+body.is-phone .folio-custom-badge {
+    font-size: calc(var(--folio-badge-size, 0.75rem) - 0.1rem);
+    padding: 2px 7px;
+    border-radius: 4px;
+}
+
+body.is-phone .folio-custom-link {
+    font-size: calc(var(--folio-badge-size, 0.75rem) - 0.05rem);
+}
+
+.folio-icon-suggestion {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+body.is-phone .modal-button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+body.is-phone .modal-button-container button {
+    margin: 0 !important;
+}
+
+/* ============================================================
+   SETTINGS NOTICES
+   ============================================================ */
+.folio-bases-notice {
+    background-color: hsla(210, 80%, 55%, 0.12);
+    border: 1px solid hsla(210, 70%, 50%, 0.3);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 8px 0 12px 0;
+    font-size: var(--font-ui-small);
+    color: var(--text-muted);
+}
+
+.folio-bases-notice .warning-text {
+    margin: 0;
+}
+
+/* ============================================================
+   BREADCRUMB & TOP ROW (WIKI STYLE)
+   ============================================================ */
+
+/* Top row container for Wiki layout */
+.folio-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 100%;
+    margin-bottom: 0.35rem;
+}
+
+/* Ensure breadcrumb doesn't have its own margin when inside top row */
+.folio-top-row .folio-breadcrumb {
+    margin-bottom: 0;
+}
+
+/* Fix massive gap on mobile between plugin elements and title */
+body.is-phone .folio-top-row+.inline-title,
+body.is-phone .folio-breadcrumb+.inline-title,
+body.is-phone .folio-metadata-header+.inline-title {
+    margin-top: 0.20rem !important;
+    padding-top: 0 !important;
+}
+
+.folio-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.2rem;
+    margin-bottom: 0.35rem;
+    font-size: calc(var(--folio-badge-size, 0.75rem) - 0.05rem);
+    color: var(--text-faint);
+    line-height: 1.4;
+}
+
+.folio-breadcrumb-separator {
+    color: var(--text-faint);
+    opacity: 0.5;
+    margin: 0 0.15rem;
+    user-select: none;
+}
+
+.folio-breadcrumb-segment {
+    color: var(--text-faint);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+.folio-breadcrumb-segment:hover {
+    color: var(--text-muted);
+    text-decoration: none;
+}
+
+/* Highlighted last segment — uses Obsidian's user-configured accent color */
+.folio-breadcrumb-segment.folio-breadcrumb-active {
+    color: var(--interactive-accent);
+}
+
+.folio-breadcrumb-segment.folio-breadcrumb-active:hover {
+    color: color-mix(in srgb, var(--interactive-accent) 75%, var(--text-normal));
+}
+
+/* ============================================================
+   MODALS (MANAGER & EDITOR)
+   ============================================================ */
+.folio-manager-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.folio-manager-meta span {
+    display: flex;
+    align-items: center;
+    line-height: 1;
+}
+
+.folio-manager-meta svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* Fix alignment of extra buttons in icon editor modal on mobile */
+.folio-icon-selector-setting .setting-item-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+body.is-phone .folio-icon-selector-setting .setting-item-control {
+    align-self: flex-start;
+}
+
+/* Field Editor Layout Classes */
+.folio-modal-no-border {
+    border-top: none !important;
+}
+
+.folio-modal-separator {
+    border: none;
+    border-top: 1px solid var(--background-modifier-border);
+    margin: 1.5rem 0;
+}
+
+.folio-modal-input-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Folder Scope Pills */
+.folio-folder-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0;
+}
+
+.folio-folder-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background-color: var(--background-secondary);
+    border: 1px solid var(--background-modifier-border);
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: var(--font-ui-smaller);
+}
+
+.folio-folder-pill-delete {
+    display: flex;
+    align-items: center;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.folio-folder-pill-delete:hover {
+    color: var(--text-error);
+}
+
+.folio-folder-pill-delete svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* Responsive adjustments */
+body.is-tablet .folio-breadcrumb {
+    font-size: calc(var(--folio-badge-size, 0.75rem) - 0.1rem);
+}
+
+body.is-phone .folio-breadcrumb {
+    font-size: calc(var(--folio-badge-size, 0.75rem) - 0.15rem);
+}
