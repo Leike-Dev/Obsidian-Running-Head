@@ -183,11 +183,6 @@ function createMetadataHeaderEl(container: HTMLElement, options: MetadataHeaderO
 							const typify = appWithTypes.plugins?.plugins?.["typify"];
 							if (typify && typeof typify.processPill === "function") {
 								typify.processPill(pillEl, cf.field);
-								// Typify bug fix: If it adds the status icon class but no icon URL is provided,
-								// the ::before pseudo-element takes up empty space. We add a class to hide it.
-								if (pillEl.classList.contains('custom-status-icon-pill') && !pillEl.style.getPropertyValue('--pill-icon-url')) {
-									pillEl.classList.add('folio-no-icon');
-								}
 							}
 						} catch {
 							// Typify fallback
@@ -312,7 +307,7 @@ export async function injectMetadataHeader(plugin: FolioPlugin): Promise<void> {
 	const notePath = file.path;
 	const isInScope = (cf: CustomField): boolean => {
 		if (!cf.excludedFolder) return true;
-		
+
 		const excludedList = cf.excludedFolder.split(",").map(f => f.trim()).filter(f => f.length > 0);
 		for (const folder of excludedList) {
 			const excluded = folder.endsWith("/") ? folder : folder + "/";
@@ -435,25 +430,25 @@ export async function injectMetadataHeader(plugin: FolioPlugin): Promise<void> {
 	const isWikiStyle = settings.layoutStyle === "wiki";
 	const showWikiBadge = isWikiStyle && settings.showLastUpdated && formattedLastUpdated;
 	const showBreadcrumb = settings.showBreadcrumb;
-	
+
 	let topRowAnchor: Element | null = null;
-	
+
 	if (isWikiStyle && (showBreadcrumb || showWikiBadge)) {
 		const topRow = document.createElement("div");
 		topRow.classList.add("folio-top-row");
-		
+
 		if (showBreadcrumb) {
 			const breadcrumbEl = createBreadcrumbEl(file.path, plugin.app, settings.breadcrumbHighlightLast);
 			if (breadcrumbEl) topRow.appendChild(breadcrumbEl);
 		}
-		
+
 		if (showWikiBadge) {
 			const badge = document.createElement("div");
 			badge.classList.add("folio-metadata-badge");
 			badge.textContent = `${t('last_updated', settings.dateLocale)}: ${formattedLastUpdated}`;
 			topRow.appendChild(badge);
 		}
-		
+
 		if (topRow.hasChildNodes()) {
 			inlineTitle.insertAdjacentElement("beforebegin", topRow);
 			topRowAnchor = topRow;
