@@ -39,9 +39,9 @@ export const zhCN = {
 	// SETTINGS — Date and reading
 	// ================================================================
 	'date_locale_name': '格式化语言',
-	'date_locale_desc': '显示日期时使用的语言环境（例如 "August 6" 与 "8月6日"）。',
+	'date_locale_desc': '显示日期时使用的语言环境。',
 	'short_date_name': '缩写月份名称',
-	'short_date_desc': '以较短的格式显示月份（例如 "Aug" 而不是 "August"）。',
+	'short_date_desc': '以较短的格式显示月份。',
 
 	'custom_date_format_name': '自定义格式',
 	'custom_date_format_desc': '使用 <a href="https://momentjs.com/docs/#/displaying/format/">Moment.js</a> 语法的自定义格式。留空 = 区域默认值。',

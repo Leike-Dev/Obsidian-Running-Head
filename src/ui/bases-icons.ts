@@ -1,4 +1,4 @@
-import { setIcon } from "obsidian";
+import { setIcon, App } from "obsidian";
 import type FolioPlugin from "../main";
 
 /**
@@ -126,8 +126,12 @@ function processBasesTableHeader(headerEl: HTMLElement, plugin: FolioPlugin) {
 
 	// 2. Fallback to native Obsidian type manager
 	try {
-		/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call */
-		const typeManager = (plugin.app as any).metadataTypeManager;
+		const appWithTypes = plugin.app as App & {
+			metadataTypeManager?: {
+				getAssignedType?: (propertyName: string) => string | undefined;
+			};
+		};
+		const typeManager = appWithTypes.metadataTypeManager;
 		if (typeManager && typeof typeManager.getAssignedType === "function") {
 			const assignedType = String(typeManager.getAssignedType(propertyName) || "text");
 			const defaultIcon = getIconForType(assignedType);
@@ -135,7 +139,6 @@ function processBasesTableHeader(headerEl: HTMLElement, plugin: FolioPlugin) {
 				injectIcon(iconContainer, defaultIcon);
 			}
 		}
-		/* eslint-enable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call */
 	} catch {
 		// Ignore if metadataTypeManager is unavailable
 	}

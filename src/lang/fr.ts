@@ -39,9 +39,9 @@ export const fr = {
 	// SETTINGS — Date and reading
 	// ================================================================
 	'date_locale_name': 'Langue de formatage',
-	'date_locale_desc': 'Langue utilisée pour afficher les dates (ex: "August 6" vs "6 août").',
+	'date_locale_desc': 'Langue utilisée pour afficher les dates.',
 	'short_date_name': 'Abréger les noms des mois',
-	'short_date_desc': 'Affiche le mois dans un format plus court (ex: "Aoû" au lieu de "Août").',
+	'short_date_desc': 'Affiche le mois dans un format plus court.',
 
 	'custom_date_format_name': 'Format personnalisé',
 	'custom_date_format_desc': 'Format personnalisé avec la syntaxe <a href="https://momentjs.com/docs/#/displaying/format/">Moment.js</a>. Vide = par défaut selon la langue.',
@@ -96,7 +96,7 @@ export const fr = {
 	'field_key_desc': 'Nom de la propriété dans le frontmatter de la note.',
 	'field_key_placeholder': 'Auteur',
 	'field_label_name': 'Libellé d\'affichage',
-	'field_label_desc': 'Texte affiché avant la valeur (visible lorsque "Afficher le libellé" est activé).',
+	'field_label_desc': 'Texte affiché avant la valeur (visible lorsque "afficher le libellé" est activé).',
 	'field_label_placeholder': 'Auteur',
 	'field_show_label_name': 'Afficher le libellé',
 	'field_show_label_desc': 'Affiche le libellé avant la valeur du champ.',
@@ -131,7 +131,7 @@ export const fr = {
 	// ================================================================
 	// METADATA HEADER — Runtime labels
 	// ================================================================
-	'min_read': 'min de lecture',
+	'min_read': 'Min de lecture',
 	'last_updated': 'Mis à jour',
 	'field_already_exists': 'Le champ "{key}" existe déjà.',
 
@@ -139,7 +139,7 @@ export const fr = {
 	// BASES ICONS
 	// ================================================================
 	'section_bases_icons': 'Icônes de table',
-	'bases_icons_notice': 'Ce style n\'affecte que l\'en-tête des propriétés du plugin Bases lorsque le mode d\'affichage est réglé sur Table.',
+	'bases_icons_notice': 'Ce style n\'affecte que l\'en-tête des propriétés du plugin Bases lorsque le mode d\'affichage est réglé sur table.',
 	'bases_icon_label': 'Icône : ',
 	'add_bases_icon_name': 'Nouvelle icône de propriété',
 	'add_bases_icon_desc': 'Configurez une icône personnalisée à afficher dans l\'en-tête d\'une propriété.',

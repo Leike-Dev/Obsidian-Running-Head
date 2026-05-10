@@ -18,7 +18,7 @@ export const en = {
 	'breadcrumb_highlight_name': 'Highlight current folder',
 	'breadcrumb_highlight_desc': 'Applies the accent color to the last segment of the breadcrumb (the note\'s direct parent folder).',
 	'layout_style_name': 'Header layout',
-	'layout_style_desc': 'Wiki style places the Last Updated badge at the top right. Blog style places it below the title.',
+	'layout_style_desc': 'Wiki style places the last updated badge at the top right. Blog style places it below the title.',
 	'layout_style_wiki': 'Wiki style',
 	'layout_style_blog': 'Blog style',
 	'header_font_size_name': 'Metadata size',
@@ -39,9 +39,9 @@ export const en = {
 	// SETTINGS — Date and reading
 	// ================================================================
 	'date_locale_name': 'Formatting locale',
-	'date_locale_desc': 'Locale used when displaying dates (e.g., "August 6" vs "6 de agosto").',
+	'date_locale_desc': 'Locale used when displaying dates.',
 	'short_date_name': 'Abbreviate month names',
-	'short_date_desc': 'Displays the month in a shorter format (e.g., "Aug" instead of "August").',
+	'short_date_desc': 'Displays the month in a shorter format.',
 
 	'custom_date_format_name': 'Custom format',
 	'custom_date_format_desc': 'Custom format with <a href="https://momentjs.com/docs/#/displaying/format/">Moment.js</a> syntax. Empty = locale default.',
@@ -96,7 +96,7 @@ export const en = {
 	'field_key_desc': 'Property name in the note\'s frontmatter.',
 	'field_key_placeholder': 'Author',
 	'field_label_name': 'Display label',
-	'field_label_desc': 'Text displayed before the value (visible when "Show label" is on).',
+	'field_label_desc': 'Text displayed before the value (visible when "show label" is on).',
 	'field_label_placeholder': 'Author',
 	'field_show_label_name': 'Show label',
 	'field_show_label_desc': 'Displays the label before the field value.',
@@ -131,7 +131,7 @@ export const en = {
 	// ================================================================
 	// METADATA HEADER — Runtime labels
 	// ================================================================
-	'min_read': 'min read',
+	'min_read': 'Min read',
 	'last_updated': 'Last updated',
 	'field_already_exists': 'Field "{key}" already exists.',
 
@@ -139,7 +139,7 @@ export const en = {
 	// BASES ICONS
 	// ================================================================
 	'section_bases_icons': 'Table icons',
-	'bases_icons_notice': 'This styling only affects the Bases plugin properties header when the view mode is set to Table.',
+	'bases_icons_notice': 'This styling only affects the Bases plugin properties header when the view mode is set to table.',
 	'bases_icon_label': 'Icon: ',
 	'add_bases_icon_name': 'New property icon',
 	'add_bases_icon_desc': 'Set a custom icon to be displayed in a specific property\'s header.',

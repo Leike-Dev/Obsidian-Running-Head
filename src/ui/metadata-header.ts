@@ -42,6 +42,22 @@ interface MetadataHeaderOptions {
 	dateLocale: string;
 }
 
+interface AppWithPlugins extends App {
+	plugins?: {
+		plugins?: {
+			[key: string]: {
+				settings?: {
+					statusStyles?: Array<{ name?: string }>;
+				};
+				processPill?: (el: HTMLElement, field: string) => void;
+			};
+		};
+	};
+	metadataTypeManager?: {
+		getAssignedType?: (propertyName: string) => string | undefined;
+	};
+}
+
 /**
  * Build the metadata header DOM element.
  *
@@ -89,14 +105,13 @@ function createMetadataHeaderEl(container: HTMLElement, options: MetadataHeaderO
 
 		// Attempt to get the Obsidian property type
 		try {
-			/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call */
-			const typeManager = (options.app as any).metadataTypeManager;
+			const appWithTypes = options.app as AppWithPlugins;
+			const typeManager = appWithTypes.metadataTypeManager;
 			if (typeManager && typeof typeManager.getAssignedType === "function") {
 				const assignedType = typeManager.getAssignedType(cf.field) || "";
 				isTagsType = assignedType === "tags" || cf.field.toLowerCase() === "tags";
 				isListType = assignedType === "multitext" || assignedType === "aliases" || isTagsType;
 			}
-			/* eslint-enable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call */
 		} catch {
 			// Fallback: Check field name heuristically if type manager fails
 			isTagsType = cf.field.toLowerCase() === "tags";
@@ -105,13 +120,12 @@ function createMetadataHeaderEl(container: HTMLElement, options: MetadataHeaderO
 
 		let hasTypifyStyle = false;
 		try {
-			/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call */
-			const typify = (options.app as any).plugins?.plugins?.["typify"];
+			const appWithTypes = options.app as AppWithPlugins;
+			const typify = appWithTypes.plugins?.plugins?.["typify"];
 			if (typify && typify.settings?.statusStyles && typeof rawValue !== "object" && !Array.isArray(rawValue)) {
 				const strValue = String(rawValue as string | number | boolean).trim().toLowerCase();
-				hasTypifyStyle = typify.settings.statusStyles.some((s: any) => s.name?.toLowerCase() === strValue);
+				hasTypifyStyle = typify.settings.statusStyles.some((s) => s.name?.toLowerCase() === strValue);
 			}
-			/* eslint-enable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call */
 		} catch {
 			// Ignore API fallback
 		}
@@ -165,8 +179,8 @@ function createMetadataHeaderEl(container: HTMLElement, options: MetadataHeaderO
 						pillEl.setAttribute("data-property-key", cf.field);
 
 						try {
-							/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call */
-							const typify = (options.app as any).plugins?.plugins?.["typify"];
+							const appWithTypes = options.app as AppWithPlugins;
+							const typify = appWithTypes.plugins?.plugins?.["typify"];
 							if (typify && typeof typify.processPill === "function") {
 								typify.processPill(pillEl, cf.field);
 								// Typify bug fix: If it adds the status icon class but no icon URL is provided,
@@ -175,7 +189,6 @@ function createMetadataHeaderEl(container: HTMLElement, options: MetadataHeaderO
 									pillEl.classList.add('folio-no-icon');
 								}
 							}
-							/* eslint-enable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call */
 						} catch {
 							// Typify fallback
 						}
@@ -549,12 +562,10 @@ function createBreadcrumbEl(filePath: string, app: App, highlightLast: boolean):
 				const leaf = explorers[0];
 				if (leaf) {
 					void app.workspace.revealLeaf(leaf);
-					/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call */
-					const explorerView = leaf.view as any;
-					if (typeof explorerView?.revealInFolder === "function") {
+					const explorerView = leaf.view as { revealInFolder?: (file: unknown) => void };
+					if (typeof explorerView.revealInFolder === "function") {
 						explorerView.revealInFolder(folder);
 					}
-					/* eslint-enable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call */
 				}
 			} catch {
 				// Silently ignore if file-explorer internal API is unavailable

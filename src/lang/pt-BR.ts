@@ -39,9 +39,9 @@ export const ptBR = {
 	// SETTINGS — Data e leitura
 	// ================================================================
 	'date_locale_name': 'Idioma de formatação',
-	'date_locale_desc': 'Localização usada ao exibir datas (ex: "August 6" vs "6 de agosto").',
+	'date_locale_desc': 'Localização usada ao exibir datas.',
 	'short_date_name': 'Abreviar nomes dos meses',
-	'short_date_desc': 'Exibe o mês de forma encurtada (ex: "Ago" em vez de "Agosto").',
+	'short_date_desc': 'Exibe o mês de forma encurtada.',
 
 	'custom_date_format_name': 'Formatação personalizada',
 	'custom_date_format_desc': 'Formato personalizado com sintaxe <a href="https://momentjs.com/docs/#/displaying/format/">Moment.js</a>. Vazio = padrão do idioma.',
@@ -96,7 +96,7 @@ export const ptBR = {
 	'field_key_desc': 'Nome da propriedade no frontmatter da nota.',
 	'field_key_placeholder': 'Autor',
 	'field_label_name': 'Rótulo de exibição',
-	'field_label_desc': 'Texto exibido antes do valor (visível quando "Mostrar rótulo" está ativo).',
+	'field_label_desc': 'Texto exibido antes do valor (visível quando "mostrar rótulo" está ativo).',
 	'field_label_placeholder': 'Autor',
 	'field_show_label_name': 'Mostrar rótulo',
 	'field_show_label_desc': 'Mostra o rótulo antes do valor do campo.',
@@ -131,7 +131,7 @@ export const ptBR = {
 	// ================================================================
 	// CABEÇALHO DE METADADOS — Labels de tempo de execução
 	// ================================================================
-	'min_read': 'min de leitura',
+	'min_read': 'Min de leitura',
 	'last_updated': 'Atualizado em',
 	'field_already_exists': 'O campo "{key}" já existe.',
 
@@ -139,7 +139,7 @@ export const ptBR = {
 	// BASES ICONS
 	// ================================================================
 	'section_bases_icons': 'Ícones das tabelas',
-	'bases_icons_notice': 'Esta estilização afeta apenas o cabeçalho das propriedades do plugin Bases quando o modo de visualização é Tabela.',
+	'bases_icons_notice': 'Esta estilização afeta apenas o cabeçalho das propriedades do plugin Bases quando o modo de visualização é tabela.',
 	'bases_icon_label': 'Ícone: ',
 	'add_bases_icon_name': 'Novo ícone de propriedade',
 	'add_bases_icon_desc': 'Configure um ícone personalizado para ser exibido no cabeçalho de uma propriedade específica.',

@@ -39,9 +39,9 @@ export const es = {
 	// SETTINGS — Date and reading
 	// ================================================================
 	'date_locale_name': 'Idioma de formato',
-	'date_locale_desc': 'Idioma usado al mostrar fechas (ej. "August 6" vs "6 de agosto").',
+	'date_locale_desc': 'Idioma usado al mostrar fechas.',
 	'short_date_name': 'Abreviar nombres de meses',
-	'short_date_desc': 'Muestra el mes en un formato más corto (ej. "Ago" en lugar de "Agosto").',
+	'short_date_desc': 'Muestra el mes en un formato más corto.',
 
 	'custom_date_format_name': 'Formato personalizado',
 	'custom_date_format_desc': 'Formato personalizado con sintaxis de <a href="https://momentjs.com/docs/#/displaying/format/">Moment.js</a>. Vacío = predeterminado del idioma.',
@@ -96,7 +96,7 @@ export const es = {
 	'field_key_desc': 'Nombre de la propiedad en el frontmatter de la nota.',
 	'field_key_placeholder': 'Autor',
 	'field_label_name': 'Etiqueta de visualización',
-	'field_label_desc': 'Texto mostrado antes del valor (visible cuando "Mostrar etiqueta" está activo).',
+	'field_label_desc': 'Texto mostrado antes del valor (visible cuando "mostrar etiqueta" está activo).',
 	'field_label_placeholder': 'Autor',
 	'field_show_label_name': 'Mostrar etiqueta',
 	'field_show_label_desc': 'Muestra la etiqueta antes del valor del campo.',
@@ -131,7 +131,7 @@ export const es = {
 	// ================================================================
 	// METADATA HEADER — Runtime labels
 	// ================================================================
-	'min_read': 'min de lectura',
+	'min_read': 'Min de lectura',
 	'last_updated': 'Actualizado',
 	'field_already_exists': 'El campo "{key}" ya existe.',
 
@@ -139,7 +139,7 @@ export const es = {
 	// BASES ICONS
 	// ================================================================
 	'section_bases_icons': 'Iconos de tabla',
-	'bases_icons_notice': 'Este estilo solo afecta el encabezado de las propiedades del plugin Bases cuando el modo de vista es Tabla.',
+	'bases_icons_notice': 'Este estilo solo afecta el encabezado de las propiedades del plugin Bases cuando el modo de vista es tabla.',
 	'bases_icon_label': 'Icono: ',
 	'add_bases_icon_name': 'Nuevo icono de propiedad',
 	'add_bases_icon_desc': 'Configura un icono personalizado para mostrar en el encabezado de una propiedad específica.',
