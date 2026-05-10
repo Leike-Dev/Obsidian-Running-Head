@@ -168,11 +168,6 @@ body:not(.is-phone):not(.inline-title-divider-remove) .inline-title:not(.mk-inli
     padding: 0.15rem 0.55rem !important;
 }
 
-/* Hide empty icon space if Typify configures a pill without an icon */
-.folio-metadata-header .multi-select-pill.folio-no-icon .multi-select-pill-content::before {
-    display: none !important;
-}
-
 .folio-metadata-header .multi-select-pill-content {
     max-width: none !important;
     overflow: visible !important;
