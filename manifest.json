@@ -3,8 +3,8 @@
 	"name": "Folio",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "Adds a blog-style metadata header below note titles, displaying publication date, reading time, and a last-updated badge from frontmatter.",
-	"author": "Flavio",
+	"description": "Transform your notes with elegant blog-style metadata headers — dates, reading time, custom fields, breadcrumb navigation, and seamless Typify integration.",
+	"author": "Flavio Azurita",
 	"authorUrl": "https://github.com/Leike-Dev",
 	"isDesktopOnly": false
 }
