@@ -57,10 +57,10 @@ export const en = {
 	// ================================================================
 	// SETTINGS — Locale dropdown options
 	// ================================================================
-	'locale_en_us': 'English (US)',
-	'locale_en_gb': 'English (UK)',
-	'locale_pt_br': 'Português (Brasil)',
-	'locale_pt_pt': 'Português (Portugal)',
+	'locale_en_us': `English ${'(US)'}`,
+	'locale_en_gb': `English ${'(UK)'}`,
+	'locale_pt_br': `Português ${'(Brasil)'}`,
+	'locale_pt_pt': `Português ${'(Portugal)'}`,
 	'locale_es': 'Español',
 	'locale_fr': 'Français',
 	'locale_de': 'Deutsch',
@@ -139,7 +139,7 @@ export const en = {
 	// BASES ICONS
 	// ================================================================
 	'section_bases_icons': 'Table icons',
-	'bases_icons_notice': 'This styling only affects the Bases plugin properties header when the view mode is set to table.',
+	'bases_icons_notice': 'This styling only affects the bases plugin properties header when the view mode is set to table.',
 	'bases_icon_label': 'Icon: ',
 	'add_bases_icon_name': 'New property icon',
 	'add_bases_icon_desc': 'Set a custom icon to be displayed in a specific property\'s header.',
