@@ -12,10 +12,25 @@ export function calculateReadingTime(content: string, wordsPerMinute = 200): num
 	// Strip YAML frontmatter block (--- ... ---)
 	const body = content.replace(/^---[\s\S]*?---\s*/m, "");
 
-	// Count words efficiently using a global match for non-whitespace sequences.
-	// This avoids creating a huge intermediate array from splitting and filtering.
-	const wordCount = body.match(/\S+/g)?.length || 0;
+	// Regular expression for CJK characters (Chinese, Japanese, Korean)
+	// Uses Unicode property escapes for accurate matching
+	const cjkRegex = /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Hangul}]/gu;
 
-	const minutes = Math.ceil(wordCount / wordsPerMinute);
+	// Extract and count all CJK characters. Each CJK character is roughly equivalent 
+	// to a word in terms of reading time calculation.
+	const cjkMatches = body.match(cjkRegex) || [];
+	const cjkCount = cjkMatches.length;
+
+	// Remove CJK characters from the body to count Western words accurately,
+	// replacing them with spaces to preserve boundaries between western words.
+	const westernBody = body.replace(cjkRegex, " ");
+
+	// Count Western words efficiently
+	const westernCount = westernBody.match(/\S+/g)?.length || 0;
+
+	// Total elements to process
+	const totalCount = westernCount + cjkCount;
+
+	const minutes = Math.ceil(totalCount / wordsPerMinute);
 	return Math.max(1, minutes);
 }
