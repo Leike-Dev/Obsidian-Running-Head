@@ -1,5 +1,5 @@
 import { App, Modal, Notice, Setting, setIcon, Platform } from "obsidian";
-import type FolioPlugin from "../main";
+import type RunningHeadPlugin from "../main";
 import type { CustomField } from "../settings";
 import { FolderSuggest } from "./FolderSuggest";
 import { t } from "../lang/helpers";
@@ -10,7 +10,7 @@ import { t } from "../lang/helpers";
  * pre-populated and saving updates the existing field in-place.
  */
 export class FieldEditorModal extends Modal {
-	private plugin: FolioPlugin;
+	private plugin: RunningHeadPlugin;
 	private onSave?: () => void;
 
 	/** When editing, the index of the field being modified. */
@@ -25,7 +25,7 @@ export class FieldEditorModal extends Modal {
 
 	constructor(
 		app: App,
-		plugin: FolioPlugin,
+		plugin: RunningHeadPlugin,
 		onSave?: () => void,
 		editField?: CustomField,
 		editIndex?: number
@@ -86,9 +86,9 @@ export class FieldEditorModal extends Modal {
 		// Initial state for label input
 		const updateLabelState = (show: boolean) => {
 			if (show) {
-				labelSetting.settingEl.classList.remove("folio-modal-input-disabled");
+				labelSetting.settingEl.classList.remove("running-head-modal-input-disabled");
 			} else {
-				labelSetting.settingEl.classList.add("folio-modal-input-disabled");
+				labelSetting.settingEl.classList.add("running-head-modal-input-disabled");
 			}
 		};
 		updateLabelState(this.fieldShowLabel);
@@ -129,7 +129,7 @@ export class FieldEditorModal extends Modal {
 			.setName(t('field_folder_scope_name'))
 			.setDesc(t('field_folder_scope_desc'));
 			
-		const listContainer = contentEl.createDiv({ cls: "folio-folder-pills" });
+		const listContainer = contentEl.createDiv({ cls: "running-head-folder-pills" });
 
 		const renderFolders = () => {
 			listContainer.empty();
@@ -139,17 +139,17 @@ export class FieldEditorModal extends Modal {
 				.filter(f => f.length > 0);
 
 			if (folders.length === 0) {
-				listContainer.classList.add("folio-hidden");
+				listContainer.classList.add("running-head-hidden");
 			} else {
-				listContainer.classList.remove("folio-hidden");
+				listContainer.classList.remove("running-head-hidden");
 				for (const folder of folders) {
-					const item = listContainer.createDiv({ cls: "folio-folder-pill" });
+					const item = listContainer.createDiv({ cls: "running-head-folder-pill" });
 					
 					const nameSpan = item.createSpan();
 					nameSpan.textContent = folder;
 
 					const deleteBtn = item.createSpan({ 
-						cls: "folio-folder-pill-delete", 
+						cls: "running-head-folder-pill-delete", 
 						attr: { "aria-label": t('delete_button') || "Delete" } 
 					});
 					setIcon(deleteBtn, "x");
@@ -183,7 +183,7 @@ export class FieldEditorModal extends Modal {
 				});
 			});
 			
-		excludedFolderSetting.settingEl.classList.add("folio-modal-no-border");
+		excludedFolderSetting.settingEl.classList.add("running-head-modal-no-border");
 
 		excludedFolderSetting.addButton((btn) => 
 			btn

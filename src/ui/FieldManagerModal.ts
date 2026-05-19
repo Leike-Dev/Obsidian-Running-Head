@@ -1,5 +1,5 @@
 import { App, Modal, Notice, setIcon } from "obsidian";
-import type FolioPlugin from "../main";
+import type RunningHeadPlugin from "../main";
 import type { CustomField } from "../settings";
 import { FieldEditorModal } from "./FieldEditorModal";
 import { t } from "../lang/helpers";
@@ -9,13 +9,13 @@ import { t } from "../lang/helpers";
  * Displays a list grouped by position with edit and delete capabilities.
  */
 export class FieldManagerModal extends Modal {
-	private plugin: FolioPlugin;
+	private plugin: RunningHeadPlugin;
 	private onClose_cb?: () => void;
 
 	private listContainerEl: HTMLElement | null = null;
 	private countEl: HTMLElement | null = null;
 
-	constructor(app: App, plugin: FolioPlugin, onClose?: () => void) {
+	constructor(app: App, plugin: RunningHeadPlugin, onClose?: () => void) {
 		super(app);
 		this.plugin = plugin;
 		this.onClose_cb = onClose;
@@ -24,15 +24,15 @@ export class FieldManagerModal extends Modal {
 	onOpen(): void {
 		const { contentEl } = this;
 		contentEl.empty();
-		contentEl.addClass("folio-manager-modal");
+		contentEl.addClass("running-head-manager-modal");
 
 		this.setTitle(t('field_manager_title'));
 
 		// Count label
-		this.countEl = contentEl.createDiv({ cls: "folio-manager-count" });
+		this.countEl = contentEl.createDiv({ cls: "running-head-manager-count" });
 
 		// List container
-		this.listContainerEl = contentEl.createDiv({ cls: "folio-manager-list" });
+		this.listContainerEl = contentEl.createDiv({ cls: "running-head-manager-list" });
 
 		this.renderList();
 	}
@@ -50,7 +50,7 @@ export class FieldManagerModal extends Modal {
 		if (fields.length === 0) {
 			this.listContainerEl.createDiv({
 				text: t('field_manager_empty'),
-				cls: "folio-manager-empty",
+				cls: "running-head-manager-empty",
 			});
 			return;
 		}
@@ -65,7 +65,7 @@ export class FieldManagerModal extends Modal {
 
 		if (aboveFields.length > 0) {
 			this.listContainerEl.createDiv({
-				cls: "folio-manager-group-header",
+				cls: "running-head-manager-group-header",
 				text: t('field_manager_group_above'),
 			});
 			for (const entry of aboveFields) {
@@ -75,7 +75,7 @@ export class FieldManagerModal extends Modal {
 
 		if (belowFields.length > 0) {
 			this.listContainerEl.createDiv({
-				cls: "folio-manager-group-header",
+				cls: "running-head-manager-group-header",
 				text: t('field_manager_group_below'),
 			});
 			for (const entry of belowFields) {
@@ -90,27 +90,27 @@ export class FieldManagerModal extends Modal {
 	private renderItem(field: CustomField, index: number): void {
 		if (!this.listContainerEl) return;
 
-		const item = this.listContainerEl.createDiv({ cls: "folio-manager-item" });
+		const item = this.listContainerEl.createDiv({ cls: "running-head-manager-item" });
 
 		// Info section
-		const infoSection = item.createDiv({ cls: "folio-manager-item-info" });
+		const infoSection = item.createDiv({ cls: "running-head-manager-item-info" });
 
 		// Text block
-		const textBlock = infoSection.createDiv({ cls: "folio-manager-item-text" });
+		const textBlock = infoSection.createDiv({ cls: "running-head-manager-item-text" });
 
 		// Primary: show label if set, otherwise show key
-		const nameRow = textBlock.createDiv({ cls: "folio-manager-item-name" });
+		const nameRow = textBlock.createDiv({ cls: "running-head-manager-item-name" });
 		nameRow.textContent = field.label || field.field;
 
 		// Secondary: show key only when label is different from key
 		if (field.label && field.label !== field.field) {
-			const metaRow = textBlock.createDiv({ cls: "folio-manager-meta" });
+			const metaRow = textBlock.createDiv({ cls: "running-head-manager-meta" });
 			metaRow.textContent = field.field;
 		}
 
 		// Tertiary: show excluded folder when configured
 		if (field.excludedFolder) {
-			const scopeRow = textBlock.createDiv({ cls: "folio-manager-meta" });
+			const scopeRow = textBlock.createDiv({ cls: "running-head-manager-meta" });
 			const foldersList = field.excludedFolder.split(",").map(f => f.trim()).filter(f => f.length > 0);
 			if (foldersList.length > 1) {
 				scopeRow.textContent = `${t('field_folder_scope_excluded_label')}: ${foldersList[0]} (+${foldersList.length - 1})`;
@@ -120,7 +120,7 @@ export class FieldManagerModal extends Modal {
 		}
 
 		// Action buttons
-		const actionsSection = item.createDiv({ cls: "folio-manager-actions" });
+		const actionsSection = item.createDiv({ cls: "running-head-manager-actions" });
 
 		// Edit button
 		const editBtn = actionsSection.createEl("button", {
@@ -163,13 +163,13 @@ export class FieldManagerModal extends Modal {
 		const field = this.plugin.settings.customFields[index];
 		if (!field) return;
 
-		const confirmEl = itemEl.createDiv({ cls: "folio-manager-confirm" });
+		const confirmEl = itemEl.createDiv({ cls: "running-head-manager-confirm" });
 		confirmEl.createSpan({
 			text: t('delete_confirm').replace('{name}', field.label || field.field),
-			cls: "folio-manager-confirm-text",
+			cls: "running-head-manager-confirm-text",
 		});
 
-		const btnGroup = confirmEl.createDiv({ cls: "folio-manager-confirm-btns" });
+		const btnGroup = confirmEl.createDiv({ cls: "running-head-manager-confirm-btns" });
 
 		const confirmBtn = btnGroup.createEl("button", {
 			text: t('delete_button'),

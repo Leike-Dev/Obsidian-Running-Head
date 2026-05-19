@@ -1,6 +1,6 @@
 {
-	"id": "folio",
-	"name": "Folio",
+	"id": "running-head",
+	"name": "Running Head",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
 	"description": "Transform your notes with elegant blog-style metadata headers — dates, reading time, custom fields, breadcrumb navigation, and seamless Typify integration.",

@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./assets/images/banner_1.jpg" alt="Folio Banner" />
+  <img src="./assets/images/banner_1.jpg" alt="Running Head Banner" />
   <br>
 
   ![License](https://img.shields.io/badge/license-MIT-lightblue.svg)
@@ -17,7 +17,7 @@
 
 Transformez vos notes avec un magnifique en-tête de métadonnées style blog ! 📝✨
 
-Folio est un plugin Obsidian qui ajoute automatiquement un en-tête personnalisable sous les titres de vos notes, affichant la date de publication, le temps de lecture estimé, un badge de dernière mise à jour et toutes les propriétés frontmatter personnalisées que vous souhaitez.
+Running Head est un plugin Obsidian qui ajoute automatiquement un en-tête personnalisable sous les titres de vos notes, affichant la date de publication, le temps de lecture estimé, un badge de dernière mise à jour et toutes les propriétés frontmatter personnalisées que vous souhaitez.
 
 ## Fonctionnalités
 
@@ -33,7 +33,7 @@ Folio est un plugin Obsidian qui ajoute automatiquement un en-tête personnalisa
 
 1. **Configurer les Dates**: Dans les paramètres du plugin, définissez les clés YAML utilisées pour votre date de création (ex: `date`) et votre date de mise à jour (ex: `updated`).
 2. **Ajouter des Champs Personnalisés**:
-   - Allez dans **Paramètres > Folio**.
+   - Allez dans **Paramètres > Running Head**.
    - Sous "Champs personnalisés", cliquez sur **Ajouter**.
    - Tapez la clé YAML de la propriété que vous souhaitez afficher (ex: `Auteur` ou `Catégorie`).
    - Ajoutez éventuellement une étiquette d'affichage ou empêchez le champ d'apparaître dans des dossiers spécifiques.
@@ -45,7 +45,7 @@ Voilà ! Vos métadonnées sont maintenant affichées avec élégance sous le ti
 
 ### Installation Manuelle
 1. Téléchargez la dernière version : `main.js`, `manifest.json` et `styles.css`.
-2. Créez un dossier appelé `folio` dans votre répertoire `.obsidian/plugins/`.
+2. Créez un dossier appelé `running-head` dans votre répertoire `.obsidian/plugins/`.
 3. Collez-y les fichiers.
 4. Rechargez Obsidian et activez le plugin.
 
@@ -58,7 +58,7 @@ Voilà ! Vos métadonnées sont maintenant affichées avec élégance sous le ti
 > La fonctionnalité des **Icônes de tableau** affecte uniquement l'en-tête des propriétés du plugin **Bases** lorsque le mode d'affichage est défini sur Tableau.
 
 > [!Tip]  
-> Si le plugin **Typify** est installé, Folio détectera et appliquera automatiquement vos styles Typify aux badges correspondants dans l'en-tête de métadonnées !
+> Si le plugin **Typify** est installé, Running Head détectera et appliquera automatiquement vos styles Typify aux badges correspondants dans l'en-tête de métadonnées !
 
 ## Développement
 

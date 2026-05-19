@@ -1,5 +1,5 @@
 import { App, Modal, Notice, setIcon } from "obsidian";
-import type FolioPlugin from "../main";
+import type RunningHeadPlugin from "../main";
 import { BasesIconEditorModal } from "./BasesIconEditorModal";
 import type { BasesIcon } from "../settings";
 import { t } from "../lang/helpers";
@@ -9,13 +9,13 @@ import { t } from "../lang/helpers";
  * to edit or delete them.
  */
 export class BasesIconManagerModal extends Modal {
-	private plugin: FolioPlugin;
+	private plugin: RunningHeadPlugin;
 	private onSave?: () => void;
 
 	private listContainerEl: HTMLElement | null = null;
 	private countEl: HTMLElement | null = null;
 
-	constructor(app: App, plugin: FolioPlugin, onSave?: () => void) {
+	constructor(app: App, plugin: RunningHeadPlugin, onSave?: () => void) {
 		super(app);
 		this.plugin = plugin;
 		this.onSave = onSave;
@@ -24,15 +24,15 @@ export class BasesIconManagerModal extends Modal {
 	onOpen(): void {
 		const { contentEl } = this;
 		contentEl.empty();
-		contentEl.addClass("folio-manager-modal");
+		contentEl.addClass("running-head-manager-modal");
 
 		this.setTitle(t('bases_icons_title'));
 
 		// Count label
-		this.countEl = contentEl.createDiv({ cls: "folio-manager-count" });
+		this.countEl = contentEl.createDiv({ cls: "running-head-manager-count" });
 
 		// List container
-		this.listContainerEl = contentEl.createDiv({ cls: "folio-manager-list" });
+		this.listContainerEl = contentEl.createDiv({ cls: "running-head-manager-list" });
 
 		this.renderList();
 	}
@@ -51,7 +51,7 @@ export class BasesIconManagerModal extends Modal {
 		if (icons.length === 0) {
 			this.listContainerEl.createDiv({
 				text: t('no_bases_icons'),
-				cls: "folio-manager-empty",
+				cls: "running-head-manager-empty",
 			});
 			return;
 		}
@@ -67,24 +67,24 @@ export class BasesIconManagerModal extends Modal {
 	private renderItem(iconConfig: BasesIcon, index: number): void {
 		if (!this.listContainerEl) return;
 
-		const item = this.listContainerEl.createDiv({ cls: "folio-manager-item" });
+		const item = this.listContainerEl.createDiv({ cls: "running-head-manager-item" });
 
 		// Info section
-		const infoSection = item.createDiv({ cls: "folio-manager-item-info" });
+		const infoSection = item.createDiv({ cls: "running-head-manager-item-info" });
 		
 		// Icon preview (if desired) or just the text
-		const textBlock = infoSection.createDiv({ cls: "folio-manager-item-text" });
+		const textBlock = infoSection.createDiv({ cls: "running-head-manager-item-text" });
 		
-		const nameRow = textBlock.createDiv({ cls: "folio-manager-item-name" });
+		const nameRow = textBlock.createDiv({ cls: "running-head-manager-item-name" });
 		nameRow.textContent = iconConfig.property;
 
-		const metaRow = textBlock.createDiv({ cls: "folio-manager-meta" });
+		const metaRow = textBlock.createDiv({ cls: "running-head-manager-meta" });
 		metaRow.createSpan({ text: t('bases_icon_label') || "Ícone: " });
 		const iconSpan = metaRow.createSpan();
 		setIcon(iconSpan, iconConfig.icon);
 
 		// Action buttons
-		const actionsSection = item.createDiv({ cls: "folio-manager-actions" });
+		const actionsSection = item.createDiv({ cls: "running-head-manager-actions" });
 
 		// Edit button
 		const editBtn = actionsSection.createEl("button", {
@@ -126,17 +126,17 @@ export class BasesIconManagerModal extends Modal {
 		const iconConfig = this.plugin.settings.basesIcons?.[index];
 		if (!iconConfig) return;
 
-		const confirmEl = itemEl.createDiv({ cls: "folio-manager-confirm" });
+		const confirmEl = itemEl.createDiv({ cls: "running-head-manager-confirm" });
 		const confirmMsg = t('delete_confirm')
 			? t('delete_confirm').replace('{name}', iconConfig.property)
 			: `Delete "${iconConfig.property}"?`;
 			
 		confirmEl.createSpan({
 			text: confirmMsg,
-			cls: "folio-manager-confirm-text",
+			cls: "running-head-manager-confirm-text",
 		});
 
-		const btnGroup = confirmEl.createDiv({ cls: "folio-manager-confirm-btns" });
+		const btnGroup = confirmEl.createDiv({ cls: "running-head-manager-confirm-btns" });
 
 		const confirmBtn = btnGroup.createEl("button", {
 			text: t('delete_button') || "Delete",

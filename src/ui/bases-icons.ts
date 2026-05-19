@@ -1,11 +1,11 @@
 import { setIcon, App } from "obsidian";
-import type FolioPlugin from "../main";
+import type RunningHeadPlugin from "../main";
 
 /**
  * Initializes a MutationObserver to watch for Bases plugin table headers
  * and inject native or custom icons.
  */
-export function initializeBasesIconObserver(plugin: FolioPlugin): { disconnect: () => void } {
+export function initializeBasesIconObserver(plugin: RunningHeadPlugin): { disconnect: () => void } {
 	const observer = new MutationObserver((mutations) => {
 		const headersToProcess = new Set<HTMLElement>();
 
@@ -103,7 +103,7 @@ export function initializeBasesIconObserver(plugin: FolioPlugin): { disconnect: 
  * Processes a single Bases table header, injecting the correct icon based on
  * native type or user configuration.
  */
-function processBasesTableHeader(headerEl: HTMLElement, plugin: FolioPlugin) {
+function processBasesTableHeader(headerEl: HTMLElement, plugin: RunningHeadPlugin) {
 	// Find the property name
 	const nameEl = headerEl.querySelector(".bases-table-header-name");
 	if (!nameEl || !nameEl.textContent) return;
@@ -153,7 +153,7 @@ function injectIcon(container: HTMLElement, iconName: string) {
 	
 	// We mark the SVG with a custom data attribute so we know we injected it.
 	// This prevents infinite loops with non-Lucide custom icons that don't get the 'lucide-*' class.
-	if (existingSvg && existingSvg.getAttribute("data-folio-icon") === iconName) {
+	if (existingSvg && existingSvg.getAttribute("data-running-head-icon") === iconName) {
 		return; // Already has the correct icon
 	}
 
@@ -163,7 +163,7 @@ function injectIcon(container: HTMLElement, iconName: string) {
 	// Mark the newly injected SVG
 	const newSvg = container.querySelector("svg");
 	if (newSvg) {
-		newSvg.setAttribute("data-folio-icon", iconName);
+		newSvg.setAttribute("data-running-head-icon", iconName);
 	}
 }
 

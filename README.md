@@ -1,6 +1,6 @@
 <div align="center">
   <!-- Substitua a imagem abaixo pela sua imagem real de banner depois -->
-  <img src="./docs/assets/images/banner_1.jpg" alt="Folio Banner" />
+  <img src="./docs/assets/images/banner_1.jpg" alt="Running Head Banner" />
   
   <br>
 
@@ -19,7 +19,7 @@
 
 Transform your notes with a beautiful blog-style metadata header! 📝✨
 
-Folio is an Obsidian plugin that automatically adds a customizable header below your note titles, displaying the publication date, estimated reading time, a last-updated badge, and any custom frontmatter properties you desire.
+Running Head is an Obsidian plugin that automatically adds a customizable header below your note titles, displaying the publication date, estimated reading time, a last-updated badge, and any custom frontmatter properties you desire.
 
 ## Features
 
@@ -35,7 +35,7 @@ Folio is an Obsidian plugin that automatically adds a customizable header below 
 
 1. **Configure Dates**: In the plugin settings, set the YAML keys used for your creation date (e.g., `date`) and your update date (e.g., `updated`).
 2. **Add Custom Fields**:
-   - Go to **Settings > Folio**.
+   - Go to **Settings > Running Head**.
    - Under "Custom fields", click **Add**.
    - Type the YAML key of the property you want to display (e.g., `Author` or `Category`).
    - Optionally add a display label or restrict the field from appearing in specific folders.
@@ -60,7 +60,7 @@ Voilá! Your metadata is now elegantly displayed below your note's title ✨
 > The **Table icons** feature only affects the **Bases** plugin properties header when the view mode is set to Table.
 
 > [!Tip]  
-> If you have the **Typify** plugin installed, Folio will automatically detect and apply your Typify styles to matching pills in the metadata header!
+> If you have the **Typify** plugin installed, Running Head will automatically detect and apply your Typify styles to matching pills in the metadata header!
 
 ## Development
 
