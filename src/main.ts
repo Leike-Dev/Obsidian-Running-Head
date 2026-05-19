@@ -2,6 +2,7 @@ import { Plugin, MarkdownView } from "obsidian";
 import { DEFAULT_SETTINGS, RunningHeadSettings, RunningHeadSettingTab } from "./settings";
 import { injectMetadataHeader, removeAllMetadataHeaders } from "./ui/metadata-header";
 import { initializeBasesIconObserver } from "./ui/bases-icons";
+import { ScrollProgressManager } from "./ui/scroll-progress";
 
 /**
  * RunningHead
@@ -12,10 +13,13 @@ import { initializeBasesIconObserver } from "./ui/bases-icons";
  */
 export default class RunningHeadPlugin extends Plugin {
 	settings: RunningHeadSettings;
+	scrollProgressManager: ScrollProgressManager;
 	private basesObserver: { disconnect: () => void } | null = null;
 
 	async onload(): Promise<void> {
 		await this.loadSettings();
+
+		this.scrollProgressManager = new ScrollProgressManager(this);
 
 		// Register the settings tab
 		this.addSettingTab(new RunningHeadSettingTab(this.app, this));
@@ -48,6 +52,7 @@ export default class RunningHeadPlugin extends Plugin {
 		this.app.workspace.onLayoutReady(() => {
 			this.debouncedInject();
 			this.basesObserver = initializeBasesIconObserver(this);
+			this.scrollProgressManager.setupListeners();
 		});
 	}
 
@@ -61,6 +66,8 @@ export default class RunningHeadPlugin extends Plugin {
 			this.basesObserver.disconnect();
 			this.basesObserver = null;
 		}
+
+		this.scrollProgressManager.cleanupAll();
 
 		// Clean up all injected headers from every open view
 		removeAllMetadataHeaders(this);
