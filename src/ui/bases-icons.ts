@@ -55,7 +55,7 @@ export function initializeBasesIconObserver(plugin: RunningHeadPlugin): { discon
 	});
 
 	const performRefresh = () => {
-		const basesViews = document.body.findAll(".bases-view");
+		const basesViews = activeDocument.body.findAll(".bases-view");
 		basesViews.forEach(view => {
 			// Attach observer ONLY to the Bases view.
 			// Removed 'attributes: true' because it causes catastrophic performance drops
@@ -112,7 +112,7 @@ function processBasesTableHeader(headerEl: HTMLElement, plugin: RunningHeadPlugi
 
 	// Find the icon container
 	const iconContainer = headerEl.querySelector(".bases-table-header-icon");
-	if (!iconContainer || !(iconContainer instanceof HTMLElement)) return;
+	if (!iconContainer || !iconContainer.instanceOf(HTMLElement)) return;
 
 	// 1. Check custom configuration first
 	const customConfig = plugin.settings.basesIcons?.find(

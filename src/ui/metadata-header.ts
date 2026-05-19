@@ -342,7 +342,7 @@ export async function injectMetadataHeader(plugin: RunningHeadPlugin): Promise<v
 			contentEl.querySelector(".markdown-source-view") ??
 			contentEl;
 
-		const tempFallback = document.createElement("div");
+		const tempFallback = activeDocument.createElement("div");
 		const fallbackEl = createMetadataHeaderEl(tempFallback, {
 			formattedDate,
 			readingTime,
@@ -434,7 +434,7 @@ export async function injectMetadataHeader(plugin: RunningHeadPlugin): Promise<v
 	let topRowAnchor: Element | null = null;
 
 	if (isWikiStyle && (showBreadcrumb || showWikiBadge)) {
-		const topRow = document.createElement("div");
+		const topRow = activeDocument.createElement("div");
 		topRow.classList.add("running-head-top-row");
 
 		if (showBreadcrumb) {
@@ -443,7 +443,7 @@ export async function injectMetadataHeader(plugin: RunningHeadPlugin): Promise<v
 		}
 
 		if (showWikiBadge) {
-			const badge = document.createElement("div");
+			const badge = activeDocument.createElement("div");
 			badge.classList.add("running-head-metadata-badge");
 			badge.textContent = `${t('last_updated', settings.dateLocale)}: ${formattedLastUpdated}`;
 			topRow.appendChild(badge);
@@ -463,7 +463,7 @@ export async function injectMetadataHeader(plugin: RunningHeadPlugin): Promise<v
 
 	// 2. Custom fields "above" — ABOVE the breadcrumb/top-row (or the title)
 	if (hasAboveContent) {
-		const tempAbove = document.createElement("div");
+		const tempAbove = activeDocument.createElement("div");
 		const aboveEl = createMetadataHeaderEl(tempAbove, aboveOptions);
 		const aboveAnchor = topRowAnchor ?? inlineTitle;
 		aboveAnchor.insertAdjacentElement("beforebegin", aboveEl);
@@ -471,14 +471,14 @@ export async function injectMetadataHeader(plugin: RunningHeadPlugin): Promise<v
 
 	// 3. Date/badge — DIRECTLY below the title (always)
 	if (hasDateContent) {
-		const tempDate = document.createElement("div");
+		const tempDate = activeDocument.createElement("div");
 		const dateEl = createMetadataHeaderEl(tempDate, dateOptions);
 		inlineTitle.insertAdjacentElement("afterend", dateEl);
 	}
 
 	// 4. Custom fields "below" — BELOW the date/badge (or the title)
 	if (hasBelowContent) {
-		const tempBelow = document.createElement("div");
+		const tempBelow = activeDocument.createElement("div");
 		const belowEl = createMetadataHeaderEl(tempBelow, belowOptions);
 		// Find the date wrapper (if it exists) to insert below it
 		const dateWrapper = inlineTitle.nextElementSibling;
@@ -525,7 +525,7 @@ function createBreadcrumbEl(filePath: string, app: App, highlightLast: boolean):
 	parts.pop(); // remove the filename
 	if (parts.length === 0) return null;
 
-	const breadcrumb = document.createElement("div");
+	const breadcrumb = activeDocument.createElement("div");
 	breadcrumb.classList.add(BREADCRUMB_CLASS);
 
 	parts.forEach((segment, index) => {
