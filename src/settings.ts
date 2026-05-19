@@ -248,8 +248,8 @@ export class RunningHeadSettingTab extends PluginSettingTab {
 					})
 			);
 
-		const customDateDesc = document.createDocumentFragment();
-		const customDateDiv = document.createElement("div");
+		const customDateDesc = activeDocument.createDocumentFragment();
+		const customDateDiv = activeDocument.createElement("div");
 		customDateDiv.appendChild(sanitizeHTMLToDom(t('custom_date_format_desc')));
 		while (customDateDiv.firstChild) {
 			customDateDesc.appendChild(customDateDiv.firstChild);
