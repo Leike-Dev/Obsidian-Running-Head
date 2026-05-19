@@ -1,5 +1,5 @@
 {
-	"name": "obsidian-folio",
+	"name": "obsidian-running-head",
 	"version": "1.0.0",
 	"description": "Adds a blog-style metadata header below note titles with date, reading time, and custom fields.",
 	"main": "main.js",

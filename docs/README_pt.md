@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./assets/images/banner_1.jpg" alt="Folio Banner" />
+  <img src="./assets/images/banner_1.jpg" alt="Running Head Banner" />
   <br>
 
   ![License](https://img.shields.io/badge/license-MIT-lightblue.svg)
@@ -17,7 +17,7 @@
 
 Transforme suas notas com um belo cabeçalho de metadados no estilo blog! 📝✨
 
-O Folio é um plugin para Obsidian que adiciona automaticamente um cabeçalho personalizável abaixo dos títulos das suas notas, exibindo a data de publicação, tempo estimado de leitura, um badge de última atualização e qualquer propriedade personalizada do frontmatter que você desejar.
+O Running Head é um plugin para Obsidian que adiciona automaticamente um cabeçalho personalizável abaixo dos títulos das suas notas, exibindo a data de publicação, tempo estimado de leitura, um badge de última atualização e qualquer propriedade personalizada do frontmatter que você desejar.
 
 ## Recursos
 
@@ -33,7 +33,7 @@ O Folio é um plugin para Obsidian que adiciona automaticamente um cabeçalho pe
 
 1. **Configurar Datas**: Nas configurações do plugin, defina as chaves YAML usadas para a sua data de criação (ex: `date`) e data de atualização (ex: `updated`).
 2. **Adicionar Campos Personalizados**:
-   - Vá para **Configurações > Folio**.
+   - Vá para **Configurações > Running Head**.
    - Em "Campos personalizados", clique em **Adicionar**.
    - Digite a chave YAML da propriedade que você quer exibir (ex: `Autor` ou `Categoria`).
    - Opcionalmente, adicione um rótulo de exibição ou restrinja o campo para não aparecer em pastas específicas.
@@ -45,7 +45,7 @@ Voilá! Seus metadados agora são exibidos de forma elegante abaixo do título d
 
 ### Instalação Manual
 1. Baixe o release mais recente: `main.js`, `manifest.json` e `styles.css`.
-2. Crie uma pasta chamada `folio` dentro do diretório `.obsidian/plugins/`.
+2. Crie uma pasta chamada `running-head` dentro do diretório `.obsidian/plugins/`.
 3. Cole os arquivos lá.
 4. Recarregue o Obsidian e ative o plugin.
 
@@ -58,7 +58,7 @@ Voilá! Seus metadados agora são exibidos de forma elegante abaixo do título d
 > A funcionalidade de **Ícones das tabelas** afeta apenas o cabeçalho de propriedades do plugin **Bases** quando o modo de exibição está definido como Tabela.
 
 > [!Tip]  
-> Se você tem o plugin **Typify** instalado, o Folio irá detectar e aplicar automaticamente os seus estilos do Typify às pílulas correspondentes no cabeçalho de metadados!
+> Se você tem o plugin **Typify** instalado, o Running Head irá detectar e aplicar automaticamente os seus estilos do Typify às pílulas correspondentes no cabeçalho de metadados!
 
 ## Desenvolvimento
 

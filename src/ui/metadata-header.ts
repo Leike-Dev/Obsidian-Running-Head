@@ -1,15 +1,15 @@
 import { App, MarkdownView, TFile } from "obsidian";
-import type FolioPlugin from "../main";
+import type RunningHeadPlugin from "../main";
 import type { CustomField } from "../settings";
 import { calculateReadingTime } from "../utils/reading-time";
 import { formatDate } from "../utils/date-formatter";
 import { t } from "../lang/helpers";
 
 /** CSS class applied to the injected container — used to avoid duplicates. */
-const HEADER_CLASS = "folio-metadata-header";
+const HEADER_CLASS = "running-head-metadata-header";
 
 /** CSS class for the breadcrumb navigation element. */
-const BREADCRUMB_CLASS = "folio-breadcrumb";
+const BREADCRUMB_CLASS = "running-head-breadcrumb";
 
 /** Regex to detect wiki links: [[target]] or [[target|alias]] */
 const WIKI_LINK_RE = /\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g;
@@ -63,9 +63,9 @@ interface AppWithPlugins extends App {
  *
  * Structure:
  * ```html
- * <div class="folio-metadata-header">
- *   <span class="folio-metadata-date">August 6, 2024 / 31 min read</span>
- *   <span class="folio-metadata-badge">Last Updated: August 6, 2024</span>
+ * <div class="running-head-metadata-header">
+ *   <span class="running-head-metadata-date">August 6, 2024 / 31 min read</span>
+ *   <span class="running-head-metadata-badge">Last Updated: August 6, 2024</span>
  * </div>
  * ```
  */
@@ -74,7 +74,7 @@ function createMetadataHeaderEl(container: HTMLElement, options: MetadataHeaderO
 
 	// --- Date + Reading Time ---
 	if (options.formattedDate) {
-		const dateSpan = wrapper.createSpan({ cls: "folio-metadata-date" });
+		const dateSpan = wrapper.createSpan({ cls: "running-head-metadata-date" });
 
 		let dateText = options.formattedDate;
 		if (options.showReadingTime && options.readingTime !== null) {
@@ -85,7 +85,7 @@ function createMetadataHeaderEl(container: HTMLElement, options: MetadataHeaderO
 
 	// --- Last Updated Badge ---
 	if (options.showLastUpdated && options.formattedLastUpdated) {
-		const badge = wrapper.createSpan({ cls: "folio-metadata-badge" });
+		const badge = wrapper.createSpan({ cls: "running-head-metadata-badge" });
 		badge.textContent = `${t('last_updated', options.dateLocale)}: ${options.formattedLastUpdated}`;
 	}
 
@@ -142,15 +142,15 @@ function createMetadataHeaderEl(container: HTMLElement, options: MetadataHeaderO
 				.map((v) => String(v).trim());
 
 			if (items.length > 0) {
-				const containerEl = wrapper.createDiv({ cls: "folio-custom-pills" });
+				const containerEl = wrapper.createDiv({ cls: "running-head-custom-pills" });
 
 				if (showLabel) {
-					const labelSpan = containerEl.createSpan({ cls: "folio-custom-text" });
+					const labelSpan = containerEl.createSpan({ cls: "running-head-custom-text" });
 					labelSpan.textContent = `${label}:`;
 				}
 
 				if (isTagsType) {
-					containerEl.classList.add("folio-tags-container");
+					containerEl.classList.add("running-head-tags-container");
 					for (const item of items) {
 						const tagEl = containerEl.createEl("a", {
 							cls: "tag",
@@ -205,7 +205,7 @@ function createMetadataHeaderEl(container: HTMLElement, options: MetadataHeaderO
 		if (WIKI_LINK_RE.test(value)) {
 			WIKI_LINK_RE.lastIndex = 0; // Reset regex state
 
-			const linkContainer = wrapper.createSpan({ cls: "folio-custom-text" });
+			const linkContainer = wrapper.createSpan({ cls: "running-head-custom-text" });
 			let lastIndex = 0;
 
 			let match: RegExpExecArray | null;
@@ -244,14 +244,14 @@ function createMetadataHeaderEl(container: HTMLElement, options: MetadataHeaderO
 
 		if (isUrl) {
 			const linkEl = wrapper.createEl("a", {
-				cls: "folio-custom-link",
+				cls: "running-head-custom-link",
 				href: value,
 			});
 			linkEl.textContent = showLabel ? label : value;
 			linkEl.setAttribute("target", "_blank");
 			linkEl.setAttribute("rel", "noopener noreferrer");
 		} else {
-			const textEl = wrapper.createSpan({ cls: "folio-custom-text" });
+			const textEl = wrapper.createSpan({ cls: "running-head-custom-text" });
 			textEl.textContent = showLabel ? `${label}: ${value}` : value;
 		}
 	}
@@ -275,7 +275,7 @@ function removeExistingHeader(viewContentEl: HTMLElement): void {
  *
  * @param plugin - Reference to the plugin instance (for settings + app access).
  */
-export async function injectMetadataHeader(plugin: FolioPlugin): Promise<void> {
+export async function injectMetadataHeader(plugin: RunningHeadPlugin): Promise<void> {
 	const view = plugin.app.workspace.getActiveViewOfType(MarkdownView);
 	if (!view) {
 		return;
@@ -362,8 +362,8 @@ export async function injectMetadataHeader(plugin: FolioPlugin): Promise<void> {
 	}
 
 	// Apply configurable font sizes via CSS variables
-	contentEl.style.setProperty('--folio-title-size', `${settings.titleFontSize}em`);
-	contentEl.style.setProperty('--folio-badge-size', `${settings.badgeFontSize}rem`);
+	contentEl.style.setProperty('--running-head-title-size', `${settings.titleFontSize}em`);
+	contentEl.style.setProperty('--running-head-badge-size', `${settings.badgeFontSize}rem`);
 
 	// --- Date/badge options (always below the title) ---
 	const dateOptions: MetadataHeaderOptions = {
@@ -424,7 +424,7 @@ export async function injectMetadataHeader(plugin: FolioPlugin): Promise<void> {
 	// then insert new ones in the exact same frame.
 	removeExistingHeader(contentEl);
 	contentEl.querySelectorAll(`.${BREADCRUMB_CLASS}`).forEach((el) => el.remove());
-	contentEl.querySelectorAll(".folio-top-row").forEach((el) => el.remove());
+	contentEl.querySelectorAll(".running-head-top-row").forEach((el) => el.remove());
 
 	// 1. Top Row (Wiki Style) or Breadcrumb (Blog Style) — DIRECTLY above the title
 	const isWikiStyle = settings.layoutStyle === "wiki";
@@ -435,7 +435,7 @@ export async function injectMetadataHeader(plugin: FolioPlugin): Promise<void> {
 
 	if (isWikiStyle && (showBreadcrumb || showWikiBadge)) {
 		const topRow = document.createElement("div");
-		topRow.classList.add("folio-top-row");
+		topRow.classList.add("running-head-top-row");
 
 		if (showBreadcrumb) {
 			const breadcrumbEl = createBreadcrumbEl(file.path, plugin.app, settings.breadcrumbHighlightLast);
@@ -444,7 +444,7 @@ export async function injectMetadataHeader(plugin: FolioPlugin): Promise<void> {
 
 		if (showWikiBadge) {
 			const badge = document.createElement("div");
-			badge.classList.add("folio-metadata-badge");
+			badge.classList.add("running-head-metadata-badge");
 			badge.textContent = `${t('last_updated', settings.dateLocale)}: ${formattedLastUpdated}`;
 			topRow.appendChild(badge);
 		}
@@ -493,13 +493,13 @@ export async function injectMetadataHeader(plugin: FolioPlugin): Promise<void> {
  * Remove all metadata headers and breadcrumbs from every open markdown view.
  * Used during plugin unload for clean teardown.
  */
-export function removeAllMetadataHeaders(plugin: FolioPlugin): void {
+export function removeAllMetadataHeaders(plugin: RunningHeadPlugin): void {
 	plugin.app.workspace.iterateAllLeaves((leaf) => {
 		const view = leaf.view;
 		if (view instanceof MarkdownView) {
 			removeExistingHeader(view.contentEl);
 			view.contentEl.querySelectorAll(`.${BREADCRUMB_CLASS}`).forEach((el) => el.remove());
-			view.contentEl.querySelectorAll(".folio-top-row").forEach((el) => el.remove());
+			view.contentEl.querySelectorAll(".running-head-top-row").forEach((el) => el.remove());
 		}
 	});
 }
@@ -530,14 +530,14 @@ function createBreadcrumbEl(filePath: string, app: App, highlightLast: boolean):
 
 	parts.forEach((segment, index) => {
 		if (index > 0) {
-			breadcrumb.createSpan({ cls: "folio-breadcrumb-separator", text: "/" });
+			breadcrumb.createSpan({ cls: "running-head-breadcrumb-separator", text: "/" });
 		}
 
 		const isLast = index === parts.length - 1;
 		const folderPath = parts.slice(0, index + 1).join("/");
 		const cls = (highlightLast && isLast)
-			? "folio-breadcrumb-segment folio-breadcrumb-active"
-			: "folio-breadcrumb-segment";
+			? "running-head-breadcrumb-segment running-head-breadcrumb-active"
+			: "running-head-breadcrumb-segment";
 		const link = breadcrumb.createEl("a", {
 			cls,
 			text: segment,

@@ -1,5 +1,5 @@
 import { App, PluginSettingTab, Setting, sanitizeHTMLToDom } from "obsidian";
-import type FolioPlugin from "./main";
+import type RunningHeadPlugin from "./main";
 import { FieldEditorModal } from "./ui/FieldEditorModal";
 import { FieldManagerModal } from "./ui/FieldManagerModal";
 import { BasesIconManagerModal } from "./ui/BasesIconManagerModal";
@@ -29,10 +29,10 @@ export interface CustomField {
 }
 
 /**
- * Settings interface for the Folio plugin.
+ * Settings interface for the RunningHead plugin.
  * Controls frontmatter field names, locale, and display preferences.
  */
-export interface FolioSettings {
+export interface RunningHeadSettings {
 	/** Frontmatter field name for the publication date */
 	dateField: string;
 	/** Frontmatter field name for the last-updated date */
@@ -65,7 +65,7 @@ export interface FolioSettings {
 	breadcrumbHighlightLast: boolean;
 }
 
-export const DEFAULT_SETTINGS: FolioSettings = {
+export const DEFAULT_SETTINGS: RunningHeadSettings = {
 	dateField: "date",
 	lastUpdatedField: "updated",
 	dateLocale: "en-US",
@@ -84,13 +84,13 @@ export const DEFAULT_SETTINGS: FolioSettings = {
 };
 
 /**
- * Settings tab for the Folio plugin.
+ * Settings tab for the RunningHead plugin.
  * Provides UI controls for all configurable options.
  */
-export class FolioSettingTab extends PluginSettingTab {
-	plugin: FolioPlugin;
+export class RunningHeadSettingTab extends PluginSettingTab {
+	plugin: RunningHeadPlugin;
 
-	constructor(app: App, plugin: FolioPlugin) {
+	constructor(app: App, plugin: RunningHeadPlugin) {
 		super(app, plugin);
 		this.plugin = plugin;
 	}
@@ -162,7 +162,7 @@ export class FolioSettingTab extends PluginSettingTab {
 			);
 
 		if (!this.plugin.settings.showBreadcrumb) {
-			highlightSetting.settingEl.classList.add("folio-modal-input-disabled");
+			highlightSetting.settingEl.classList.add("running-head-modal-input-disabled");
 		}
 
 		// ================================================================
@@ -361,7 +361,7 @@ export class FolioSettingTab extends PluginSettingTab {
 			.setHeading();
 			
 		const noticeEl = containerEl.createEl("div", {
-			cls: "folio-bases-notice"
+			cls: "running-head-bases-notice"
 		});
 		noticeEl.createEl("p", {
 			cls: "warning-text",

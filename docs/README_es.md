@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./assets/images/banner_1.jpg" alt="Folio Banner" />
+  <img src="./assets/images/banner_1.jpg" alt="Running Head Banner" />
   <br>
 
   ![License](https://img.shields.io/badge/license-MIT-lightblue.svg)
@@ -17,7 +17,7 @@
 
 ¡Transforma tus notas con un hermoso encabezado de metadatos estilo blog! 📝✨
 
-Folio es un plugin de Obsidian que agrega automáticamente un encabezado personalizable debajo de los títulos de tus notas, mostrando la fecha de publicación, el tiempo estimado de lectura, una insignia de última actualización y cualquier propiedad personalizada de frontmatter que desees.
+Running Head es un plugin de Obsidian que agrega automáticamente un encabezado personalizable debajo de los títulos de tus notas, mostrando la fecha de publicación, el tiempo estimado de lectura, una insignia de última actualización y cualquier propiedad personalizada de frontmatter que desees.
 
 ## Características
 
@@ -33,7 +33,7 @@ Folio es un plugin de Obsidian que agrega automáticamente un encabezado persona
 
 1. **Configurar Fechas**: En los ajustes del plugin, configura las claves YAML utilizadas para la fecha de creación (ej. `date`) y de actualización (ej. `updated`).
 2. **Agregar Campos Personalizados**:
-   - Ve a **Ajustes > Folio**.
+   - Ve a **Ajustes > Running Head**.
    - En "Campos personalizados", haz clic en **Añadir**.
    - Escribe la clave YAML de la propiedad que quieres mostrar (ej. `Autor` o `Categoría`).
    - Opcionalmente añade una etiqueta o restringe el campo para que no aparezca en carpetas específicas.
@@ -45,7 +45,7 @@ Folio es un plugin de Obsidian que agrega automáticamente un encabezado persona
 
 ### Instalación Manual
 1. Descarga el último lanzamiento: `main.js`, `manifest.json` y `styles.css`.
-2. Crea una carpeta llamada `folio` dentro del directorio `.obsidian/plugins/`.
+2. Crea una carpeta llamada `running-head` dentro del directorio `.obsidian/plugins/`.
 3. Pega los archivos allí.
 4. Recarga Obsidian y activa el plugin.
 
@@ -58,7 +58,7 @@ Folio es un plugin de Obsidian que agrega automáticamente un encabezado persona
 > La función de **Iconos de tabla** solo afecta al encabezado de propiedades del plugin **Bases** cuando el modo de vista está en Tabla.
 
 > [!Tip]  
-> Si tienes el plugin **Typify** instalado, Folio detectará y aplicará automáticamente tus estilos de Typify a las insignias coincidentes en el encabezado de metadatos.
+> Si tienes el plugin **Typify** instalado, Running Head detectará y aplicará automáticamente tus estilos de Typify a las insignias coincidentes en el encabezado de metadatos.
 
 ## Desarrollo
 

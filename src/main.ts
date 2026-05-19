@@ -1,24 +1,24 @@
 import { Plugin, MarkdownView } from "obsidian";
-import { DEFAULT_SETTINGS, FolioSettings, FolioSettingTab } from "./settings";
+import { DEFAULT_SETTINGS, RunningHeadSettings, RunningHeadSettingTab } from "./settings";
 import { injectMetadataHeader, removeAllMetadataHeaders } from "./ui/metadata-header";
 import { initializeBasesIconObserver } from "./ui/bases-icons";
 
 /**
- * Folio
+ * RunningHead
  *
  * Adds a blog-style metadata header below note titles, displaying
  * publication date, reading time, and a last-updated badge.
  * Data is read from the note's YAML frontmatter.
  */
-export default class FolioPlugin extends Plugin {
-	settings: FolioSettings;
+export default class RunningHeadPlugin extends Plugin {
+	settings: RunningHeadSettings;
 	private basesObserver: { disconnect: () => void } | null = null;
 
 	async onload(): Promise<void> {
 		await this.loadSettings();
 
 		// Register the settings tab
-		this.addSettingTab(new FolioSettingTab(this.app, this));
+		this.addSettingTab(new RunningHeadSettingTab(this.app, this));
 
 		// Inject the metadata header whenever the active leaf changes
 		this.registerEvent(
@@ -70,7 +70,7 @@ export default class FolioPlugin extends Plugin {
 		this.settings = Object.assign(
 			{},
 			DEFAULT_SETTINGS,
-			await this.loadData() as Partial<FolioSettings>
+			await this.loadData() as Partial<RunningHeadSettings>
 		);
 	}
 

@@ -1,5 +1,5 @@
 import { App, Modal, Notice, Setting, Platform } from "obsidian";
-import type FolioPlugin from "../main";
+import type RunningHeadPlugin from "../main";
 import type { BasesIcon } from "../settings";
 import { IconPickerModal } from "./IconPickerModal";
 import { t } from "../lang/helpers";
@@ -8,7 +8,7 @@ import { t } from "../lang/helpers";
  * Modal for creating or editing a custom bases icon.
  */
 export class BasesIconEditorModal extends Modal {
-	private plugin: FolioPlugin;
+	private plugin: RunningHeadPlugin;
 	private onSave?: () => void;
 
 	/** When editing, the index of the icon being modified. */
@@ -20,7 +20,7 @@ export class BasesIconEditorModal extends Modal {
 
 	constructor(
 		app: App,
-		plugin: FolioPlugin,
+		plugin: RunningHeadPlugin,
 		onSave?: () => void,
 		editIcon?: BasesIcon,
 		editIndex?: number
@@ -67,7 +67,7 @@ export class BasesIconEditorModal extends Modal {
 			.setName(t('bases_icon_name'))
 			.setDesc(t('bases_icon_name_desc'));
 			
-		iconSetting.settingEl.classList.add("folio-icon-selector-setting");
+		iconSetting.settingEl.classList.add("running-head-icon-selector-setting");
 
 		if (this.iconName) {
 			iconSetting.addExtraButton(btn => btn

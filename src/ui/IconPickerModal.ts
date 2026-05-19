@@ -24,14 +24,14 @@ export class IconPickerModal extends FuzzySuggestModal<string> {
 
 	renderSuggestion(match: FuzzyMatch<string>, el: HTMLElement): void {
 		const icon = match.item;
-		el.addClass('folio-icon-suggestion');
+		el.addClass('running-head-icon-suggestion');
 
-		// Custom styling to show icon alongside its name is handled in styles.css (.folio-icon-suggestion)
+		// Custom styling to show icon alongside its name is handled in styles.css (.running-head-icon-suggestion)
 
-		const iconEl = el.createSpan({ cls: 'folio-icon-suggestion-icon' });
+		const iconEl = el.createSpan({ cls: 'running-head-icon-suggestion-icon' });
 		setIcon(iconEl, icon);
 
-		el.createSpan({ text: icon, cls: 'folio-icon-suggestion-name' });
+		el.createSpan({ text: icon, cls: 'running-head-icon-suggestion-name' });
 	}
 
 	onChooseItem(item: string, evt: MouseEvent | KeyboardEvent): void {
