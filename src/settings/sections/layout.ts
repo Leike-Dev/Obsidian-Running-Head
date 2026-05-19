@@ -69,5 +69,37 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 			highlightSetting.settingEl.classList.add("running-head-modal-input-disabled");
 		}
 
+		new Setting(containerEl)
+			.setName("Scroll Progress Bar")
+			.setDesc("Show a reading progress bar at the top of the note.")
+			.addToggle((toggle) =>
+				toggle
+					.setValue(plugin.settings.showScrollProgress)
+					.onChange(async (value) => {
+						plugin.settings.showScrollProgress = value;
+						await plugin.saveSettings();
+						plugin.scrollProgressManager?.setupListeners();
+						tab.display();
+					})
+			);
+
+		const scrollColorSetting = new Setting(containerEl)
+			.setName("Scroll Progress Color")
+			.setDesc("Custom color (leave empty for default accent color).")
+			.addText((text) =>
+				text
+					.setPlaceholder("#10b981 or rgb(...)")
+					.setValue(plugin.settings.scrollProgressColor)
+					.onChange(async (value) => {
+						plugin.settings.scrollProgressColor = value;
+						await plugin.saveSettings();
+						plugin.scrollProgressManager?.setupListeners();
+					})
+			);
+		
+		if (!plugin.settings.showScrollProgress) {
+			scrollColorSetting.settingEl.classList.add("running-head-modal-input-disabled");
+		}
+
 		// ================================================================
 }

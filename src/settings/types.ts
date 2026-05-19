@@ -55,6 +55,10 @@ export interface RunningHeadSettings {
 	showBreadcrumb: boolean;
 	/** Whether to highlight the last breadcrumb segment with the accent color */
 	breadcrumbHighlightLast: boolean;
+	/** Whether to show a scroll progress bar at the top of the note */
+	showScrollProgress: boolean;
+	/** Custom color for the scroll progress bar (empty for default accent color) */
+	scrollProgressColor: string;
 }
 
 export const DEFAULT_SETTINGS: RunningHeadSettings = {
@@ -73,4 +77,6 @@ export const DEFAULT_SETTINGS: RunningHeadSettings = {
 	basesIcons: [],
 	showBreadcrumb: false,
 	breadcrumbHighlightLast: false,
+	showScrollProgress: false,
+	scrollProgressColor: "",
 };
