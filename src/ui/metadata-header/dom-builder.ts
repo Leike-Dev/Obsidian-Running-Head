@@ -1,3 +1,4 @@
+import { setIcon } from "obsidian";
 import { t } from "../../lang/helpers";
 import { HEADER_CLASS, WIKI_LINK_RE, MetadataHeaderOptions, AppWithPlugins } from "./types";
 
@@ -136,12 +137,27 @@ export function createMetadataHeaderEl(container: HTMLElement, options: Metadata
 			}
 		}
 
+		// --- Boolean Badges ---
+		if (typeof rawValue === "boolean") {
+			const pillEl = wrapper.createDiv({ cls: "multi-select-pill running-head-boolean-pill" });
+			if (rawValue) {
+				pillEl.classList.add("is-true");
+				setIcon(pillEl.createSpan({ cls: "running-head-icon" }), "circle-check");
+				pillEl.createSpan({ cls: "multi-select-pill-content", text: showLabel ? label : "True" });
+			} else {
+				pillEl.classList.add("is-false");
+				setIcon(pillEl.createSpan({ cls: "running-head-icon" }), "circle-x");
+				pillEl.createSpan({ cls: "multi-select-pill-content", text: showLabel ? label : "False" });
+			}
+			continue;
+		}
+
 		// --- Scalar values ---
 		let value: string;
 		if (typeof rawValue === "object") {
 			value = JSON.stringify(rawValue);
 		} else {
-			value = String(rawValue as string | number | boolean);
+			value = String(rawValue as string | number);
 		}
 
 		// --- Wiki links: [[target]] or [[target|alias]] ---
