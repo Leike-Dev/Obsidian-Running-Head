@@ -604,3 +604,31 @@ body.is-phone .running-head-breadcrumb {
 	pointer-events: none;
 	transition: transform 0.1s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
+
+/* =========================================================================
+   BOOLEAN PILLS
+   ========================================================================= */
+
+.multi-select-pill.running-head-boolean-pill.is-true {
+	background-color: rgba(var(--color-green-rgb, 16, 185, 129), 0.15);
+	color: var(--color-green);
+	border-color: rgba(var(--color-green-rgb, 16, 185, 129), 0.3);
+}
+
+.multi-select-pill.running-head-boolean-pill.is-false {
+	background-color: rgba(var(--color-red-rgb, 239, 68, 68), 0.15);
+	color: var(--color-red);
+	border-color: rgba(var(--color-red-rgb, 239, 68, 68), 0.3);
+}
+
+.multi-select-pill.running-head-boolean-pill .running-head-icon {
+	display: flex;
+	align-items: center;
+	margin-right: 6px;
+}
+
+.multi-select-pill.running-head-boolean-pill .running-head-icon svg {
+	width: var(--icon-size, 14px);
+	height: var(--icon-size, 14px);
+	stroke-width: 2px;
+}
