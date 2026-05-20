@@ -102,13 +102,6 @@ export class ScrollProgressManager {
 		const progressBar = activeDocument.createElement("div");
 		progressBar.classList.add(PROGRESS_BAR_CLASS);
 		
-		// Apply custom color if set
-		if (this.plugin.settings.scrollProgressColor) {
-			progressBar.setCssProps({
-				"background-color": this.plugin.settings.scrollProgressColor
-			});
-		}
-
 		// Insert at the top of contentEl
 		container.appendChild(progressBar);
 		
