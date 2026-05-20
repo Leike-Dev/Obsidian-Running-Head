@@ -96,6 +96,7 @@ export async function injectMetadataHeader(plugin: RunningHeadPlugin): Promise<v
 			app: plugin.app,
 			sourcePath: file.path,
 			dateLocale: settings.dateLocale,
+			badgeColor: settings.lastUpdatedBadgeColor,
 		});
 		removeExistingHeader(contentEl);
 		previewView.prepend(fallbackEl);
@@ -119,6 +120,7 @@ export async function injectMetadataHeader(plugin: RunningHeadPlugin): Promise<v
 		app: plugin.app,
 		sourcePath: file.path,
 		dateLocale: settings.dateLocale,
+		badgeColor: settings.lastUpdatedBadgeColor,
 	};
 
 	// Split custom fields by their individual position, applying folder-scope filter
@@ -138,6 +140,7 @@ export async function injectMetadataHeader(plugin: RunningHeadPlugin): Promise<v
 		app: plugin.app,
 		sourcePath: file.path,
 		dateLocale: settings.dateLocale,
+		badgeColor: settings.lastUpdatedBadgeColor,
 	};
 
 	// --- Build "below" wrapper (custom fields only) ---
@@ -153,6 +156,7 @@ export async function injectMetadataHeader(plugin: RunningHeadPlugin): Promise<v
 		app: plugin.app,
 		sourcePath: file.path,
 		dateLocale: settings.dateLocale,
+		badgeColor: settings.lastUpdatedBadgeColor,
 	};
 
 	// Check if each section has any content to render

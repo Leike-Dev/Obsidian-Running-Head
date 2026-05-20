@@ -36,6 +36,8 @@ export interface MetadataHeaderOptions {
 	sourcePath: string;
 	/** User-selected date locale for formatting injected strings */
 	dateLocale: string;
+	/** Custom background color for the last updated badge */
+	badgeColor: string;
 }
 
 export interface AppWithPlugins extends App {

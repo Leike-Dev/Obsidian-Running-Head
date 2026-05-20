@@ -59,6 +59,10 @@ export interface RunningHeadSettings {
 	showScrollProgress: boolean;
 	/** Custom color for the scroll progress bar (empty for default accent color) */
 	scrollProgressColor: string;
+	/** Custom color for the breadcrumb highlight (empty for default accent color) */
+	breadcrumbHighlightColor: string;
+	/** Custom color for the last updated badge (empty for default accent color) */
+	lastUpdatedBadgeColor: string;
 }
 
 export const DEFAULT_SETTINGS: RunningHeadSettings = {
@@ -79,4 +83,6 @@ export const DEFAULT_SETTINGS: RunningHeadSettings = {
 	breadcrumbHighlightLast: false,
 	showScrollProgress: false,
 	scrollProgressColor: "",
+	breadcrumbHighlightColor: "",
+	lastUpdatedBadgeColor: "",
 };

@@ -19,19 +19,52 @@ export function renderAppearanceSection(containerEl: HTMLElement, plugin: Runnin
 					.onChange(async (value) => {
 						plugin.settings.breadcrumbHighlightLast = value;
 						await plugin.saveSettings();
+						tab.display();
 					})
 			);
 
-		if (!plugin.settings.showBreadcrumb) {
-			highlightSetting.settingEl.classList.add("running-head-modal-input-disabled");
-		}
+		highlightSetting.setDisabled(!plugin.settings.showBreadcrumb);
+
+		const highlightColorSetting = new Setting(containerEl)
+			.setName(t('breadcrumb_highlight_color_name'))
+			.setDesc(t('breadcrumb_highlight_color_desc'))
+			.addExtraButton((btn) =>
+				btn
+					.setIcon("reset")
+					.setTooltip("Reset")
+					.onClick(async () => {
+						plugin.settings.breadcrumbHighlightColor = "";
+						await plugin.saveSettings();
+						tab.display();
+					})
+			)
+			.addColorPicker((color) =>
+				color
+					.setValue(plugin.settings.breadcrumbHighlightColor)
+					.onChange(async (value) => {
+						plugin.settings.breadcrumbHighlightColor = value;
+						await plugin.saveSettings();
+					})
+			);
+			
+		highlightColorSetting.setDisabled(!plugin.settings.showBreadcrumb || !plugin.settings.breadcrumbHighlightLast);
 
 		const scrollColorSetting = new Setting(containerEl)
 			.setName(t('scroll_progress_color_name'))
 			.setDesc(t('scroll_progress_color_desc'))
-			.addText((text) =>
-				text
-					.setPlaceholder("#10b981 or rgb(...)")
+			.addExtraButton((btn) =>
+				btn
+					.setIcon("reset")
+					.setTooltip("Reset")
+					.onClick(async () => {
+						plugin.settings.scrollProgressColor = "";
+						await plugin.saveSettings();
+						plugin.scrollProgressManager?.setupListeners();
+						tab.display();
+					})
+			)
+			.addColorPicker((color) =>
+				color
 					.setValue(plugin.settings.scrollProgressColor)
 					.onChange(async (value) => {
 						plugin.settings.scrollProgressColor = value;
@@ -40,9 +73,31 @@ export function renderAppearanceSection(containerEl: HTMLElement, plugin: Runnin
 					})
 			);
 		
-		if (!plugin.settings.showScrollProgress) {
-			scrollColorSetting.settingEl.classList.add("running-head-modal-input-disabled");
-		}
+		scrollColorSetting.setDisabled(!plugin.settings.showScrollProgress);
+
+		const badgeColorSetting = new Setting(containerEl)
+			.setName(t('badge_color_name'))
+			.setDesc(t('badge_color_desc'))
+			.addExtraButton((btn) =>
+				btn
+					.setIcon("reset")
+					.setTooltip("Reset")
+					.onClick(async () => {
+						plugin.settings.lastUpdatedBadgeColor = "";
+						await plugin.saveSettings();
+						tab.display();
+					})
+			)
+			.addColorPicker((color) =>
+				color
+					.setValue(plugin.settings.lastUpdatedBadgeColor)
+					.onChange(async (value) => {
+						plugin.settings.lastUpdatedBadgeColor = value;
+						await plugin.saveSettings();
+					})
+			);
+			
+		badgeColorSetting.setDisabled(!plugin.settings.showLastUpdated);
 
 		// ================================================================
 }
