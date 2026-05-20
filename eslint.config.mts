@@ -8,6 +8,8 @@ export default tseslint.config(
 		languageOptions: {
 			globals: {
 				...globals.browser,
+				activeDocument: "readonly",
+				activeWindow: "readonly",
 			},
 			parserOptions: {
 				projectService: {
@@ -21,13 +23,12 @@ export default tseslint.config(
 			},
 		},
 	},
-	...obsidianmd.configs.recommended,
+	...(obsidianmd.configs!.recommended as any),
 	globalIgnores([
 		"node_modules",
 		"dist",
-		"esbuild.config.mjs",
+		"dev/**",
 		"eslint.config.js",
-		"version-bump.mjs",
 		"versions.json",
 		"main.js",
 	]),

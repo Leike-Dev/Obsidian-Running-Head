@@ -70,8 +70,8 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 		}
 
 		new Setting(containerEl)
-			.setName("Scroll Progress Bar")
-			.setDesc("Show a reading progress bar at the top of the note.")
+			.setName(t('scroll_progress_bar_name'))
+			.setDesc(t('scroll_progress_bar_desc'))
 			.addToggle((toggle) =>
 				toggle
 					.setValue(plugin.settings.showScrollProgress)
@@ -84,8 +84,8 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 			);
 
 		const scrollColorSetting = new Setting(containerEl)
-			.setName("Scroll Progress Color")
-			.setDesc("Custom color (leave empty for default accent color).")
+			.setName(t('scroll_progress_color_name'))
+			.setDesc(t('scroll_progress_color_desc'))
 			.addText((text) =>
 				text
 					.setPlaceholder("#10b981 or rgb(...)")

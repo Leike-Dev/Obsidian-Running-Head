@@ -166,4 +166,35 @@ export const zhCN = {
 	
 	'add_button': '选择图标',
 	'icon_picker_placeholder': '搜索图标...',
+
+	// ================================================================
+	// SETTINGS — Scroll Progress
+	// ================================================================
+	'scroll_progress_bar_name': '滚动进度条',
+	'scroll_progress_bar_desc': '在笔记顶部显示阅读进度条。',
+	'scroll_progress_color_name': '滚动进度颜色',
+	'scroll_progress_color_desc': '自定义颜色（留空为默认强调色）。',
+
+	// ================================================================
+	// DATA MANAGEMENT (IMPORT/EXPORT)
+	// ================================================================
+	'section_data_management_title': '数据管理',
+	'export_title': '导出设置',
+	'export_desc': '将当前插件设置复制到剪贴板。',
+	'export_button': '导出',
+	'import_title': '导入设置',
+	'import_desc': '粘贴先前导出的设置 JSON 以应用它。',
+	'import_button': '导入',
+
+	'export_modal_title': '导出设置',
+	'copy_clipboard_button': '复制到剪贴板',
+	'copy_clipboard_success': '设置已成功复制到剪贴板！',
+	'export_error': '复制到剪贴板失败。',
+
+	'import_modal_title': '导入设置',
+	'import_paste_placeholder': '在此处粘贴您的设置 JSON...',
+	'import_empty_notice': '请粘贴您的设置 JSON。',
+	'import_invalid_json': '无效的 JSON 格式。',
+	'import_error': '提供的 JSON 不包含有效的设置。',
+	'import_success': '设置导入成功！',
 };
