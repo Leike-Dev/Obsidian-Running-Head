@@ -41,6 +41,20 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 			);
 
 		new Setting(containerEl)
+			.setName(t('layout_style_name'))
+			.setDesc(t('layout_style_desc'))
+			.addDropdown((dropdown) => {
+				dropdown
+					.addOption("wiki", t('layout_style_wiki'))
+					.addOption("blog", t('layout_style_blog'))
+					.setValue(plugin.settings.layoutStyle)
+					.onChange(async (value: "wiki" | "blog") => {
+						plugin.settings.layoutStyle = value;
+						await plugin.saveSettings();
+					});
+			});
+
+		new Setting(containerEl)
 			.setName(t('breadcrumb_toggle_name'))
 			.setDesc(t('breadcrumb_toggle_desc'))
 			.addToggle((toggle) =>
@@ -52,22 +66,6 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 						tab.display();
 					})
 			);
-
-		const highlightSetting = new Setting(containerEl)
-			.setName(t('breadcrumb_highlight_name'))
-			.setDesc(t('breadcrumb_highlight_desc'))
-			.addToggle((toggle) =>
-				toggle
-					.setValue(plugin.settings.breadcrumbHighlightLast)
-					.onChange(async (value) => {
-						plugin.settings.breadcrumbHighlightLast = value;
-						await plugin.saveSettings();
-					})
-			);
-
-		if (!plugin.settings.showBreadcrumb) {
-			highlightSetting.settingEl.classList.add("running-head-modal-input-disabled");
-		}
 
 		new Setting(containerEl)
 			.setName(t('scroll_progress_bar_name'))
@@ -83,23 +81,17 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 					})
 			);
 
-		const scrollColorSetting = new Setting(containerEl)
-			.setName(t('scroll_progress_color_name'))
-			.setDesc(t('scroll_progress_color_desc'))
-			.addText((text) =>
-				text
-					.setPlaceholder("#10b981 or rgb(...)")
-					.setValue(plugin.settings.scrollProgressColor)
+		new Setting(containerEl)
+			.setName(t('show_last_updated_name'))
+			.setDesc(t('show_last_updated_desc'))
+			.addToggle((toggle) =>
+				toggle
+					.setValue(plugin.settings.showLastUpdated)
 					.onChange(async (value) => {
-						plugin.settings.scrollProgressColor = value;
+						plugin.settings.showLastUpdated = value;
 						await plugin.saveSettings();
-						plugin.scrollProgressManager?.setupListeners();
 					})
 			);
-		
-		if (!plugin.settings.showScrollProgress) {
-			scrollColorSetting.settingEl.classList.add("running-head-modal-input-disabled");
-		}
 
 		// ================================================================
 }

@@ -41,18 +41,6 @@ export function renderDateSection(containerEl: HTMLElement, plugin: RunningHeadP
 					})
 			);
 
-		new Setting(containerEl)
-			.setName(t('short_date_name'))
-			.setDesc(t('short_date_desc'))
-			.addToggle((toggle) =>
-				toggle
-					.setValue(plugin.settings.useShortDate)
-					.onChange(async (value) => {
-						plugin.settings.useShortDate = value;
-						await plugin.saveSettings();
-					})
-			);
-
 		const customDateDesc = activeDocument.createDocumentFragment();
 		const customDateDiv = activeDocument.createElement("div");
 		customDateDiv.appendChild(sanitizeHTMLToDom(t('custom_date_format_desc')));
@@ -69,6 +57,18 @@ export function renderDateSection(containerEl: HTMLElement, plugin: RunningHeadP
 					.setValue(plugin.settings.customDateFormat)
 					.onChange(async (value) => {
 						plugin.settings.customDateFormat = value.trim();
+						await plugin.saveSettings();
+					})
+			);
+
+		new Setting(containerEl)
+			.setName(t('short_date_name'))
+			.setDesc(t('short_date_desc'))
+			.addToggle((toggle) =>
+				toggle
+					.setValue(plugin.settings.useShortDate)
+					.onChange(async (value) => {
+						plugin.settings.useShortDate = value;
 						await plugin.saveSettings();
 					})
 			);
@@ -99,32 +99,6 @@ export function renderDateSection(containerEl: HTMLElement, plugin: RunningHeadP
 						await plugin.saveSettings();
 					})
 			);
-
-		new Setting(containerEl)
-			.setName(t('show_last_updated_name'))
-			.setDesc(t('show_last_updated_desc'))
-			.addToggle((toggle) =>
-				toggle
-					.setValue(plugin.settings.showLastUpdated)
-					.onChange(async (value) => {
-						plugin.settings.showLastUpdated = value;
-						await plugin.saveSettings();
-					})
-			);
-
-		new Setting(containerEl)
-			.setName(t('layout_style_name'))
-			.setDesc(t('layout_style_desc'))
-			.addDropdown((dropdown) => {
-				dropdown
-					.addOption("wiki", t('layout_style_wiki'))
-					.addOption("blog", t('layout_style_blog'))
-					.setValue(plugin.settings.layoutStyle)
-					.onChange(async (value: "wiki" | "blog") => {
-						plugin.settings.layoutStyle = value;
-						await plugin.saveSettings();
-					});
-			});
 
 
 

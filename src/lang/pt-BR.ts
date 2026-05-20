@@ -2,8 +2,9 @@ export const ptBR = {
 	// ================================================================
 	// SETTINGS — Cabeçalhos de seção
 	// ================================================================
-	'section_title': 'Aparência',
-	'section_frontmatter_properties': 'Propriedades do frontmatter',
+	'section_title': 'Cabeçalho',
+	'section_appearance': 'Aparência',
+	'section_frontmatter_properties': 'Propriedades',
 	'section_date': 'Data e leitura',
 	'section_custom_fields': 'Campos personalizados',
 
