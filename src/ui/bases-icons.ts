@@ -6,6 +6,8 @@ import type RunningHeadPlugin from "../main";
  * and inject native or custom icons.
  */
 export function initializeBasesIconObserver(plugin: RunningHeadPlugin): { disconnect: () => void } {
+	const observedViews = new WeakSet<HTMLElement>();
+
 	const observer = new MutationObserver((mutations) => {
 		const headersToProcess = new Set<HTMLElement>();
 
@@ -57,6 +59,9 @@ export function initializeBasesIconObserver(plugin: RunningHeadPlugin): { discon
 	const performRefresh = () => {
 		const basesViews = activeDocument.body.findAll(".bases-view");
 		basesViews.forEach(view => {
+			if (observedViews.has(view)) return;
+			observedViews.add(view);
+
 			// Attach observer ONLY to the Bases view.
 			// Removed 'attributes: true' because it causes catastrophic performance drops
 			// when hovering or selecting cells in large tables.
