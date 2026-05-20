@@ -2,8 +2,9 @@ export const zhCN = {
 	// ================================================================
 	// SETTINGS — Section headings
 	// ================================================================
-	'section_title': '外观',
-	'section_frontmatter_properties': 'Frontmatter 属性',
+	'section_title': '页眉',
+	'section_appearance': '外观',
+	'section_frontmatter_properties': '属性',
 	'section_date': '日期与阅读',
 	'section_custom_fields': '自定义字段',
 

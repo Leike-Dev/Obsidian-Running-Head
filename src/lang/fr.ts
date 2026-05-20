@@ -2,8 +2,9 @@ export const fr = {
 	// ================================================================
 	// SETTINGS — Section headings
 	// ================================================================
-	'section_title': 'Apparence',
-	'section_frontmatter_properties': 'Propriétés du frontmatter',
+	'section_title': 'En-tête',
+	'section_appearance': 'Apparence',
+	'section_frontmatter_properties': 'Propriétés',
 	'section_date': 'Date et lecture',
 	'section_custom_fields': 'Champs personnalisés',
 
