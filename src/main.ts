@@ -1,4 +1,5 @@
 import { Plugin, MarkdownView } from "obsidian";
+import { getAdaptivePillStyles } from "./utils/color";
 import { DEFAULT_SETTINGS, RunningHeadSettings, RunningHeadSettingTab } from "./settings";
 import { injectMetadataHeader, removeAllMetadataHeaders } from "./ui/metadata-header";
 import { initializeBasesIconObserver } from "./ui/bases-icons";
@@ -15,9 +16,15 @@ export default class RunningHeadPlugin extends Plugin {
 	settings: RunningHeadSettings;
 	scrollProgressManager: ScrollProgressManager;
 	private basesObserver: { disconnect: () => void } | null = null;
+	private styleEl: HTMLStyleElement;
 
 	async onload(): Promise<void> {
 		await this.loadSettings();
+
+		this.styleEl = document.createElement("style");
+		this.styleEl.id = "running-head-dynamic-styles";
+		document.head.appendChild(this.styleEl);
+		this.updateDynamicStyles();
 
 		this.scrollProgressManager = new ScrollProgressManager(this);
 
@@ -52,11 +59,47 @@ export default class RunningHeadPlugin extends Plugin {
 		this.app.workspace.onLayoutReady(() => {
 			this.debouncedInject();
 			this.basesObserver = initializeBasesIconObserver(this);
-			this.scrollProgressManager.setupListeners();
+			if (this.scrollProgressManager) {
+				this.scrollProgressManager.setupListeners();
+			}
 		});
 	}
 
+	updateDynamicStyles(): void {
+		if (!this.styleEl) return;
+
+		let css = "";
+		
+		// Helper to generate CSS for a theme
+		const genThemeStyles = (isDark: boolean) => {
+			let themeCss = "";
+			if (this.settings.lastUpdatedBadgeColor) {
+				const badge = getAdaptivePillStyles(this.settings.lastUpdatedBadgeColor, isDark);
+				themeCss += `--rh-badge-bg: ${badge.bg};\n`;
+				themeCss += `--rh-badge-text: ${badge.text};\n`;
+			}
+			if (this.settings.breadcrumbHighlightColor) {
+				// For text link, we just adapt text color
+				const link = getAdaptivePillStyles(this.settings.breadcrumbHighlightColor, isDark);
+				themeCss += `--rh-breadcrumb-text: ${link.text};\n`;
+			}
+			if (this.settings.scrollProgressColor) {
+				const scroll = getAdaptivePillStyles(this.settings.scrollProgressColor, isDark);
+				themeCss += `--rh-scroll-bg: ${scroll.text};\n`;
+			}
+			return themeCss;
+		};
+
+		css += `body.theme-light {\n${genThemeStyles(false)}}\n`;
+		css += `body.theme-dark {\n${genThemeStyles(true)}}\n`;
+
+		this.styleEl.textContent = css;
+	}
+
 	onunload(): void {
+		if (this.styleEl) {
+			this.styleEl.remove();
+		}
 		// Cancel any pending debounced injection
 		if (this._injectTimeout !== null) {
 			clearTimeout(this._injectTimeout);
@@ -83,6 +126,7 @@ export default class RunningHeadPlugin extends Plugin {
 
 	async saveSettings(): Promise<void> {
 		await this.saveData(this.settings);
+		this.updateDynamicStyles();
 		// Re-inject to reflect updated settings immediately
 		await injectMetadataHeader(this);
 	}
