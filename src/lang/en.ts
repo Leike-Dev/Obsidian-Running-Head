@@ -166,4 +166,35 @@ export const en = {
 	
 	'add_button': 'Select icon',
 	'icon_picker_placeholder': 'Search icon...',
+
+	// ================================================================
+	// SETTINGS — Scroll Progress
+	// ================================================================
+	'scroll_progress_bar_name': 'Scroll progress bar',
+	'scroll_progress_bar_desc': 'Show a reading progress bar at the top of the note.',
+	'scroll_progress_color_name': 'Scroll progress color',
+	'scroll_progress_color_desc': 'Custom color (leave empty for default accent color).',
+
+	// ================================================================
+	// DATA MANAGEMENT (IMPORT/EXPORT)
+	// ================================================================
+	'section_data_management_title': 'Data management',
+	'export_title': 'Export settings',
+	'export_desc': 'Copy the current plugin settings to your clipboard.',
+	'export_button': 'Export',
+	'import_title': 'Import settings',
+	'import_desc': 'Paste a previously exported settings JSON to apply it.',
+	'import_button': 'Import',
+
+	'export_modal_title': 'Export settings',
+	'copy_clipboard_button': 'Copy to clipboard',
+	'copy_clipboard_success': 'Settings copied to clipboard!',
+	'export_error': 'Failed to copy to clipboard.',
+
+	'import_modal_title': 'Import settings',
+	'import_paste_placeholder': 'Paste your settings JSON here...',
+	'import_empty_notice': 'Please paste your settings JSON.',
+	'import_invalid_json': 'Invalid JSON format.',
+	'import_error': 'The provided JSON does not contain valid settings.',
+	'import_success': 'Settings imported successfully!',
 };

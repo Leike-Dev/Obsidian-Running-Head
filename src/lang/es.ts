@@ -166,4 +166,35 @@ export const es = {
 	
 	'add_button': 'Seleccionar icono',
 	'icon_picker_placeholder': 'Buscar icono...',
+
+	// ================================================================
+	// SETTINGS — Scroll Progress
+	// ================================================================
+	'scroll_progress_bar_name': 'Barra de progreso de desplazamiento',
+	'scroll_progress_bar_desc': 'Muestra una barra de progreso de lectura en la parte superior de la nota.',
+	'scroll_progress_color_name': 'Color del progreso de desplazamiento',
+	'scroll_progress_color_desc': 'Color personalizado (dejar vacío para usar el color de acento predeterminado).',
+
+	// ================================================================
+	// DATA MANAGEMENT (IMPORT/EXPORT)
+	// ================================================================
+	'section_data_management_title': 'Gestión de datos',
+	'export_title': 'Exportar ajustes',
+	'export_desc': 'Copia los ajustes actuales del plugin al portapapeles.',
+	'export_button': 'Exportar',
+	'import_title': 'Importar ajustes',
+	'import_desc': 'Pega un JSON de ajustes exportado previamente para aplicarlo.',
+	'import_button': 'Importar',
+
+	'export_modal_title': 'Exportar ajustes',
+	'copy_clipboard_button': 'Copiar al portapapeles',
+	'copy_clipboard_success': '¡Ajustes copiados al portapapeles!',
+	'export_error': 'Error al copiar al portapapeles.',
+
+	'import_modal_title': 'Importar ajustes',
+	'import_paste_placeholder': 'Pega tu JSON de ajustes aquí...',
+	'import_empty_notice': 'Por favor, pega tu JSON de ajustes.',
+	'import_invalid_json': 'Formato JSON no válido.',
+	'import_error': 'El JSON proporcionado no contiene ajustes válidos.',
+	'import_success': '¡Ajustes importados con éxito!',
 };

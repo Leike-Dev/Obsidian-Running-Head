@@ -166,4 +166,35 @@ export const ptBR = {
 	
 	'add_button': 'Selecionar ícone',
 	'icon_picker_placeholder': 'Buscar ícone...',
+
+	// ================================================================
+	// SETTINGS — Scroll Progress
+	// ================================================================
+	'scroll_progress_bar_name': 'Barra de progresso de rolagem',
+	'scroll_progress_bar_desc': 'Exibe uma barra de progresso de leitura no topo da nota.',
+	'scroll_progress_color_name': 'Cor do progresso de rolagem',
+	'scroll_progress_color_desc': 'Cor personalizada (deixe vazio para usar a cor de destaque padrão).',
+
+	// ================================================================
+	// DATA MANAGEMENT (IMPORT/EXPORT)
+	// ================================================================
+	'section_data_management_title': 'Gerenciamento de dados',
+	'export_title': 'Exportar configurações',
+	'export_desc': 'Copia as configurações atuais do plugin para a área de transferência.',
+	'export_button': 'Exportar',
+	'import_title': 'Importar configurações',
+	'import_desc': 'Cole um JSON de configurações previamente exportado para aplicá-lo.',
+	'import_button': 'Importar',
+
+	'export_modal_title': 'Exportar configurações',
+	'copy_clipboard_button': 'Copiar para a área de transferência',
+	'copy_clipboard_success': 'Configurações copiadas com sucesso!',
+	'export_error': 'Falha ao copiar para a área de transferência.',
+
+	'import_modal_title': 'Importar configurações',
+	'import_paste_placeholder': 'Cole seu JSON de configurações aqui...',
+	'import_empty_notice': 'Por favor, cole seu JSON de configurações.',
+	'import_invalid_json': 'Formato JSON inválido.',
+	'import_error': 'O JSON fornecido não contém configurações válidas.',
+	'import_success': 'Configurações importadas com sucesso!',
 };

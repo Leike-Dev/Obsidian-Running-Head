@@ -166,4 +166,35 @@ export const fr = {
 	
 	'add_button': 'Sélectionner une icône',
 	'icon_picker_placeholder': 'Rechercher une icône...',
+
+	// ================================================================
+	// SETTINGS — Scroll Progress
+	// ================================================================
+	'scroll_progress_bar_name': 'Barre de progression du défilement',
+	'scroll_progress_bar_desc': 'Afficher une barre de progression de lecture en haut de la note.',
+	'scroll_progress_color_name': 'Couleur de progression du défilement',
+	'scroll_progress_color_desc': 'Couleur personnalisée (laisser vide pour la couleur d\'accentuation par défaut).',
+
+	// ================================================================
+	// DATA MANAGEMENT (IMPORT/EXPORT)
+	// ================================================================
+	'section_data_management_title': 'Gestion des données',
+	'export_title': 'Exporter les paramètres',
+	'export_desc': 'Copiez les paramètres actuels du plugin dans le presse-papiers.',
+	'export_button': 'Exporter',
+	'import_title': 'Importer les paramètres',
+	'import_desc': 'Collez un JSON de paramètres précédemment exporté pour l\'appliquer.',
+	'import_button': 'Importer',
+
+	'export_modal_title': 'Exporter les paramètres',
+	'copy_clipboard_button': 'Copier dans le presse-papiers',
+	'copy_clipboard_success': 'Paramètres copiés dans le presse-papiers !',
+	'export_error': 'Échec de la copie dans le presse-papiers.',
+
+	'import_modal_title': 'Importer les paramètres',
+	'import_paste_placeholder': 'Collez votre JSON de paramètres ici...',
+	'import_empty_notice': 'Veuillez coller votre JSON de paramètres.',
+	'import_invalid_json': 'Format JSON invalide.',
+	'import_error': 'Le JSON fourni ne contient pas de paramètres valides.',
+	'import_success': 'Paramètres importés avec succès !',
 };
