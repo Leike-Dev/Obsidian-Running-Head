@@ -1,70 +1,70 @@
 export const zhCN = {
 	// ================================================================
-	// SETTINGS — Section headings
+	// SETTINGS — 分区标题
 	// ================================================================
-	'section_title': '页眉',
+	'section_title': '页眉与外观',
 	'section_appearance': '外观',
 	'section_frontmatter_properties': '属性',
 	'section_date': '日期与阅读',
 	'section_custom_fields': '自定义字段',
 
 	// ================================================================
-	// SETTINGS — Appearance
+	// SETTINGS — 外观
 	// ================================================================
 	'toggles_section_name': '界面组件',
-	'toggles_section_desc': '启用或禁用标题中的可视元素。',
+	'toggles_section_desc': '启用或禁用页眉的可视组件。',
 	'colors_section_name': '自定义颜色',
-	'colors_section_desc': '用于高亮、进度条和徽章的颜色选项。',
+	'colors_section_desc': '设置高亮、进度条和标签的颜色。',
 	'title_font_size_name': '标题大小',
-	'title_font_size_desc': '主标题大小，单位为 "em"。默认：3。',
+	'title_font_size_desc': '默认：3。',
 	'title_font_size_placeholder': '3',
-	'breadcrumb_toggle_name': '文件夹面包屑导航',
-	'breadcrumb_toggle_desc': '在标题上方显示笔记的文件夹路径作为可点击的面包屑导航。位于仓库根目录的笔记不显示。',
+	'breadcrumb_toggle_name': '笔记路径',
+	'breadcrumb_toggle_desc': '在标题上方显示笔记的文件夹路径。位于仓库根目录的笔记不显示。',
 	'breadcrumb_highlight_name': '高亮当前文件夹',
-	'breadcrumb_highlight_desc': '将强调色应用于面包屑的最后一个片段（笔记的直接父文件夹）。',
+	'breadcrumb_highlight_desc': '将强调色应用于路径的最后一个片段。',
 	'breadcrumb_highlight_color_name': '文件夹高亮颜色',
-	'breadcrumb_highlight_color_desc': '高亮的自定义颜色（留空为默认主题强调色）。',
-	'badge_color_name': '更新徽章颜色',
-	'badge_color_desc': '徽章背景的自定义颜色（留空为默认值）。',
-	'layout_style_name': '标题布局',
-	'layout_style_desc': 'Wiki 样式将更新徽章与面包屑导航一起放置在顶部。Blog 样式将所有内容放置在标题下方。',
+	'breadcrumb_highlight_color_desc': '自定义高亮颜色。留空 = 主题强调色。',
+	'badge_color_name': '更新标签颜色',
+	'badge_color_desc': '标签背景颜色。留空 = 默认颜色。',
+	'layout_style_name': '页眉布局',
+	'layout_style_desc': 'Wiki：更新标签在右上角。Blog：所有元数据在标题下方。',
 	'layout_style_wiki': 'Wiki 样式',
 	'layout_style_blog': 'Blog 样式',
 	'header_font_size_name': '元数据大小',
-	'header_font_size_desc': '元数据文本和徽章的大小，单位为 "rem"。默认：0.75。',
+	'header_font_size_desc': '默认：0.75。',
 	'header_font_size_placeholder': '0.75',
 
 	// ================================================================
-	// SETTINGS — Frontmatter properties
+	// SETTINGS — Frontmatter 属性
 	// ================================================================
 	'date_field_name': '创建日期',
-	'date_field_desc': '包含创建或发布日期的 YAML 键（例如 "date"、"published"）。',
+	'date_field_desc': '创建或发布日期的 YAML 键。例如：date、published。',
 	'date_field_placeholder': '日期',
 	'last_updated_field_name': '更新日期',
-	'last_updated_field_desc': '包含最后修改日期的 YAML 键（例如 "updated"、"modified"）。',
+	'last_updated_field_desc': '最后修改日期的 YAML 键。例如：updated、modified。',
 	'last_updated_field_placeholder': '更新',
 
 	// ================================================================
-	// SETTINGS — Date and reading
+	// SETTINGS — 日期与阅读
 	// ================================================================
 	'date_locale_name': '格式化语言',
 	'date_locale_desc': '显示日期时使用的语言环境。',
 	'short_date_name': '缩写月份名称',
-	'short_date_desc': '以较短的格式显示月份。',
+	'short_date_desc': '例如："1月"而非"一月"。',
 
 	'custom_date_format_name': '自定义格式',
-	'custom_date_format_desc': '使用 <a href="https://momentjs.com/docs/#/displaying/format/">Moment.js</a> 语法的自定义格式。留空 = 区域默认值。',
+	'custom_date_format_desc': '通过 <a href="https://momentjs.com/docs/#/displaying/format/">Moment.js</a> 自定义日期格式。留空 = 区域默认值。',
 	'custom_date_format_placeholder': '例如 DD/MM/YYYY',
 	'show_reading_time_name': '显示阅读时间',
-	'show_reading_time_desc': '在日期旁边显示估计的阅读时间。',
+	'show_reading_time_desc': '显示在日期旁边。',
 	'wpm_name': '阅读速度',
 	'wpm_desc': '用于计算估计时间的每分钟字数。默认：200。',
 	'wpm_placeholder': '200',
-	'show_last_updated_name': '显示更新徽章',
-	'show_last_updated_desc': '当笔记在创建后被修改时显示一个徽章。',
+	'show_last_updated_name': '显示更新标签',
+	'show_last_updated_desc': '当笔记在创建后被修改时显示最后修改日期。',
 
 	// ================================================================
-	// SETTINGS — Locale dropdown options
+	// SETTINGS — 语言下拉选项
 	// ================================================================
 	'locale_en_us': 'English (US)',
 	'locale_en_gb': 'English (UK)',
@@ -87,17 +87,17 @@ export const zhCN = {
 	'locale_tr': 'Türkçe',
 
 	// ================================================================
-	// SETTINGS — Custom fields
+	// SETTINGS — 自定义字段
 	// ================================================================
 	'add_field_name': '新字段',
-	'add_field_desc': '在标题下方显示一个额外的 frontmatter 属性。',
+	'add_field_desc': '将 frontmatter 属性添加到笔记页眉。',
 	'add_field_button': '添加',
 	'manage_fields_name': '管理字段',
-	'manage_fields_desc': '编辑样式或删除现有字段。',
+	'manage_fields_desc': '编辑或删除已配置的字段。',
 	'manage_fields_button': '管理',
 
 	// ================================================================
-	// FIELD EDITOR MODAL
+	// 字段编辑器模态框
 	// ================================================================
 	'field_editor_title_add': '添加字段',
 	'field_editor_title_edit': '编辑字段',
@@ -105,12 +105,12 @@ export const zhCN = {
 	'field_key_desc': '笔记 frontmatter 中的属性名称。',
 	'field_key_placeholder': '作者',
 	'field_label_name': '显示标签',
-	'field_label_desc': '在值之前显示的文本（启用 "显示标签" 时可见）。',
+	'field_label_desc': '在字段值之前显示的文本。',
 	'field_label_placeholder': '作者',
 	'field_show_label_name': '显示标签',
-	'field_show_label_desc': '在字段值之前显示标签。',
+	'field_show_label_desc': '显示在字段值之前。',
 	'field_position_name': '位置',
-	'field_position_desc': '将此字段放置在标题的上方或下方。',
+	'field_position_desc': '定义字段显示在标题上方还是下方。',
 	'field_position_below': '标题下方',
 	'field_position_above': '标题上方',
 	'save_button': '保存',
@@ -119,12 +119,12 @@ export const zhCN = {
 	'field_added': '字段 "{key}" 已创建。',
 	'field_updated': '字段 "{key}" 已更新。',
 	'field_folder_scope_name': '在文件夹中隐藏',
-	'field_folder_scope_desc': '如果设置，该字段将在这些文件夹内的笔记中隐藏。使用逗号分隔多个文件夹。留空以在所有地方显示。',
+	'field_folder_scope_desc': '在指定文件夹中的笔记隐藏此字段。多个文件夹用逗号分隔。留空 = 所有地方显示。',
 	'field_folder_scope_placeholder': '输入文件夹名称...',
 	'field_folder_scope_excluded_label': '隐藏于',
 
 	// ================================================================
-	// FIELD MANAGER MODAL
+	// 字段管理器模态框
 	// ================================================================
 	'field_manager_title': '管理字段',
 	'field_manager_count': '{count} 个字段',
@@ -138,7 +138,7 @@ export const zhCN = {
 	'field_deleted': '字段 "{name}" 已删除。',
 
 	// ================================================================
-	// METADATA HEADER — Runtime labels
+	// 元数据页眉 — 运行时标签
 	// ================================================================
 	'min_read': '分钟阅读',
 	'last_updated': '最后更新',
@@ -148,22 +148,22 @@ export const zhCN = {
 	// BASES ICONS
 	// ================================================================
 	'section_bases_icons': '表格图标',
-	'bases_icons_notice': '此样式仅在视图模式设置为表格时影响 Bases 插件的属性标题。',
+	'bases_icons_notice': '仅适用于 Bases 插件表格模式下的列标题。',
 	'bases_icon_label': '图标：',
 	'add_bases_icon_name': '新属性图标',
-	'add_bases_icon_desc': '设置要显示在特定属性标题中的自定义图标。',
+	'add_bases_icon_desc': '为表格模式下的属性标题设置图标。',
 	'add_bases_icon_button': '添加',
 	'manage_bases_icons_name': '管理图标',
-	'manage_bases_icons_desc': '编辑或删除先前创建的图标配置。',
+	'manage_bases_icons_desc': '编辑或删除已配置的图标。',
 	'manage_bases_icons_button': '管理',
 	
 	'bases_icons_title': '管理图标',
 	'bases_icon_editor_title_add': '添加图标',
 	'bases_icon_editor_title_edit': '编辑图标',
 	'bases_icon_property': '属性名称',
-	'bases_icon_property_desc': '表格中确切的属性名称（例如 status, category）。',
+	'bases_icon_property_desc': '表格中确切的属性名称。例如：status、category。',
 	'bases_icon_name': '图标',
-	'bases_icon_name_desc': '要在标题中显示的选定图标。',
+	'bases_icon_name_desc': '显示在列标题中的图标。',
 	
 	'bases_icon_property_required': '请输入字段的 YAML 键。',
 	'bases_icon_name_required': '请选择一个图标。',
@@ -177,33 +177,33 @@ export const zhCN = {
 	'icon_picker_placeholder': '搜索图标...',
 
 	// ================================================================
-	// SETTINGS — Scroll Progress
+	// SETTINGS — 滚动进度
 	// ================================================================
 	'scroll_progress_bar_name': '滚动进度条',
 	'scroll_progress_bar_desc': '在笔记顶部显示阅读进度条。',
-	'scroll_progress_color_name': '滚动进度颜色',
-	'scroll_progress_color_desc': '自定义颜色（留空为默认强调色）。',
+	'scroll_progress_color_name': '进度条颜色',
+	'scroll_progress_color_desc': '进度条颜色。留空 = 默认强调色。',
 
 	// ================================================================
-	// DATA MANAGEMENT (IMPORT/EXPORT)
+	// 数据管理（导入/导出）
 	// ================================================================
 	'section_data_management_title': '数据管理',
 	'export_title': '导出设置',
-	'export_desc': '将当前插件设置复制到剪贴板。',
+	'export_desc': '将当前插件设置导出到剪贴板。',
 	'export_button': '导出',
 	'import_title': '导入设置',
-	'import_desc': '粘贴先前导出的设置 JSON 以应用它。',
+	'import_desc': '从先前导出的 JSON 应用设置。',
 	'import_button': '导入',
 
 	'export_modal_title': '导出设置',
 	'copy_clipboard_button': '复制到剪贴板',
-	'copy_clipboard_success': '设置已成功复制到剪贴板！',
+	'copy_clipboard_success': '设置复制成功！',
 	'export_error': '复制到剪贴板失败。',
 
 	'import_modal_title': '导入设置',
 	'import_paste_placeholder': '在此处粘贴您的设置 JSON...',
-	'import_empty_notice': '请粘贴您的设置 JSON。',
+	'import_empty_notice': '请在导入前粘贴设置 JSON。',
 	'import_invalid_json': '无效的 JSON 格式。',
-	'import_error': '提供的 JSON 不包含有效的设置。',
+	'import_error': 'JSON 不包含有效的设置。',
 	'import_success': '设置导入成功！',
 };
