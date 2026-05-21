@@ -1,11 +1,3 @@
-/**
- * A user-defined frontmatter field to render in the metadata header.
- * Display type is auto-detected from the value content.
- */
-export interface BasesIcon {
-	property: string;
-	icon: string;
-}
 
 export interface CustomField {
 	/** Frontmatter key to read (e.g. "author", "status") */
@@ -49,8 +41,7 @@ export interface RunningHeadSettings {
 	customFields: CustomField[];
 	/** Custom date format string using Moment.js syntax */
 	customDateFormat: string;
-	/** Custom icons for Bases plugin table headers */
-	basesIcons: BasesIcon[];
+
 	/** Whether to show the folder breadcrumb above the title */
 	showBreadcrumb: boolean;
 	/** Whether to highlight the last breadcrumb segment with the accent color */
@@ -78,7 +69,7 @@ export const DEFAULT_SETTINGS: RunningHeadSettings = {
 	badgeFontSize: 0.75,
 	customFields: [],
 	customDateFormat: "",
-	basesIcons: [],
+
 	showBreadcrumb: false,
 	breadcrumbHighlightLast: false,
 	showScrollProgress: false,

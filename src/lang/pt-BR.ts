@@ -144,39 +144,7 @@ export const ptBR = {
 	'last_updated': 'Atualizado em',
 	'field_already_exists': 'O campo "{key}" já existe.',
 
-	// ================================================================
-	// BASES ICONS
-	// ================================================================
-	'section_bases_icons': 'Ícones das tabelas',
-	'bases_icons_notice': 'Aplica-se apenas aos cabeçalhos de colunas do plugin Bases no modo tabela.',
-	'bases_icon_label': 'Ícone:',
-	'add_bases_icon_name': 'Novo ícone de propriedade',
-	'add_bases_icon_desc': 'Define um ícone para o cabeçalho de uma propriedade no modo tabela.',
-	'add_bases_icon_button': 'Adicionar',
-	'manage_bases_icons_name': 'Gerenciar ícones',
-	'manage_bases_icons_desc': 'Edite ou remova os ícones configurados.',
-	'manage_bases_icons_button': 'Gerenciar',
-	
-	'bases_icons_title': 'Gerenciar ícones',
-	'bases_icon_editor_title_add': 'Adicionar ícone',
-	'bases_icon_editor_title_edit': 'Editar ícone',
-	'bases_icon_property': 'Nome da propriedade',
-	'bases_icon_property_desc': 'Nome exato da propriedade na tabela. Ex: status, category.',
-	'bases_icon_name': 'Ícone',
-	'bases_icon_name_desc': 'Ícone exibido no cabeçalho da coluna.',
-	
-	'bases_icon_property_required': 'Informe a chave YAML do campo.',
-	'bases_icon_name_required': 'Selecione um ícone.',
-	'bases_icon_added': 'Ícone de "{property}" criado.',
-	'bases_icon_updated': 'Ícone de "{property}" atualizado.',
-	'bases_icon_deleted': 'Ícone de "{property}" removido.',
-	'existing_bases_icons': '{count} ícone(s)',
-	'no_bases_icons': 'Nenhum ícone adicionado ainda.',
-	
-	'add_button': 'Selecionar ícone',
-	'icon_picker_placeholder': 'Buscar ícone...',
-
-	// ================================================================
+// ================================================================
 	// SETTINGS — Scroll Progress
 	// ================================================================
 	'scroll_progress_bar_name': 'Barra de progresso de rolagem',

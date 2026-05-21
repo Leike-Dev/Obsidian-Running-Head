@@ -22,11 +22,17 @@ import { createMetadataHeaderEl, removeExistingHeader } from "./dom-builder";
  * @param plugin - Reference to the plugin instance (for settings + app access).
  */
 export async function injectMetadataHeader(plugin: RunningHeadPlugin): Promise<void> {
-	const view = plugin.app.workspace.getActiveViewOfType(MarkdownView);
-	if (!view) {
-		return;
-	}
+	const leaves = plugin.app.workspace.getLeavesOfType("markdown");
+	const promises = leaves.map((leaf) => {
+		if (leaf.view instanceof MarkdownView) {
+			return injectMetadataHeaderForView(plugin, leaf.view);
+		}
+		return Promise.resolve();
+	});
+	await Promise.all(promises);
+}
 
+async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: MarkdownView): Promise<void> {
 	const file = view.file;
 	if (!file || !(file instanceof TFile)) {
 		return;
@@ -88,7 +94,7 @@ export async function injectMetadataHeader(plugin: RunningHeadPlugin): Promise<v
 			contentEl.querySelector(".markdown-source-view") ??
 			contentEl;
 
-		const tempFallback = activeDocument.createElement("div");
+		const tempFallback = contentEl.ownerDocument.createElement("div");
 		const fallbackEl = createMetadataHeaderEl(tempFallback, {
 			formattedDate,
 			readingTime,
@@ -184,7 +190,7 @@ export async function injectMetadataHeader(plugin: RunningHeadPlugin): Promise<v
 	if (isWikiStyle) {
 		// Wiki Style: Date+Badge Above Title, Breadcrumb Below Title
 		if (hasDateContent) {
-			const tempDate = activeDocument.createElement("div");
+			const tempDate = contentEl.ownerDocument.createElement("div");
 			const dateEl = createMetadataHeaderEl(tempDate, dateOptions);
 			inlineTitle.insertAdjacentElement("beforebegin", dateEl);
 			topAnchor = dateEl;
@@ -208,7 +214,7 @@ export async function injectMetadataHeader(plugin: RunningHeadPlugin): Promise<v
 		}
 
 		if (hasDateContent) {
-			const tempDate = activeDocument.createElement("div");
+			const tempDate = contentEl.ownerDocument.createElement("div");
 			const dateEl = createMetadataHeaderEl(tempDate, dateOptions);
 			inlineTitle.insertAdjacentElement("afterend", dateEl);
 			bottomAnchor = dateEl;
@@ -217,7 +223,7 @@ export async function injectMetadataHeader(plugin: RunningHeadPlugin): Promise<v
 
 	// Custom fields "above" — ABOVE the topmost element (or the title)
 	if (hasAboveContent) {
-		const tempAbove = activeDocument.createElement("div");
+		const tempAbove = contentEl.ownerDocument.createElement("div");
 		const aboveEl = createMetadataHeaderEl(tempAbove, aboveOptions);
 		const anchor = topAnchor ?? inlineTitle;
 		anchor.insertAdjacentElement("beforebegin", aboveEl);
@@ -225,7 +231,7 @@ export async function injectMetadataHeader(plugin: RunningHeadPlugin): Promise<v
 
 	// Custom fields "below" — BELOW the bottommost element (or the title)
 	if (hasBelowContent) {
-		const tempBelow = activeDocument.createElement("div");
+		const tempBelow = contentEl.ownerDocument.createElement("div");
 		const belowEl = createMetadataHeaderEl(tempBelow, belowOptions);
 		bottomAnchor.insertAdjacentElement("afterend", belowEl);
 	}
