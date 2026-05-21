@@ -1,70 +1,70 @@
 export const es = {
 	// ================================================================
-	// SETTINGS — Section headings
+	// SETTINGS — Encabezados de sección
 	// ================================================================
-	'section_title': 'Encabezado',
+	'section_title': 'Encabezado y apariencia',
 	'section_appearance': 'Apariencia',
 	'section_frontmatter_properties': 'Propiedades',
 	'section_date': 'Fecha y lectura',
 	'section_custom_fields': 'Campos personalizados',
 
 	// ================================================================
-	// SETTINGS — Appearance
+	// SETTINGS — Apariencia
 	// ================================================================
 	'toggles_section_name': 'Componentes de la interfaz',
-	'toggles_section_desc': 'Habilite o deshabilite elementos visuales en el encabezado.',
+	'toggles_section_desc': 'Active o desactive los componentes visuales del encabezado.',
 	'colors_section_name': 'Colores personalizados',
-	'colors_section_desc': 'Opciones de color para el resaltado, la barra de progreso y los badges.',
+	'colors_section_desc': 'Defina colores para resaltado, barra de progreso y etiquetas.',
 	'title_font_size_name': 'Tamaño del título',
-	'title_font_size_desc': 'Tamaño del título principal, en "em". Por defecto: 3.',
+	'title_font_size_desc': 'Por defecto: 3.',
 	'title_font_size_placeholder': '3',
-	'breadcrumb_toggle_name': 'Breadcrumb de carpeta',
-	'breadcrumb_toggle_desc': 'Muestra la ruta de carpeta de la nota como un breadcrumb clicable encima del título. Oculto para notas en la raíz del vault.',
+	'breadcrumb_toggle_name': 'Ruta de la nota',
+	'breadcrumb_toggle_desc': 'Muestra la ruta de carpetas de la nota encima del título. Oculto en notas de la raíz del vault.',
 	'breadcrumb_highlight_name': 'Resaltar carpeta actual',
-	'breadcrumb_highlight_desc': 'Aplica el color de acento al último segmento del breadcrumb (la carpeta directa de la nota).',
-	'breadcrumb_highlight_color_name': 'Color de resaltado de la carpeta',
-	'breadcrumb_highlight_color_desc': 'Color personalizado para el resaltado (dejar vacío para usar el color de acento del tema).',
-	'badge_color_name': 'Color del badge de actualización',
-	'badge_color_desc': 'Color personalizado para el fondo del badge (dejar vacío para usar el predeterminado).',
+	'breadcrumb_highlight_desc': 'Aplica el color de acento al último segmento de la ruta.',
+	'breadcrumb_highlight_color_name': 'Color de resaltado de carpeta',
+	'breadcrumb_highlight_color_desc': 'Color de resaltado personalizado. Vacío = color de acento del tema.',
+	'badge_color_name': 'Color de la etiqueta de actualización',
+	'badge_color_desc': 'Color de fondo de la etiqueta. Vacío = color predeterminado.',
 	'layout_style_name': 'Diseño del encabezado',
-	'layout_style_desc': 'El estilo Wiki coloca el badge de actualización en la parte superior derecha. El estilo Blog coloca todo debajo del título.',
+	'layout_style_desc': 'Wiki: etiqueta de actualización arriba a la derecha. Blog: todos los metadatos debajo del título.',
 	'layout_style_wiki': 'Estilo Wiki',
 	'layout_style_blog': 'Estilo Blog',
 	'header_font_size_name': 'Tamaño de los metadatos',
-	'header_font_size_desc': 'Tamaño de textos y badges de metadatos, en "rem". Por defecto: 0.75.',
+	'header_font_size_desc': 'Por defecto: 0.75.',
 	'header_font_size_placeholder': '0.75',
 
 	// ================================================================
-	// SETTINGS — Frontmatter properties
+	// SETTINGS — Propiedades del frontmatter
 	// ================================================================
 	'date_field_name': 'Fecha de creación',
-	'date_field_desc': 'Clave YAML con la fecha de creación o publicación (ej: "date", "published").',
+	'date_field_desc': 'Clave YAML de la fecha de creación o publicación. Ej: date, published.',
 	'date_field_placeholder': 'Fecha',
 	'last_updated_field_name': 'Fecha de actualización',
-	'last_updated_field_desc': 'Clave YAML con la fecha de última modificación (ej: "updated", "modified").',
+	'last_updated_field_desc': 'Clave YAML de la última modificación. Ej: updated, modified.',
 	'last_updated_field_placeholder': 'Actualizado',
 
 	// ================================================================
-	// SETTINGS — Date and reading
+	// SETTINGS — Fecha y lectura
 	// ================================================================
 	'date_locale_name': 'Idioma de formato',
 	'date_locale_desc': 'Idioma usado al mostrar fechas.',
 	'short_date_name': 'Abreviar nombres de meses',
-	'short_date_desc': 'Muestra el mes en un formato más corto.',
+	'short_date_desc': 'Ej: "ene." en vez de "enero".',
 
 	'custom_date_format_name': 'Formato personalizado',
-	'custom_date_format_desc': 'Formato personalizado con sintaxis de <a href="https://momentjs.com/docs/#/displaying/format/">Moment.js</a>. Vacío = predeterminado del idioma.',
+	'custom_date_format_desc': 'Formato de fecha personalizado vía <a href="https://momentjs.com/docs/#/displaying/format/">Moment.js</a>. Vacío = predeterminado del idioma.',
 	'custom_date_format_placeholder': 'ej. DD/MM/YYYY',
 	'show_reading_time_name': 'Mostrar tiempo de lectura',
-	'show_reading_time_desc': 'Tiempo estimado de lectura mostrado junto a la fecha.',
+	'show_reading_time_desc': 'Se muestra junto a la fecha.',
 	'wpm_name': 'Velocidad de lectura',
 	'wpm_desc': 'Palabras por minuto para calcular el tiempo estimado. Por defecto: 200.',
 	'wpm_placeholder': '200',
-	'show_last_updated_name': 'Mostrar badge de actualización',
-	'show_last_updated_desc': 'Muestra un badge cuando la nota fue modificada después de la creación.',
+	'show_last_updated_name': 'Mostrar etiqueta de actualización',
+	'show_last_updated_desc': 'Muestra la fecha de última modificación cuando la nota fue alterada después de su creación.',
 
 	// ================================================================
-	// SETTINGS — Locale dropdown options
+	// SETTINGS — Opciones del menú de idioma
 	// ================================================================
 	'locale_en_us': 'English (US)',
 	'locale_en_gb': 'English (UK)',
@@ -87,17 +87,17 @@ export const es = {
 	'locale_tr': 'Türkçe',
 
 	// ================================================================
-	// SETTINGS — Custom fields
+	// SETTINGS — Campos personalizados
 	// ================================================================
 	'add_field_name': 'Nuevo campo',
-	'add_field_desc': 'Muestra una propiedad extra de frontmatter debajo del título.',
+	'add_field_desc': 'Añade una propiedad del frontmatter al encabezado de la nota.',
 	'add_field_button': 'Añadir',
 	'manage_fields_name': 'Gestionar campos',
-	'manage_fields_desc': 'Editar estilos o eliminar campos existentes.',
+	'manage_fields_desc': 'Edite o elimine los campos configurados.',
 	'manage_fields_button': 'Gestionar',
 
 	// ================================================================
-	// FIELD EDITOR MODAL
+	// MODAL DEL EDITOR DE CAMPOS
 	// ================================================================
 	'field_editor_title_add': 'Añadir campo',
 	'field_editor_title_edit': 'Editar campo',
@@ -105,26 +105,26 @@ export const es = {
 	'field_key_desc': 'Nombre de la propiedad en el frontmatter de la nota.',
 	'field_key_placeholder': 'Autor',
 	'field_label_name': 'Etiqueta de visualización',
-	'field_label_desc': 'Texto mostrado antes del valor (visible cuando "mostrar etiqueta" está activo).',
+	'field_label_desc': 'Texto mostrado antes del valor del campo.',
 	'field_label_placeholder': 'Autor',
 	'field_show_label_name': 'Mostrar etiqueta',
-	'field_show_label_desc': 'Muestra la etiqueta antes del valor del campo.',
+	'field_show_label_desc': 'Se muestra antes del valor del campo.',
 	'field_position_name': 'Posición',
-	'field_position_desc': 'Colocar este campo encima o debajo del título.',
+	'field_position_desc': 'Define si el campo aparece encima o debajo del título.',
 	'field_position_below': 'Debajo del título',
 	'field_position_above': 'Encima del título',
 	'save_button': 'Guardar',
 	'cancel_button': 'Cancelar',
-	'field_key_required': 'Introduce la clave YAML del campo.',
+	'field_key_required': 'Introduzca la clave YAML del campo.',
 	'field_added': 'Campo "{key}" creado.',
 	'field_updated': 'Campo "{key}" actualizado.',
 	'field_folder_scope_name': 'Ocultar en carpeta',
-	'field_folder_scope_desc': 'Si se establece, este campo se ocultará en las notas dentro de estas carpetas. Usa comas para separar varias carpetas. Déjalo vacío para mostrarlo en todas partes.',
-	'field_folder_scope_placeholder': 'Escribe el nombre de la carpeta...',
+	'field_folder_scope_desc': 'Oculta este campo en notas de las carpetas indicadas. Separe varias carpetas con comas. Vacío = mostrar en todas partes.',
+	'field_folder_scope_placeholder': 'Escriba el nombre de la carpeta...',
 	'field_folder_scope_excluded_label': 'Oculto en',
 
 	// ================================================================
-	// FIELD MANAGER MODAL
+	// MODAL DEL GESTOR DE CAMPOS
 	// ================================================================
 	'field_manager_title': 'Gestionar campos',
 	'field_manager_count': '{count} campo(s)',
@@ -138,9 +138,9 @@ export const es = {
 	'field_deleted': 'Campo "{name}" eliminado.',
 
 	// ================================================================
-	// METADATA HEADER — Runtime labels
+	// ENCABEZADO DE METADATOS — Etiquetas en tiempo de ejecución
 	// ================================================================
-	'min_read': 'Min de lectura',
+	'min_read': 'min de lectura',
 	'last_updated': 'Actualizado',
 	'field_already_exists': 'El campo "{key}" ya existe.',
 
@@ -148,28 +148,28 @@ export const es = {
 	// BASES ICONS
 	// ================================================================
 	'section_bases_icons': 'Iconos de tabla',
-	'bases_icons_notice': 'Este estilo solo afecta el encabezado de las propiedades del plugin Bases cuando el modo de vista es tabla.',
-	'bases_icon_label': 'Icono: ',
+	'bases_icons_notice': 'Se aplica solo a los encabezados de columnas del plugin Bases en modo tabla.',
+	'bases_icon_label': 'Icono:',
 	'add_bases_icon_name': 'Nuevo icono de propiedad',
-	'add_bases_icon_desc': 'Configura un icono personalizado para mostrar en el encabezado de una propiedad específica.',
+	'add_bases_icon_desc': 'Define un icono para el encabezado de una propiedad en modo tabla.',
 	'add_bases_icon_button': 'Añadir',
 	'manage_bases_icons_name': 'Gestionar iconos',
-	'manage_bases_icons_desc': 'Editar o eliminar configuraciones de iconos creadas previamente.',
+	'manage_bases_icons_desc': 'Edite o elimine los iconos configurados.',
 	'manage_bases_icons_button': 'Gestionar',
 	
 	'bases_icons_title': 'Gestionar iconos',
 	'bases_icon_editor_title_add': 'Añadir icono',
 	'bases_icon_editor_title_edit': 'Editar icono',
 	'bases_icon_property': 'Nombre de la propiedad',
-	'bases_icon_property_desc': 'El nombre exacto de la propiedad en la tabla (ej. status, category).',
+	'bases_icon_property_desc': 'Nombre exacto de la propiedad en la tabla. Ej: status, category.',
 	'bases_icon_name': 'Icono',
-	'bases_icon_name_desc': 'Icono seleccionado para mostrar en el encabezado.',
+	'bases_icon_name_desc': 'Icono mostrado en el encabezado de la columna.',
 	
-	'bases_icon_property_required': 'Introduce la clave YAML del campo.',
-	'bases_icon_name_required': 'Selecciona un icono.',
-	'bases_icon_added': 'Icono para "{property}" creado.',
-	'bases_icon_updated': 'Icono para "{property}" actualizado.',
-	'bases_icon_deleted': 'Icono para "{property}" eliminado.',
+	'bases_icon_property_required': 'Introduzca la clave YAML del campo.',
+	'bases_icon_name_required': 'Seleccione un icono.',
+	'bases_icon_added': 'Icono de "{property}" creado.',
+	'bases_icon_updated': 'Icono de "{property}" actualizado.',
+	'bases_icon_deleted': 'Icono de "{property}" eliminado.',
 	'existing_bases_icons': '{count} icono(s)',
 	'no_bases_icons': 'Ningún icono añadido aún.',
 	
@@ -181,29 +181,29 @@ export const es = {
 	// ================================================================
 	'scroll_progress_bar_name': 'Barra de progreso de desplazamiento',
 	'scroll_progress_bar_desc': 'Muestra una barra de progreso de lectura en la parte superior de la nota.',
-	'scroll_progress_color_name': 'Color del progreso de desplazamiento',
-	'scroll_progress_color_desc': 'Color personalizado (dejar vacío para usar el color de acento predeterminado).',
+	'scroll_progress_color_name': 'Color de la barra de progreso',
+	'scroll_progress_color_desc': 'Color de la barra de progreso. Vacío = color de acento predeterminado.',
 
 	// ================================================================
 	// DATA MANAGEMENT (IMPORT/EXPORT)
 	// ================================================================
 	'section_data_management_title': 'Gestión de datos',
 	'export_title': 'Exportar ajustes',
-	'export_desc': 'Copia los ajustes actuales del plugin al portapapeles.',
+	'export_desc': 'Exporta los ajustes actuales del plugin al portapapeles.',
 	'export_button': 'Exportar',
 	'import_title': 'Importar ajustes',
-	'import_desc': 'Pega un JSON de ajustes exportado previamente para aplicarlo.',
+	'import_desc': 'Aplica ajustes a partir de un JSON previamente exportado.',
 	'import_button': 'Importar',
 
 	'export_modal_title': 'Exportar ajustes',
 	'copy_clipboard_button': 'Copiar al portapapeles',
-	'copy_clipboard_success': '¡Ajustes copiados al portapapeles!',
+	'copy_clipboard_success': '¡Ajustes copiados con éxito!',
 	'export_error': 'Error al copiar al portapapeles.',
 
 	'import_modal_title': 'Importar ajustes',
-	'import_paste_placeholder': 'Pega tu JSON de ajustes aquí...',
-	'import_empty_notice': 'Por favor, pega tu JSON de ajustes.',
+	'import_paste_placeholder': 'Pegue su JSON de ajustes aquí...',
+	'import_empty_notice': 'Pegue el JSON de ajustes antes de importar.',
 	'import_invalid_json': 'Formato JSON no válido.',
-	'import_error': 'El JSON proporcionado no contiene ajustes válidos.',
+	'import_error': 'El JSON no contiene ajustes válidos.',
 	'import_success': '¡Ajustes importados con éxito!',
 };
