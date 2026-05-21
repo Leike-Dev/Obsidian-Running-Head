@@ -27,7 +27,7 @@ export const es = {
 	'badge_color_name': 'Color de la etiqueta de actualización',
 	'badge_color_desc': 'Color de fondo de la etiqueta. Vacío = color predeterminado.',
 	'layout_style_name': 'Diseño del encabezado',
-	'layout_style_desc': 'Wiki: etiqueta de actualización arriba a la derecha. Blog: todos los metadatos debajo del título.',
+	'layout_style_desc': 'Wiki: metadatos encima del título, ruta debajo. Blog: ruta encima del título, metadatos debajo.',
 	'layout_style_wiki': 'Estilo Wiki',
 	'layout_style_blog': 'Estilo Blog',
 	'header_font_size_name': 'Tamaño de los metadatos',

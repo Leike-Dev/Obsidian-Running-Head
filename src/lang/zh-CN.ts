@@ -27,7 +27,7 @@ export const zhCN = {
 	'badge_color_name': '更新标签颜色',
 	'badge_color_desc': '标签背景颜色。留空 = 默认颜色。',
 	'layout_style_name': '页眉布局',
-	'layout_style_desc': 'Wiki：更新标签在右上角。Blog：所有元数据在标题下方。',
+	'layout_style_desc': 'Wiki：元数据在标题上方，路径在下方。Blog：路径在标题上方，元数据在下方。',
 	'layout_style_wiki': 'Wiki 样式',
 	'layout_style_blog': 'Blog 样式',
 	'header_font_size_name': '元数据大小',

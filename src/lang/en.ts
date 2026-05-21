@@ -27,7 +27,7 @@ export const en = {
 	'badge_color_name': 'Update label color',
 	'badge_color_desc': 'Label background color. Empty = default color.',
 	'layout_style_name': 'Header layout',
-	'layout_style_desc': 'Wiki: update label at top right. Blog: all metadata below the title.',
+	'layout_style_desc': 'Wiki: metadata above the title, path below. Blog: path above the title, metadata below.',
 	'layout_style_wiki': 'Wiki style',
 	'layout_style_blog': 'Blog style',
 	'header_font_size_name': 'Metadata size',

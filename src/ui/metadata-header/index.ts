@@ -11,6 +11,11 @@ import { createMetadataHeaderEl, removeExistingHeader } from "./dom-builder";
 /**
  * Inject (or refresh) the metadata header into the active markdown view.
  *
+ * The exact layout depends on the configured `layoutStyle`:
+ * - **Wiki Style**: Places the date/badge row above the title, and the breadcrumb below.
+ * - **Blog Style**: Places the breadcrumb above the title, and the date/badge row below.
+ * Custom fields are appended either at the very top or the very bottom depending on their position setting.
+ *
  * This function is idempotent — it removes the previous header before
  * creating a new one.
  *
