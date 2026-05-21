@@ -72,8 +72,7 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 
 		const toggleIconToggles = togglesHeader.controlEl.createSpan({ cls: "running-head-dropdown-icon" });
 		setIcon(toggleIconToggles, isTogglesOpen ? "chevron-down" : "chevron-right");
-		// eslint-disable-next-line obsidianmd/no-static-styles-assignment
-		togglesHeader.settingEl.style.cursor = "pointer";
+		togglesHeader.settingEl.classList.add("running-head-clickable-header");
 
 		const togglesContainer = containerEl.createDiv({ cls: "running-head-dropdown-container" });
 		togglesContainer.style.display = isTogglesOpen ? "block" : "none";
@@ -171,8 +170,7 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 
 		const toggleIcon = colorsHeader.controlEl.createSpan({ cls: "running-head-dropdown-icon" });
 		setIcon(toggleIcon, isColorsOpen ? "chevron-down" : "chevron-right");
-		// eslint-disable-next-line obsidianmd/no-static-styles-assignment
-		colorsHeader.settingEl.style.cursor = "pointer";
+		colorsHeader.settingEl.classList.add("running-head-clickable-header");
 
 		const colorsContainer = containerEl.createDiv({ cls: "running-head-dropdown-container" });
 		colorsContainer.style.display = isColorsOpen ? "block" : "none";
