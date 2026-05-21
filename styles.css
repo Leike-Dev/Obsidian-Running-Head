@@ -407,22 +407,6 @@ body.is-phone .mod-settings .modal-button-container button {
     margin: 0;
 }
 
-/* ============================================================
-   SETTINGS NOTICES
-   ============================================================ */
-.running-head-bases-notice {
-    background-color: hsla(210, 80%, 55%, 0.12);
-    border: 1px solid hsla(210, 70%, 50%, 0.3);
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin: 8px 0 12px 0;
-    font-size: var(--font-ui-small);
-    color: var(--text-muted);
-}
-
-.running-head-bases-notice .warning-text {
-    margin: 0;
-}
 
 /* ============================================================
    BREADCRUMB & TOP ROW (WIKI STYLE)
