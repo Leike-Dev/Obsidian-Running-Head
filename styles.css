@@ -457,10 +457,14 @@ body.is-phone .workspace-leaf-content .running-head-metadata-header+.inline-titl
     align-items: center;
     flex-wrap: wrap;
     gap: 0.2rem;
-    margin-bottom: 0.35rem;
+    margin-bottom: 1rem;
     font-size: calc(var(--running-head-badge-size, 0.75rem) - 0.05rem);
     color: var(--text-faint);
     line-height: 1.4;
+}
+
+.running-head-breadcrumb:has(+ .inline-title) {
+    margin-bottom: 0.35rem;
 }
 
 .running-head-breadcrumb-separator {
