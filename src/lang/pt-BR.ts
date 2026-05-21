@@ -27,7 +27,7 @@ export const ptBR = {
 	'badge_color_name': 'Cor da etiqueta de atualização',
 	'badge_color_desc': 'Cor de fundo da etiqueta. Vazio = cor padrão.',
 	'layout_style_name': 'Layout do cabeçalho',
-	'layout_style_desc': 'Wiki: etiqueta de atualização no topo à direita. Blog: todos os metadados abaixo do título.',
+	'layout_style_desc': 'Wiki: metadados acima do título, caminho abaixo. Blog: caminho acima do título, metadados abaixo.',
 	'layout_style_wiki': 'Estilo Wiki',
 	'layout_style_blog': 'Estilo Blog',
 	'header_font_size_name': 'Tamanho dos metadados',

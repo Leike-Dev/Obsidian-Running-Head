@@ -27,7 +27,7 @@ export const fr = {
 	'badge_color_name': 'Couleur du libellé de mise à jour',
 	'badge_color_desc': 'Couleur d\'arrière-plan du libellé. Vide = couleur par défaut.',
 	'layout_style_name': 'Disposition de l\'en-tête',
-	'layout_style_desc': 'Wiki : libellé de mise à jour en haut à droite. Blog : toutes les métadonnées sous le titre.',
+	'layout_style_desc': 'Wiki : métadonnées au-dessus du titre, chemin en dessous. Blog : chemin au-dessus du titre, métadonnées en dessous.',
 	'layout_style_wiki': 'Style Wiki',
 	'layout_style_blog': 'Style Blog',
 	'header_font_size_name': 'Taille des métadonnées',
