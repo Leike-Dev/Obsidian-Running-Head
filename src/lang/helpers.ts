@@ -19,7 +19,8 @@ const localeMap: { [key: string]: Partial<typeof en> } = {
 	'zh-cn': zhCN,
 };
 
-const locale = window.localStorage.getItem('language') || 'en';
+import { moment } from 'obsidian';
+const locale = moment.locale();
 
 /**
  * Returns the localized string for the given translation key.

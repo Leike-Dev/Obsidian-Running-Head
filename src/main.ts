@@ -21,7 +21,7 @@ export default class RunningHeadPlugin extends Plugin {
 	async onload(): Promise<void> {
 		await this.loadSettings();
 
-		this.styleEl = document.createElement("style");
+		this.styleEl = createEl("style");
 		this.styleEl.id = "running-head-dynamic-styles";
 		document.head.appendChild(this.styleEl);
 		this.updateDynamicStyles();
