@@ -1,6 +1,6 @@
 export function hexToRgb(hex: string): { r: number, g: number, b: number } | null {
 	const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-	hex = hex.replace(shorthandRegex, (m, r, g, b) => {
+	hex = hex.replace(shorthandRegex, (_m: string, r: string, g: string, b: string) => {
 		return r + r + g + g + b + b;
 	});
 
