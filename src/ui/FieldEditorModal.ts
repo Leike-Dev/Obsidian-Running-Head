@@ -172,15 +172,20 @@ export class FieldEditorModal extends Modal {
 				excludedFolderInputEl = text.inputEl;
 
 				// Attach inline folder suggestions
-				new FolderSuggest(this.app, excludedFolderInputEl, (path) => {
-					const folders = this.fieldExcludedFolder.split(',').map(f => f.trim()).filter(f => f.length > 0);
-					if (!folders.includes(path)) {
-						folders.push(path);
-						this.fieldExcludedFolder = folders.join(', ');
-						renderFolders();
-					}
-					excludedFolderInputEl.value = "";
-				});
+				new FolderSuggest(
+					this.app, 
+					excludedFolderInputEl, 
+					(path) => {
+						const folders = this.fieldExcludedFolder.split(',').map(f => f.trim()).filter(f => f.length > 0);
+						if (!folders.includes(path)) {
+							folders.push(path);
+							this.fieldExcludedFolder = folders.join(', ');
+							renderFolders();
+						}
+						excludedFolderInputEl.value = "";
+					},
+					() => this.fieldExcludedFolder.split(',').map(f => f.trim()).filter(f => f.length > 0)
+				);
 			});
 			
 		excludedFolderSetting.settingEl.classList.add("running-head-modal-no-border");
