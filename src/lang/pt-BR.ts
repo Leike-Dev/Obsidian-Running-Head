@@ -2,7 +2,7 @@ export const ptBR = {
 	// ================================================================
 	// SETTINGS — Cabeçalhos de seção
 	// ================================================================
-	'section_title': 'Cabeçalho',
+	'section_title': 'Cabeçalho e visual',
 	'section_appearance': 'Aparência',
 	'section_frontmatter_properties': 'Propriedades',
 	'section_date': 'Data e leitura',
@@ -11,6 +11,10 @@ export const ptBR = {
 	// ================================================================
 	// SETTINGS — Aparência
 	// ================================================================
+	'toggles_section_name': 'Componentes da interface',
+	'toggles_section_desc': 'Ative ou desative elementos visuais do cabeçalho.',
+	'colors_section_name': 'Cores personalizadas',
+	'colors_section_desc': 'Opções de cores para destaque, barra de rolagem e badges.',
 	'title_font_size_name': 'Tamanho do título',
 	'title_font_size_desc': 'Tamanho do título principal, em "em". Padrão: 3.',
 	'title_font_size_placeholder': '3',

@@ -671,3 +671,102 @@ body.is-phone .running-head-scroll-progress {
     cursor: default;
     opacity: 0.85;
 }
+
+/* =========================================================================
+   DROPDOWN SETTINGS GROUP
+   ========================================================================= */
+
+/* When expanded, the header loses its bottom margin and bottom rounding */
+.setting-item.running-head-dropdown-header.is-expanded {
+	margin-bottom: 0 !important;
+	border-bottom-left-radius: 0 !important;
+	border-bottom-right-radius: 0 !important;
+	border-bottom: none !important;
+}
+
+/* The container holding the sub-items */
+.running-head-dropdown-container {
+	margin-bottom: var(--size-4-5);
+	/* We DO NOT set background here, so we don't break mobile themes */
+}
+
+/* The options inside the container */
+.running-head-dropdown-container .setting-item {
+	border: none;
+	border-top: var(--border-width) solid var(--background-modifier-border);
+	/* Let it use the native setting-item background! */
+	border-radius: 0;
+	padding: var(--size-4-4) var(--size-4-4);
+	margin-bottom: 0;
+	box-shadow: none !important;
+}
+
+.running-head-dropdown-container .setting-item:last-child {
+	border-bottom-left-radius: var(--radius-s) !important;
+	border-bottom-right-radius: var(--radius-s) !important;
+}
+
+.running-head-dropdown-container .setting-item:first-child {
+	border-top: var(--border-width) solid var(--background-modifier-border);
+}
+
+/* Explicitly guarantee visual deactivation (fading) for disabled settings */
+.running-head-dropdown-container .setting-item.is-disabled {
+	opacity: 0.5 !important;
+	pointer-events: none !important;
+}
+
+/* Mobile optimizations for color pickers and dropdown header so they look like Obsidian's native settings */
+body.is-phone .running-head-color-setting,
+body.is-phone .setting-item.running-head-dropdown-header {
+	flex-direction: row !important;
+	align-items: center !important;
+}
+
+body.is-phone .running-head-color-setting .setting-item-info,
+body.is-phone .setting-item.running-head-dropdown-header .setting-item-info {
+	flex: 1 1 auto;
+	margin-right: 12px;
+}
+
+body.is-phone .running-head-color-setting .setting-item-control,
+body.is-phone .setting-item.running-head-dropdown-header .setting-item-control {
+	width: auto !important;
+	margin-top: 0 !important;
+	justify-content: flex-end;
+}
+
+/* Dropdown icon styling */
+.running-head-dropdown-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--text-muted);
+}
+
+.running-head-dropdown-icon svg {
+	width: 18px;
+	height: 18px;
+	stroke-width: 2px;
+}
+
+/* Make the native input[type="color"] look like Obsidian's custom color square */
+.running-head-color-setting input[type="color"] {
+	width: 32px !important;
+	height: 32px !important;
+	border: none;
+	padding: 0;
+	border-radius: 5px;
+	cursor: pointer;
+	background-color: transparent;
+	flex-shrink: 0;
+}
+
+.running-head-color-setting input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+
+.running-head-color-setting input[type="color"]::-webkit-color-swatch {
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 4px;
+}

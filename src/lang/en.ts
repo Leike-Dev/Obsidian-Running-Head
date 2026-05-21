@@ -11,6 +11,10 @@ export const en = {
 	// ================================================================
 	// SETTINGS — Appearance
 	// ================================================================
+	'toggles_section_name': 'Interface components',
+	'toggles_section_desc': 'Enable or disable visual elements in the header.',
+	'colors_section_name': 'Custom colors',
+	'colors_section_desc': 'Color options for highlight, scrollbar, and badges.',
 	'title_font_size_name': 'Title font size',
 	'title_font_size_desc': 'Main title size, in "em". Default: 3.',
 	'title_font_size_placeholder': '3',
