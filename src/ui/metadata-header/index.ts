@@ -107,13 +107,13 @@ export async function injectMetadataHeader(plugin: RunningHeadPlugin): Promise<v
 	contentEl.style.setProperty('--running-head-title-size', `${settings.titleFontSize}em`);
 	contentEl.style.setProperty('--running-head-badge-size', `${settings.badgeFontSize}rem`);
 
-	// --- Date/badge options (always below the title) ---
+	// --- Date/badge options (can be above or below the title depending on layout) ---
 	const dateOptions: MetadataHeaderOptions = {
 		formattedDate,
 		readingTime,
 		formattedLastUpdated,
 		showReadingTime: settings.showReadingTime,
-		showLastUpdated: settings.showLastUpdated && settings.layoutStyle === "blog",
+		showLastUpdated: settings.showLastUpdated,
 		badgeFontSize: settings.badgeFontSize,
 		customFields: [],
 		frontmatter,
@@ -160,8 +160,7 @@ export async function injectMetadataHeader(plugin: RunningHeadPlugin): Promise<v
 	};
 
 	// Check if each section has any content to render
-	const willShowDateBelow = formattedDate || (formattedLastUpdated && settings.showLastUpdated && settings.layoutStyle === "blog");
-	const hasDateContent = willShowDateBelow;
+	const hasDateContent = !!(formattedDate || (formattedLastUpdated && settings.showLastUpdated));
 	const hasAboveContent = aboveFields.length > 0;
 	const hasBelowContent = belowFields.length > 0;
 
@@ -171,66 +170,59 @@ export async function injectMetadataHeader(plugin: RunningHeadPlugin): Promise<v
 	contentEl.querySelectorAll(`.${BREADCRUMB_CLASS}`).forEach((el) => el.remove());
 	contentEl.querySelectorAll(".running-head-top-row").forEach((el) => el.remove());
 
-	// 1. Top Row (Wiki Style) or Breadcrumb (Blog Style) — DIRECTLY above the title
 	const isWikiStyle = settings.layoutStyle === "wiki";
-	const showWikiBadge = isWikiStyle && settings.showLastUpdated && formattedLastUpdated;
 	const showBreadcrumb = settings.showBreadcrumb;
 
-	let topRowAnchor: Element | null = null;
+	let topAnchor: Element | null = null;
+	let bottomAnchor: Element = inlineTitle;
 
-	if (isWikiStyle && (showBreadcrumb || showWikiBadge)) {
-		const topRow = activeDocument.createElement("div");
-		topRow.classList.add("running-head-top-row");
+	if (isWikiStyle) {
+		// Wiki Style: Date+Badge Above Title, Breadcrumb Below Title
+		if (hasDateContent) {
+			const tempDate = activeDocument.createElement("div");
+			const dateEl = createMetadataHeaderEl(tempDate, dateOptions);
+			inlineTitle.insertAdjacentElement("beforebegin", dateEl);
+			topAnchor = dateEl;
+		}
 
 		if (showBreadcrumb) {
 			const breadcrumbEl = createBreadcrumbEl(file.path, plugin.app, settings.breadcrumbHighlightLast);
-			if (breadcrumbEl) topRow.appendChild(breadcrumbEl);
+			if (breadcrumbEl) {
+				inlineTitle.insertAdjacentElement("afterend", breadcrumbEl);
+				bottomAnchor = breadcrumbEl;
+			}
+		}
+	} else {
+		// Blog Style: Breadcrumb Above Title, Date+Badge Below Title
+		if (showBreadcrumb) {
+			const breadcrumbEl = createBreadcrumbEl(file.path, plugin.app, settings.breadcrumbHighlightLast);
+			if (breadcrumbEl) {
+				inlineTitle.insertAdjacentElement("beforebegin", breadcrumbEl);
+				topAnchor = breadcrumbEl;
+			}
 		}
 
-		if (showWikiBadge) {
-			const badge = activeDocument.createElement("div");
-			badge.classList.add("running-head-metadata-badge");
-			badge.textContent = `${t('last_updated', settings.dateLocale)}: ${formattedLastUpdated}`;
-			topRow.appendChild(badge);
-		}
-
-		if (topRow.hasChildNodes()) {
-			inlineTitle.insertAdjacentElement("beforebegin", topRow);
-			topRowAnchor = topRow;
-		}
-	} else if (showBreadcrumb) {
-		const breadcrumbEl = createBreadcrumbEl(file.path, plugin.app, settings.breadcrumbHighlightLast);
-		if (breadcrumbEl) {
-			inlineTitle.insertAdjacentElement("beforebegin", breadcrumbEl);
-			topRowAnchor = breadcrumbEl;
+		if (hasDateContent) {
+			const tempDate = activeDocument.createElement("div");
+			const dateEl = createMetadataHeaderEl(tempDate, dateOptions);
+			inlineTitle.insertAdjacentElement("afterend", dateEl);
+			bottomAnchor = dateEl;
 		}
 	}
 
-	// 2. Custom fields "above" — ABOVE the breadcrumb/top-row (or the title)
+	// Custom fields "above" — ABOVE the topmost element (or the title)
 	if (hasAboveContent) {
 		const tempAbove = activeDocument.createElement("div");
 		const aboveEl = createMetadataHeaderEl(tempAbove, aboveOptions);
-		const aboveAnchor = topRowAnchor ?? inlineTitle;
-		aboveAnchor.insertAdjacentElement("beforebegin", aboveEl);
+		const anchor = topAnchor ?? inlineTitle;
+		anchor.insertAdjacentElement("beforebegin", aboveEl);
 	}
 
-	// 3. Date/badge — DIRECTLY below the title (always)
-	if (hasDateContent) {
-		const tempDate = activeDocument.createElement("div");
-		const dateEl = createMetadataHeaderEl(tempDate, dateOptions);
-		inlineTitle.insertAdjacentElement("afterend", dateEl);
-	}
-
-	// 4. Custom fields "below" — BELOW the date/badge (or the title)
+	// Custom fields "below" — BELOW the bottommost element (or the title)
 	if (hasBelowContent) {
 		const tempBelow = activeDocument.createElement("div");
 		const belowEl = createMetadataHeaderEl(tempBelow, belowOptions);
-		// Find the date wrapper (if it exists) to insert below it
-		const dateWrapper = inlineTitle.nextElementSibling;
-		const belowAnchor = (dateWrapper && dateWrapper.classList.contains(HEADER_CLASS))
-			? dateWrapper
-			: inlineTitle;
-		belowAnchor.insertAdjacentElement("afterend", belowEl);
+		bottomAnchor.insertAdjacentElement("afterend", belowEl);
 	}
 }
 
