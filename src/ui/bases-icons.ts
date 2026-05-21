@@ -100,7 +100,13 @@ export function initializeBasesIconObserver(plugin: RunningHeadPlugin): { discon
 	refreshBasesViews();
 
 	return {
-		disconnect: () => observer.disconnect()
+		disconnect: () => {
+			if (refreshTimeout !== null) {
+				window.clearTimeout(refreshTimeout);
+				refreshTimeout = null;
+			}
+			observer.disconnect();
+		}
 	};
 }
 
