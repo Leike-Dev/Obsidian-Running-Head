@@ -77,7 +77,7 @@ export class BasesIconManagerModal extends Modal {
 		setIcon(iconSpan, iconConfig.icon);
 
 		// Vertical divider
-		const divider = infoSection.createSpan({ text: "|", cls: "running-head-manager-item-divider" });
+		infoSection.createSpan({ text: "|", cls: "running-head-manager-item-divider" });
 		
 		// Name
 		const nameRow = infoSection.createDiv({ cls: "running-head-manager-item-name" });

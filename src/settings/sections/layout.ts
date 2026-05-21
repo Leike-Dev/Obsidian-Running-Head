@@ -57,7 +57,9 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 		// ================================================================
 		// COLLAPSIBLE TOGGLES SECTION
 		// ================================================================
-		const isTogglesOpen = (tab as any).togglesExpanded ?? false;
+		interface TabWithState extends RunningHeadSettingTab { togglesExpanded?: boolean; colorsExpanded?: boolean; }
+		const tabState = tab as TabWithState;
+		const isTogglesOpen = tabState.togglesExpanded ?? false;
 
 		const togglesHeader = new Setting(containerEl)
 			.setName(t('toggles_section_name'))
@@ -70,14 +72,14 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 
 		const toggleIconToggles = togglesHeader.controlEl.createSpan({ cls: "running-head-dropdown-icon" });
 		setIcon(toggleIconToggles, isTogglesOpen ? "chevron-down" : "chevron-right");
-		togglesHeader.settingEl.style.cursor = "pointer";
+		togglesHeader.settingEl.setCssProps({ cursor: "pointer" });
 
 		const togglesContainer = containerEl.createDiv({ cls: "running-head-dropdown-container" });
 		togglesContainer.style.display = isTogglesOpen ? "block" : "none";
 
 		togglesHeader.settingEl.addEventListener("click", () => {
-			const newState = !(tab as any).togglesExpanded;
-			(tab as any).togglesExpanded = newState;
+			const newState = !tabState.togglesExpanded;
+			tabState.togglesExpanded = newState;
 			togglesContainer.style.display = newState ? "block" : "none";
 			toggleIconToggles.empty();
 			setIcon(toggleIconToggles, newState ? "chevron-down" : "chevron-right");
@@ -102,8 +104,8 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 					.onChange(async (value) => {
 						plugin.settings.showBreadcrumb = value;
 						await plugin.saveSettings();
-						if (highlightSetting) highlightSetting.setDisabled(!value);
-						if (highlightColorSetting) highlightColorSetting.setDisabled(!value || !plugin.settings.breadcrumbHighlightLast);
+						if (highlightSetting !== undefined) highlightSetting.setDisabled(!value);
+						if (highlightColorSetting !== undefined) highlightColorSetting.setDisabled(!value || !plugin.settings.breadcrumbHighlightLast);
 					})
 			);
 
@@ -116,7 +118,7 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 					.onChange(async (value) => {
 						plugin.settings.breadcrumbHighlightLast = value;
 						await plugin.saveSettings();
-						if (highlightColorSetting) highlightColorSetting.setDisabled(!plugin.settings.showBreadcrumb || !value);
+						if (highlightColorSetting !== undefined) highlightColorSetting.setDisabled(!plugin.settings.showBreadcrumb || !value);
 					})
 			);
 
@@ -132,7 +134,7 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 						plugin.settings.showScrollProgress = value;
 						await plugin.saveSettings();
 						plugin.scrollProgressManager?.setupListeners();
-						if (scrollColorSetting) scrollColorSetting.setDisabled(!value);
+						if (scrollColorSetting !== undefined) scrollColorSetting.setDisabled(!value);
 					})
 			);
 
@@ -145,7 +147,7 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 					.onChange(async (value) => {
 						plugin.settings.showLastUpdated = value;
 						await plugin.saveSettings();
-						if (badgeColorSetting) badgeColorSetting.setDisabled(!value);
+						if (badgeColorSetting !== undefined) badgeColorSetting.setDisabled(!value);
 					})
 			);
 
@@ -155,7 +157,7 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 		const isDark = document.body.classList.contains("theme-dark");
 		const defaultEmptyColor = isDark ? "#555555" : "#e0e0e0";
 
-		const isColorsOpen = (tab as any).colorsExpanded ?? false;
+		const isColorsOpen = tabState.colorsExpanded ?? false;
 
 		const colorsHeader = new Setting(containerEl)
 			.setName(t('colors_section_name'))
@@ -168,14 +170,14 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 
 		const toggleIcon = colorsHeader.controlEl.createSpan({ cls: "running-head-dropdown-icon" });
 		setIcon(toggleIcon, isColorsOpen ? "chevron-down" : "chevron-right");
-		colorsHeader.settingEl.style.cursor = "pointer";
+		colorsHeader.settingEl.setCssProps({ cursor: "pointer" });
 
 		const colorsContainer = containerEl.createDiv({ cls: "running-head-dropdown-container" });
 		colorsContainer.style.display = isColorsOpen ? "block" : "none";
 
 		colorsHeader.settingEl.addEventListener("click", () => {
-			const newState = !(tab as any).colorsExpanded;
-			(tab as any).colorsExpanded = newState;
+			const newState = !tabState.colorsExpanded;
+			tabState.colorsExpanded = newState;
 			colorsContainer.style.display = newState ? "block" : "none";
 			toggleIcon.empty();
 			setIcon(toggleIcon, newState ? "chevron-down" : "chevron-right");

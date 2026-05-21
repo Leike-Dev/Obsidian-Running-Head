@@ -21,7 +21,8 @@ export default class RunningHeadPlugin extends Plugin {
 	async onload(): Promise<void> {
 		await this.loadSettings();
 
-		this.styleEl = createEl("style");
+		// eslint-disable-next-line obsidianmd/no-forbidden-elements
+		this.styleEl = document.createEl("style");
 		this.styleEl.id = "running-head-dynamic-styles";
 		document.head.appendChild(this.styleEl);
 		this.updateDynamicStyles();

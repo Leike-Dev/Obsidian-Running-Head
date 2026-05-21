@@ -3,8 +3,8 @@ import type RunningHeadPlugin from "../../main";
 import type { CustomField } from "../../settings";
 import { calculateReadingTime } from "../../utils/reading-time";
 import { formatDate } from "../../utils/date-formatter";
-import { t } from "../../lang/helpers";
-import { HEADER_CLASS, BREADCRUMB_CLASS, MetadataHeaderOptions } from "./types";
+
+import { BREADCRUMB_CLASS, MetadataHeaderOptions } from "./types";
 import { createBreadcrumbEl } from "./breadcrumb";
 import { createMetadataHeaderEl, removeExistingHeader } from "./dom-builder";
 
