@@ -9,18 +9,27 @@ export class FolderSuggest extends AbstractInputSuggest<TFolder> {
 	private onChange: (value: string) => void;
 	private inputEl: HTMLInputElement;
 	private pluginApp: App;
+	private getExcludedFolders?: () => string[];
 
-	constructor(app: App, inputEl: HTMLInputElement, onChange: (value: string) => void) {
+	constructor(app: App, inputEl: HTMLInputElement, onChange: (value: string) => void, getExcludedFolders?: () => string[]) {
 		super(app, inputEl);
 		this.inputEl = inputEl;
 		this.pluginApp = app;
 		this.onChange = onChange;
+		this.getExcludedFolders = getExcludedFolders;
 	}
 
 	getSuggestions(query: string): TFolder[] {
 		const currentSegment = query.trim();
 
-		const folders = this.pluginApp.vault.getAllFolders();
+		let folders = this.pluginApp.vault.getAllFolders();
+		
+		// Filter out already selected folders
+		if (this.getExcludedFolders) {
+			const excluded = this.getExcludedFolders();
+			folders = folders.filter((f) => !excluded.includes(f.path));
+		}
+
 		if (!currentSegment) return folders.slice(0, 50);
 
 		const lowerQuery = currentSegment.toLowerCase();
@@ -34,8 +43,13 @@ export class FolderSuggest extends AbstractInputSuggest<TFolder> {
 	}
 
 	selectSuggestion(folder: TFolder): void {
-		this.setValue(folder.path);
+		// Do not set the value to the folder path, because we want it to clear 
+		// (which onChange does) and let the user select another one.
 		this.onChange(folder.path);
-		this.close();
+		
+		// Trigger an input event to refresh the suggestions list immediately
+		// without needing to click out and back in.
+		this.inputEl.focus();
+		this.inputEl.dispatchEvent(new Event("input"));
 	}
 }
