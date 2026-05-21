@@ -791,3 +791,11 @@ body.is-phone .modal .setting-item.running-head-icon-selector-setting .setting-i
     width: var(--line-width, 100%);
     margin-inline: var(--content-margin, auto);
 }
+
+/* =========================================================================
+   UTILITIES
+   ========================================================================= */
+
+.running-head-clickable-header {
+    cursor: pointer;
+}
