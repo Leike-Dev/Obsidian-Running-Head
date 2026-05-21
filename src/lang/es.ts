@@ -11,6 +11,10 @@ export const es = {
 	// ================================================================
 	// SETTINGS — Appearance
 	// ================================================================
+	'toggles_section_name': 'Componentes de la interfaz',
+	'toggles_section_desc': 'Habilite o deshabilite elementos visuales en el encabezado.',
+	'colors_section_name': 'Colores personalizados',
+	'colors_section_desc': 'Opciones de color para el resaltado, la barra de progreso y los badges.',
 	'title_font_size_name': 'Tamaño del título',
 	'title_font_size_desc': 'Tamaño del título principal, en "em". Por defecto: 3.',
 	'title_font_size_placeholder': '3',

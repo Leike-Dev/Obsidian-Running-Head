@@ -11,6 +11,10 @@ export const zhCN = {
 	// ================================================================
 	// SETTINGS — Appearance
 	// ================================================================
+	'toggles_section_name': '界面组件',
+	'toggles_section_desc': '启用或禁用标题中的可视元素。',
+	'colors_section_name': '自定义颜色',
+	'colors_section_desc': '用于高亮、进度条和徽章的颜色选项。',
 	'title_font_size_name': '标题大小',
 	'title_font_size_desc': '主标题大小，单位为 "em"。默认：3。',
 	'title_font_size_placeholder': '3',
