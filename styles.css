@@ -4,21 +4,30 @@
  */
 
 /* Utility: hide elements without inline style */
-.running-head-hidden {
-    display: none !important;
+body .running-head-hidden,
+.workspace-leaf-content .running-head-hidden {
+    display: none;
 }
 
-/* Increases inline title font size (fallback — overridden dynamically by plugin settings) */
+/* Increases inline title font size (highly specific to override themes) */
+body .workspace-leaf-content .inline-title,
+body .workspace-leaf-content .markdown-source-view.mod-cm6 .cm-sizer>.inline-title,
+body .workspace-leaf-content .markdown-preview-view .markdown-preview-sizer>.inline-title {
+    font-size: var(--running-head-title-size, 3em);
+    padding-top: 0;
+}
+
+/* Fallback line-height and margin (low specificity so themes can override) */
 .inline-title {
-    font-size: var(--running-head-title-size, 3em) !important;
     line-height: 1.2;
     margin-bottom: 20px;
 }
 
 /* Remove a linha inferior do título da página */
-body:not(.is-phone):not(.inline-title-divider-remove) .inline-title:not(.mk-inline-title) {
-    border-bottom: none !important;
-    box-shadow: none !important;
+body:not(.is-phone):not(.inline-title-divider-remove) .app-container .workspace-leaf-content .view-content .inline-title:not(.mk-inline-title),
+body:not(.is-phone):not(.inline-title-divider-remove) .app-container .workspace-leaf-content .markdown-source-view.mod-cm6 .cm-sizer>.inline-title:not(.mk-inline-title) {
+    border-bottom: none;
+    box-shadow: none;
 }
 
 
@@ -31,7 +40,7 @@ body:not(.is-phone):not(.inline-title-divider-remove) .inline-title:not(.mk-inli
 .running-head-metadata-header {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.55rem;
     margin-bottom: 1rem;
     flex-wrap: wrap;
 }
@@ -119,7 +128,7 @@ body:not(.is-phone):not(.inline-title-divider-remove) .inline-title:not(.mk-inli
 .running-head-custom-pills {
     display: flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.55rem;
     flex-wrap: wrap;
 }
 
@@ -131,67 +140,66 @@ body:not(.is-phone):not(.inline-title-divider-remove) .inline-title:not(.mk-inli
 
 /* Fallback pill style for .multi-select-pill in the header context.
    If Typify is installed, it overrides this with custom colors. */
-.running-head-metadata-header .multi-select-pill,
-.running-head-metadata-header .tag {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+.workspace-leaf-content :is(.running-head-metadata-header, .running-head-top-row, .running-head-breadcrumb) .multi-select-pill,
+.workspace-leaf-content :is(.running-head-metadata-header, .running-head-top-row, .running-head-breadcrumb) .tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font-size: var(--running-head-badge-size, 0.75rem);
     font-weight: 500;
-    padding: 0.15rem 0.55rem !important;
-    /* Unified, perfectly balanced padding */
+    padding: 0.15rem 0.55rem;
     border-radius: var(--tag-radius);
-    line-height: 1.4 !important;
+    line-height: 1.4;
     white-space: nowrap;
     cursor: default;
 
     /* Prevent native Obsidian max-width and flex from clipping */
-    max-width: none !important;
-    overflow: visible !important;
-    flex-shrink: 0 !important;
+    max-width: none;
+    overflow: visible;
+    flex-shrink: 0;
 }
 
-.running-head-metadata-header .multi-select-pill {
+:is(.running-head-metadata-header, .running-head-top-row, .running-head-breadcrumb) .multi-select-pill {
     background: var(--tag-background);
     color: var(--tag-color);
     border: var(--tag-border-width) solid var(--tag-border-color);
 }
 
 /* Hide any invisible pseudo-elements injected by themes on native tags */
-.running-head-metadata-header .tag::before,
-.running-head-metadata-header .tag::after {
-    display: none !important;
+.workspace-leaf-content :is(.running-head-metadata-header, .running-head-top-row, .running-head-breadcrumb) .tag::before,
+.workspace-leaf-content :is(.running-head-metadata-header, .running-head-top-row, .running-head-breadcrumb) .tag::after {
+    display: none;
 }
 
 /* Ensure Typify styled pills also get the extra space */
-.running-head-metadata-header .multi-select-pill.custom-status-icon-pill {
-    padding: 0.15rem 0.55rem !important;
+.workspace-leaf-content :is(.running-head-metadata-header, .running-head-top-row, .running-head-breadcrumb) .multi-select-pill.custom-status-icon-pill {
+    padding: 0.15rem 0.55rem;
 }
 
-.running-head-metadata-header .multi-select-pill-content {
-    max-width: none !important;
-    overflow: visible !important;
-    text-overflow: clip !important;
-    flex-shrink: 0 !important;
-    margin: 0 !important;
+.workspace-leaf-content :is(.running-head-metadata-header, .running-head-top-row, .running-head-breadcrumb) .multi-select-pill-content {
+    max-width: none;
+    overflow: visible;
+    text-overflow: clip;
+    flex-shrink: 0;
+    margin: 0;
     /* Neutralize native Obsidian right-margin */
-    padding: 0 !important;
+    padding: 0;
 }
 
-.running-head-metadata-header .multi-select-pill:hover {
+:is(.running-head-metadata-header, .running-head-top-row, .running-head-breadcrumb) .multi-select-pill:hover {
     background: var(--tag-background-hover);
     color: var(--tag-color-hover);
 }
 
 /* Internal links inside the header */
-.running-head-metadata-header .internal-link {
+:is(.running-head-metadata-header, .running-head-top-row, .running-head-breadcrumb) .internal-link {
     color: var(--link-color);
     font-size: calc(var(--running-head-badge-size, 0.75rem) + 0.05rem);
     text-decoration: none;
     cursor: pointer;
 }
 
-.running-head-metadata-header .internal-link:hover {
+:is(.running-head-metadata-header, .running-head-top-row, .running-head-breadcrumb) .internal-link:hover {
     color: var(--link-color-hover);
     text-decoration: none;
 }
@@ -316,50 +324,19 @@ body:not(.is-phone):not(.inline-title-divider-remove) .inline-title:not(.mk-inli
     gap: 6px;
 }
 
-/* ============================================================
-   MOBILE — TABLET
-   Moderate reductions for tablet-sized screens.
-   ============================================================ */
-
-body.is-tablet .inline-title {
-    font-size: calc(var(--running-head-title-size, 3em) * 0.73) !important;
-    margin-bottom: 14px;
-}
-
-body.is-tablet .running-head-metadata-header {
-    gap: 0.5rem;
-}
-
-body.is-tablet .running-head-metadata-date {
-    font-size: var(--running-head-badge-size, 0.75rem);
-}
-
-body.is-tablet .running-head-metadata-badge {
-    font-size: calc(var(--running-head-badge-size, 0.75rem) - 0.05rem);
-    padding: 3px 8px;
-}
-
-body.is-tablet .running-head-custom-text {
-    font-size: var(--running-head-badge-size, 0.75rem);
-}
-
-body.is-tablet .running-head-custom-badge {
-    font-size: calc(var(--running-head-badge-size, 0.75rem) - 0.05rem);
-    padding: 3px 8px;
-}
-
-body.is-tablet .running-head-custom-link {
-    font-size: var(--running-head-badge-size, 0.75rem);
-}
-
 
 /* ============================================================
    MOBILE — PHONE
    Compact layout for small screens.
    ============================================================ */
 
+body.is-phone .workspace-leaf-content .inline-title,
+body.is-phone .workspace-leaf-content .markdown-source-view.mod-cm6 .cm-sizer>.inline-title,
+body.is-phone .workspace-leaf-content .markdown-preview-view .markdown-preview-sizer>.inline-title {
+    font-size: calc(var(--running-head-title-size, 3em) * 0.6);
+}
+
 body.is-phone .inline-title {
-    font-size: calc(var(--running-head-title-size, 3em) * 0.6) !important;
     line-height: 1.15;
     margin-bottom: 10px;
 }
@@ -369,7 +346,6 @@ body.is-phone .running-head-metadata-header {
     flex-wrap: wrap;
     align-items: center;
     gap: 0.35rem;
-    margin-bottom: 0.75rem;
 }
 
 body.is-phone .running-head-metadata-date {
@@ -402,14 +378,14 @@ body.is-phone .running-head-custom-link {
     gap: 10px;
 }
 
-body.is-phone .modal-button-container {
+body.is-phone .mod-settings .modal-button-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-body.is-phone .modal-button-container button {
-    margin: 0 !important;
+body.is-phone .mod-settings .modal-button-container button {
+    margin: 0;
 }
 
 /* ============================================================
@@ -439,7 +415,7 @@ body.is-phone .modal-button-container button {
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.5rem;
     width: 100%;
     margin-bottom: 0.35rem;
 }
@@ -450,11 +426,11 @@ body.is-phone .modal-button-container button {
 }
 
 /* Fix massive gap on mobile between plugin elements and title */
-body.is-phone .running-head-top-row+.inline-title,
-body.is-phone .running-head-breadcrumb+.inline-title,
-body.is-phone .running-head-metadata-header+.inline-title {
-    margin-top: 0.20rem !important;
-    padding-top: 0 !important;
+body.is-phone .workspace-leaf-content .running-head-top-row+.inline-title,
+body.is-phone .workspace-leaf-content .running-head-breadcrumb+.inline-title,
+body.is-phone .workspace-leaf-content .running-head-metadata-header+.inline-title {
+    margin-top: 0.20rem;
+    padding-top: 0;
 }
 
 .running-head-breadcrumb {
@@ -528,8 +504,8 @@ body.is-phone .running-head-icon-selector-setting .setting-item-control {
 }
 
 /* Field Editor Layout Classes */
-.running-head-modal-no-border {
-    border-top: none !important;
+.mod-settings .running-head-modal-no-border {
+    border-top: none;
 }
 
 .running-head-modal-separator {
@@ -580,32 +556,29 @@ body.is-phone .running-head-icon-selector-setting .setting-item-control {
 }
 
 /* Responsive adjustments */
-body.is-tablet .running-head-breadcrumb {
-    font-size: calc(var(--running-head-badge-size, 0.75rem) - 0.1rem);
-}
-
 body.is-phone .running-head-breadcrumb {
     font-size: calc(var(--running-head-badge-size, 0.75rem) - 0.15rem);
 }
+
 /* =========================================================================
    SCROLL PROGRESS BAR
    ========================================================================= */
 
 .running-head-scroll-progress {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 3px;
-	background-color: var(--rh-scroll-bg, var(--interactive-accent));
-	transform-origin: left;
-	transform: scaleX(0);
-	z-index: 100;
-	pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--rh-scroll-bg, var(--interactive-accent));
+    transform-origin: left;
+    transform: scaleX(0);
+    z-index: 100;
+    pointer-events: none;
 }
 
 body.is-phone .running-head-scroll-progress {
-	height: 4px;
+    height: 4px;
 }
 
 /* =========================================================================
@@ -613,27 +586,37 @@ body.is-phone .running-head-scroll-progress {
    ========================================================================= */
 
 .multi-select-pill.running-head-boolean-pill.is-true {
-	background-color: rgba(var(--color-green-rgb, 16, 185, 129), 0.15);
-	color: var(--color-green);
-	border-color: rgba(var(--color-green-rgb, 16, 185, 129), 0.3);
+    background-color: color-mix(in srgb, var(--color-green) 15%, transparent);
+    color: var(--color-green);
+    border-color: color-mix(in srgb, var(--color-green) 30%, transparent);
 }
 
 .multi-select-pill.running-head-boolean-pill.is-false {
-	background-color: rgba(var(--color-red-rgb, 239, 68, 68), 0.15);
-	color: var(--color-red);
-	border-color: rgba(var(--color-red-rgb, 239, 68, 68), 0.3);
+    background-color: color-mix(in srgb, var(--color-red) 15%, transparent);
+    color: var(--color-red);
+    border-color: color-mix(in srgb, var(--color-red) 30%, transparent);
+}
+
+.multi-select-pill.running-head-boolean-pill.is-true:hover {
+    background-color: color-mix(in srgb, var(--color-green) 25%, transparent);
+    border-color: color-mix(in srgb, var(--color-green) 45%, transparent);
+}
+
+.multi-select-pill.running-head-boolean-pill.is-false:hover {
+    background-color: color-mix(in srgb, var(--color-red) 25%, transparent);
+    border-color: color-mix(in srgb, var(--color-red) 45%, transparent);
 }
 
 .multi-select-pill.running-head-boolean-pill .running-head-icon {
-	display: flex;
-	align-items: center;
-	margin-right: 6px;
+    display: flex;
+    align-items: center;
+    margin-right: 6px;
 }
 
 .multi-select-pill.running-head-boolean-pill .running-head-icon svg {
-	width: var(--icon-size, 14px);
-	height: var(--icon-size, 14px);
-	stroke-width: 2px;
+    width: var(--icon-size, 14px);
+    height: var(--icon-size, 14px);
+    stroke-width: 2px;
 }
 
 /* =========================================================================
@@ -677,96 +660,110 @@ body.is-phone .running-head-scroll-progress {
    ========================================================================= */
 
 /* When expanded, the header loses its bottom margin and bottom rounding */
-.setting-item.running-head-dropdown-header.is-expanded {
-	margin-bottom: 0 !important;
-	border-bottom-left-radius: 0 !important;
-	border-bottom-right-radius: 0 !important;
-	border-bottom: none !important;
+.mod-settings .setting-item.running-head-dropdown-header.is-expanded {
+    margin-bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: none;
 }
 
 /* The container holding the sub-items */
 .running-head-dropdown-container {
-	margin-bottom: var(--size-4-5);
-	/* We DO NOT set background here, so we don't break mobile themes */
+    margin-bottom: var(--size-4-5);
+    /* We DO NOT set background here, so we don't break mobile themes */
 }
 
 /* The options inside the container */
-.running-head-dropdown-container .setting-item {
-	border: none;
-	border-top: var(--border-width) solid var(--background-modifier-border);
-	/* Let it use the native setting-item background! */
-	border-radius: 0;
-	padding: var(--size-4-4) var(--size-4-4);
-	margin-bottom: 0;
-	box-shadow: none !important;
+.mod-settings .running-head-dropdown-container .setting-item {
+    border: none;
+    border-top: var(--border-width) solid var(--background-modifier-border);
+    /* Let it use the native setting-item background! */
+    border-radius: 0;
+    padding: var(--size-4-4) var(--size-4-4);
+    margin-bottom: 0;
+    box-shadow: none;
 }
 
-.running-head-dropdown-container .setting-item:last-child {
-	border-bottom-left-radius: var(--radius-s) !important;
-	border-bottom-right-radius: var(--radius-s) !important;
+.mod-settings .running-head-dropdown-container .setting-item:last-child {
+    border-bottom-left-radius: var(--radius-s);
+    border-bottom-right-radius: var(--radius-s);
 }
 
-.running-head-dropdown-container .setting-item:first-child {
-	border-top: var(--border-width) solid var(--background-modifier-border);
+.mod-settings .running-head-dropdown-container .setting-item:first-child {
+    border-top: var(--border-width) solid var(--background-modifier-border);
 }
 
 /* Explicitly guarantee visual deactivation (fading) for disabled settings */
-.running-head-dropdown-container .setting-item.is-disabled {
-	opacity: 0.5 !important;
-	pointer-events: none !important;
+.mod-settings .running-head-dropdown-container .setting-item.is-disabled {
+    opacity: 0.5;
+    pointer-events: none;
 }
 
 /* Mobile optimizations for color pickers and dropdown header so they look like Obsidian's native settings */
-body.is-phone .running-head-color-setting,
-body.is-phone .setting-item.running-head-dropdown-header {
-	flex-direction: row !important;
-	align-items: center !important;
+body.is-phone .mod-settings .running-head-color-setting,
+body.is-phone .mod-settings .setting-item.running-head-dropdown-header {
+    flex-direction: row;
+    align-items: center;
 }
 
-body.is-phone .running-head-color-setting .setting-item-info,
-body.is-phone .setting-item.running-head-dropdown-header .setting-item-info {
-	flex: 1 1 auto;
-	margin-right: 12px;
+body.is-phone .mod-settings .running-head-color-setting .setting-item-info,
+body.is-phone .mod-settings .setting-item.running-head-dropdown-header .setting-item-info {
+    flex: 1 1 auto;
+    margin-right: 12px;
 }
 
-body.is-phone .running-head-color-setting .setting-item-control,
-body.is-phone .setting-item.running-head-dropdown-header .setting-item-control {
-	width: auto !important;
-	margin-top: 0 !important;
-	justify-content: flex-end;
+body.is-phone .mod-settings .running-head-color-setting .setting-item-control,
+body.is-phone .mod-settings .setting-item.running-head-dropdown-header .setting-item-control {
+    width: auto;
+    margin-top: 0;
+    justify-content: flex-end;
 }
 
 /* Dropdown icon styling */
 .running-head-dropdown-icon {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
 }
 
 .running-head-dropdown-icon svg {
-	width: 18px;
-	height: 18px;
-	stroke-width: 2px;
+    width: 18px;
+    height: 18px;
+    stroke-width: 2px;
 }
 
 /* Make the native input[type="color"] look like Obsidian's custom color square */
-.running-head-color-setting input[type="color"] {
-	width: 32px !important;
-	height: 32px !important;
-	border: none;
-	padding: 0;
-	border-radius: 5px;
-	cursor: pointer;
-	background-color: transparent;
-	flex-shrink: 0;
+.mod-settings .running-head-color-setting input[type="color"] {
+    width: 32px;
+    height: 32px;
+    border: none;
+    padding: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: transparent;
+    flex-shrink: 0;
 }
 
-.running-head-color-setting input[type="color"]::-webkit-color-swatch-wrapper {
-	padding: 0;
+.mod-settings .running-head-color-setting input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
 }
 
-.running-head-color-setting input[type="color"]::-webkit-color-swatch {
-	border: 1px solid var(--background-modifier-border);
-	border-radius: 4px;
+.mod-settings .running-head-color-setting input[type="color"]::-webkit-color-swatch {
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 4px;
+}
+
+/* --- Readable Line Width Compatibility (Minimal Theme & Default) --- */
+/* Ensures the injected header elements align correctly with the title when Readable Line Width is enabled.
+   We prepend .workspace-leaf-content to increase specificity and avoid using !important. */
+.workspace-leaf-content .markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer>.running-head-metadata-header,
+.workspace-leaf-content .markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer>.running-head-breadcrumb,
+.workspace-leaf-content .markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer>.running-head-top-row,
+.workspace-leaf-content .markdown-preview-view.is-readable-line-width .markdown-preview-sizer>.running-head-metadata-header,
+.workspace-leaf-content .markdown-preview-view.is-readable-line-width .markdown-preview-sizer>.running-head-breadcrumb,
+.workspace-leaf-content .markdown-preview-view.is-readable-line-width .markdown-preview-sizer>.running-head-top-row {
+    max-width: var(--max-width);
+    width: var(--line-width, 100%);
+    margin-inline: var(--content-margin, auto);
 }
