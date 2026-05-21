@@ -1,8 +1,8 @@
-import { Plugin, MarkdownView } from "obsidian";
+import { Plugin } from "obsidian";
 import { getAdaptivePillStyles } from "./utils/color";
 import { DEFAULT_SETTINGS, RunningHeadSettings, RunningHeadSettingTab } from "./settings";
 import { injectMetadataHeader, removeAllMetadataHeaders } from "./ui/metadata-header";
-import { initializeBasesIconObserver } from "./ui/bases-icons";
+
 import { ScrollProgressManager } from "./ui/scroll-progress";
 
 /**
@@ -15,16 +15,15 @@ import { ScrollProgressManager } from "./ui/scroll-progress";
 export default class RunningHeadPlugin extends Plugin {
 	settings: RunningHeadSettings;
 	scrollProgressManager: ScrollProgressManager;
-	private basesObserver: { disconnect: () => void } | null = null;
+
 	private styleEl: HTMLStyleElement;
 
 	async onload(): Promise<void> {
 		await this.loadSettings();
 
-		// eslint-disable-next-line no-undef
-		this.styleEl = createEl("style");
+		this.styleEl = activeDocument.createElement("style");
 		this.styleEl.id = "running-head-dynamic-styles";
-		document.head.appendChild(this.styleEl);
+		activeDocument.head.appendChild(this.styleEl);
 		this.updateDynamicStyles();
 
 		this.scrollProgressManager = new ScrollProgressManager(this);
@@ -48,18 +47,21 @@ export default class RunningHeadPlugin extends Plugin {
 
 		// Re-inject when metadata cache updates (frontmatter edits)
 		this.registerEvent(
-			this.app.metadataCache.on("changed", (file) => {
-				const activeView = this.app.workspace.getActiveViewOfType(MarkdownView);
-				if (activeView && activeView.file?.path === file.path) {
-					this.debouncedInject();
-				}
+			this.app.metadataCache.on("changed", () => {
+				this.debouncedInject();
+			})
+		);
+
+		// Re-inject when a file is opened or restored in a background pane
+		this.registerEvent(
+			this.app.workspace.on("file-open", () => {
+				this.debouncedInject();
 			})
 		);
 
 		// Initial injection on plugin load (after a small delay for the workspace to settle)
 		this.app.workspace.onLayoutReady(() => {
 			this.debouncedInject();
-			this.basesObserver = initializeBasesIconObserver(this);
 			if (this.scrollProgressManager) {
 				this.scrollProgressManager.setupListeners();
 			}
@@ -106,10 +108,7 @@ export default class RunningHeadPlugin extends Plugin {
 			clearTimeout(this._injectTimeout);
 			this._injectTimeout = null;
 		}
-		if (this.basesObserver) {
-			this.basesObserver.disconnect();
-			this.basesObserver = null;
-		}
+
 
 		this.scrollProgressManager.cleanupAll();
 

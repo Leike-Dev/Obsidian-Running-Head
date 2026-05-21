@@ -144,39 +144,7 @@ export const en = {
 	'last_updated': 'Last updated',
 	'field_already_exists': 'Field "{key}" already exists.',
 
-	// ================================================================
-	// BASES ICONS
-	// ================================================================
-	'section_bases_icons': 'Table icons',
-	'bases_icons_notice': 'Applies only to the Bases plugin column headers in table mode.',
-	'bases_icon_label': 'Icon:',
-	'add_bases_icon_name': 'New property icon',
-	'add_bases_icon_desc': 'Sets an icon for a property header in table mode.',
-	'add_bases_icon_button': 'Add',
-	'manage_bases_icons_name': 'Manage icons',
-	'manage_bases_icons_desc': 'Edit or remove configured icons.',
-	'manage_bases_icons_button': 'Manage',
-	
-	'bases_icons_title': 'Manage icons',
-	'bases_icon_editor_title_add': 'Add icon',
-	'bases_icon_editor_title_edit': 'Edit icon',
-	'bases_icon_property': 'Property name',
-	'bases_icon_property_desc': 'Exact property name in the table. E.g.: status, category.',
-	'bases_icon_name': 'Icon',
-	'bases_icon_name_desc': 'Icon displayed in the column header.',
-	
-	'bases_icon_property_required': 'Enter the field\'s YAML key.',
-	'bases_icon_name_required': 'Select an icon.',
-	'bases_icon_added': 'Icon for "{property}" created.',
-	'bases_icon_updated': 'Icon for "{property}" updated.',
-	'bases_icon_deleted': 'Icon for "{property}" removed.',
-	'existing_bases_icons': '{count} icon(s)',
-	'no_bases_icons': 'No icons added yet.',
-	
-	'add_button': 'Select icon',
-	'icon_picker_placeholder': 'Search icon...',
-
-	// ================================================================
+// ================================================================
 	// SETTINGS — Scroll Progress
 	// ================================================================
 	'scroll_progress_bar_name': 'Scroll progress bar',

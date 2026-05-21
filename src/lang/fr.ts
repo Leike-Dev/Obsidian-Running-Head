@@ -144,39 +144,7 @@ export const fr = {
 	'last_updated': 'Mis à jour',
 	'field_already_exists': 'Le champ "{key}" existe déjà.',
 
-	// ================================================================
-	// BASES ICONS
-	// ================================================================
-	'section_bases_icons': 'Icônes de table',
-	'bases_icons_notice': 'S\'applique uniquement aux en-têtes de colonnes du plugin Bases en mode table.',
-	'bases_icon_label': 'Icône :',
-	'add_bases_icon_name': 'Nouvelle icône de propriété',
-	'add_bases_icon_desc': 'Définit une icône pour l\'en-tête d\'une propriété en mode table.',
-	'add_bases_icon_button': 'Ajouter',
-	'manage_bases_icons_name': 'Gérer les icônes',
-	'manage_bases_icons_desc': 'Modifiez ou supprimez les icônes configurées.',
-	'manage_bases_icons_button': 'Gérer',
-	
-	'bases_icons_title': 'Gérer les icônes',
-	'bases_icon_editor_title_add': 'Ajouter une icône',
-	'bases_icon_editor_title_edit': 'Modifier l\'icône',
-	'bases_icon_property': 'Nom de la propriété',
-	'bases_icon_property_desc': 'Nom exact de la propriété dans la table. Ex : status, category.',
-	'bases_icon_name': 'Icône',
-	'bases_icon_name_desc': 'Icône affichée dans l\'en-tête de la colonne.',
-	
-	'bases_icon_property_required': 'Saisissez la clé YAML du champ.',
-	'bases_icon_name_required': 'Sélectionnez une icône.',
-	'bases_icon_added': 'Icône de "{property}" créée.',
-	'bases_icon_updated': 'Icône de "{property}" mise à jour.',
-	'bases_icon_deleted': 'Icône de "{property}" supprimée.',
-	'existing_bases_icons': '{count} icône(s)',
-	'no_bases_icons': 'Aucune icône ajoutée pour le moment.',
-	
-	'add_button': 'Sélectionner une icône',
-	'icon_picker_placeholder': 'Rechercher une icône...',
-
-	// ================================================================
+// ================================================================
 	// SETTINGS — Scroll Progress
 	// ================================================================
 	'scroll_progress_bar_name': 'Barre de progression du défilement',

@@ -144,39 +144,7 @@ export const zhCN = {
 	'last_updated': '最后更新',
 	'field_already_exists': '字段 "{key}" 已存在。',
 
-	// ================================================================
-	// BASES ICONS
-	// ================================================================
-	'section_bases_icons': '表格图标',
-	'bases_icons_notice': '仅适用于 Bases 插件表格模式下的列标题。',
-	'bases_icon_label': '图标：',
-	'add_bases_icon_name': '新属性图标',
-	'add_bases_icon_desc': '为表格模式下的属性标题设置图标。',
-	'add_bases_icon_button': '添加',
-	'manage_bases_icons_name': '管理图标',
-	'manage_bases_icons_desc': '编辑或删除已配置的图标。',
-	'manage_bases_icons_button': '管理',
-	
-	'bases_icons_title': '管理图标',
-	'bases_icon_editor_title_add': '添加图标',
-	'bases_icon_editor_title_edit': '编辑图标',
-	'bases_icon_property': '属性名称',
-	'bases_icon_property_desc': '表格中确切的属性名称。例如：status、category。',
-	'bases_icon_name': '图标',
-	'bases_icon_name_desc': '显示在列标题中的图标。',
-	
-	'bases_icon_property_required': '请输入字段的 YAML 键。',
-	'bases_icon_name_required': '请选择一个图标。',
-	'bases_icon_added': '"{property}" 的图标已创建。',
-	'bases_icon_updated': '"{property}" 的图标已更新。',
-	'bases_icon_deleted': '"{property}" 的图标已删除。',
-	'existing_bases_icons': '{count} 个图标',
-	'no_bases_icons': '尚未添加图标。',
-	
-	'add_button': '选择图标',
-	'icon_picker_placeholder': '搜索图标...',
-
-	// ================================================================
+// ================================================================
 	// SETTINGS — 滚动进度
 	// ================================================================
 	'scroll_progress_bar_name': '滚动进度条',
