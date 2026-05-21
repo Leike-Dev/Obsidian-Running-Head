@@ -11,6 +11,10 @@ export const fr = {
 	// ================================================================
 	// SETTINGS — Appearance
 	// ================================================================
+	'toggles_section_name': 'Composants de l\'interface',
+	'toggles_section_desc': 'Activer ou désactiver les éléments visuels dans l\'en-tête.',
+	'colors_section_name': 'Couleurs personnalisées',
+	'colors_section_desc': 'Options de couleur pour la surbrillance, la barre de progression et les badges.',
 	'title_font_size_name': 'Taille du titre',
 	'title_font_size_desc': 'Taille du titre principal, en "em". Par défaut: 3.',
 	'title_font_size_placeholder': '3',
