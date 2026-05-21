@@ -2,7 +2,6 @@ import { App, PluginSettingTab } from "obsidian";
 import type RunningHeadPlugin from "../main";
 export * from "./types";
 import { renderLayoutSection } from "./sections/layout";
-import { renderAppearanceSection } from "./sections/appearance";
 import { renderFrontmatterSection } from "./sections/frontmatter";
 import { renderDateSection } from "./sections/date-reading";
 import { renderCustomFieldsSection } from "./sections/custom-fields";
@@ -23,7 +22,6 @@ export class RunningHeadSettingTab extends PluginSettingTab {
 
 		renderFrontmatterSection(containerEl, this.plugin, this);
 		renderLayoutSection(containerEl, this.plugin, this);
-		renderAppearanceSection(containerEl, this.plugin, this);
 		renderDateSection(containerEl, this.plugin, this);
 		renderCustomFieldsSection(containerEl, this.plugin, this);
 		renderBasesIconsSection(containerEl, this.plugin, this);

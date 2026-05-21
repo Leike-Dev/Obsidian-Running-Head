@@ -1,4 +1,4 @@
-import { Setting } from "obsidian";
+import { Setting, setIcon } from "obsidian";
 import type RunningHeadPlugin from "../../main";
 import type { RunningHeadSettingTab } from "../index";
 import { t } from "../../lang/helpers";
@@ -54,7 +54,46 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 					});
 			});
 
-		new Setting(containerEl)
+		// ================================================================
+		// COLLAPSIBLE TOGGLES SECTION
+		// ================================================================
+		const isTogglesOpen = (tab as any).togglesExpanded ?? false;
+
+		const togglesHeader = new Setting(containerEl)
+			.setName(t('toggles_section_name'))
+			.setDesc(t('toggles_section_desc'));
+
+		togglesHeader.settingEl.classList.add("running-head-dropdown-header");
+		if (isTogglesOpen) {
+			togglesHeader.settingEl.classList.add("is-expanded");
+		}
+
+		const toggleIconToggles = togglesHeader.controlEl.createSpan({ cls: "running-head-dropdown-icon" });
+		setIcon(toggleIconToggles, isTogglesOpen ? "chevron-down" : "chevron-right");
+		togglesHeader.settingEl.style.cursor = "pointer";
+
+		const togglesContainer = containerEl.createDiv({ cls: "running-head-dropdown-container" });
+		togglesContainer.style.display = isTogglesOpen ? "block" : "none";
+
+		togglesHeader.settingEl.addEventListener("click", () => {
+			const newState = !(tab as any).togglesExpanded;
+			(tab as any).togglesExpanded = newState;
+			togglesContainer.style.display = newState ? "block" : "none";
+			toggleIconToggles.empty();
+			setIcon(toggleIconToggles, newState ? "chevron-down" : "chevron-right");
+			if (newState) {
+				togglesHeader.settingEl.classList.add("is-expanded");
+			} else {
+				togglesHeader.settingEl.classList.remove("is-expanded");
+			}
+		});
+
+		let highlightSetting: Setting;
+		let highlightColorSetting: Setting;
+		let scrollColorSetting: Setting;
+		let badgeColorSetting: Setting;
+
+		new Setting(togglesContainer)
 			.setName(t('breadcrumb_toggle_name'))
 			.setDesc(t('breadcrumb_toggle_desc'))
 			.addToggle((toggle) =>
@@ -63,11 +102,27 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 					.onChange(async (value) => {
 						plugin.settings.showBreadcrumb = value;
 						await plugin.saveSettings();
-						tab.display();
+						if (highlightSetting) highlightSetting.setDisabled(!value);
+						if (highlightColorSetting) highlightColorSetting.setDisabled(!value || !plugin.settings.breadcrumbHighlightLast);
 					})
 			);
 
-		new Setting(containerEl)
+		highlightSetting = new Setting(togglesContainer)
+			.setName(t('breadcrumb_highlight_name'))
+			.setDesc(t('breadcrumb_highlight_desc'))
+			.addToggle((toggle) =>
+				toggle
+					.setValue(plugin.settings.breadcrumbHighlightLast)
+					.onChange(async (value) => {
+						plugin.settings.breadcrumbHighlightLast = value;
+						await plugin.saveSettings();
+						if (highlightColorSetting) highlightColorSetting.setDisabled(!plugin.settings.showBreadcrumb || !value);
+					})
+			);
+
+		highlightSetting.setDisabled(!plugin.settings.showBreadcrumb);
+
+		new Setting(togglesContainer)
 			.setName(t('scroll_progress_bar_name'))
 			.setDesc(t('scroll_progress_bar_desc'))
 			.addToggle((toggle) =>
@@ -77,11 +132,11 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 						plugin.settings.showScrollProgress = value;
 						await plugin.saveSettings();
 						plugin.scrollProgressManager?.setupListeners();
-						tab.display();
+						if (scrollColorSetting) scrollColorSetting.setDisabled(!value);
 					})
 			);
 
-		new Setting(containerEl)
+		new Setting(togglesContainer)
 			.setName(t('show_last_updated_name'))
 			.setDesc(t('show_last_updated_desc'))
 			.addToggle((toggle) =>
@@ -90,8 +145,123 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 					.onChange(async (value) => {
 						plugin.settings.showLastUpdated = value;
 						await plugin.saveSettings();
+						if (badgeColorSetting) badgeColorSetting.setDisabled(!value);
 					})
 			);
+
+		// ================================================================
+		// COLLAPSIBLE COLORS SECTION
+		// ================================================================
+		const isDark = document.body.classList.contains("theme-dark");
+		const defaultEmptyColor = isDark ? "#555555" : "#e0e0e0";
+
+		const isColorsOpen = (tab as any).colorsExpanded ?? false;
+
+		const colorsHeader = new Setting(containerEl)
+			.setName(t('colors_section_name'))
+			.setDesc(t('colors_section_desc'));
+
+		colorsHeader.settingEl.classList.add("running-head-dropdown-header");
+		if (isColorsOpen) {
+			colorsHeader.settingEl.classList.add("is-expanded");
+		}
+
+		const toggleIcon = colorsHeader.controlEl.createSpan({ cls: "running-head-dropdown-icon" });
+		setIcon(toggleIcon, isColorsOpen ? "chevron-down" : "chevron-right");
+		colorsHeader.settingEl.style.cursor = "pointer";
+
+		const colorsContainer = containerEl.createDiv({ cls: "running-head-dropdown-container" });
+		colorsContainer.style.display = isColorsOpen ? "block" : "none";
+
+		colorsHeader.settingEl.addEventListener("click", () => {
+			const newState = !(tab as any).colorsExpanded;
+			(tab as any).colorsExpanded = newState;
+			colorsContainer.style.display = newState ? "block" : "none";
+			toggleIcon.empty();
+			setIcon(toggleIcon, newState ? "chevron-down" : "chevron-right");
+			if (newState) {
+				colorsHeader.settingEl.classList.add("is-expanded");
+			} else {
+				colorsHeader.settingEl.classList.remove("is-expanded");
+			}
+		});
+
+		highlightColorSetting = new Setting(colorsContainer)
+			.setName(t('breadcrumb_highlight_color_name'))
+			.setDesc(t('breadcrumb_highlight_color_desc'))
+			.setClass("running-head-color-setting")
+			.addExtraButton((btn) =>
+				btn
+					.setIcon("reset")
+					.setTooltip("Reset")
+					.onClick(async () => {
+						plugin.settings.breadcrumbHighlightColor = "";
+						await plugin.saveSettings();
+						tab.display();
+					})
+			)
+			.addColorPicker((color) =>
+				color
+					.setValue(plugin.settings.breadcrumbHighlightColor || defaultEmptyColor)
+					.onChange(async (value) => {
+						plugin.settings.breadcrumbHighlightColor = value;
+						await plugin.saveSettings();
+					})
+			);
+			
+		highlightColorSetting.setDisabled(!plugin.settings.showBreadcrumb || !plugin.settings.breadcrumbHighlightLast);
+
+		scrollColorSetting = new Setting(colorsContainer)
+			.setName(t('scroll_progress_color_name'))
+			.setDesc(t('scroll_progress_color_desc'))
+			.setClass("running-head-color-setting")
+			.addExtraButton((btn) =>
+				btn
+					.setIcon("reset")
+					.setTooltip("Reset")
+					.onClick(async () => {
+						plugin.settings.scrollProgressColor = "";
+						await plugin.saveSettings();
+						plugin.scrollProgressManager?.setupListeners();
+						tab.display();
+					})
+			)
+			.addColorPicker((color) =>
+				color
+					.setValue(plugin.settings.scrollProgressColor || defaultEmptyColor)
+					.onChange(async (value) => {
+						plugin.settings.scrollProgressColor = value;
+						await plugin.saveSettings();
+						plugin.scrollProgressManager?.setupListeners();
+					})
+			);
+		
+		scrollColorSetting.setDisabled(!plugin.settings.showScrollProgress);
+
+		badgeColorSetting = new Setting(colorsContainer)
+			.setName(t('badge_color_name'))
+			.setDesc(t('badge_color_desc'))
+			.setClass("running-head-color-setting")
+			.addExtraButton((btn) =>
+				btn
+					.setIcon("reset")
+					.setTooltip("Reset")
+					.onClick(async () => {
+						plugin.settings.lastUpdatedBadgeColor = "";
+						await plugin.saveSettings();
+						tab.display();
+					})
+			)
+			.addColorPicker((color) =>
+				color
+					.setValue(plugin.settings.lastUpdatedBadgeColor || defaultEmptyColor)
+					.onChange(async (value) => {
+						plugin.settings.lastUpdatedBadgeColor = value;
+						await plugin.saveSettings();
+					})
+			);
+			
+		badgeColorSetting.setDisabled(!plugin.settings.showLastUpdated);
 
 		// ================================================================
 }
