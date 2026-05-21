@@ -72,16 +72,16 @@ export class BasesIconManagerModal extends Modal {
 		// Info section
 		const infoSection = item.createDiv({ cls: "running-head-manager-item-info" });
 		
-		// Icon preview (if desired) or just the text
-		const textBlock = infoSection.createDiv({ cls: "running-head-manager-item-text" });
-		
-		const nameRow = textBlock.createDiv({ cls: "running-head-manager-item-name" });
-		nameRow.textContent = iconConfig.property;
-
-		const metaRow = textBlock.createDiv({ cls: "running-head-manager-meta" });
-		metaRow.createSpan({ text: t('bases_icon_label') || "Ícone: " });
-		const iconSpan = metaRow.createSpan();
+		// Icon on the left
+		const iconSpan = infoSection.createSpan({ cls: "running-head-manager-item-icon" });
 		setIcon(iconSpan, iconConfig.icon);
+
+		// Vertical divider
+		const divider = infoSection.createSpan({ text: "|", cls: "running-head-manager-item-divider" });
+		
+		// Name
+		const nameRow = infoSection.createDiv({ cls: "running-head-manager-item-name" });
+		nameRow.textContent = iconConfig.property;
 
 		// Action buttons
 		const actionsSection = item.createDiv({ cls: "running-head-manager-actions" });
