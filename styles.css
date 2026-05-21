@@ -275,12 +275,31 @@ body:not(.is-phone):not(.inline-title-divider-remove) .app-container .workspace-
     min-width: 0;
 }
 
+.running-head-manager-item-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-normal);
+}
+
+.running-head-manager-item-icon svg {
+    width: var(--icon-size, 14px);
+    height: var(--icon-size, 14px);
+}
+
+.running-head-manager-item-divider {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1;
+}
+
 .running-head-manager-item-name {
     font-size: 0.85rem;
     font-weight: 500;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    line-height: 1;
 }
 
 .running-head-manager-meta {
@@ -499,9 +518,7 @@ body.is-phone .workspace-leaf-content .running-head-metadata-header+.inline-titl
     gap: 8px;
 }
 
-body.is-phone .running-head-icon-selector-setting .setting-item-control {
-    align-self: flex-start;
-}
+
 
 /* Field Editor Layout Classes */
 .mod-settings .running-head-modal-no-border {
@@ -701,19 +718,22 @@ body.is-phone .running-head-scroll-progress {
 
 /* Mobile optimizations for color pickers and dropdown header so they look like Obsidian's native settings */
 body.is-phone .mod-settings .running-head-color-setting,
-body.is-phone .mod-settings .setting-item.running-head-dropdown-header {
+body.is-phone .mod-settings .setting-item.running-head-dropdown-header,
+body.is-phone .modal .setting-item.running-head-icon-selector-setting {
     flex-direction: row;
     align-items: center;
 }
 
 body.is-phone .mod-settings .running-head-color-setting .setting-item-info,
-body.is-phone .mod-settings .setting-item.running-head-dropdown-header .setting-item-info {
+body.is-phone .mod-settings .setting-item.running-head-dropdown-header .setting-item-info,
+body.is-phone .modal .setting-item.running-head-icon-selector-setting .setting-item-info {
     flex: 1 1 auto;
     margin-right: 12px;
 }
 
 body.is-phone .mod-settings .running-head-color-setting .setting-item-control,
-body.is-phone .mod-settings .setting-item.running-head-dropdown-header .setting-item-control {
+body.is-phone .mod-settings .setting-item.running-head-dropdown-header .setting-item-control,
+body.is-phone .modal .setting-item.running-head-icon-selector-setting .setting-item-control {
     width: auto;
     margin-top: 0;
     justify-content: flex-end;
