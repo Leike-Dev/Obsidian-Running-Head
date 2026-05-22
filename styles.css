@@ -41,7 +41,7 @@ body:not(.is-phone):not(.inline-title-divider-remove) .app-container .workspace-
     display: flex;
     align-items: center;
     gap: 0.55rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.7rem;
     flex-wrap: wrap;
 }
 
@@ -441,7 +441,7 @@ body.is-phone .workspace-leaf-content .running-head-metadata-header+.inline-titl
     align-items: center;
     flex-wrap: wrap;
     gap: 0.2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.7rem;
     font-size: calc(var(--running-head-badge-size, 0.75rem) - 0.05rem);
     color: var(--text-faint);
     line-height: 1.4;
