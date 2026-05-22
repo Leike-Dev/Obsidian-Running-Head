@@ -57,11 +57,3 @@ export function getAdaptivePillStyles(hex: string, isDarkMode: boolean): { bg: s
 	return { bg, text };
 }
 
-export function getContrastTextColor(hex: string): string {
-	const rgb = hexToRgb(hex);
-	if (!rgb) return "var(--text-normal)";
-
-	// Calculate relative luminance
-	const luminance = (0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b) / 255;
-	return luminance > 0.5 ? "#1e1e1e" : "#ffffff";
-}
