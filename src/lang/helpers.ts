@@ -19,12 +19,13 @@ const localeMap: { [key: string]: Partial<typeof en> } = {
 	'zh-cn': zhCN,
 };
 
-import { moment } from 'obsidian';
-const locale = moment.locale();
+import { getLanguage } from 'obsidian';
+
+const locale = getLanguage() || 'en';
 
 /**
  * Returns the localized string for the given translation key.
- * Fallback chain: overrideLocale → user's locale → English → raw key name.
+ * Fallback chain: overrideLocale → user's UI locale → English → raw key name.
  * @param key A valid translation key from the English locale file.
  * @param overrideLocale Optional locale to force a specific language (e.g. "pt-BR").
  * @returns The translated string, or the key itself if no translation is found.
