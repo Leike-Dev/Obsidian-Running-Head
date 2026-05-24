@@ -801,6 +801,7 @@ body.is-phone .modal .setting-item.running-head-icon-selector-setting .setting-i
     overflow-x: auto;
     overflow-y: hidden;
     touch-action: pan-x pan-y;
+    scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
 }
 
