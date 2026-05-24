@@ -148,7 +148,7 @@ body:not(.is-phone):not(.inline-title-divider-remove) .app-container .workspace-
     font-size: var(--running-head-badge-size, 0.75rem);
     font-weight: 500;
     padding: 0.15rem 0.55rem;
-    border-radius: var(--tag-radius);
+    border-radius: var(--pill-radius, var(--tag-radius));
     line-height: 1.4;
     white-space: nowrap;
     cursor: default;
