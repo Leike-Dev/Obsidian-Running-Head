@@ -5,6 +5,7 @@ import { renderLayoutSection } from "./sections/layout";
 import { renderFrontmatterSection } from "./sections/frontmatter";
 import { renderDateSection } from "./sections/date-reading";
 import { renderCustomFieldsSection } from "./sections/custom-fields";
+import { renderTabsSection } from "./sections/tabs";
 
 import { renderDataManagementSection } from "./sections/data-management";
 
@@ -24,6 +25,7 @@ export class RunningHeadSettingTab extends PluginSettingTab {
 		renderLayoutSection(containerEl, this.plugin, this);
 		renderDateSection(containerEl, this.plugin, this);
 		renderCustomFieldsSection(containerEl, this.plugin, this);
+		renderTabsSection(containerEl, this.plugin, this);
 
 		renderDataManagementSection(containerEl, this.plugin, this);
 	}

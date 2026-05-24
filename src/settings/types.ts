@@ -12,6 +12,20 @@ export interface CustomField {
 	excludedFolder: string;
 }
 
+export interface TabPropertyConfig {
+	/** Unique ID for the tab configuration */
+	id: string;
+	/** YAML frontmatter property key name (e.g. "tabs-home") */
+	property: string;
+	/** Numerical order for rendering priority (lower values render first) */
+	order: number;
+	/** Whether to display icons on tabs from this property */
+	showIcon: boolean;
+}
+
+/** Visual style variants for the tabs navigation bar. */
+export type TabStyle = "underline" | "pill" | "minimal";
+
 /**
  * Settings interface for the RunningHead plugin.
  * Controls frontmatter field names, locale, and display preferences.
@@ -39,6 +53,10 @@ export interface RunningHeadSettings {
 	badgeFontSize: number;
 	/** User-defined custom fields to display */
 	customFields: CustomField[];
+	/** Configured frontmatter properties to load as tabs */
+	tabsProperties: TabPropertyConfig[];
+	/** Visual style for the tabs navigation bar */
+	tabStyle: TabStyle;
 	/** Custom date format string using Moment.js syntax */
 	customDateFormat: string;
 
@@ -68,6 +86,8 @@ export const DEFAULT_SETTINGS: RunningHeadSettings = {
 	titleFontSize: 3,
 	badgeFontSize: 0.75,
 	customFields: [],
+	tabsProperties: [],
+	tabStyle: "underline",
 	customDateFormat: "",
 
 	showBreadcrumb: false,
