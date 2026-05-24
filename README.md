@@ -19,7 +19,7 @@
 
 Transform your notes with a beautiful blog-style metadata header! 📝✨
 
-Running Head is an Obsidian plugin that automatically adds a customizable header below your note titles, displaying the publication date, estimated reading time, a last-updated badge, and any custom frontmatter properties you desire.
+Running Head is an Obsidian plugin that automatically adds a customizable header below your note titles, displaying the publication date, estimated reading time, a last-updated badge, breadcrumb navigation, tabs navigation, and any custom frontmatter properties you desire.
 
 ## Features
 

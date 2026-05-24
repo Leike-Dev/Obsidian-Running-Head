@@ -9,7 +9,8 @@ import { ScrollProgressManager } from "./ui/scroll-progress";
  * RunningHead
  *
  * Adds a blog-style metadata header below note titles, displaying
- * publication date, reading time, and a last-updated badge.
+ * publication date, reading time, a last-updated badge, breadcrumb navigation,
+ * tabs navigation, and custom frontmatter properties.
  * Data is read from the note's YAML frontmatter.
  */
 export default class RunningHeadPlugin extends Plugin {
