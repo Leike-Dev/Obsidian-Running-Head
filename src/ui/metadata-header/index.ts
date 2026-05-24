@@ -6,7 +6,7 @@ import { formatDate } from "../../utils/date-formatter";
 
 import { BREADCRUMB_CLASS, MetadataHeaderOptions } from "./types";
 import { createBreadcrumbEl } from "./breadcrumb";
-import { createMetadataHeaderEl, removeExistingHeader } from "./dom-builder";
+import { createMetadataHeaderEl, removeExistingHeader, createTabsBarEl } from "./dom-builder";
 
 /**
  * Inject (or refresh) the metadata header into the active markdown view.
@@ -180,6 +180,7 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 	removeExistingHeader(contentEl);
 	contentEl.querySelectorAll(`.${BREADCRUMB_CLASS}`).forEach((el) => el.remove());
 	contentEl.querySelectorAll(".running-head-top-row").forEach((el) => el.remove());
+	contentEl.querySelectorAll(".running-head-tabs-container").forEach((el) => el.remove());
 
 	const isWikiStyle = settings.layoutStyle === "wiki";
 	const showBreadcrumb = settings.showBreadcrumb;
@@ -229,11 +230,21 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 		anchor.insertAdjacentElement("beforebegin", aboveEl);
 	}
 
+	let tabsAnchor = bottomAnchor;
 	// Custom fields "below" — BELOW the bottommost element (or the title)
 	if (hasBelowContent) {
 		const tempBelow = contentEl.ownerDocument.createElement("div");
 		const belowEl = createMetadataHeaderEl(tempBelow, belowOptions);
 		bottomAnchor.insertAdjacentElement("afterend", belowEl);
+		tabsAnchor = belowEl;
+	}
+
+	// Render tabs bar below custom fields
+	if (settings.tabsProperties && settings.tabsProperties.length > 0) {
+		const tabsEl = createTabsBarEl(contentEl, settings.tabsProperties, frontmatter, plugin.app, file.path, settings.tabStyle);
+		if (tabsEl) {
+			tabsAnchor.insertAdjacentElement("afterend", tabsEl);
+		}
 	}
 }
 
@@ -248,6 +259,7 @@ export function removeAllMetadataHeaders(plugin: RunningHeadPlugin): void {
 			removeExistingHeader(view.contentEl);
 			view.contentEl.querySelectorAll(`.${BREADCRUMB_CLASS}`).forEach((el) => el.remove());
 			view.contentEl.querySelectorAll(".running-head-top-row").forEach((el) => el.remove());
+			view.contentEl.querySelectorAll(".running-head-tabs-container").forEach((el) => el.remove());
 		}
 	});
 }

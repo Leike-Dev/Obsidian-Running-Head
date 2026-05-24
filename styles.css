@@ -768,9 +768,11 @@ body.is-phone .modal .setting-item.running-head-icon-selector-setting .setting-i
 .workspace-leaf-content .markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer>.running-head-metadata-header,
 .workspace-leaf-content .markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer>.running-head-breadcrumb,
 .workspace-leaf-content .markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer>.running-head-top-row,
+.workspace-leaf-content .markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer>.running-head-tabs-container,
 .workspace-leaf-content .markdown-preview-view.is-readable-line-width .markdown-preview-sizer>.running-head-metadata-header,
 .workspace-leaf-content .markdown-preview-view.is-readable-line-width .markdown-preview-sizer>.running-head-breadcrumb,
-.workspace-leaf-content .markdown-preview-view.is-readable-line-width .markdown-preview-sizer>.running-head-top-row {
+.workspace-leaf-content .markdown-preview-view.is-readable-line-width .markdown-preview-sizer>.running-head-top-row,
+.workspace-leaf-content .markdown-preview-view.is-readable-line-width .markdown-preview-sizer>.running-head-tabs-container {
     max-width: var(--max-width);
     width: var(--line-width, 100%);
     margin-inline: var(--content-margin, auto);
@@ -782,4 +784,189 @@ body.is-phone .modal .setting-item.running-head-icon-selector-setting .setting-i
 
 .running-head-clickable-header {
     cursor: pointer;
+}
+
+/* =========================================================================
+   TABS NAVIGATION BAR — Base styles (shared by all variants)
+   ========================================================================= */
+
+.running-head-tabs-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.45rem;
+    margin-bottom: 0.45rem;
+    padding-bottom: 0px;
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    touch-action: pan-x pan-y;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Overflow-dependent styles — applied via JS when scrollWidth > clientWidth */
+.running-head-tabs-container.has-overflow {
+    cursor: grab;
+    mask-image: linear-gradient(to right, #000 88%, transparent 100%);
+}
+
+/* Hide scrollbar for Chrome/Safari/Webkit */
+.running-head-tabs-container::-webkit-scrollbar {
+    display: none;
+}
+
+.running-head-tabs-container.is-dragging {
+    cursor: grabbing;
+    user-select: none;
+}
+
+/* Individual tab — base shared styles */
+.running-head-tab {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-size: calc(var(--running-head-badge-size, 0.75rem) + 0.12rem);
+    font-family: var(--font-interface);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    padding: 5px 12px;
+    color: var(--text-muted);
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.running-head-tab:hover {
+    text-decoration: none;
+}
+
+/* Tab icon wrapper */
+.running-head-tab-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.running-head-tab-icon svg {
+    width: 16px;
+    height: 16px;
+    stroke-width: 2px;
+}
+
+/* =========================================================================
+   STYLE VARIANT: Underline (default)
+   ========================================================================= */
+
+.tab-style-underline {
+    border-bottom: 1px solid var(--background-modifier-border);
+    gap: 0.5rem;
+}
+
+.tab-style-underline .running-head-tab {
+    padding: 5px 12px;
+    border-radius: 0;
+}
+
+.tab-style-underline .running-head-tab:hover {
+    color: var(--text-normal);
+}
+
+.tab-style-underline .running-head-tab.is-active {
+    color: var(--interactive-accent);
+    font-weight: 600;
+}
+
+.tab-style-underline .running-head-tab::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    border-radius: 3px;
+    background-color: transparent;
+    transition: background-color 0.15s ease;
+    display: block;
+}
+
+.tab-style-underline .running-head-tab.is-active::after {
+    background-color: var(--interactive-accent);
+}
+
+.tab-style-underline .running-head-tab:not(.is-active):hover::after {
+    background-color: color-mix(in srgb, var(--interactive-accent) 30%, transparent);
+}
+
+/* =========================================================================
+   STYLE VARIANT: Pill (Obsidian property tag style)
+   ========================================================================= */
+
+.tab-style-pill {
+    gap: 0.35rem;
+    padding: 4px 0;
+}
+
+.tab-style-pill .running-head-tab {
+    padding: 5px 12px;
+    border-radius: var(--radius-s);
+    border: var(--tag-border-width, 1px) solid color-mix(in srgb, var(--background-modifier-border) 20%, transparent);
+    background-color: var(--background-secondary);
+    color: var(--text-muted);
+    margin-bottom: 0;
+    font-size: calc(var(--running-head-badge-size, 0.75rem) + 0.06rem);
+}
+
+.tab-style-pill .running-head-tab:hover {
+    color: var(--tag-color-hover, var(--text-normal));
+    background-color: var(--tag-background-hover, var(--background-modifier-hover));
+    border-color: var(--tag-border-color, var(--background-modifier-border-hover));
+}
+
+.tab-style-pill .running-head-tab.is-active {
+    color: var(--text-on-accent);
+    background-color: var(--interactive-accent);
+    border-color: var(--interactive-accent);
+    font-weight: 600;
+}
+
+.tab-style-pill .running-head-tab.is-active:hover {
+    background-color: var(--interactive-accent-hover);
+    border-color: var(--interactive-accent-hover);
+}
+
+.tab-style-pill .running-head-tab::after {
+    display: none;
+}
+
+/* =========================================================================
+   STYLE VARIANT: Minimal (clean text, no lines or indicators)
+   ========================================================================= */
+
+.tab-style-minimal {
+    gap: 0.25rem;
+    padding: 2px 0;
+}
+
+.tab-style-minimal .running-head-tab {
+    padding: 5px 12px;
+    border-radius: var(--radius-s);
+    margin-bottom: 0;
+}
+
+.tab-style-minimal .running-head-tab:hover {
+    color: var(--text-normal);
+    background-color: var(--background-modifier-hover);
+}
+
+.tab-style-minimal .running-head-tab.is-active {
+    color: var(--interactive-accent);
+    font-weight: 600;
+}
+
+.tab-style-minimal .running-head-tab::after {
+    display: none;
 }
