@@ -89,6 +89,15 @@ Nas configurações do plugin, defina os nomes das chaves YAML utilizadas para:
    - Um nome personalizado opcional: `"[name, Meu Nome Personalizado]"`
    - Um ícone do Lucide opcional: `"[icon, home]"` (dica: clique no seletor de ícones nas configurações para copiar a tag pronta para a área de transferência)
 
+   **Exemplo de estrutura YAML:**
+   ```yaml
+   tabs-home:
+     - "[[Nota de Destino]]"
+     - "[icon, home]"
+     - "[name, Meu Nome Personalizado]"
+   ```
+
+
 > [!Note]
 > - A ordem em que você insere os itens da lista (`[name, ...]`, `[icon, ...]` e `[[Link]]`) não importa para o funcionamento.
 > - Se houver mais de um link de nota na lista da propriedade, a aba apontará para o último link adicionado.

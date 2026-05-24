@@ -90,6 +90,15 @@ In the plugin settings, define the YAML keys used for:
    - An optional custom name: `"[name, My Custom Name]"`
    - An optional Lucide icon: `"[icon, home]"` (tip: click the icon selector tool in settings to copy the correct icon tag to clipboard)
 
+   **Example YAML structure:**
+   ```yaml
+   tabs-home:
+     - "[[Target Note]]"
+     - "[icon, home]"
+     - "[name, My Custom Name]"
+   ```
+
+
 > [!Note]
 > - The order of the tags (`[name, ...]`, `[icon, ...]`, and `[[Link]]`) within the YAML list does not matter.
 > - If multiple note links are present in the list, the tab will point to the last link added.
