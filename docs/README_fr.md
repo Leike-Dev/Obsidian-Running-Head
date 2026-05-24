@@ -77,7 +77,22 @@ Dans les paramètres du plugin, définissez les clés YAML utilisées pour :
    - **Masquer dans le dossier** : Masquez le champ dans des dossiers spécifiques (prend en charge plusieurs dossiers).
 4. Utilisez le bouton **Gérer** pour modifier, réorganiser ou supprimer les champs existants.
 
-### 5. Gestion des données
+### 5. Configurer la navigation par onglets
+
+1. Allez dans **Paramètres > Running Head**.
+2. Sous **Navigation par onglets**, configurez le style visuel des onglets (**Souligné**, **Pastille** ou **Minimaliste**).
+3. Cliquez sur **Ajouter** sous **Nouvelle propriété d'onglet** pour enregistrer une clé de propriété du frontmatter (ex : `tabs-home`).
+4. Dans le frontmatter de vos notes, définissez cette propriété comme de type **Liste** (List) dans Obsidian.
+5. Dans la liste, vous pouvez ajouter :
+   - Un lien vers la note de destination au format wiki : `"[[Note de Destination]]"` ou `"[[Note de Destination|Alias]]"`
+   - Un nom personnalisé facultatif : `"[name, Mon Nom Personnalisé]"`
+   - Un icône Lucide facultatif : `"[icon, home]"` (conseil : cliquez sur le sélecteur d'icônes dans les paramètres pour copier l'étiquette prête dans le presse-papiers)
+
+> [!Note]
+> - L'ordre dans lequel vous insérez les éléments de la liste (`[name, ...]`, `[icon, ...]` et `[[Link]]`) n'a pas d'importance pour son fonctionnement.
+> - S'il y a plus d'un lien de note dans la liste de la propriété, l'onglet pointera vers le dernier lien ajouté.
+
+### 6. Gestion des données
 
 - **Exporter** : Générez un JSON avec toute votre configuration actuelle pour copier ou sauvegarder.
 - **Importer** : Collez un JSON de configuration pour l'appliquer rapidement dans un autre coffre ou appareil.

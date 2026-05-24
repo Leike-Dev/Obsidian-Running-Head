@@ -79,7 +79,22 @@ In the plugin settings, define the YAML keys used for:
    - **Hide in folder**: Hide the field in specific folders (supports multiple folders).
 4. Use the **Manage** button to edit, reorder or delete existing fields.
 
-### 5. Data management
+### 5. Configure tabs navigation
+
+1. Go to **Settings > Running Head**.
+2. Under **Tabs navigation**, configure the tab visual style (**Underline**, **Pill**, or **Minimal**).
+3. Click **Add** under **New tab property** to register a frontmatter property key (e.g. `tabs-home`).
+4. In your note's frontmatter, define this property as a **List** type.
+5. In the list, you can add:
+   - A target note link in wiki format: `"[[Target Note]]"` or `"[[Target Note|Alias]]"`
+   - An optional custom name: `"[name, My Custom Name]"`
+   - An optional Lucide icon: `"[icon, home]"` (tip: click the icon selector tool in settings to copy the correct icon tag to clipboard)
+
+> [!Note]
+> - The order of the tags (`[name, ...]`, `[icon, ...]`, and `[[Link]]`) within the YAML list does not matter.
+> - If multiple note links are present in the list, the tab will point to the last link added.
+
+### 6. Data management
 
 - **Export**: Generate a JSON with all your current configuration to copy or save.
 - **Import**: Paste a configuration JSON to quickly apply it to another vault or device.
