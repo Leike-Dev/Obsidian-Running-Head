@@ -51,13 +51,12 @@ body:not(.is-phone):not(.inline-title-divider-remove) .app-container .workspace-
 }
 
 /* Reduce gap when metadata header is directly above the title */
-.running-head-metadata-header:has(+ .inline-title) {
+.running-head-metadata-header.is-above-title {
     margin-bottom: 0.35rem;
 }
 
-/* When above the breadcrumb or top row, give it a bit more breathing room */
-.running-head-metadata-header:has(+ .running-head-breadcrumb),
-.running-head-metadata-header:has(+ .running-head-top-row) {
+/* When above the breadcrumb, give it a bit more breathing room */
+.running-head-metadata-header.has-breadcrumb-sibling {
     margin-bottom: 0.75rem;
 }
 
@@ -447,7 +446,7 @@ body.is-phone .workspace-leaf-content .running-head-metadata-header+.inline-titl
     line-height: 1.4;
 }
 
-.running-head-breadcrumb:has(+ .inline-title) {
+.running-head-breadcrumb.is-above-title {
     margin-bottom: 0.35rem;
 }
 
@@ -802,13 +801,13 @@ body.is-phone .modal .setting-item.running-head-icon-selector-setting .setting-i
     overflow-x: auto;
     overflow-y: hidden;
     touch-action: pan-x pan-y;
-    scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
 }
 
 /* Overflow-dependent styles — applied via JS when scrollWidth > clientWidth */
 .running-head-tabs-container.has-overflow {
     cursor: grab;
+    -webkit-mask-image: linear-gradient(to right, #000 88%, transparent 100%);
     mask-image: linear-gradient(to right, #000 88%, transparent 100%);
 }
 
