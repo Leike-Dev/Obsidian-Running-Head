@@ -88,6 +88,15 @@ Dans les paramètres du plugin, définissez les clés YAML utilisées pour :
    - Un nom personnalisé facultatif : `"[name, Mon Nom Personnalisé]"`
    - Un icône Lucide facultatif : `"[icon, home]"` (conseil : cliquez sur le sélecteur d'icônes dans les paramètres pour copier l'étiquette prête dans le presse-papiers)
 
+   **Exemple de structure YAML :**
+   ```yaml
+   tabs-home:
+     - "[[Note de Destination]]"
+     - "[icon, home]"
+     - "[name, Mon Nom Personnalisé]"
+   ```
+
+
 > [!Note]
 > - L'ordre dans lequel vous insérez les éléments de la liste (`[name, ...]`, `[icon, ...]` et `[[Link]]`) n'a pas d'importance pour son fonctionnement.
 > - S'il y a plus d'un lien de note dans la liste de la propriété, l'onglet pointera vers le dernier lien ajouté.
