@@ -246,6 +246,27 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 			tabsAnchor.insertAdjacentElement("afterend", tabsEl);
 		}
 	}
+
+	// Add sibling classes to avoid CSS :has() selector validation warnings
+	const parent = inlineTitle.parentElement;
+	if (parent) {
+		const children = Array.from(parent.children);
+		for (let i = 0; i < children.length; i++) {
+			const child = children[i];
+			const next = children[i + 1];
+			if (!child || !next) continue;
+
+			if (next.classList.contains("inline-title")) {
+				if (child.classList.contains("running-head-metadata-header") || child.classList.contains("running-head-breadcrumb")) {
+					child.classList.add("is-above-title");
+				}
+			}
+
+			if (child.classList.contains("running-head-metadata-header") && next.classList.contains("running-head-breadcrumb")) {
+				child.classList.add("has-breadcrumb-sibling");
+			}
+		}
+	}
 }
 
 /**
