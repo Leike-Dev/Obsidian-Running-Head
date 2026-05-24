@@ -78,8 +78,22 @@ Nas configurações do plugin, defina os nomes das chaves YAML utilizadas para:
    - **Ocultar na pasta**: Oculte o campo em pastas específicas (suporta múltiplas pastas).
 4. Use o botão **Gerenciar** para editar, reordenar ou excluir campos existentes.
 
+### 5. Configurar abas de navegação
 
-### 5. Gerenciamento de dados
+1. Vá para **Configurações > Running Head**.
+2. Em **Abas de navegação**, configure o estilo visual das abas (**Sublinhado**, **Pílula** ou **Minimalista**).
+3. Clique em **Adicionar** em **Nova propriedade de aba** para cadastrar uma chave de propriedade do frontmatter (ex: `tabs-home`).
+4. No frontmatter das suas notas, defina essa propriedade como do tipo **Lista** (List) no Obsidian.
+5. Na lista, você pode adicionar:
+   - O link para a nota de destino no formato wiki: `"[[Nota de Destino]]"` ou `"[[Nota de Destino|Apelido]]"`
+   - Um nome personalizado opcional: `"[name, Meu Nome Personalizado]"`
+   - Um ícone do Lucide opcional: `"[icon, home]"` (dica: clique no seletor de ícones nas configurações para copiar a tag pronta para a área de transferência)
+
+> [!Note]
+> - A ordem em que você insere os itens da lista (`[name, ...]`, `[icon, ...]` e `[[Link]]`) não importa para o funcionamento.
+> - Se houver mais de um link de nota na lista da propriedade, a aba apontará para o último link adicionado.
+
+### 6. Gerenciamento de dados
 
 - **Exportar**: Gere um JSON com toda a sua configuração atual para copiar ou salvar.
 - **Importar**: Cole um JSON de configuração para aplicar rapidamente em outro vault ou dispositivo.

@@ -77,7 +77,22 @@ En los ajustes del plugin, configura las claves YAML utilizadas para:
    - **Ocultar en carpeta**: Oculte el campo en carpetas específicas (soporta múltiples carpetas).
 4. Usa el botón **Gestionar** para editar, reordenar o eliminar campos existentes.
 
-### 5. Gestión de datos
+### 5. Configurar navegación por pestañas
+
+1. Ve a **Ajustes > Running Head**.
+2. En **Navegación por pestañas**, configura el estilo visual de las pestañas (**Subrayado**, **Píldora** o **Minimalista**).
+3. Haz clic en **Añadir** en **Nueva propiedad de pestaña** para registrar una clave de propiedad del frontmatter (ej. `tabs-home`).
+4. En el frontmatter de tus notas, define esa propiedad como de tipo **Lista** (List) en Obsidian.
+5. En la lista, puedes añadir:
+   - El enlace a la nota de destino en formato wiki: `"[[Nota de Destino]]"` o `"[[Nota de Destino|Alias]]"`
+   - Un nombre personalizado opcional: `"[name, Mi Nombre Personalizado]"`
+   - Un icono de Lucide opcional: `"[icon, home]"` (consejo: haz clic en el selector de iconos en la configuración para copiar la etiqueta lista al portapapeles)
+
+> [!Note]
+> - El orden en el que insertas los elementos de la lista (`[name, ...]`, `[icon, ...]` y `[[Link]]`) no importa para su funcionamiento.
+> - Si hay más de un enlace de nota en la lista de la propiedad, la pestaña apuntará al último enlace añadido.
+
+### 6. Gestión de datos
 
 - **Exportar**: Genera un JSON con toda tu configuración actual para copiar o guardar.
 - **Importar**: Pega un JSON de configuración para aplicarlo rápidamente en otro baúl o dispositivo.
