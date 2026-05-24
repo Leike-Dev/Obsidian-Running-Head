@@ -247,7 +247,7 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 		}
 	}
 
-	// Add sibling classes to avoid CSS :has() selector validation warnings
+	// Add sibling classes for layout-aware CSS styling
 	const parent = inlineTitle.parentElement;
 	if (parent) {
 		const children = Array.from(parent.children);
@@ -263,7 +263,7 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 			}
 
 			if (child.classList.contains("running-head-metadata-header") && next.classList.contains("running-head-breadcrumb")) {
-				child.classList.add("has-breadcrumb-sibling");
+				child.classList.add("with-breadcrumb-sibling");
 			}
 		}
 	}

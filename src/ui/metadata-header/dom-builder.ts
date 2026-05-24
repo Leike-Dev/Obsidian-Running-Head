@@ -370,7 +370,7 @@ export function createTabsBarEl(
 	// Uses requestAnimationFrame to ensure layout has been calculated.
 	requestAnimationFrame(() => {
 		if (tabsWrapper.scrollWidth > tabsWrapper.clientWidth) {
-			tabsWrapper.classList.add("has-overflow");
+			tabsWrapper.classList.add("is-overflowing");
 		}
 	});
 

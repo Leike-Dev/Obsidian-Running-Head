@@ -56,7 +56,7 @@ body:not(.is-phone):not(.inline-title-divider-remove) .app-container .workspace-
 }
 
 /* When above the breadcrumb, give it a bit more breathing room */
-.running-head-metadata-header.has-breadcrumb-sibling {
+.running-head-metadata-header.with-breadcrumb-sibling {
     margin-bottom: 0.75rem;
 }
 
@@ -806,7 +806,7 @@ body.is-phone .modal .setting-item.running-head-icon-selector-setting .setting-i
 }
 
 /* Overflow-dependent styles — applied via JS when scrollWidth > clientWidth */
-.running-head-tabs-container.has-overflow {
+.running-head-tabs-container.is-overflowing {
     cursor: grab;
     -webkit-mask-image: linear-gradient(to right, #000 88%, transparent 100%);
     mask-image: linear-gradient(to right, #000 88%, transparent 100%);
