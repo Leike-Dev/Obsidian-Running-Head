@@ -17,7 +17,7 @@
 
 Transformez vos notes avec un magnifique en-tête de métadonnées style blog ! 📝✨
 
-**Running Head** est un plugin Obsidian qui ajoute automatiquement un en-tête personnalisable à vos notes, affichant la date de publication, le temps de lecture estimé, un libellé de mise à jour, le chemin de navigation de la note, une barre de progression de défilement et toute propriété personnalisée du frontmatter que vous désirez.
+**Running Head** est un plugin Obsidian qui ajoute automatiquement un en-tête personnalisable à vos notes, affichant la date de publication, le temps de lecture estimé, un libellé de mise à jour, le chemin de navigation de la note (breadcrumbs), la navigation par onglets, une barre de progression de défilement et toute propriété personnalisée du frontmatter que vous désirez.
 
 ## Fonctionnalités
 
