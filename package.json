@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-running-head",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "Adds a blog-style metadata header below note titles with date, reading time, custom fields, breadcrumb navigation, tabs navigation, and Typify integration.",
 	"main": "main.js",
 	"type": "module",
