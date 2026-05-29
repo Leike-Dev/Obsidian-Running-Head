@@ -25,8 +25,8 @@
 Acompanhe a linha do tempo das suas notas de forma dinâmica. Formate as datas usando 18 idiomas padrão ou seus próprios padrões do [Moment.js](https://momentjs.com/). Uma etiqueta inteligente de modificação é exibida automaticamente quando uma nota é alterada após sua criação.
 
 <div align="center">
-  <video src="./assets/images/creation_dates.mp4" autoplay loop muted playsinline width="48%"></video>
-  <video src="./assets/images/last_update_dates.mp4" autoplay loop muted playsinline width="48%"></video>
+  <video src="./assets/images/creation_dates.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="./assets/images/last_update_dates.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
 </div>
 
 
@@ -34,7 +34,7 @@ Acompanhe a linha do tempo das suas notas de forma dinâmica. Formate as datas u
 Escolha entre os layouts **Estilo Blog** (caminho da pasta acima do título, metadados abaixo) ou **Estilo Wiki** (metadados acima do título, caminho abaixo) para se adequar à estética das suas notas.
 
 <div align="center">
-  <video src="./assets/images/layout_styles.mp4" autoplay loop muted playsinline width="80%"></video>
+  <video src="./assets/images/layout_styles.mp4" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
 </div>
 
 
@@ -42,7 +42,7 @@ Escolha entre os layouts **Estilo Blog** (caminho da pasta acima do título, met
 Navegue facilmente com um caminho de pastas clicável mostrando exatamente onde sua nota está localizada, com destaque opcional da pasta atual.
 
 <div align="center">
-  <video src="./assets/images/breadcrumbs.mp4" autoplay loop muted playsinline width="80%"></video>
+  <video src="./assets/images/breadcrumbs.mp4" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
 </div>
 
 
@@ -53,8 +53,8 @@ Renderize qualquer propriedade do frontmatter (texto, listas, caixas de seleçã
 > A demonstração adicionando um campo de texto serve como ilustração; essas opções aplicam-se a qualquer propriedade de metadado personalizado.
 
 <div align="center">
-  <video src="./assets/images/custom_fields.mp4" autoplay loop muted playsinline width="48%"></video>
-  <video src="./assets/images/folder_scopes.mp4" autoplay loop muted playsinline width="48%"></video>
+  <video src="./assets/images/custom_fields.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="./assets/images/folder_scopes.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
 </div>
 
 
@@ -62,7 +62,7 @@ Renderize qualquer propriedade do frontmatter (texto, listas, caixas de seleçã
 Crie barras de navegação elegantes para alternar entre notas relacionadas usando propriedades de frontmatter. Personalize o estilo visual das abas (**Sublinhado**, **Pílula** ou **Minimalista**) e adicione ícones do Lucide ou nomes personalizados facilmente.
 
 <div align="center">
-  <video src="./assets/images/tabs_navigation.mp4" autoplay loop muted playsinline width="80%"></video>
+  <video src="./assets/images/tabs_navigation.mp4" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
 </div>
 
 
@@ -70,8 +70,8 @@ Crie barras de navegação elegantes para alternar entre notas relacionadas usan
 Adicione uma barra discreta e altamente personalizável no topo da nota para acompanhar o seu progresso de leitura em tempo real. O Running Head também se integra perfeitamente ao plugin **[Typify](https://github.com/Leike-Dev/Obsidian-Typify)** para herdar cores e estilos de pílula automaticamente.
 
 <div align="center">
-  <video src="./assets/images/scroll_progress.mp4" autoplay loop muted playsinline width="48%"></video>
-  <video src="./assets/images/typify_integration.mp4" autoplay loop muted playsinline width="48%"></video>
+  <video src="./assets/images/scroll_progress.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="./assets/images/typify_integration.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
 </div>
 
 
@@ -129,4 +129,4 @@ Este plugin foi projetado para trazer uma sensação mais elegante e "publicada"
 
 Um agradecimento especial à [Antigravity](https://antigravity.google/) pela inestimável assistência na construção, refatoração e otimização do código-fonte. Mas nada é feito de forma magica, esse plugin foi testado, retestado, virado do avesso para ficar o mais otimizado, leve, bom, bonito e funcional possivel para todos que buscam algo do tipo.
 
-Se você encontrar algum bug, por favor, abra uma *issue* e farei o possível para consertar. Contribuições via *pull requests* são sempre bem-vindas! 😉
+Se você encontrar algum bug, por favor, abra uma *issue* e farei o possível para consertar. Contribuições via *pull requests* são sempre bem-vidas! 😉

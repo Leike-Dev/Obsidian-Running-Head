@@ -25,8 +25,8 @@
 动态追踪笔记的时间线。支持使用18种默认语言环境或自定义的 [Moment.js](https://momentjs.com/) 格式化日期。当笔记在创建后被修改时，系统会自动显示精美的更新标签。
 
 <div align="center">
-  <video src="./assets/images/creation_dates.mp4" autoplay loop muted playsinline width="48%"></video>
-  <video src="./assets/images/last_update_dates.mp4" autoplay loop muted playsinline width="48%"></video>
+  <video src="./assets/images/creation_dates.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="./assets/images/last_update_dates.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
 </div>
 
 
@@ -34,7 +34,7 @@
 在 **Blog 样式**（路径在标题上方，元数据在下方）和 **Wiki 样式**（元数据在标题上方，路径在下方）之间灵活选择，完美契合你的笔记美学。
 
 <div align="center">
-  <video src="./assets/images/layout_styles.mp4" autoplay loop muted playsinline width="80%"></video>
+  <video src="./assets/images/layout_styles.mp4" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
 </div>
 
 
@@ -42,19 +42,19 @@
 通过可点击的文件夹路径轻松导航，准确显示笔记所在位置，并可选高亮当前活动文件夹。
 
 <div align="center">
-  <video src="./assets/images/breadcrumbs.mp4" autoplay loop muted playsinline width="80%"></video>
+  <video src="./assets/images/breadcrumbs.mp4" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
 </div>
 
 
 ### 4. 🏷️ 自定义 YAML 字段与文件夹范围
-在页眉中将任何 frontmatter 属性（文本、列表、复选框）渲染为自定义字段或精美的胶囊样式。使用灵活的文件夹范围在特定目录中隐藏指定字段，保持仓库整洁。
+在页眉中将 any frontmatter 属性（文本、列表、复选框）渲染为自定义字段或精美的胶囊样式。使用灵活的文件夹范围在特定目录中隐藏指定字段，保持仓库整洁。
 
 > [!NOTE]
 > 注：添加文本字段的展示仅作演示；这些选项适用于任何自定义元数据属性。
 
 <div align="center">
-  <video src="./assets/images/custom_fields.mp4" autoplay loop muted playsinline width="48%"></video>
-  <video src="./assets/images/folder_scopes.mp4" autoplay loop muted playsinline width="48%"></video>
+  <video src="./assets/images/custom_fields.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="./assets/images/folder_scopes.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
 </div>
 
 
@@ -62,7 +62,7 @@
 利用 frontmatter 属性构建优雅的导航页眉，在关联笔记之间轻松跳转。支持自定义标签的视觉样式（**下划线**、**药丸**或**极简**），并可轻松添加 Lucide 图标或自定义显示名称。
 
 <div align="center">
-  <video src="./assets/images/tabs_navigation.mp4" autoplay loop muted playsinline width="80%"></video>
+  <video src="./assets/images/tabs_navigation.mp4" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
 </div>
 
 
@@ -70,8 +70,8 @@
 在笔记顶部固定一条优雅且可自定义颜色的滚动进度条。Running Head 还与 **[Typify](https://github.com/Leike-Dev/Obsidian-Typify)** 插件完美集成，能够自动继承精致的彩色胶囊样式。
 
 <div align="center">
-  <video src="./assets/images/scroll_progress.mp4" autoplay loop muted playsinline width="48%"></video>
-  <video src="./assets/images/typify_integration.mp4" autoplay loop muted playsinline width="48%"></video>
+  <video src="./assets/images/scroll_progress.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="./assets/images/typify_integration.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
 </div>
 
 
@@ -85,7 +85,7 @@
 ## 🚀 快速开始
 
 1. **启用插件**：转到 Obsidian 设置 $\rightarrow$ 第三方插件，搜索 **Running Head** 并启用。
-2. **在 Frontmatter 中设置日期**：配置您的 YAML 键以用于创建（默认 `date`）和更新（默认 `updated`）：
+2. **在 Frontmatter 中设置日期**：配置您的 YAML 键以用于创建（默认 `date`） and 更新（默认 `updated`）：
    ```yaml
    date: 2026-05-29
    updated: 2026-05-29
