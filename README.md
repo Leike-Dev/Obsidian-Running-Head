@@ -1,146 +1,128 @@
 <div align="center">
-  <!-- Substitua a imagem abaixo pela sua imagem real de banner depois -->
   <img src="./docs/assets/images/banner_1.jpg" alt="Running Head Banner" />
   
   <br>
 
-   ![License](https://img.shields.io/badge/license-MIT-lightblue.svg)
-   ![Version](https://img.shields.io/badge/version-2.0.1-lightgreen.svg)
+  ![License](https://img.shields.io/badge/license-MIT-lightblue.svg)
+  ![Version](https://img.shields.io/badge/version-2.0.1-lightgreen.svg)
 
 </div>
 
 <div align="center">
 
-   English | [Português](./docs/README_pt.md) | [Español](./docs/README_es.md) | [Français](./docs/README_fr.md) | [简体中文](./docs/README_zh-CN.md)
+English | [Português](./docs/README_pt.md) | [Español](./docs/README_es.md) | [Français](./docs/README_fr.md) | [简体中文](./docs/README_zh-CN.md)
 
 </div>
 
----
+**Running Head** is an incredible Obsidian plugin that adds a highly customizable metadata header. Track dates, custom frontmatter properties, folder paths, and tabs navigation seamlessly without hassle.
 
-Transform your notes with a beautiful blog-style metadata header! 📝✨
 
-Running Head is an Obsidian plugin that automatically adds a customizable header below your note titles, displaying the publication date, estimated reading time, a last-updated badge, breadcrumb navigation, tabs navigation, and any custom frontmatter properties you desire.
+## 🌟 Features in Action
 
-## Features
+### 1. 📅 Creation & Last Update Dates
+Track your note's timeline dynamically. Format dates using 18 default locales or your own [Moment.js](https://momentjs.com/) patterns. A dedicated, smart update label automatically highlights when a note was modified after creation.
 
-- **📝 Multiple layouts**: Choose between a **Blog** style (path above the title, metadata below) or a **Wiki** style (metadata above the title, path below).
-- **⏱️ Reading time & dates**: Automatically calculate and display reading time and dates formatted according to your locale (asian languages supported).
-- **🧩 Custom fields**: Display any YAML property, such as beautiful "pills", links or text in the header and checkboxes — with positioning **above** or **below** the title individually.
-- **📁 Folder scopes**: Keep your vault clean by hiding specific custom fields in certain folders (supports multiple folders per field).
-- **🍞 Note path**: Navigate easily with a clickable folder path showing exactly where your note is located, with optional highlighting of the current folder.
-- **📊 Scroll progress bar**: An elegant progress bar fixed at the top of the note that tracks your reading position in real-time.
-- **🎨 Custom colors**: Define the colors of the update label, the note path or the progress bar simply and individually.
-- **📅 Flexible date format**: Choose the formatting locale from 18 available options or define a custom format using [Moment.js](https://momentjs.com/) syntax.
-- **💾 Data management**: Export complete settings as JSON and import them into another vault or device easily.
-- **🤝 Powerful integrations**: Seamlessly integrates with the **[Typify](https://github.com/Leike-Dev/Obsidian-Typify)** plugin (inheriting the beautiful pill styles made by you).
-- **🌍 Internationalization**: Interface fully translated into English, Portuguese (Brazil), Spanish, French, and Simplified Chinese (just use Obsidian in one of these languages).
+<div align="center">
+  <img src="./docs/assets/images/creation_dates.gif" width="48%" alt="Creation Dates" />
+  <img src="./docs/assets/images/last_update_dates.gif" width="48%" alt="Last Update Dates" />
+</div>
 
-## How to Use
 
-### 1. Configure frontmatter properties
+### 2. 📐 Layout Styles
+Choose between **Blog Style** (folder path above the title, metadata below) or **Wiki Style** (metadata above the title, path below) layouts to suit your note-taking aesthetics.
 
-In the plugin settings, define the YAML keys used for:
+<div align="center">
+  <img src="./docs/assets/images/layout_styles.gif" width="80%" alt="Layout Styles" />
+</div>
 
-- **Creation date** (default: `date`)
-- **Update date** (default: `updated`)
 
-*Or other date properties of your preference.*
+### 3. 🍞 Note Path (Breadcrumbs)
+Navigate easily with a clickable folder path showing exactly where your note is located, with optional highlighting of the current active folder.
 
-### 2. Customize layout and appearance
+<div align="center">
+  <img src="./docs/assets/images/breadcrumbs.gif" width="80%" alt="Note Path (Breadcrumbs)" />
+</div>
 
-- **Title font size**: Adjusts the title size of your notes.
-- **Metadata size**: Adjusts the size of the metadata you configured to appear in the header.
-- **Header layout**: Choose between Wiki (metadata above the title, path below) or Blog (path above the title, metadata below).
-- **Note path**: Displays the note's folder path above the title (hidden for notes at the vault root).
-- **Highlight current folder**: Applies the accent color to the last segment of the path.
-- **Scroll progress bar**: Displays an elegant reading progress bar at the top of the note.
-- **Show update label**: Displays the last modification date when the note was changed after creation.
-- **Folder highlight color**: Custom highlight color for the path (empty = theme accent color).
-- **Progress bar color**: Scroll progress bar color (empty = theme accent color).
-- **Update label color**: Label background color (empty = theme default color).
 
-### 3. Configure date and reading
+### 4. 🏷️ Custom YAML Fields & Folder Scopes
+Render any frontmatter property (text, lists, checkboxes) as custom fields or beautiful pill structures in your header. Hide specific fields in certain directories using flexible folder scopes to keep your workspace clean.
 
-- **Formatting locale**: Choose between 18 available locales (en-US, ja-JP, pt-BR, es-ES and others).
-- **Custom format**: Use Moment.js syntax (e.g., `DD/MM/YYYY`, `MMMM D, YYYY`). When empty, uses the locale default.
-- **Abbreviate month names**: Opt for short month names (e.g.: "Jan" instead of "January").
-- **Show reading time**: Enable or disable the estimated time displayed next to the date.
-- **Reading speed**: Words per minute to calculate the estimated time (default: `200`) (supports Asian languages).
+> [!NOTE]
+> Adding a text field serves as an illustration; these options apply to any custom metadata property.
 
-### 4. Add custom fields
+<div align="center">
+  <img src="./docs/assets/images/custom_fields.gif" width="48%" alt="Custom YAML Fields" />
+  <img src="./docs/assets/images/folder_scopes.gif" width="48%" alt="Folder Scopes" />
+</div>
 
-1. Go to **Settings > Running Head**.
-2. Under "Custom fields", click **Add**.
-3. Configure the field options:
-   - **YAML key**: The frontmatter property to be displayed (e.g., `Author`, `Category`, `tags`).
-   - **Display label**: Optional text displayed before the value.
-   - **Show label**: Enable to display the label in the note.
-   - **Position**: Choose **Above title** or **Below title**.
-   - **Hide in folder**: Hide the field in specific folders (supports multiple folders).
-4. Use the **Manage** button to edit, reorder or delete existing fields.
 
-### 5. Configure tabs navigation
+### 5. 🗂️ Interactive Tabs Navigation
+Build sleek navigation headers to jump between related notes using frontmatter properties. Customize tab visual styles (**Underline**, **Pill**, or **Minimal**) and easily add Lucide icons or custom display names.
 
-1. Go to **Settings > Running Head**.
-2. Under **Tabs navigation**, configure the tab visual style (**Underline**, **Pill**, or **Minimal**).
-3. Click **Add** under **New tab property** to register a frontmatter property key (e.g. `tabs-home`).
-4. In your note's frontmatter, define this property as a **List** type.
-5. In the list, you can add:
-   - A target note link in wiki format: `"[[Target Note]]"` or `"[[Target Note|Alias]]"`
-   - An optional custom name: `"[name, My Custom Name]"`
-   - An optional Lucide icon: `"[icon, home]"` (tip: click the icon selector tool in settings to copy the correct icon tag to clipboard)
+<div align="center">
+  <img src="./docs/assets/images/tabs_navigation.gif" width="80%" alt="Tabs Navigation" />
+</div>
 
-   **Example YAML structure:**
+
+### 6. 📊 Scroll Progress & Typify Integration
+Add a modern, color-customizable scroll progress bar fixed at the top of your note. Running Head also seamlessly integrates with the **[Typify](https://github.com/Leike-Dev/Obsidian-Typify)** plugin to automatically inherit premium colored pill styles.
+
+<div align="center">
+  <img src="./docs/assets/images/scroll_progress.gif" width="48%" alt="Scroll Progress" />
+  <img src="./docs/assets/images/typify_integration.gif" width="48%" alt="Typify Integration" />
+</div>
+
+
+## ⚙️ Additional Features
+
+* **🎨 Custom Colors**: Define the colors of the update label, the note path, or the progress bar simply and individually.
+* **💾 Data Management**: Export complete settings as JSON and import them into another vault or device easily.
+* **🌍 Internationalization**: Interface fully translated into English, Portuguese (Brazil), Spanish, French, and Simplified Chinese. If there are translation errors or improvements, please let me know.
+
+
+## 🚀 Quick Start
+
+1. **Activate the Plugin**: Open Obsidian settings $\rightarrow$ Community Plugins, search for **Running Head**, and enable it.
+2. **Set Dates in Frontmatter**: Configure your YAML keys for creation (default `date`) and update (default `updated`) dates:
    ```yaml
-   tabs-home:
-     - "[[Target Note]]"
-     - "[icon, home]"
-     - "[name, My Custom Name]"
+   date: 2026-05-29
+   updated: 2026-05-29
    ```
+3. **Configure Custom Fields**: Go to plugin settings $\rightarrow$ **Custom Fields** and click **Add** to map any YAML key (e.g. `Author`, `tags`) to the header.
+4. **Create Tabs**: Under **Tabs Navigation**, register a list-based YAML property (e.g. `tabs-home`) and define links to related notes.
 
+### 📝 Tabs YAML Schema Example
+```yaml
+tabs-home:
+  - "[[Home Note]]"
+  - "[icon, home]"
+  - "[name, Dashboard]"
+```
 
-> [!Note]
+> [!NOTE]
 > - The order of the tags (`[name, ...]`, `[icon, ...]`, and `[[Link]]`) within the YAML list does not matter.
 > - If multiple note links are present in the list, the tab will point to the last link added.
 
-### 6. Data management
 
-- **Export**: Generate a JSON with all your current configuration to copy or save.
-- **Import**: Paste a configuration JSON to quickly apply it to another vault or device.
 
-And there it is, your metadata is now elegantly displayed in your notes. ✨
-
-## Installation
+## 📦 Installation
 
 ### Manual Installation
-1. Download the latest release: `main.js`, `manifest.json`, and `styles.css`.
-2. Create a folder called `running-head` inside your `.obsidian/plugins/` directory.
-3. Paste the files there.
-4. Reload Obsidian and enable the plugin.
+1. Download `main.js`, `manifest.json`, and `styles.css` from the latest release.
+2. Create a folder named `running-head` inside `<Your-Vault>/.obsidian/plugins/`.
+3. Move the downloaded files into that folder.
+4. Reload Obsidian and enable the plugin under **Settings → Community plugins**.
 
-## Notices
 
-> [!Important]  
-> If you are using Checkbox properties, they will currently be displayed as raw text (`true` or `false`) in the header. We recommend using other property types (like tags or text) for a better visual representation in the header context.
+## 🛠️ Development
 
-> [!Tip]  
-> If you have the **[Typify](https://github.com/Leike-Dev/Obsidian-Typify)** plugin installed, Running Head will automatically detect and apply your Typify styles to matching pills in the metadata header (if you want to).
-
-> [!Tip]  
-> The Minimal theme, by Kepano, was the one that gave the most headache to adjust and make the best possible. It works perfectly on it, okay?
-
-> [!Tip]  
-> Use the **Export/Import** feature to share your settings between vaults or backup your configuration before experimenting with new tweaks.
-
-## Development
-
-If you want to build the plugin yourself, do the following:
-
+To build the plugin locally:
 1. Clone this repository.
-2. Run `npm install`.
-3. Run `npm run dev` to start compilation in watch mode.
+2. Install dependencies: `npm install`
+3. Run the development watch server: `npm run dev`
 
-## Disclaimer
+
+## ⚠️ Disclaimer
 
 This plugin was designed to bring a more elegant, "published" feel to your Obsidian vault notes. And like other times, it was born from my desire to customize my vault (sometimes desires make us create incredible things, as well as spend hours and hours until it looks the way we want... lol).
 
