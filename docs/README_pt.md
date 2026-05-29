@@ -25,8 +25,8 @@
 Acompanhe a linha do tempo das suas notas de forma dinâmica. Formate as datas usando 18 idiomas padrão ou seus próprios padrões do [Moment.js](https://momentjs.com/). Uma etiqueta inteligente de modificação é exibida automaticamente quando uma nota é alterada após sua criação.
 
 <div align="center">
-  <video src="https://github.com/user-attachments/assets/481eb3b1-1c31-4df6-a1af-d826c86f98b0" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
   <video src="https://github.com/user-attachments/assets/f5a54a1a-2d71-4cb3-98ac-40298601d842" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="https://github.com/user-attachments/assets/eeff569f-b336-4487-9d87-a1d5c9367d52" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
 </div>
 
 
@@ -34,7 +34,7 @@ Acompanhe a linha do tempo das suas notas de forma dinâmica. Formate as datas u
 Escolha entre os layouts **Estilo Blog** (caminho da pasta acima do título, metadados abaixo) ou **Estilo Wiki** (metadados acima do título, caminho abaixo) para se adequar à estética das suas notas.
 
 <div align="center">
-  <video src="https://github.com/user-attachments/assets/46fc5fcd-b34b-4586-b35d-659e1ea97860" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
+  <video src="https://github.com/user-attachments/assets/726ab137-ebf8-4a23-b49c-df2c1c7064a6" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
 </div>
 
 
@@ -42,7 +42,7 @@ Escolha entre os layouts **Estilo Blog** (caminho da pasta acima do título, met
 Navegue facilmente com um caminho de pastas clicável mostrando exatamente onde sua nota está localizada, com destaque opcional da pasta atual.
 
 <div align="center">
-  <video src="https://github.com/user-attachments/assets/5b1382cd-4245-42a4-96b0-15816d587793" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
+  <video src="https://github.com/user-attachments/assets/481eb3b1-1c31-4df6-a1af-d826c86f98b0" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
 </div>
 
 
@@ -53,8 +53,8 @@ Renderize qualquer propriedade do frontmatter (texto, listas, caixas de seleçã
 > A demonstração adicionando um campo de texto serve como ilustração; essas opções aplicam-se a qualquer propriedade de metadado personalizado.
 
 <div align="center">
-  <video src="https://github.com/user-attachments/assets/eeff569f-b336-4487-9d87-a1d5c9367d52" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
-  <video src="https://github.com/user-attachments/assets/726ab137-ebf8-4a23-b49c-df2c1c7064a6" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="https://github.com/user-attachments/assets/46fc5fcd-b34b-4586-b35d-659e1ea97860" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="https://github.com/user-attachments/assets/5b1382cd-4245-42a4-96b0-15816d587793" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
 </div>
 
 
@@ -62,7 +62,7 @@ Renderize qualquer propriedade do frontmatter (texto, listas, caixas de seleçã
 Crie barras de navegação elegantes para alternar entre notas relacionadas usando propriedades de frontmatter. Personalize o estilo visual das abas (**Sublinhado**, **Pílula** ou **Minimalista**) e adicione ícones do Lucide ou nomes personalizados facilmente.
 
 <div align="center">
-  <video src="https://github.com/user-attachments/assets/c0e6d91a-6e36-4c78-9348-1d29b9e860d1" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
+  <video src="https://github.com/user-attachments/assets/b2e47065-132c-41ef-a1cd-2184e8bb6a2b" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
 </div>
 
 
@@ -70,7 +70,7 @@ Crie barras de navegação elegantes para alternar entre notas relacionadas usan
 Adicione uma barra discreta e altamente personalizável no topo da nota para acompanhar o seu progresso de leitura em tempo real. O Running Head também se integra perfeitamente ao plugin **[Typify](https://github.com/Leike-Dev/Obsidian-Typify)** para herdar cores e estilos de pílula automaticamente.
 
 <div align="center">
-  <video src="https://github.com/user-attachments/assets/b2e47065-132c-41ef-a1cd-2184e8bb6a2b" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="https://github.com/user-attachments/assets/c0e6d91a-6e36-4c78-9348-1d29b9e860d1" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
   <video src="https://github.com/user-attachments/assets/31fad83c-f11a-4a0d-b99b-bc8af3981ea9" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
 </div>
 
