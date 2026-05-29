@@ -25,8 +25,8 @@ English | [Português](./docs/README_pt.md) | [Español](./docs/README_es.md) | 
 Track your note's timeline dynamically. Format dates using 18 default locales or your own [Moment.js](https://momentjs.com/) patterns. A dedicated, smart update label automatically highlights when a note was modified after creation.
 
 <div align="center">
-  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/creation_dates.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
-  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/last_update_dates.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="https://github.com/user-attachments/assets/481eb3b1-1c31-4df6-a1af-d826c86f98b0" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="https://github.com/user-attachments/assets/f5a54a1a-2d71-4cb3-98ac-40298601d842" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
 </div>
 
 
@@ -34,7 +34,7 @@ Track your note's timeline dynamically. Format dates using 18 default locales or
 Choose between **Blog Style** (folder path above the title, metadata below) or **Wiki Style** (metadata above the title, path below) layouts to suit your note-taking aesthetics.
 
 <div align="center">
-  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/layout_styles.mp4" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
+  <video src="https://github.com/user-attachments/assets/46fc5fcd-b34b-4586-b35d-659e1ea97860" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
 </div>
 
 
@@ -42,7 +42,7 @@ Choose between **Blog Style** (folder path above the title, metadata below) or *
 Navigate easily with a clickable folder path showing exactly where your note is located, with optional highlighting of the current active folder.
 
 <div align="center">
-  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/breadcrumbs.mp4" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
+  <video src="https://github.com/user-attachments/assets/5b1382cd-4245-42a4-96b0-15816d587793" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
 </div>
 
 
@@ -53,8 +53,8 @@ Render any frontmatter property (text, lists, checkboxes) as custom fields or be
 > Adding a text field serves as an illustration; these options apply to any custom metadata property.
 
 <div align="center">
-  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/custom_fields.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
-  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/folder_scopes.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="https://github.com/user-attachments/assets/eeff569f-b336-4487-9d87-a1d5c9367d52" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="https://github.com/user-attachments/assets/726ab137-ebf8-4a23-b49c-df2c1c7064a6" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
 </div>
 
 
@@ -62,7 +62,7 @@ Render any frontmatter property (text, lists, checkboxes) as custom fields or be
 Build sleek navigation headers to jump between related notes using frontmatter properties. Customize tab visual styles (**Underline**, **Pill**, or **Minimal**) and easily add Lucide icons or custom display names.
 
 <div align="center">
-  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/tabs_navigation.mp4" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
+  <video src="https://github.com/user-attachments/assets/c0e6d91a-6e36-4c78-9348-1d29b9e860d1" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
 </div>
 
 
@@ -70,8 +70,8 @@ Build sleek navigation headers to jump between related notes using frontmatter p
 Add a modern, color-customizable scroll progress bar fixed at the top of your note. Running Head also seamlessly integrates with the **[Typify](https://github.com/Leike-Dev/Obsidian-Typify)** plugin to automatically inherit premium colored pill styles.
 
 <div align="center">
-  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/scroll_progress.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
-  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/typify_integration.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="https://github.com/user-attachments/assets/b2e47065-132c-41ef-a1cd-2184e8bb6a2b" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="https://github.com/user-attachments/assets/31fad83c-f11a-4a0d-b99b-bc8af3981ea9" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
 </div>
 
 
