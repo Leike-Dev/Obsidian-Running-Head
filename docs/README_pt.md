@@ -25,8 +25,8 @@
 Acompanhe a linha do tempo das suas notas de forma dinâmica. Formate as datas usando 18 idiomas padrão ou seus próprios padrões do [Moment.js](https://momentjs.com/). Uma etiqueta inteligente de modificação é exibida automaticamente quando uma nota é alterada após sua criação.
 
 <div align="center">
-  <img src="./assets/images/creation_dates.gif" width="48%" alt="Datas de Criação" />
-  <img src="./assets/images/last_update_dates.gif" width="48%" alt="Última Atualização" />
+  <video src="./assets/images/creation_dates.mp4" autoplay loop muted playsinline width="48%"></video>
+  <video src="./assets/images/last_update_dates.mp4" autoplay loop muted playsinline width="48%"></video>
 </div>
 
 
@@ -34,7 +34,7 @@ Acompanhe a linha do tempo das suas notas de forma dinâmica. Formate as datas u
 Escolha entre os layouts **Estilo Blog** (caminho da pasta acima do título, metadados abaixo) ou **Estilo Wiki** (metadados acima do título, caminho abaixo) para se adequar à estética das suas notas.
 
 <div align="center">
-  <img src="./assets/images/layout_styles.gif" width="80%" alt="Estilos de Layout" />
+  <video src="./assets/images/layout_styles.mp4" autoplay loop muted playsinline width="80%"></video>
 </div>
 
 
@@ -42,7 +42,7 @@ Escolha entre os layouts **Estilo Blog** (caminho da pasta acima do título, met
 Navegue facilmente com um caminho de pastas clicável mostrando exatamente onde sua nota está localizada, com destaque opcional da pasta atual.
 
 <div align="center">
-  <img src="./assets/images/breadcrumbs.gif" width="80%" alt="Caminho da Nota (Breadcrumbs)" />
+  <video src="./assets/images/breadcrumbs.mp4" autoplay loop muted playsinline width="80%"></video>
 </div>
 
 
@@ -53,8 +53,8 @@ Renderize qualquer propriedade do frontmatter (texto, listas, caixas de seleçã
 > A demonstração adicionando um campo de texto serve como ilustração; essas opções aplicam-se a qualquer propriedade de metadado personalizado.
 
 <div align="center">
-  <img src="./assets/images/custom_fields.gif" width="48%" alt="Campos Personalizados do YAML" />
-  <img src="./assets/images/folder_scopes.gif" width="48%" alt="Escopo de Pastas" />
+  <video src="./assets/images/custom_fields.mp4" autoplay loop muted playsinline width="48%"></video>
+  <video src="./assets/images/folder_scopes.mp4" autoplay loop muted playsinline width="48%"></video>
 </div>
 
 
@@ -62,7 +62,7 @@ Renderize qualquer propriedade do frontmatter (texto, listas, caixas de seleçã
 Crie barras de navegação elegantes para alternar entre notas relacionadas usando propriedades de frontmatter. Personalize o estilo visual das abas (**Sublinhado**, **Pílula** ou **Minimalista**) e adicione ícones do Lucide ou nomes personalizados facilmente.
 
 <div align="center">
-  <img src="./assets/images/tabs_navigation.gif" width="80%" alt="Navegação por Abas" />
+  <video src="./assets/images/tabs_navigation.mp4" autoplay loop muted playsinline width="80%"></video>
 </div>
 
 
@@ -70,8 +70,8 @@ Crie barras de navegação elegantes para alternar entre notas relacionadas usan
 Adicione uma barra discreta e altamente personalizável no topo da nota para acompanhar o seu progresso de leitura em tempo real. O Running Head também se integra perfeitamente ao plugin **[Typify](https://github.com/Leike-Dev/Obsidian-Typify)** para herdar cores e estilos de pílula automaticamente.
 
 <div align="center">
-  <img src="./assets/images/scroll_progress.gif" width="48%" alt="Progresso de Leitura" />
-  <img src="./assets/images/typify_integration.gif" width="48%" alt="Integração com o Typify" />
+  <video src="./assets/images/scroll_progress.mp4" autoplay loop muted playsinline width="48%"></video>
+  <video src="./assets/images/typify_integration.mp4" autoplay loop muted playsinline width="48%"></video>
 </div>
 
 
@@ -79,7 +79,7 @@ Adicione uma barra discreta e altamente personalizável no topo da nota para aco
 
 * **🎨 Cores Personalizadas**: Defina as cores da etiqueta de atualização, do caminho da nota ou da barra de progresso de forma simples e individual.
 * **💾 Gerenciamento de Dados**: Exporte as configurações completas como JSON e importe em outro vault ou dispositivo facilmente.
-* **🌍 Internacionalização**: Interface totalmente traduzida para Inglês, Português (Brasil), Espanhol, Francês e Chinês Simplificado (basta usar o Obsidian em um desses idiomas). Se houve erros de tradução ou melhorias, diga-me.
+* **🌍 Internacionalização**: Interface totalmente traduzida para Inglês, Português (Brasil), Espanhol, Frances e Chinês Simplificado (basta usar o Obsidian em um desses idiomas). Se houver erros de tradução ou melhorias, diga-me.
 
 
 ## 🚀 Início Rápido
@@ -106,7 +106,6 @@ tabs-home:
 > - Se houver mais de um link de nota na lista da propriedade, a aba apontará para o último link adicionado.
 
 
-
 ## 📦 Instalação
 
 ### Instalação Manual
@@ -122,6 +121,7 @@ Para compilar o plugin localmente:
 1. Clone este repositório.
 2. Instale as dependências: `npm install`
 3. Inicie o servidor de compilação em tempo real: `npm run dev`
+
 
 ## ⚠️ Aviso legal
 

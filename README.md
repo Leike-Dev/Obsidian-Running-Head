@@ -14,6 +14,8 @@ English | [Português](./docs/README_pt.md) | [Español](./docs/README_es.md) | 
 
 </div>
 
+---
+
 **Running Head** is an incredible Obsidian plugin that adds a highly customizable metadata header. Track dates, custom frontmatter properties, folder paths, and tabs navigation seamlessly without hassle.
 
 
@@ -23,8 +25,8 @@ English | [Português](./docs/README_pt.md) | [Español](./docs/README_es.md) | 
 Track your note's timeline dynamically. Format dates using 18 default locales or your own [Moment.js](https://momentjs.com/) patterns. A dedicated, smart update label automatically highlights when a note was modified after creation.
 
 <div align="center">
-  <img src="./docs/assets/images/creation_dates.gif" width="48%" alt="Creation Dates" />
-  <img src="./docs/assets/images/last_update_dates.gif" width="48%" alt="Last Update Dates" />
+  <video src="./docs/assets/images/creation_dates.mp4" autoplay loop muted playsinline width="48%"></video>
+  <video src="./docs/assets/images/last_update_dates.mp4" autoplay loop muted playsinline width="48%"></video>
 </div>
 
 
@@ -32,7 +34,7 @@ Track your note's timeline dynamically. Format dates using 18 default locales or
 Choose between **Blog Style** (folder path above the title, metadata below) or **Wiki Style** (metadata above the title, path below) layouts to suit your note-taking aesthetics.
 
 <div align="center">
-  <img src="./docs/assets/images/layout_styles.gif" width="80%" alt="Layout Styles" />
+  <video src="./docs/assets/images/layout_styles.mp4" autoplay loop muted playsinline width="80%"></video>
 </div>
 
 
@@ -40,7 +42,7 @@ Choose between **Blog Style** (folder path above the title, metadata below) or *
 Navigate easily with a clickable folder path showing exactly where your note is located, with optional highlighting of the current active folder.
 
 <div align="center">
-  <img src="./docs/assets/images/breadcrumbs.gif" width="80%" alt="Note Path (Breadcrumbs)" />
+  <video src="./docs/assets/images/breadcrumbs.mp4" autoplay loop muted playsinline width="80%"></video>
 </div>
 
 
@@ -51,8 +53,8 @@ Render any frontmatter property (text, lists, checkboxes) as custom fields or be
 > Adding a text field serves as an illustration; these options apply to any custom metadata property.
 
 <div align="center">
-  <img src="./docs/assets/images/custom_fields.gif" width="48%" alt="Custom YAML Fields" />
-  <img src="./docs/assets/images/folder_scopes.gif" width="48%" alt="Folder Scopes" />
+  <video src="./docs/assets/images/custom_fields.mp4" autoplay loop muted playsinline width="48%"></video>
+  <video src="./docs/assets/images/folder_scopes.mp4" autoplay loop muted playsinline width="48%"></video>
 </div>
 
 
@@ -60,7 +62,7 @@ Render any frontmatter property (text, lists, checkboxes) as custom fields or be
 Build sleek navigation headers to jump between related notes using frontmatter properties. Customize tab visual styles (**Underline**, **Pill**, or **Minimal**) and easily add Lucide icons or custom display names.
 
 <div align="center">
-  <img src="./docs/assets/images/tabs_navigation.gif" width="80%" alt="Tabs Navigation" />
+  <video src="./docs/assets/images/tabs_navigation.mp4" autoplay loop muted playsinline width="80%"></video>
 </div>
 
 
@@ -68,8 +70,8 @@ Build sleek navigation headers to jump between related notes using frontmatter p
 Add a modern, color-customizable scroll progress bar fixed at the top of your note. Running Head also seamlessly integrates with the **[Typify](https://github.com/Leike-Dev/Obsidian-Typify)** plugin to automatically inherit premium colored pill styles.
 
 <div align="center">
-  <img src="./docs/assets/images/scroll_progress.gif" width="48%" alt="Scroll Progress" />
-  <img src="./docs/assets/images/typify_integration.gif" width="48%" alt="Typify Integration" />
+  <video src="./docs/assets/images/scroll_progress.mp4" autoplay loop muted playsinline width="48%"></video>
+  <video src="./docs/assets/images/typify_integration.mp4" autoplay loop muted playsinline width="48%"></video>
 </div>
 
 
@@ -97,12 +99,14 @@ tabs-home:
   - "[[Home Note]]"
   - "[icon, home]"
   - "[name, Dashboard]"
+  - "[[Settings Note]]"
+  - "[icon, settings]"
+  - "[name, Configuration]"
 ```
 
 > [!NOTE]
 > - The order of the tags (`[name, ...]`, `[icon, ...]`, and `[[Link]]`) within the YAML list does not matter.
 > - If multiple note links are present in the list, the tab will point to the last link added.
-
 
 
 ## 📦 Installation

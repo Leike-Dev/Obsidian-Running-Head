@@ -25,8 +25,8 @@
 Suivez la chronologie de vos notes de manière dynamique. Formatez les dates en utilisant 18 langues par défaut ou vos propres modèles [Moment.js](https://momentjs.com/). Un libellé de mise à jour intelligent s'affiche automatiquement lorsque la note est modifiée après sa création.
 
 <div align="center">
-  <img src="./assets/images/creation_dates.gif" width="48%" alt="Dates de Création" />
-  <img src="./assets/images/last_update_dates.gif" width="48%" alt="Dernière Mise à Jour" />
+  <video src="./assets/images/creation_dates.mp4" autoplay loop muted playsinline width="48%"></video>
+  <video src="./assets/images/last_update_dates.mp4" autoplay loop muted playsinline width="48%"></video>
 </div>
 
 
@@ -34,7 +34,7 @@ Suivez la chronologie de vos notes de manière dynamique. Formatez les dates en 
 Choisissez entre le style **Blog** (chemin du dossier au-dessus du titre, métadonnées en dessous) ou le style **Wiki** (métadonnées au-dessus du titre, chemin en dessous) pour adapter l'en-tête à l'esthétique de vos notes.
 
 <div align="center">
-  <img src="./assets/images/layout_styles.gif" width="80%" alt="Styles de Disposition" />
+  <video src="./assets/images/layout_styles.mp4" autoplay loop muted playsinline width="80%"></video>
 </div>
 
 
@@ -42,7 +42,7 @@ Choisissez entre le style **Blog** (chemin du dossier au-dessus du titre, métad
 Naviguez facilement avec un chemin de dossiers cliquable montrant exactement où se trouve votre note, avec une surbrillance facultative du dossier actif actuel.
 
 <div align="center">
-  <img src="./assets/images/breadcrumbs.gif" width="80%" alt="Chemin de la Note (Breadcrumbs)" />
+  <video src="./assets/images/breadcrumbs.mp4" autoplay loop muted playsinline width="80%"></video>
 </div>
 
 
@@ -53,8 +53,8 @@ Affichez toute propriété du frontmatter (texte, listes, cases à cocher) sous 
 > L'ajout d'un champ texte sert d'illustration ; ces options s'appliquent à toute propriété de métadonnées personnalisée.
 
 <div align="center">
-  <img src="./assets/images/custom_fields.gif" width="48%" alt="Champs Personnalisés YAML" />
-  <img src="./assets/images/folder_scopes.gif" width="48%" alt="Portée des Dossiers" />
+  <video src="./assets/images/custom_fields.mp4" autoplay loop muted playsinline width="48%"></video>
+  <video src="./assets/images/folder_scopes.mp4" autoplay loop muted playsinline width="48%"></video>
 </div>
 
 
@@ -62,7 +62,7 @@ Affichez toute propriété du frontmatter (texte, listes, cases à cocher) sous 
 Créez d'élégants en-têtes de navigation pour sauter entre des notes associées en utilisant les propriétés du frontmatter. Personnalisez le style visuel des onglets (**Souligné**, **Pastille** ou **Minimaliste**) et ajoutez des icônes Lucide ou des noms personnalisés facilement.
 
 <div align="center">
-  <img src="./assets/images/tabs_navigation.gif" width="80%" alt="Navigation par Onglets" />
+  <video src="./assets/images/tabs_navigation.mp4" autoplay loop muted playsinline width="80%"></video>
 </div>
 
 
@@ -70,8 +70,8 @@ Créez d'élégants en-têtes de navigation pour sauter entre des notes associé
 Ajoutez une barre discrète et hautement personnalisable en haut de la note pour suivre votre progression de lecture en temps réel. Running Head s'intègre également parfaitement avec le plugin **[Typify](https://github.com/Leike-Dev/Obsidian-Typify)** pour hériter automatiquement de superbes styles de pilules colorées.
 
 <div align="center">
-  <img src="./assets/images/scroll_progress.gif" width="48%" alt="Progression de Défilement" />
-  <img src="./assets/images/typify_integration.gif" width="48%" alt="Intégration Typify" />
+  <video src="./assets/images/scroll_progress.mp4" autoplay loop muted playsinline width="48%"></video>
+  <video src="./assets/images/typify_integration.mp4" autoplay loop muted playsinline width="48%"></video>
 </div>
 
 
@@ -104,7 +104,6 @@ tabs-home:
 > [!Note]
 > - L'ordre dans lequel vous insérez les éléments de la liste (`[name, ...]`, `[icon, ...]` et `[[Link]]`) n'a pas d'importance pour son fonctionnement.
 > - S'il y a plus d'un lien de note dans la liste de la propriété, l'onglet pointera vers le dernier lien ajouté.
-
 
 
 ## 📦 Installation

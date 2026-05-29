@@ -25,8 +25,8 @@
 动态追踪笔记的时间线。支持使用18种默认语言环境或自定义的 [Moment.js](https://momentjs.com/) 格式化日期。当笔记在创建后被修改时，系统会自动显示精美的更新标签。
 
 <div align="center">
-  <img src="./assets/images/creation_dates.gif" width="48%" alt="创建日期" />
-  <img src="./assets/images/last_update_dates.gif" width="48%" alt="最后更新日期" />
+  <video src="./assets/images/creation_dates.mp4" autoplay loop muted playsinline width="48%"></video>
+  <video src="./assets/images/last_update_dates.mp4" autoplay loop muted playsinline width="48%"></video>
 </div>
 
 
@@ -34,7 +34,7 @@
 在 **Blog 样式**（路径在标题上方，元数据在下方）和 **Wiki 样式**（元数据在标题上方，路径在下方）之间灵活选择，完美契合你的笔记美学。
 
 <div align="center">
-  <img src="./assets/images/layout_styles.gif" width="80%" alt="布局样式" />
+  <video src="./assets/images/layout_styles.mp4" autoplay loop muted playsinline width="80%"></video>
 </div>
 
 
@@ -42,7 +42,7 @@
 通过可点击的文件夹路径轻松导航，准确显示笔记所在位置，并可选高亮当前活动文件夹。
 
 <div align="center">
-  <img src="./assets/images/breadcrumbs.gif" width="80%" alt="笔记路径（面包屑）" />
+  <video src="./assets/images/breadcrumbs.mp4" autoplay loop muted playsinline width="80%"></video>
 </div>
 
 
@@ -53,8 +53,8 @@
 > 注：添加文本字段的展示仅作演示；这些选项适用于任何自定义元数据属性。
 
 <div align="center">
-  <img src="./assets/images/custom_fields.gif" width="48%" alt="自定义 YAML 字段" />
-  <img src="./assets/images/folder_scopes.gif" width="48%" alt="文件夹范围" />
+  <video src="./assets/images/custom_fields.mp4" autoplay loop muted playsinline width="48%"></video>
+  <video src="./assets/images/folder_scopes.mp4" autoplay loop muted playsinline width="48%"></video>
 </div>
 
 
@@ -62,7 +62,7 @@
 利用 frontmatter 属性构建优雅的导航页眉，在关联笔记之间轻松跳转。支持自定义标签的视觉样式（**下划线**、**药丸**或**极简**），并可轻松添加 Lucide 图标或自定义显示名称。
 
 <div align="center">
-  <img src="./assets/images/tabs_navigation.gif" width="80%" alt="标签导航" />
+  <video src="./assets/images/tabs_navigation.mp4" autoplay loop muted playsinline width="80%"></video>
 </div>
 
 
@@ -70,8 +70,8 @@
 在笔记顶部固定一条优雅且可自定义颜色的滚动进度条。Running Head 还与 **[Typify](https://github.com/Leike-Dev/Obsidian-Typify)** 插件完美集成，能够自动继承精致的彩色胶囊样式。
 
 <div align="center">
-  <img src="./assets/images/scroll_progress.gif" width="48%" alt="滚动进度条" />
-  <img src="./assets/images/typify_integration.gif" width="48%" alt="Typify 集成" />
+  <video src="./assets/images/scroll_progress.mp4" autoplay loop muted playsinline width="48%"></video>
+  <video src="./assets/images/typify_integration.mp4" autoplay loop muted playsinline width="48%"></video>
 </div>
 
 
@@ -91,7 +91,7 @@
    updated: 2026-05-29
    ```
 3. **配置自定义字段**：转到插件设置 $\rightarrow$ **自定义字段**，然后点击 **添加** 将任何 YAML 键（例如 `Author`, `tags`）映射到页眉。
-4. **配置标签导航**：在 **标签导航** 下，注册一个列表类型的 YAML 属性（例如 `tabs-home`）并定义关联笔记链接。
+4. **配置标签导航**：在 **标签导航** 下，注册一个列表类型的 YAML 属性（例如 `tabs-home`）并 define 关联笔记链接。
 
 ### 📝 标签 YAML 结构示例
 ```yaml
@@ -104,7 +104,6 @@ tabs-home:
 > [!Note]
 > - 列表内的标签（`[name, ...]`、`[icon, ...]` 和 `[[Link]]`）的顺序并不影响功能。
 > - 如果列表中存在多个笔记链接，标签将指向最后添加的链接。
-
 
 
 ## 📦 安装
