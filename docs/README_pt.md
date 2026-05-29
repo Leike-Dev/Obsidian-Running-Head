@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./assets/images/banner_1.jpg" alt="Running Head Banner" />
+  <img src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/banner_1.jpg" alt="Running Head Banner" />
   
   <br>
 
@@ -25,8 +25,8 @@
 Acompanhe a linha do tempo das suas notas de forma dinâmica. Formate as datas usando 18 idiomas padrão ou seus próprios padrões do [Moment.js](https://momentjs.com/). Uma etiqueta inteligente de modificação é exibida automaticamente quando uma nota é alterada após sua criação.
 
 <div align="center">
-  <video src="./assets/images/creation_dates.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
-  <video src="./assets/images/last_update_dates.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/creation_dates.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/last_update_dates.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
 </div>
 
 
@@ -34,7 +34,7 @@ Acompanhe a linha do tempo das suas notas de forma dinâmica. Formate as datas u
 Escolha entre os layouts **Estilo Blog** (caminho da pasta acima do título, metadados abaixo) ou **Estilo Wiki** (metadados acima do título, caminho abaixo) para se adequar à estética das suas notas.
 
 <div align="center">
-  <video src="./assets/images/layout_styles.mp4" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
+  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/layout_styles.mp4" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
 </div>
 
 
@@ -42,7 +42,7 @@ Escolha entre os layouts **Estilo Blog** (caminho da pasta acima do título, met
 Navegue facilmente com um caminho de pastas clicável mostrando exatamente onde sua nota está localizada, com destaque opcional da pasta atual.
 
 <div align="center">
-  <video src="./assets/images/breadcrumbs.mp4" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
+  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/breadcrumbs.mp4" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
 </div>
 
 
@@ -53,8 +53,8 @@ Renderize qualquer propriedade do frontmatter (texto, listas, caixas de seleçã
 > A demonstração adicionando um campo de texto serve como ilustração; essas opções aplicam-se a qualquer propriedade de metadado personalizado.
 
 <div align="center">
-  <video src="./assets/images/custom_fields.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
-  <video src="./assets/images/folder_scopes.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/custom_fields.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/folder_scopes.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
 </div>
 
 
@@ -62,7 +62,7 @@ Renderize qualquer propriedade do frontmatter (texto, listas, caixas de seleçã
 Crie barras de navegação elegantes para alternar entre notas relacionadas usando propriedades de frontmatter. Personalize o estilo visual das abas (**Sublinhado**, **Pílula** ou **Minimalista**) e adicione ícones do Lucide ou nomes personalizados facilmente.
 
 <div align="center">
-  <video src="./assets/images/tabs_navigation.mp4" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
+  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/tabs_navigation.mp4" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
 </div>
 
 
@@ -70,8 +70,8 @@ Crie barras de navegação elegantes para alternar entre notas relacionadas usan
 Adicione uma barra discreta e altamente personalizável no topo da nota para acompanhar o seu progresso de leitura em tempo real. O Running Head também se integra perfeitamente ao plugin **[Typify](https://github.com/Leike-Dev/Obsidian-Typify)** para herdar cores e estilos de pílula automaticamente.
 
 <div align="center">
-  <video src="./assets/images/scroll_progress.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
-  <video src="./assets/images/typify_integration.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/scroll_progress.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/typify_integration.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
 </div>
 
 
@@ -108,11 +108,11 @@ tabs-home:
 
 ## 📦 Instalação
 
-### Instalação Manual
-1. Baixe os arquivos `main.js`, `manifest.json` e `styles.css` da release mais recente.
-2. Crie uma pasta chamada `running-head` dentro do diretório `<Seu-Vault>/.obsidian/plugins/`.
-3. Mova os arquivos baixados para dentro dessa pasta.
-4. Recarregue o Obsidian e ative o plugin em **Configurações → Plugins da comunidade**.
+### Manual Installation
+1. Download the files `main.js`, `manifest.json` and `styles.css` from the latest release.
+2. Create a folder named `running-head` inside `<Your-Vault>/.obsidian/plugins/`.
+3. Move the downloaded files into that folder.
+4. Reload Obsidian and enable the plugin under **Settings → Community plugins**.
 
 
 ## 🛠️ Desenvolvimento

@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./assets/images/banner_1.jpg" alt="Running Head Banner" />
+  <img src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/banner_1.jpg" alt="Running Head Banner" />
   
   <br>
 
@@ -25,16 +25,16 @@
 Sigue el historial de tus notas de forma dinámica. Formatea las fechas usando 18 idiomas predeterminados o tus propios patrones de [Moment.js](https://momentjs.com/). Una etiqueta inteligente de modificación se muestra automáticamente cuando se edita una nota después de su creación.
 
 <div align="center">
-  <video src="./assets/images/creation_dates.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
-  <video src="./assets/images/last_update_dates.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/creation_dates.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/last_update_dates.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
 </div>
 
 
 ### 2. 📐 Estilos de Diseño
-Elige entre los diseños **Estilo Blog** (ruta de carpeta sobre el título, metadados abajo) o **Estilo Wiki** (metadados sobre el título, ruta abajo) para adaptarlos a la estética de tus notas.
+Elige entre los diseños **Estilo Blog** (ruta de carpeta sobre el título, metadados abajo) o **Estilo Wiki** (encabezado de metadados sobre el título, ruta abajo) para adaptarlos a la estética de tus notas.
 
 <div align="center">
-  <video src="./assets/images/layout_styles.mp4" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
+  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/layout_styles.mp4" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
 </div>
 
 
@@ -42,7 +42,7 @@ Elige entre los diseños **Estilo Blog** (ruta de carpeta sobre el título, meta
 Navega fácilmente con una ruta de carpetas interactiva que muestra exactamente dónde está tu nota, con resaltado opcional de la carpeta activa actual.
 
 <div align="center">
-  <video src="./assets/images/breadcrumbs.mp4" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
+  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/breadcrumbs.mp4" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
 </div>
 
 
@@ -53,8 +53,8 @@ Renderiza cualquier propiedad de frontmatter (texto, listas, casillas de verific
 > La demostración agregando un campo de texto sirve como ilustración; estas opciones se aplican a cualquier propiedad de metadado personalizado.
 
 <div align="center">
-  <video src="./assets/images/custom_fields.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
-  <video src="./assets/images/folder_scopes.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/custom_fields.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/folder_scopes.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
 </div>
 
 
@@ -62,7 +62,7 @@ Renderiza cualquier propiedad de frontmatter (texto, listas, casillas de verific
 Crea elegantes encabezados de navegación para saltar entre notas relacionadas usando propiedades de frontmatter. Personaliza el estilo visual de las pestañas (**Subrayado**, **Píldora** o **Minimalista**) y añade iconos de Lucide o nombres personalizados fácilmente.
 
 <div align="center">
-  <video src="./assets/images/tabs_navigation.mp4" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
+  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/tabs_navigation.mp4" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
 </div>
 
 
@@ -70,8 +70,8 @@ Crea elegantes encabezados de navegación para saltar entre notas relacionadas u
 Agrega una barra discreta y altamente personalizable en la parte superior de la nota para rastrear tu posición de lectura en tiempo real. Running Head también se integra perfectamente con el plugin **[Typify](https://github.com/Leike-Dev/Obsidian-Typify)** para herdar colores y estilos de píldoras automáticamente.
 
 <div align="center">
-  <video src="./assets/images/scroll_progress.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
-  <video src="./assets/images/typify_integration.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/scroll_progress.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
+  <video src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/typify_integration.mp4" autoplay loop muted playsinline controls style="max-width: 48%;"></video>
 </div>
 
 
