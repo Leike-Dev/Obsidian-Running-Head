@@ -13,16 +13,22 @@ body .running-head-hidden,
 
 /* Increases inline title font size (highly specific to override themes) */
 body .workspace-leaf-content .inline-title,
+body .workspace-leaf-content .running-head-custom-title,
 body .workspace-leaf-content .markdown-source-view.mod-cm6 .cm-sizer>.inline-title,
-body .workspace-leaf-content .markdown-preview-view .markdown-preview-sizer>.inline-title {
+body .workspace-leaf-content .markdown-source-view.mod-cm6 .cm-sizer>.running-head-custom-title,
+body .workspace-leaf-content .markdown-preview-view .markdown-preview-sizer>.inline-title,
+body .workspace-leaf-content .markdown-preview-view .markdown-preview-sizer>.running-head-custom-title {
     font-size: var(--running-head-title-size, 3em);
+    font-weight: 700;
     padding-top: 0;
 }
 
 /* Fallback line-height and margin (low specificity so themes can override) */
-.inline-title {
+.inline-title,
+.running-head-custom-title {
     line-height: 1.2;
     margin-bottom: 20px;
+    color: var(--h1-color, var(--text-title-h1, var(--text-normal)));
 }
 
 /* Remove a linha inferior do título da página */

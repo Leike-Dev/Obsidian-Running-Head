@@ -74,6 +74,11 @@ export interface RunningHeadSettings {
 	lastUpdatedBadgeColor: string;
 	/** Whether to hide the first H1 in the document (useful for users who disable inline-title) */
 	hideFirstH1: boolean;
+
+	/** Whether to render a custom title using the RunningHead plugin */
+	renderCustomTitle: boolean;
+	/** Whether to attempt to format the custom title as a date using moment.js */
+	formatTitleAsDate: boolean;
 }
 
 export const DEFAULT_SETTINGS: RunningHeadSettings = {
@@ -99,4 +104,7 @@ export const DEFAULT_SETTINGS: RunningHeadSettings = {
 	breadcrumbHighlightColor: "",
 	lastUpdatedBadgeColor: "",
 	hideFirstH1: false,
+
+	renderCustomTitle: false,
+	formatTitleAsDate: false,
 };

@@ -151,6 +151,30 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 			);
 
 		new Setting(togglesContainer)
+			.setName(t('render_custom_title_name'))
+			.setDesc(t('render_custom_title_desc'))
+			.addToggle((toggle) =>
+				toggle
+					.setValue(plugin.settings.renderCustomTitle)
+					.onChange(async (value) => {
+						plugin.settings.renderCustomTitle = value;
+						await plugin.saveSettings();
+					})
+			);
+
+		new Setting(togglesContainer)
+			.setName(t('format_title_as_date_name'))
+			.setDesc(t('format_title_as_date_desc'))
+			.addToggle((toggle) =>
+				toggle
+					.setValue(plugin.settings.formatTitleAsDate)
+					.onChange(async (value) => {
+						plugin.settings.formatTitleAsDate = value;
+						await plugin.saveSettings();
+					})
+			);
+
+		new Setting(togglesContainer)
 			.setName(t('show_last_updated_name'))
 			.setDesc(t('show_last_updated_desc'))
 			.addToggle((toggle) =>

@@ -227,6 +227,8 @@ export function removeExistingHeader(viewContentEl: HTMLElement): void {
 	existing.forEach((el) => el.remove());
 	const dummies = viewContentEl.querySelectorAll('.running-head-dummy-anchor');
 	dummies.forEach((el) => el.remove());
+	const customTitles = viewContentEl.querySelectorAll('.running-head-custom-title');
+	customTitles.forEach((el) => el.remove());
 	const hiddenTitle = viewContentEl.querySelector('.inline-title.running-head-hidden');
 	if (hiddenTitle) hiddenTitle.classList.remove('running-head-hidden');
 	const hiddenProps = viewContentEl.querySelector('.metadata-container.running-head-hidden');

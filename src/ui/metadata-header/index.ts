@@ -1,4 +1,4 @@
-import { MarkdownView, TFile } from "obsidian";
+import { MarkdownView, TFile, moment } from "obsidian";
 import type RunningHeadPlugin from "../../main";
 import type { CustomField } from "../../settings";
 import { calculateReadingTime } from "../../utils/reading-time";
@@ -135,6 +135,25 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 	contentEl.style.setProperty('--running-head-title-size', `${settings.titleFontSize}em`);
 	contentEl.style.setProperty('--running-head-badge-size', `${settings.badgeFontSize}rem`);
 
+	// --- Custom Title Processing ---
+	let customTitleText: string | null = null;
+	if (settings.renderCustomTitle) {
+		customTitleText = file.basename;
+		if (settings.formatTitleAsDate) {
+			// Try to parse the filename as a date. YYYY-MM-DD is standard.
+			// We use moment.js in strict mode for standard date formats.
+			const parsedDate = moment(customTitleText, ["YYYY-MM-DD", "YYYY-MM-DD HHmm"], true);
+			if (parsedDate.isValid()) {
+				// Use locale formatting if custom format is empty
+				if (settings.customDateFormat) {
+					customTitleText = parsedDate.format(settings.customDateFormat);
+				} else {
+					customTitleText = parsedDate.locale(settings.dateLocale).format("LL");
+				}
+			}
+		}
+	}
+
 	// --- Date/badge options (can be above or below the title depending on layout) ---
 	const dateOptions: MetadataHeaderOptions = {
 		formattedDate,
@@ -199,25 +218,35 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 	contentEl.querySelectorAll(".running-head-top-row").forEach((el) => el.remove());
 	contentEl.querySelectorAll(".running-head-tabs-container").forEach((el) => el.remove());
 
+	let injectedTitleAnchor: Element = inlineTitle;
+
+	if (customTitleText) {
+		const customTitleEl = contentEl.ownerDocument.createElement("div");
+		customTitleEl.classList.add("running-head-custom-title");
+		customTitleEl.textContent = customTitleText;
+		inlineTitle.insertAdjacentElement("beforebegin", customTitleEl);
+		injectedTitleAnchor = customTitleEl;
+	}
+
 	const isWikiStyle = settings.layoutStyle === "wiki";
 	const showBreadcrumb = settings.showBreadcrumb;
 
 	let topAnchor: Element | null = null;
-	let bottomAnchor: Element = inlineTitle;
+	let bottomAnchor: Element = injectedTitleAnchor;
 
 	if (isWikiStyle) {
 		// Wiki Style: Date+Badge Above Title, Breadcrumb Below Title
 		if (hasDateContent) {
 			const tempDate = contentEl.ownerDocument.createElement("div");
 			const dateEl = createMetadataHeaderEl(tempDate, dateOptions);
-			inlineTitle.insertAdjacentElement("beforebegin", dateEl);
+			injectedTitleAnchor.insertAdjacentElement("beforebegin", dateEl);
 			topAnchor = dateEl;
 		}
 
 		if (showBreadcrumb) {
 			const breadcrumbEl = createBreadcrumbEl(file.path, plugin.app, settings.breadcrumbHighlightLast);
 			if (breadcrumbEl) {
-				inlineTitle.insertAdjacentElement("afterend", breadcrumbEl);
+				injectedTitleAnchor.insertAdjacentElement("afterend", breadcrumbEl);
 				bottomAnchor = breadcrumbEl;
 			}
 		}
@@ -226,7 +255,7 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 		if (showBreadcrumb) {
 			const breadcrumbEl = createBreadcrumbEl(file.path, plugin.app, settings.breadcrumbHighlightLast);
 			if (breadcrumbEl) {
-				inlineTitle.insertAdjacentElement("beforebegin", breadcrumbEl);
+				injectedTitleAnchor.insertAdjacentElement("beforebegin", breadcrumbEl);
 				topAnchor = breadcrumbEl;
 			}
 		}
@@ -234,7 +263,7 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 		if (hasDateContent) {
 			const tempDate = contentEl.ownerDocument.createElement("div");
 			const dateEl = createMetadataHeaderEl(tempDate, dateOptions);
-			inlineTitle.insertAdjacentElement("afterend", dateEl);
+			injectedTitleAnchor.insertAdjacentElement("afterend", dateEl);
 			bottomAnchor = dateEl;
 		}
 	}
@@ -243,7 +272,7 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 	if (hasAboveContent) {
 		const tempAbove = contentEl.ownerDocument.createElement("div");
 		const aboveEl = createMetadataHeaderEl(tempAbove, aboveOptions);
-		const anchor = topAnchor ?? inlineTitle;
+		const anchor = topAnchor ?? injectedTitleAnchor;
 		anchor.insertAdjacentElement("beforebegin", aboveEl);
 	}
 
@@ -265,7 +294,7 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 	}
 
 	// Add sibling classes for layout-aware CSS styling
-	const parent = inlineTitle.parentElement;
+	const parent = injectedTitleAnchor.parentElement;
 	if (parent) {
 		const children = Array.from(parent.children);
 		for (let i = 0; i < children.length; i++) {
@@ -273,10 +302,11 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 			const next = children[i + 1];
 			if (!child || !next) continue;
 
-			if (next.classList.contains("inline-title")) {
-				if (child.classList.contains("running-head-metadata-header") || child.classList.contains("running-head-breadcrumb")) {
-					child.classList.add("is-above-title");
-				}
+			if (next === injectedTitleAnchor) {
+				child.classList.add("is-above-title");
+			}
+			if (child === injectedTitleAnchor) {
+				next.classList.add("is-below-title");
 			}
 
 			if (child.classList.contains("running-head-metadata-header") && next.classList.contains("running-head-breadcrumb")) {
