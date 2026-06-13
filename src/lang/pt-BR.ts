@@ -20,6 +20,8 @@ export const ptBR = {
 	'title_font_size_placeholder': '3',
 	'breadcrumb_toggle_name': 'Caminho da nota',
 	'breadcrumb_toggle_desc': 'Exibe o caminho de pastas da nota acima do título. Ocultado em notas na raiz do vault.',
+	'hide_first_h1_name': 'Ocultar primeiro cabeçalho (H1)',
+	'hide_first_h1_desc': 'Oculta o primeiro H1 do documento. Útil se você usa plugins de sincronização de título e desativou o título nativo.',
 	'breadcrumb_highlight_name': 'Destacar pasta atual',
 	'breadcrumb_highlight_desc': 'Aplica a cor de destaque ao último segmento do caminho.',
 	'breadcrumb_highlight_color_name': 'Cor de destaque da pasta',

@@ -72,6 +72,8 @@ export interface RunningHeadSettings {
 	breadcrumbHighlightColor: string;
 	/** Custom color for the last updated badge (empty for default accent color) */
 	lastUpdatedBadgeColor: string;
+	/** Whether to hide the first H1 in the document (useful for users who disable inline-title) */
+	hideFirstH1: boolean;
 }
 
 export const DEFAULT_SETTINGS: RunningHeadSettings = {
@@ -96,4 +98,5 @@ export const DEFAULT_SETTINGS: RunningHeadSettings = {
 	scrollProgressColor: "",
 	breadcrumbHighlightColor: "",
 	lastUpdatedBadgeColor: "",
+	hideFirstH1: false,
 };

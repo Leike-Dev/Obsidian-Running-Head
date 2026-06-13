@@ -20,6 +20,8 @@ export const en = {
 	'title_font_size_placeholder': '3',
 	'breadcrumb_toggle_name': 'Note path',
 	'breadcrumb_toggle_desc': 'Displays the note\'s folder path above the title. Hidden for notes at the vault root.',
+	'hide_first_h1_name': 'Hide first header (H1)',
+	'hide_first_h1_desc': 'Visually hides the first H1 in the document. Useful if you use filename sync plugins and disabled the native title.',
 	'breadcrumb_highlight_name': 'Highlight current folder',
 	'breadcrumb_highlight_desc': 'Applies the accent color to the last segment of the path.',
 	'breadcrumb_highlight_color_name': 'Folder highlight color',

@@ -26,6 +26,7 @@ export default class RunningHeadPlugin extends Plugin {
 		this.styleEl.id = "running-head-dynamic-styles";
 		activeDocument.head.appendChild(this.styleEl);
 		this.updateDynamicStyles();
+		this.updateBodyClasses();
 
 		this.scrollProgressManager = new ScrollProgressManager(this);
 
@@ -113,6 +114,8 @@ export default class RunningHeadPlugin extends Plugin {
 
 		this.scrollProgressManager.cleanupAll();
 
+		document.body.classList.remove("running-head-hide-first-h1");
+
 		// Clean up all injected headers from every open view
 		removeAllMetadataHeaders(this);
 	}
@@ -128,8 +131,17 @@ export default class RunningHeadPlugin extends Plugin {
 	async saveSettings(): Promise<void> {
 		await this.saveData(this.settings);
 		this.updateDynamicStyles();
+		this.updateBodyClasses();
 		// Re-inject to reflect updated settings immediately
 		await injectMetadataHeader(this);
+	}
+
+	updateBodyClasses(): void {
+		if (this.settings.hideFirstH1) {
+			document.body.classList.add("running-head-hide-first-h1");
+		} else {
+			document.body.classList.remove("running-head-hide-first-h1");
+		}
 	}
 
 	// --- Private helpers ---

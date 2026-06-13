@@ -225,6 +225,8 @@ export function createMetadataHeaderEl(container: HTMLElement, options: Metadata
 export function removeExistingHeader(viewContentEl: HTMLElement): void {
 	const existing = viewContentEl.querySelectorAll(`.${HEADER_CLASS}`);
 	existing.forEach((el) => el.remove());
+	const dummies = viewContentEl.querySelectorAll('.running-head-dummy-anchor');
+	dummies.forEach((el) => el.remove());
 	const hiddenTitle = viewContentEl.querySelector('.inline-title.running-head-hidden');
 	if (hiddenTitle) hiddenTitle.classList.remove('running-head-hidden');
 	const hiddenProps = viewContentEl.querySelector('.metadata-container.running-head-hidden');

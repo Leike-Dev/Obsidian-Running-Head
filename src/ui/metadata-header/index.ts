@@ -86,10 +86,27 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 		readingTime = calculateReadingTime(content, settings.wordsPerMinute);
 	}
 
-	// --- Find the inline title ---
-	const inlineTitle = contentEl.querySelector<HTMLElement>(".inline-title");
+	let inlineTitle = contentEl.querySelector<HTMLElement>(".inline-title");
 	if (!inlineTitle) {
-		// Fallback: single wrapper prepended to the content area
+		const cmContent = contentEl.querySelector<HTMLElement>(".cm-content");
+		if (cmContent) {
+			const dummy = contentEl.ownerDocument.createElement("div");
+			dummy.classList.add("running-head-dummy-anchor");
+			cmContent.insertAdjacentElement("beforebegin", dummy);
+			inlineTitle = dummy;
+		} else {
+			const previewSizer = contentEl.querySelector<HTMLElement>(".markdown-preview-sizer");
+			if (previewSizer && previewSizer.firstElementChild) {
+				const dummy = contentEl.ownerDocument.createElement("div");
+				dummy.classList.add("running-head-dummy-anchor");
+				previewSizer.firstElementChild.insertAdjacentElement("beforebegin", dummy);
+				inlineTitle = dummy;
+			}
+		}
+	}
+
+	if (!inlineTitle) {
+		// Ultimate fallback if nothing can be used as anchor
 		const previewView = contentEl.querySelector(".markdown-preview-view") ??
 			contentEl.querySelector(".markdown-source-view") ??
 			contentEl;

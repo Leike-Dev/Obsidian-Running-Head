@@ -137,6 +137,18 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 						if (scrollColorSetting !== undefined) scrollColorSetting.setDisabled(!value);
 					})
 			);
+            
+		new Setting(togglesContainer)
+			.setName(t('hide_first_h1_name'))
+			.setDesc(t('hide_first_h1_desc'))
+			.addToggle((toggle) =>
+				toggle
+					.setValue(plugin.settings.hideFirstH1)
+					.onChange(async (value) => {
+						plugin.settings.hideFirstH1 = value;
+						await plugin.saveSettings();
+					})
+			);
 
 		new Setting(togglesContainer)
 			.setName(t('show_last_updated_name'))
