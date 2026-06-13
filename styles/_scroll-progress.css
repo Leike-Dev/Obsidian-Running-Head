@@ -1,0 +1,18 @@
+/*
+ * RunningHead — Scroll Progress Bar
+ * Horizontal progress bar fixed at the top of the pane: .running-head-scroll-progress.
+ * Uses transform: scaleX() controlled by JS to indicate scroll position.
+ */
+
+.running-head-scroll-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--rh-scroll-bg, var(--interactive-accent));
+    transform-origin: left;
+    transform: scaleX(0);
+    z-index: 100;
+    pointer-events: none;
+}

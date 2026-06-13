@@ -1,0 +1,138 @@
+/*
+ * RunningHead — Field Manager Modal
+ * Custom field management modal: item list with actions (edit, delete),
+ * type-based grouping with headers, inline delete confirmation, and empty state.
+ */
+
+.running-head-manager-count {
+    font-size: var(--font-ui-smaller);
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.running-head-manager-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.running-head-manager-group-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--font-ui-smaller);
+    font-weight: 600;
+    color: var(--text-muted);
+    padding: 12px 0 6px;
+    margin-top: 8px;
+}
+
+.running-head-manager-group-header::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--background-modifier-border);
+}
+
+.running-head-manager-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    border-radius: 6px;
+    background: var(--background-secondary);
+    position: relative;
+}
+
+.running-head-manager-item:hover {
+    background: var(--background-modifier-hover);
+}
+
+.running-head-manager-item-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+}
+
+.running-head-manager-type-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.running-head-manager-item-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.running-head-manager-item-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-normal);
+}
+
+.running-head-manager-item-icon svg {
+    width: var(--icon-size, 14px);
+    height: var(--icon-size, 14px);
+}
+
+.running-head-manager-item-divider {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1;
+}
+
+.running-head-manager-item-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.running-head-manager-meta {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.running-head-manager-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.running-head-manager-empty {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    padding: 20px 0;
+}
+
+/* Inline delete confirmation overlay */
+.running-head-manager-confirm {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--background-secondary);
+    border-radius: 6px;
+    z-index: 1;
+}
+
+.running-head-manager-confirm-text {
+    font-size: 0.8rem;
+}
+
+.running-head-manager-confirm-btns {
+    display: flex;
+    gap: 6px;
+}

@@ -1,0 +1,52 @@
+/*
+ * RunningHead — Metadata Header
+ * Horizontal flex container with date, reading time, and "Updated" badge.
+ * Includes: .running-head-metadata-header, .running-head-metadata-date,
+ * .running-head-metadata-badge, and positional variants (is-above-title,
+ * with-breadcrumb-sibling).
+ */
+
+/* Wrapper: horizontal flex layout */
+.running-head-metadata-header {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: 0.7rem;
+    flex-wrap: wrap;
+}
+
+/* Hide empty wrappers to prevent blank space when no fields have values */
+.running-head-metadata-header:empty {
+    display: none;
+}
+
+/* Reduce gap when metadata header is directly above the title */
+.running-head-metadata-header.is-above-title {
+    margin-bottom: 0.35rem;
+}
+
+/* When above the breadcrumb, give it a bit more breathing room */
+.running-head-metadata-header.with-breadcrumb-sibling {
+    margin-bottom: 0.75rem;
+}
+
+/* Date + reading time — muted gray text */
+.running-head-metadata-date {
+    color: var(--text-muted);
+    font-size: calc(var(--running-head-badge-size, 0.75rem) + 0.05rem);
+    line-height: 1.4;
+}
+
+/* "Last Updated" pill badge */
+.running-head-metadata-badge {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--rh-badge-bg, color-mix(in srgb, var(--color-accent) 15%, transparent));
+    color: var(--rh-badge-text, var(--color-accent));
+    font-size: var(--running-head-badge-size, 0.75rem);
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 6px;
+    line-height: 1;
+    white-space: nowrap;
+}

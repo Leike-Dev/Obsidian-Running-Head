@@ -1,0 +1,43 @@
+/*
+ * RunningHead — Utilities
+ * General-purpose utility classes: .running-head-hidden (hide elements without inline style),
+ * .running-head-clickable-header, .running-head-icon-suggestion, and inline-title styles
+ * (font-size, line-height, border-bottom removal).
+ */
+
+/* Utility: hide elements without inline style */
+body .running-head-hidden,
+.workspace-leaf-content .running-head-hidden {
+    display: none;
+}
+
+/* Increases inline title font size (highly specific to override themes) */
+body .workspace-leaf-content .inline-title,
+body .workspace-leaf-content .markdown-source-view.mod-cm6 .cm-sizer>.inline-title,
+body .workspace-leaf-content .markdown-preview-view .markdown-preview-sizer>.inline-title {
+    font-size: var(--running-head-title-size, 3em);
+    padding-top: 0;
+}
+
+/* Fallback line-height and margin (low specificity so themes can override) */
+.inline-title {
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+/* Remove a linha inferior do título da página */
+body:not(.is-phone):not(.inline-title-divider-remove) .app-container .workspace-leaf-content .view-content .inline-title:not(.mk-inline-title),
+body:not(.is-phone):not(.inline-title-divider-remove) .app-container .workspace-leaf-content .markdown-source-view.mod-cm6 .cm-sizer>.inline-title:not(.mk-inline-title) {
+    border-bottom: none;
+    box-shadow: none;
+}
+
+.running-head-icon-suggestion {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.running-head-clickable-header {
+    cursor: pointer;
+}

@@ -1,0 +1,165 @@
+/*
+ * RunningHead — Custom Fields
+ * Styles for user-defined frontmatter fields displayed in the header:
+ * .running-head-custom-text, .running-head-custom-badge, .running-head-custom-link,
+ * .running-head-custom-pills, .running-head-tags-container.
+ *
+ * Also includes .multi-select-pill and .tag fallback within the RH context,
+ * Typify integration (.custom-status-icon-pill), .multi-select-pill-content,
+ * .internal-link in the header, and boolean pills (.running-head-boolean-pill).
+ */
+
+/* Custom text — same muted style as the date, with matching vertical padding */
+.running-head-custom-text {
+    color: var(--text-muted);
+    font-size: calc(var(--running-head-badge-size, 0.75rem) + 0.05rem);
+    line-height: 1.4;
+    padding: 4px 0;
+}
+
+/* Custom badge — pill shape, default green tint (overridden by inline style if user sets color) */
+.running-head-custom-badge {
+    display: inline-flex;
+    align-items: center;
+    background-color: color-mix(in srgb, var(--color-green) 15%, transparent);
+    color: var(--color-green);
+    font-size: var(--running-head-badge-size, 0.75rem);
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 6px;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+/* Custom link — subtle underlined style */
+.running-head-custom-link {
+    color: var(--color-accent);
+    font-size: calc(var(--running-head-badge-size, 0.75rem) + 0.05rem);
+    text-decoration: none;
+    border-bottom: 1px dashed color-mix(in srgb, var(--color-accent) 40%, transparent);
+    transition: border-color 0.15s ease;
+    padding: 4px 0;
+}
+
+.running-head-custom-link:hover {
+    border-bottom-color: var(--color-accent);
+}
+
+/* Container for array-based pills (tags, multi-select) */
+.running-head-custom-pills {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+}
+
+/* Tags container — uses native Obsidian .tag class, no overrides needed */
+.running-head-tags-container .tag {
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+/* Fallback pill style for .multi-select-pill in the header context.
+   If Typify is installed, it overrides this with custom colors. */
+.workspace-leaf-content :is(.running-head-metadata-header, .running-head-top-row, .running-head-breadcrumb) .multi-select-pill,
+.workspace-leaf-content :is(.running-head-metadata-header, .running-head-top-row, .running-head-breadcrumb) .tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--running-head-badge-size, 0.75rem);
+    font-weight: 500;
+    padding: 0.15rem 0.55rem;
+    border-radius: var(--pill-radius, var(--tag-radius));
+    line-height: 1.4;
+    white-space: nowrap;
+    cursor: default;
+
+    /* Prevent native Obsidian max-width and flex from clipping */
+    max-width: none;
+    overflow: visible;
+    flex-shrink: 0;
+}
+
+:is(.running-head-metadata-header, .running-head-top-row, .running-head-breadcrumb) .multi-select-pill {
+    background: var(--tag-background);
+    color: var(--tag-color);
+    border: var(--tag-border-width) solid var(--tag-border-color);
+}
+
+/* Hide any invisible pseudo-elements injected by themes on native tags */
+.workspace-leaf-content :is(.running-head-metadata-header, .running-head-top-row, .running-head-breadcrumb) .tag::before,
+.workspace-leaf-content :is(.running-head-metadata-header, .running-head-top-row, .running-head-breadcrumb) .tag::after {
+    display: none;
+}
+
+/* Ensure Typify styled pills also get the extra space */
+.workspace-leaf-content :is(.running-head-metadata-header, .running-head-top-row, .running-head-breadcrumb) .multi-select-pill.custom-status-icon-pill {
+    padding: 0.15rem 0.55rem;
+}
+
+.workspace-leaf-content :is(.running-head-metadata-header, .running-head-top-row, .running-head-breadcrumb) .multi-select-pill-content {
+    max-width: none;
+    overflow: visible;
+    text-overflow: clip;
+    flex-shrink: 0;
+    margin: 0;
+    /* Neutralize native Obsidian right-margin */
+    padding: 0;
+}
+
+:is(.running-head-metadata-header, .running-head-top-row, .running-head-breadcrumb) .multi-select-pill:hover {
+    background: var(--tag-background-hover);
+    color: var(--tag-color-hover);
+}
+
+/* Internal links inside the header */
+:is(.running-head-metadata-header, .running-head-top-row, .running-head-breadcrumb) .internal-link {
+    color: var(--link-color);
+    font-size: calc(var(--running-head-badge-size, 0.75rem) + 0.05rem);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+:is(.running-head-metadata-header, .running-head-top-row, .running-head-breadcrumb) .internal-link:hover {
+    color: var(--link-color-hover);
+    text-decoration: none;
+}
+
+
+/* =========================================================================
+   BOOLEAN PILLS
+   ========================================================================= */
+
+.multi-select-pill.running-head-boolean-pill.is-true {
+    background-color: color-mix(in srgb, var(--color-green) 15%, transparent);
+    color: var(--color-green);
+    border-color: color-mix(in srgb, var(--color-green) 30%, transparent);
+}
+
+.multi-select-pill.running-head-boolean-pill.is-false {
+    background-color: color-mix(in srgb, var(--color-red) 15%, transparent);
+    color: var(--color-red);
+    border-color: color-mix(in srgb, var(--color-red) 30%, transparent);
+}
+
+.multi-select-pill.running-head-boolean-pill.is-true:hover {
+    background-color: color-mix(in srgb, var(--color-green) 25%, transparent);
+    border-color: color-mix(in srgb, var(--color-green) 45%, transparent);
+}
+
+.multi-select-pill.running-head-boolean-pill.is-false:hover {
+    background-color: color-mix(in srgb, var(--color-red) 25%, transparent);
+    border-color: color-mix(in srgb, var(--color-red) 45%, transparent);
+}
+
+.multi-select-pill.running-head-boolean-pill .running-head-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 6px;
+}
+
+.multi-select-pill.running-head-boolean-pill .running-head-icon svg {
+    width: var(--icon-size, 14px);
+    height: var(--icon-size, 14px);
+    stroke-width: 2px;
+}

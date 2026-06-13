@@ -1,0 +1,65 @@
+/*
+ * RunningHead — Breadcrumb & Top Row
+ * Wiki-style navigation: .running-head-top-row (top container with justify-content:
+ * space-between), .running-head-breadcrumb (path segments with separators),
+ * .running-head-breadcrumb-segment, .running-head-breadcrumb-active.
+ */
+
+/* Top row container for Wiki layout */
+.running-head-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    width: 100%;
+    margin-bottom: 0.35rem;
+}
+
+/* Ensure breadcrumb doesn't have its own margin when inside top row */
+.running-head-top-row .running-head-breadcrumb {
+    margin-bottom: 0;
+}
+
+.running-head-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.2rem;
+    margin-bottom: 0.7rem;
+    font-size: calc(var(--running-head-badge-size, 0.75rem) - 0.05rem);
+    color: var(--text-faint);
+    line-height: 1.4;
+}
+
+.running-head-breadcrumb.is-above-title {
+    margin-bottom: 0.35rem;
+}
+
+.running-head-breadcrumb-separator {
+    color: var(--text-faint);
+    opacity: 0.5;
+    margin: 0 0.15rem;
+    user-select: none;
+}
+
+.running-head-breadcrumb-segment {
+    color: var(--text-faint);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+.running-head-breadcrumb-segment:hover {
+    color: var(--text-muted);
+    text-decoration: none;
+}
+
+/* Highlighted last segment — uses Obsidian's user-configured accent color */
+.running-head-breadcrumb-segment.running-head-breadcrumb-active {
+    color: var(--rh-breadcrumb-text, var(--interactive-accent));
+}
+
+.running-head-breadcrumb-segment.running-head-breadcrumb-active:hover {
+    color: color-mix(in srgb, var(--rh-breadcrumb-text, var(--interactive-accent)) 75%, var(--text-normal));
+}

@@ -1,0 +1,82 @@
+/*
+ * RunningHead — Field Editor Modal
+ * Individual field editing modal: form layout, separators,
+ * disabled input state, icon selector, and folder scope pills.
+ */
+
+.running-head-manager-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.running-head-manager-meta span {
+    display: flex;
+    align-items: center;
+    line-height: 1;
+}
+
+.running-head-manager-meta svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* Fix alignment of extra buttons in icon editor modal on mobile */
+.running-head-icon-selector-setting .setting-item-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* Field Editor Layout Classes */
+.mod-settings .running-head-modal-no-border {
+    border-top: none;
+}
+
+.running-head-modal-separator {
+    border: none;
+    border-top: 1px solid var(--background-modifier-border);
+    margin: 1.5rem 0;
+}
+
+.running-head-modal-input-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Folder Scope Pills */
+.running-head-folder-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0;
+}
+
+.running-head-folder-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background-color: var(--background-secondary);
+    border: 1px solid var(--background-modifier-border);
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: var(--font-ui-smaller);
+}
+
+.running-head-folder-pill-delete {
+    display: flex;
+    align-items: center;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.running-head-folder-pill-delete:hover {
+    color: var(--text-error);
+}
+
+.running-head-folder-pill-delete svg {
+    width: 14px;
+    height: 14px;
+}

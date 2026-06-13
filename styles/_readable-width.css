@@ -1,0 +1,19 @@
+/*
+ * RunningHead — Readable Line Width
+ * Compatibility with Obsidian's "Readable line length" mode and themes like Minimal.
+ * Ensures injected elements (metadata-header, breadcrumb, top-row, tabs-container)
+ * respect max-width and margin-inline of the content in source view and preview.
+ */
+
+.workspace-leaf-content .markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer>.running-head-metadata-header,
+.workspace-leaf-content .markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer>.running-head-breadcrumb,
+.workspace-leaf-content .markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer>.running-head-top-row,
+.workspace-leaf-content .markdown-source-view.mod-cm6.is-readable-line-width .cm-sizer>.running-head-tabs-container,
+.workspace-leaf-content .markdown-preview-view.is-readable-line-width .markdown-preview-sizer>.running-head-metadata-header,
+.workspace-leaf-content .markdown-preview-view.is-readable-line-width .markdown-preview-sizer>.running-head-breadcrumb,
+.workspace-leaf-content .markdown-preview-view.is-readable-line-width .markdown-preview-sizer>.running-head-top-row,
+.workspace-leaf-content .markdown-preview-view.is-readable-line-width .markdown-preview-sizer>.running-head-tabs-container {
+    max-width: var(--max-width);
+    width: var(--line-width, 100%);
+    margin-inline: var(--content-margin, auto);
+}

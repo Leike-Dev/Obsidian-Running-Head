@@ -1,0 +1,108 @@
+/*
+ * RunningHead — Mobile (Phone)
+ * All body.is-phone overrides centralized here.
+ * This file must be the last @import so specificity works correctly.
+ */
+
+/* --- Inline Title --- */
+
+body.is-phone .workspace-leaf-content .inline-title,
+body.is-phone .workspace-leaf-content .markdown-source-view.mod-cm6 .cm-sizer>.inline-title,
+body.is-phone .workspace-leaf-content .markdown-preview-view .markdown-preview-sizer>.inline-title {
+    font-size: calc(var(--running-head-title-size, 3em) * 0.6);
+}
+
+body.is-phone .inline-title {
+    line-height: 1.15;
+    margin-bottom: 10px;
+}
+
+/* --- Metadata Header --- */
+
+body.is-phone .running-head-metadata-header {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+body.is-phone .running-head-metadata-date {
+    font-size: calc(var(--running-head-badge-size, 0.75rem) - 0.05rem);
+}
+
+body.is-phone .running-head-metadata-badge {
+    font-size: calc(var(--running-head-badge-size, 0.75rem) - 0.1rem);
+    padding: 2px 7px;
+    border-radius: 4px;
+}
+
+/* --- Custom Fields --- */
+
+body.is-phone .running-head-custom-text {
+    font-size: calc(var(--running-head-badge-size, 0.75rem) - 0.05rem);
+}
+
+body.is-phone .running-head-custom-badge {
+    font-size: calc(var(--running-head-badge-size, 0.75rem) - 0.1rem);
+    padding: 2px 7px;
+    border-radius: 4px;
+}
+
+body.is-phone .running-head-custom-link {
+    font-size: calc(var(--running-head-badge-size, 0.75rem) - 0.05rem);
+}
+
+/* --- Modal Buttons --- */
+
+body.is-phone .mod-settings .modal-button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+body.is-phone .mod-settings .modal-button-container button {
+    margin: 0;
+}
+
+/* --- Breadcrumb & Top Row gap fix --- */
+
+body.is-phone .workspace-leaf-content .running-head-top-row+.inline-title,
+body.is-phone .workspace-leaf-content .running-head-breadcrumb+.inline-title,
+body.is-phone .workspace-leaf-content .running-head-metadata-header+.inline-title {
+    margin-top: 0.20rem;
+    padding-top: 0;
+}
+
+body.is-phone .running-head-breadcrumb {
+    font-size: calc(var(--running-head-badge-size, 0.75rem) - 0.15rem);
+}
+
+/* --- Scroll Progress --- */
+
+body.is-phone .running-head-scroll-progress {
+    height: 4px;
+}
+
+/* --- Settings: Dropdown / Color / Icon — keep row layout on mobile --- */
+
+body.is-phone .mod-settings .running-head-color-setting,
+body.is-phone .mod-settings .setting-item.running-head-dropdown-header,
+body.is-phone .modal .setting-item.running-head-icon-selector-setting {
+    flex-direction: row;
+    align-items: center;
+}
+
+body.is-phone .mod-settings .running-head-color-setting .setting-item-info,
+body.is-phone .mod-settings .setting-item.running-head-dropdown-header .setting-item-info,
+body.is-phone .modal .setting-item.running-head-icon-selector-setting .setting-item-info {
+    flex: 1 1 auto;
+    margin-right: 12px;
+}
+
+body.is-phone .mod-settings .running-head-color-setting .setting-item-control,
+body.is-phone .mod-settings .setting-item.running-head-dropdown-header .setting-item-control,
+body.is-phone .modal .setting-item.running-head-icon-selector-setting .setting-item-control {
+    width: auto;
+    margin-top: 0;
+    justify-content: flex-end;
+}
