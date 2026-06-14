@@ -61,6 +61,11 @@ export default class RunningHeadPlugin extends Plugin {
 			})
 		);
 
+		// Re-inject when reading view finishes rendering sections asynchronously
+		this.registerMarkdownPostProcessor(() => {
+			this.debouncedInject();
+		});
+
 		// Initial injection on plugin load (after a small delay for the workspace to settle)
 		this.app.workspace.onLayoutReady(() => {
 			this.debouncedInject();

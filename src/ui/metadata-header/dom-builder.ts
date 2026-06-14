@@ -233,6 +233,7 @@ export function removeExistingHeader(viewContentEl: HTMLElement): void {
 	if (hiddenTitle) hiddenTitle.classList.remove('running-head-hidden');
 	const hiddenProps = viewContentEl.querySelector('.metadata-container.running-head-hidden');
 	if (hiddenProps) hiddenProps.classList.remove('running-head-hidden');
+	viewContentEl.classList.remove('running-head-has-custom-title');
 }
 
 /**

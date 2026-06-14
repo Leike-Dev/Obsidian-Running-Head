@@ -62,6 +62,18 @@ export function renderDateSection(containerEl: HTMLElement, plugin: RunningHeadP
 			);
 
 		new Setting(containerEl)
+			.setName(t('format_title_as_date_name'))
+			.setDesc(t('format_title_as_date_desc'))
+			.addToggle((toggle) =>
+				toggle
+					.setValue(plugin.settings.formatTitleAsDate)
+					.onChange(async (value) => {
+						plugin.settings.formatTitleAsDate = value;
+						await plugin.saveSettings();
+					})
+			);
+
+		new Setting(containerEl)
 			.setName(t('short_date_name'))
 			.setDesc(t('short_date_desc'))
 			.addToggle((toggle) =>

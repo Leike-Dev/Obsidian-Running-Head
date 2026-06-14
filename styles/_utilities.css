@@ -11,6 +11,12 @@ body .running-head-hidden,
     display: none;
 }
 
+/* Bulletproof native title hider for Reading Mode (where Obsidian re-renders elements) */
+body .workspace-leaf-content.running-head-has-custom-title .inline-title:not(.running-head-custom-title):not(.running-head-dummy-anchor),
+body .workspace-leaf-content .running-head-has-custom-title .inline-title:not(.running-head-custom-title):not(.running-head-dummy-anchor) {
+    display: none;
+}
+
 /* Increases inline title font size (highly specific to override themes) */
 body .workspace-leaf-content .inline-title,
 body .workspace-leaf-content .running-head-custom-title,

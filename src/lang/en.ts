@@ -22,8 +22,7 @@ export const en = {
 	'breadcrumb_toggle_desc': 'Displays the note\'s folder path above the title. Hidden for notes at the vault root.',
 	'hide_first_h1_name': 'Hide first header (H1)',
 	'hide_first_h1_desc': 'Visually hides the first H1 in the document. Useful if you use filename sync plugins and disabled the native title.',
-	'render_custom_title_name': 'Render custom note title',
-	'render_custom_title_desc': 'Injects and displays the note title in the header. Useful if you disabled the native "Inline Title" setting.',
+
 	'format_title_as_date_name': 'Format title as date',
 	'format_title_as_date_desc': 'If the filename is a date (e.g. 2026-05-26), it formats the displayed title using the selected locale.',
 	'breadcrumb_highlight_name': 'Highlight current folder',

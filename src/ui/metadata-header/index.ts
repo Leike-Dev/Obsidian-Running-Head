@@ -71,7 +71,7 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 	};
 
 	const hasCustomFields = settings.customFields.some((cf) => isInScope(cf));
-	if (!formattedDate && !formattedLastUpdated && !hasCustomFields && !settings.showBreadcrumb) {
+	if (!formattedDate && !formattedLastUpdated && !hasCustomFields && !settings.showBreadcrumb && !settings.formatTitleAsDate) {
 		return;
 	}
 
@@ -92,61 +92,59 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 
 	// --- Custom Title Processing ---
 	let customTitleText: string | null = null;
-	if (settings.renderCustomTitle) {
+	if (settings.formatTitleAsDate) {
 		customTitleText = file.basename.trim();
-		if (settings.formatTitleAsDate) {
-			const DATE_FORMATS = [
-				"YYYY-MM-DD",
-				"YYYY-MM-DD HHmm",
-				"YYYY-MM-DD HH:mm",
-				"YYYY-MM-DD HH:mm:ss",
-				"YYYYMMDD",
-				"YYYYMMDDHHmm",
-				"YYYYMMDDHHmmss",
-				"YYYYMMDD HHmm",
-				"YYYYMMDD HH:mm",
-				"DD-MM-YYYY",
-				"DD-MM-YYYY HH:mm",
-				"DD-MM-YYYY HHmm",
-				"DD.MM.YYYY",
-				"YYYY.MM.DD",
-				"YYYY/MM/DD",
-				"DD/MM/YYYY"
-			];
-			let parsedDate = moment(customTitleText, DATE_FORMATS, true);
+		const DATE_FORMATS = [
+			"YYYY-MM-DD",
+			"YYYY-MM-DD HHmm",
+			"YYYY-MM-DD HH:mm",
+			"YYYY-MM-DD HH:mm:ss",
+			"YYYYMMDD",
+			"YYYYMMDDHHmm",
+			"YYYYMMDDHHmmss",
+			"YYYYMMDD HHmm",
+			"YYYYMMDD HH:mm",
+			"DD-MM-YYYY",
+			"DD-MM-YYYY HH:mm",
+			"DD-MM-YYYY HHmm",
+			"DD.MM.YYYY",
+			"YYYY.MM.DD",
+			"YYYY/MM/DD",
+			"DD/MM/YYYY"
+		];
+		let parsedDate = moment(customTitleText, DATE_FORMATS, true);
 
-			if (!parsedDate.isValid()) {
-				const isoDateOnly = /^\d{4}-\d{2}-\d{2}$/;
-				const dateObj = isoDateOnly.test(customTitleText)
-					? new Date(customTitleText + "T00:00:00")
-					: new Date(customTitleText);
-				
-				if (!isNaN(dateObj.getTime())) {
-					parsedDate = moment(dateObj);
-				}
+		if (!parsedDate.isValid()) {
+			const isoDateOnly = /^\d{4}-\d{2}-\d{2}$/;
+			const dateObj = isoDateOnly.test(customTitleText)
+				? new Date(customTitleText + "T00:00:00")
+				: new Date(customTitleText);
+			
+			if (!isNaN(dateObj.getTime())) {
+				parsedDate = moment(dateObj);
 			}
+		}
 
-			if (parsedDate.isValid()) {
-				if (settings.customDateFormat) {
-					customTitleText = parsedDate.format(settings.customDateFormat);
+		if (parsedDate.isValid()) {
+			if (settings.customDateFormat) {
+				customTitleText = parsedDate.format(settings.customDateFormat);
+			} else {
+				const matchedFormat = parsedDate.creationData()?.format;
+				
+				// Force includesTime if it has hours or minutes
+				const hasTime = parsedDate.hours() > 0 || parsedDate.minutes() > 0;
+				
+				let includesTime = false;
+				if (typeof matchedFormat === "string") {
+					includesTime = matchedFormat.includes("HH") || matchedFormat.includes("mm") || matchedFormat.includes("hh");
+				} else if (Array.isArray(matchedFormat) && matchedFormat.length > 0) {
+					const firstFormat = typeof matchedFormat[0] === "string" ? matchedFormat[0] : "";
+					includesTime = firstFormat.includes("HH") || firstFormat.includes("mm") || firstFormat.includes("hh");
 				} else {
-					const matchedFormat = parsedDate.creationData()?.format;
-					
-					// Force includesTime if it has hours or minutes
-					const hasTime = parsedDate.hours() > 0 || parsedDate.minutes() > 0;
-					
-					let includesTime = false;
-					if (typeof matchedFormat === "string") {
-						includesTime = matchedFormat.includes("HH") || matchedFormat.includes("mm") || matchedFormat.includes("hh");
-					} else if (Array.isArray(matchedFormat)) {
-						// Se for um array, a versão empacotada do moment não simplificou a string
-						includesTime = hasTime; 
-					} else {
-						includesTime = hasTime;
-					}
-					
-					customTitleText = parsedDate.locale(settings.dateLocale).format(includesTime || hasTime ? "LLL" : "LL");
+					includesTime = hasTime;
 				}
+				
+				customTitleText = parsedDate.locale(settings.dateLocale).format(includesTime || hasTime ? "LLL" : "LL");
 			}
 		}
 	}
@@ -245,19 +243,27 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 		return;
 	}
 
-	let injectedTitleAnchor: Element = inlineTitle;
+	let insertionAnchor: Element = inlineTitle;
+	if (inlineTitle.parentElement?.classList.contains("mod-header")) {
+		insertionAnchor = inlineTitle.parentElement;
+	}
+
+	let injectedTitleAnchor: Element = insertionAnchor;
 
 	if (customTitleText) {
+		contentEl.classList.add("running-head-has-custom-title");
 		const customTitleEl = contentEl.ownerDocument.createElement("div");
 		customTitleEl.classList.add("inline-title", "running-head-custom-title");
 		customTitleEl.textContent = customTitleText;
-		inlineTitle.insertAdjacentElement("beforebegin", customTitleEl);
+		insertionAnchor.insertAdjacentElement("beforebegin", customTitleEl);
 		injectedTitleAnchor = customTitleEl;
 		
 		// Hide the native title if it exists, since we are replacing it
 		if (inlineTitle.classList.contains("inline-title") && !inlineTitle.classList.contains("running-head-dummy-anchor")) {
 			inlineTitle.classList.add("running-head-hidden");
 		}
+	} else {
+		contentEl.classList.remove("running-head-has-custom-title");
 	}
 
 	const isWikiStyle = settings.layoutStyle === "wiki";
