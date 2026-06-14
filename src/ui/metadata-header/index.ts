@@ -86,51 +86,6 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 		readingTime = calculateReadingTime(content, settings.wordsPerMinute);
 	}
 
-	let inlineTitle = contentEl.querySelector<HTMLElement>(".inline-title");
-	if (!inlineTitle) {
-		const cmContent = contentEl.querySelector<HTMLElement>(".cm-content");
-		if (cmContent) {
-			const dummy = contentEl.ownerDocument.createElement("div");
-			dummy.classList.add("running-head-dummy-anchor");
-			cmContent.insertAdjacentElement("beforebegin", dummy);
-			inlineTitle = dummy;
-		} else {
-			const previewSizer = contentEl.querySelector<HTMLElement>(".markdown-preview-sizer");
-			if (previewSizer && previewSizer.firstElementChild) {
-				const dummy = contentEl.ownerDocument.createElement("div");
-				dummy.classList.add("running-head-dummy-anchor");
-				previewSizer.firstElementChild.insertAdjacentElement("beforebegin", dummy);
-				inlineTitle = dummy;
-			}
-		}
-	}
-
-	if (!inlineTitle) {
-		// Ultimate fallback if nothing can be used as anchor
-		const previewView = contentEl.querySelector(".markdown-preview-view") ??
-			contentEl.querySelector(".markdown-source-view") ??
-			contentEl;
-
-		const tempFallback = contentEl.ownerDocument.createElement("div");
-		const fallbackEl = createMetadataHeaderEl(tempFallback, {
-			formattedDate,
-			readingTime,
-			formattedLastUpdated,
-			showReadingTime: settings.showReadingTime,
-			showLastUpdated: settings.showLastUpdated,
-			badgeFontSize: settings.badgeFontSize,
-			customFields: settings.customFields,
-			frontmatter,
-			app: plugin.app,
-			sourcePath: file.path,
-			dateLocale: settings.dateLocale,
-			badgeColor: settings.lastUpdatedBadgeColor,
-		});
-		removeExistingHeader(contentEl);
-		previewView.prepend(fallbackEl);
-		return;
-	}
-
 	// Apply configurable font sizes via CSS variables
 	contentEl.style.setProperty('--running-head-title-size', `${settings.titleFontSize}em`);
 	contentEl.style.setProperty('--running-head-badge-size', `${settings.badgeFontSize}rem`);
@@ -138,17 +93,59 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 	// --- Custom Title Processing ---
 	let customTitleText: string | null = null;
 	if (settings.renderCustomTitle) {
-		customTitleText = file.basename;
+		customTitleText = file.basename.trim();
 		if (settings.formatTitleAsDate) {
-			// Try to parse the filename as a date. YYYY-MM-DD is standard.
-			// We use moment.js in strict mode for standard date formats.
-			const parsedDate = moment(customTitleText, ["YYYY-MM-DD", "YYYY-MM-DD HHmm"], true);
+			const DATE_FORMATS = [
+				"YYYY-MM-DD",
+				"YYYY-MM-DD HHmm",
+				"YYYY-MM-DD HH:mm",
+				"YYYY-MM-DD HH:mm:ss",
+				"YYYYMMDD",
+				"YYYYMMDDHHmm",
+				"YYYYMMDDHHmmss",
+				"YYYYMMDD HHmm",
+				"YYYYMMDD HH:mm",
+				"DD-MM-YYYY",
+				"DD-MM-YYYY HH:mm",
+				"DD-MM-YYYY HHmm",
+				"DD.MM.YYYY",
+				"YYYY.MM.DD",
+				"YYYY/MM/DD",
+				"DD/MM/YYYY"
+			];
+			let parsedDate = moment(customTitleText, DATE_FORMATS, true);
+
+			if (!parsedDate.isValid()) {
+				const isoDateOnly = /^\d{4}-\d{2}-\d{2}$/;
+				const dateObj = isoDateOnly.test(customTitleText)
+					? new Date(customTitleText + "T00:00:00")
+					: new Date(customTitleText);
+				
+				if (!isNaN(dateObj.getTime())) {
+					parsedDate = moment(dateObj);
+				}
+			}
+
 			if (parsedDate.isValid()) {
-				// Use locale formatting if custom format is empty
 				if (settings.customDateFormat) {
 					customTitleText = parsedDate.format(settings.customDateFormat);
 				} else {
-					customTitleText = parsedDate.locale(settings.dateLocale).format("LL");
+					const matchedFormat = parsedDate.creationData()?.format;
+					
+					// Force includesTime if it has hours or minutes
+					const hasTime = parsedDate.hours() > 0 || parsedDate.minutes() > 0;
+					
+					let includesTime = false;
+					if (typeof matchedFormat === "string") {
+						includesTime = matchedFormat.includes("HH") || matchedFormat.includes("mm") || matchedFormat.includes("hh");
+					} else if (Array.isArray(matchedFormat)) {
+						// Se for um array, a versão empacotada do moment não simplificou a string
+						includesTime = hasTime; 
+					} else {
+						includesTime = hasTime;
+					}
+					
+					customTitleText = parsedDate.locale(settings.dateLocale).format(includesTime || hasTime ? "LLL" : "LL");
 				}
 			}
 		}
@@ -176,34 +173,24 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 
 	// --- Build "above" wrapper (custom fields only) ---
 	const aboveOptions: MetadataHeaderOptions = {
+		...dateOptions,
 		formattedDate: null,
 		readingTime: null,
 		formattedLastUpdated: null,
 		showReadingTime: false,
 		showLastUpdated: false,
-		badgeFontSize: settings.badgeFontSize,
 		customFields: aboveFields,
-		frontmatter,
-		app: plugin.app,
-		sourcePath: file.path,
-		dateLocale: settings.dateLocale,
-		badgeColor: settings.lastUpdatedBadgeColor,
 	};
 
 	// --- Build "below" wrapper (custom fields only) ---
 	const belowOptions: MetadataHeaderOptions = {
+		...dateOptions,
 		formattedDate: null,
 		readingTime: null,
 		formattedLastUpdated: null,
 		showReadingTime: false,
 		showLastUpdated: false,
-		badgeFontSize: settings.badgeFontSize,
 		customFields: belowFields,
-		frontmatter,
-		app: plugin.app,
-		sourcePath: file.path,
-		dateLocale: settings.dateLocale,
-		badgeColor: settings.lastUpdatedBadgeColor,
 	};
 
 	// Check if each section has any content to render
@@ -211,12 +198,52 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 	const hasAboveContent = aboveFields.length > 0;
 	const hasBelowContent = belowFields.length > 0;
 
+	// ==============================================================================
+	// DOM MUTATION PHASE
 	// Synchronous atomic replacement: remove old headers and breadcrumbs,
 	// then insert new ones in the exact same frame.
+	// ==============================================================================
 	removeExistingHeader(contentEl);
 	contentEl.querySelectorAll(`.${BREADCRUMB_CLASS}`).forEach((el) => el.remove());
 	contentEl.querySelectorAll(".running-head-top-row").forEach((el) => el.remove());
 	contentEl.querySelectorAll(".running-head-tabs-container").forEach((el) => el.remove());
+
+	// Resolve the anchor element
+	let inlineTitle = contentEl.querySelector<HTMLElement>(".inline-title");
+	if (!inlineTitle) {
+		const cmContent = contentEl.querySelector<HTMLElement>(".cm-content");
+		if (cmContent) {
+			const dummy = contentEl.ownerDocument.createElement("div");
+			dummy.classList.add("running-head-dummy-anchor");
+			cmContent.insertAdjacentElement("beforebegin", dummy);
+			inlineTitle = dummy;
+		} else {
+			const previewSizer = contentEl.querySelector<HTMLElement>(".markdown-preview-sizer");
+			if (previewSizer && previewSizer.firstElementChild) {
+				const dummy = contentEl.ownerDocument.createElement("div");
+				dummy.classList.add("running-head-dummy-anchor");
+				previewSizer.firstElementChild.insertAdjacentElement("beforebegin", dummy);
+				inlineTitle = dummy;
+			}
+		}
+	}
+
+	if (!inlineTitle) {
+		// Ultimate fallback if nothing can be used as anchor
+		const previewView = contentEl.querySelector(".markdown-preview-view") ??
+			contentEl.querySelector(".markdown-source-view") ??
+			contentEl;
+
+		const tempFallback = contentEl.ownerDocument.createElement("div");
+		// Use all scoped fields for the ultimate fallback
+		const fallbackOptions: MetadataHeaderOptions = {
+			...dateOptions,
+			customFields: [...aboveFields, ...belowFields]
+		};
+		const fallbackEl = createMetadataHeaderEl(tempFallback, fallbackOptions);
+		previewView.prepend(fallbackEl);
+		return;
+	}
 
 	let injectedTitleAnchor: Element = inlineTitle;
 
@@ -226,6 +253,11 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 		customTitleEl.textContent = customTitleText;
 		inlineTitle.insertAdjacentElement("beforebegin", customTitleEl);
 		injectedTitleAnchor = customTitleEl;
+		
+		// Hide the native title if it exists, since we are replacing it
+		if (inlineTitle.classList.contains("inline-title") && !inlineTitle.classList.contains("running-head-dummy-anchor")) {
+			inlineTitle.classList.add("running-head-hidden");
+		}
 	}
 
 	const isWikiStyle = settings.layoutStyle === "wiki";
