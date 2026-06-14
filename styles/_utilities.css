@@ -29,6 +29,8 @@ body .workspace-leaf-content .markdown-preview-view .markdown-preview-sizer>.run
     line-height: 1.2;
     margin-bottom: 20px;
     color: var(--h1-color, var(--text-title-h1, var(--text-normal)));
+    width: 100%;
+    clear: both;
 }
 
 /* Remove a linha inferior do título da página */

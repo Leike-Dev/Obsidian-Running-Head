@@ -24,12 +24,15 @@
 .running-head-breadcrumb {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
     gap: 0.2rem;
     margin-bottom: 0.7rem;
     font-size: calc(var(--running-head-badge-size, 0.75rem) - 0.05rem);
     color: var(--text-faint);
     line-height: 1.4;
+    width: 100%;
+    clear: both;
 }
 
 .running-head-breadcrumb.is-above-title {

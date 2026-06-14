@@ -249,7 +249,7 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 
 	if (customTitleText) {
 		const customTitleEl = contentEl.ownerDocument.createElement("div");
-		customTitleEl.classList.add("running-head-custom-title");
+		customTitleEl.classList.add("inline-title", "running-head-custom-title");
 		customTitleEl.textContent = customTitleText;
 		inlineTitle.insertAdjacentElement("beforebegin", customTitleEl);
 		injectedTitleAnchor = customTitleEl;
