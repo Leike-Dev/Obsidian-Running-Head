@@ -46,7 +46,7 @@ export function renderCustomField(wrapper: HTMLElement, cf: CustomField, options
 		const appWithTypes = options.app as AppWithPlugins;
 		const typify = appWithTypes.plugins?.plugins?.["typify"];
 		if (typify && typify.settings?.statusStyles && typeof rawValue !== "object" && !Array.isArray(rawValue)) {
-			const strValue = String(rawValue).trim().toLowerCase();
+			const strValue = String(rawValue as string | number | boolean).trim().toLowerCase();
 			hasTypifyStyle = typify.settings.statusStyles.some((s) => s.name?.toLowerCase() === strValue);
 		}
 	} catch {
@@ -85,7 +85,7 @@ export function renderCustomField(wrapper: HTMLElement, cf: CustomField, options
 	} else if (typeof rawValue === "object") {
 		value = JSON.stringify(rawValue);
 	} else {
-		value = String(rawValue);
+		value = String(rawValue as boolean | string | number);
 	}
 
 	// --- Wiki links: [[target]] or [[target|alias]] ---
