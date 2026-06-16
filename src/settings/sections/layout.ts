@@ -1,7 +1,8 @@
-import { Setting, setIcon } from "obsidian";
+import { Setting } from "obsidian";
 import type RunningHeadPlugin from "../../main";
 import type { RunningHeadSettingTab } from "../index";
 import { t } from "../../lang/helpers";
+import { createCollapsibleSection } from "../../utils/settings-ui";
 
 export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHeadPlugin, tab: RunningHeadSettingTab) {
 	// SECTION 1: LAYOUT
@@ -57,38 +58,15 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 	// ================================================================
 	// COLLAPSIBLE TOGGLES SECTION
 	// ================================================================
-	interface TabWithState extends RunningHeadSettingTab { togglesExpanded?: boolean; colorsExpanded?: boolean; }
-	const tabState = tab as TabWithState;
-	const isTogglesOpen = tabState.togglesExpanded ?? false;
+	const tabState = tab as RunningHeadSettingTab & Record<string, unknown>;
 
-	const togglesHeader = new Setting(containerEl)
-		.setName(t('toggles_section_name'))
-		.setDesc(t('toggles_section_desc'));
-
-	togglesHeader.settingEl.classList.add("running-head-dropdown-header");
-	if (isTogglesOpen) {
-		togglesHeader.settingEl.classList.add("is-expanded");
-	}
-
-	const toggleIconToggles = togglesHeader.controlEl.createSpan({ cls: "running-head-dropdown-icon" });
-	setIcon(toggleIconToggles, isTogglesOpen ? "chevron-down" : "chevron-right");
-	togglesHeader.settingEl.classList.add("running-head-clickable-header");
-
-	const togglesContainer = containerEl.createDiv({ cls: "running-head-dropdown-container" });
-	togglesContainer.style.display = isTogglesOpen ? "block" : "none";
-
-	togglesHeader.settingEl.addEventListener("click", () => {
-		const newState = !tabState.togglesExpanded;
-		tabState.togglesExpanded = newState;
-		togglesContainer.style.display = newState ? "block" : "none";
-		toggleIconToggles.empty();
-		setIcon(toggleIconToggles, newState ? "chevron-down" : "chevron-right");
-		if (newState) {
-			togglesHeader.settingEl.classList.add("is-expanded");
-		} else {
-			togglesHeader.settingEl.classList.remove("is-expanded");
-		}
-	});
+	const togglesContainer = createCollapsibleSection(
+		containerEl,
+		t('toggles_section_name'),
+		t('toggles_section_desc'),
+		tabState,
+		"togglesExpanded",
+	);
 
 	let highlightSetting: Setting;
 	let highlightColorSetting: Setting;
@@ -169,36 +147,13 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 	const isDark = document.body.classList.contains("theme-dark");
 	const defaultEmptyColor = isDark ? "#555555" : "#e0e0e0";
 
-	const isColorsOpen = tabState.colorsExpanded ?? false;
-
-	const colorsHeader = new Setting(containerEl)
-		.setName(t('colors_section_name'))
-		.setDesc(t('colors_section_desc'));
-
-	colorsHeader.settingEl.classList.add("running-head-dropdown-header");
-	if (isColorsOpen) {
-		colorsHeader.settingEl.classList.add("is-expanded");
-	}
-
-	const toggleIcon = colorsHeader.controlEl.createSpan({ cls: "running-head-dropdown-icon" });
-	setIcon(toggleIcon, isColorsOpen ? "chevron-down" : "chevron-right");
-	colorsHeader.settingEl.classList.add("running-head-clickable-header");
-
-	const colorsContainer = containerEl.createDiv({ cls: "running-head-dropdown-container" });
-	colorsContainer.style.display = isColorsOpen ? "block" : "none";
-
-	colorsHeader.settingEl.addEventListener("click", () => {
-		const newState = !tabState.colorsExpanded;
-		tabState.colorsExpanded = newState;
-		colorsContainer.style.display = newState ? "block" : "none";
-		toggleIcon.empty();
-		setIcon(toggleIcon, newState ? "chevron-down" : "chevron-right");
-		if (newState) {
-			colorsHeader.settingEl.classList.add("is-expanded");
-		} else {
-			colorsHeader.settingEl.classList.remove("is-expanded");
-		}
-	});
+	const colorsContainer = createCollapsibleSection(
+		containerEl,
+		t('colors_section_name'),
+		t('colors_section_desc'),
+		tabState,
+		"colorsExpanded",
+	);
 
 	highlightColorSetting = new Setting(colorsContainer)
 		.setName(t('breadcrumb_highlight_color_name'))
