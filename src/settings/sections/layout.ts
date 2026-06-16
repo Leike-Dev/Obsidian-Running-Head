@@ -49,8 +49,8 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 				.addOption("wiki", t('layout_style_wiki'))
 				.addOption("blog", t('layout_style_blog'))
 				.setValue(plugin.settings.layoutStyle)
-				.onChange(async (value: "wiki" | "blog") => {
-					plugin.settings.layoutStyle = value;
+				.onChange(async (value: string) => {
+					plugin.settings.layoutStyle = value as "wiki" | "blog";
 					await plugin.saveSettings();
 				});
 		});

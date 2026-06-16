@@ -14,10 +14,10 @@ import { ScrollProgressManager } from "./ui/scroll-progress";
  * Data is read from the note's YAML frontmatter.
  */
 export default class RunningHeadPlugin extends Plugin {
-	settings: RunningHeadSettings;
-	scrollProgressManager: ScrollProgressManager;
+	public settings!: RunningHeadSettings;
+	public scrollProgressManager!: ScrollProgressManager;
 
-	private styleEl: HTMLStyleElement;
+	private styleEl!: HTMLStyleElement;
 
 	async onload(): Promise<void> {
 		await this.loadSettings();
