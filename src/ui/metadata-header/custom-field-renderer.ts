@@ -26,31 +26,22 @@ export function renderCustomField(wrapper: HTMLElement, cf: CustomField, options
 	let isTagsType = false;
 	let isListType = false;
 
-	// Attempt to get the Obsidian property type
-	try {
-		const appWithTypes = options.app as AppWithPlugins;
-		const typeManager = appWithTypes.metadataTypeManager;
-		if (typeManager && typeof typeManager.getAssignedType === "function") {
-			const assignedType = typeManager.getAssignedType(cf.field) || "";
-			isTagsType = assignedType === "tags" || cf.field.toLowerCase() === "tags";
-			isListType = assignedType === "multitext" || assignedType === "aliases" || isTagsType;
-		}
-	} catch {
+	const { typeManager, typify } = getUnofficialApis(options.app as AppWithPlugins);
+
+	if (typeManager && typeof typeManager.getAssignedType === "function") {
+		const assignedType = typeManager.getAssignedType(cf.field) || "";
+		isTagsType = assignedType === "tags" || cf.field.toLowerCase() === "tags";
+		isListType = assignedType === "multitext" || assignedType === "aliases" || isTagsType;
+	} else {
 		// Fallback: Check field name heuristically if type manager fails
 		isTagsType = cf.field.toLowerCase() === "tags";
 		isListType = isTagsType;
 	}
 
 	let hasTypifyStyle = false;
-	try {
-		const appWithTypes = options.app as AppWithPlugins;
-		const typify = appWithTypes.plugins?.plugins?.["typify"];
-		if (typify && typify.settings?.statusStyles && typeof rawValue !== "object" && !Array.isArray(rawValue)) {
-			const strValue = String(rawValue as string | number | boolean).trim().toLowerCase();
-			hasTypifyStyle = typify.settings.statusStyles.some((s) => s.name?.toLowerCase() === strValue);
-		}
-	} catch {
-		// Ignore API fallback
+	if (typify && typify.settings?.statusStyles && typeof rawValue !== "object" && !Array.isArray(rawValue)) {
+		const strValue = String(rawValue as string | number | boolean).trim().toLowerCase();
+		hasTypifyStyle = typify.settings.statusStyles.some((s) => s.name?.toLowerCase() === strValue);
 	}
 
 	if (Array.isArray(rawValue)) {
@@ -160,14 +151,9 @@ function renderPillsOrTags(
 			pillEl.setAttribute("data-value", item);
 			pillEl.setAttribute("data-property-key", cf.field);
 
-			try {
-				const appWithTypes = options.app as AppWithPlugins;
-				const typify = appWithTypes.plugins?.plugins?.["typify"];
-				if (typify && typeof typify.processPill === "function") {
-					typify.processPill(pillEl, cf.field);
-				}
-			} catch {
-				// Typify fallback
+			const { typify } = getUnofficialApis(options.app as AppWithPlugins);
+			if (typify && typeof typify.processPill === "function") {
+				typify.processPill(pillEl, cf.field);
 			}
 		}
 	}
@@ -222,4 +208,15 @@ function renderWikiLinks(
 	if (lastIndex < value.length) {
 		linkContainer.appendText(value.slice(lastIndex));
 	}
+}
+
+/**
+ * Safely extracts non-public API instances from the Obsidian app.
+ */
+function getUnofficialApis(app: AppWithPlugins) {
+	let typeManager = undefined;
+	let typify = undefined;
+	try { typeManager = app.metadataTypeManager; } catch { /* ignore */ }
+	try { typify = app.plugins?.plugins?.["typify"]; } catch { /* ignore */ }
+	return { typeManager, typify };
 }
