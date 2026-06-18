@@ -99,7 +99,7 @@ export class ScrollProgressManager {
 	private injectProgressBar(container: HTMLElement) {
 		if (!container || container.querySelector(`.${PROGRESS_BAR_CLASS}`)) return;
 
-		const progressBar = activeDocument.createElement("div");
+		const progressBar = container.ownerDocument.createElement("div");
 		progressBar.classList.add(PROGRESS_BAR_CLASS);
 		
 		// Insert at the top of contentEl

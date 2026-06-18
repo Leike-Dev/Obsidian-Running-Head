@@ -128,7 +128,7 @@ export function injectElementsIntoView(ctx: InjectionContext): void {
 		}
 
 		if (ctx.showBreadcrumb) {
-			const breadcrumbEl = createBreadcrumbEl(ctx.filePath, ctx.app, ctx.breadcrumbHighlightLast);
+			const breadcrumbEl = createBreadcrumbEl(ctx.filePath, ctx.app, ctx.breadcrumbHighlightLast, contentEl.ownerDocument);
 			if (breadcrumbEl) {
 				injectedTitleAnchor.insertAdjacentElement("afterend", breadcrumbEl);
 				bottomAnchor = breadcrumbEl;
@@ -137,7 +137,7 @@ export function injectElementsIntoView(ctx: InjectionContext): void {
 	} else {
 		// Blog Style: Breadcrumb Above Title, Date+Badge Below Title
 		if (ctx.showBreadcrumb) {
-			const breadcrumbEl = createBreadcrumbEl(ctx.filePath, ctx.app, ctx.breadcrumbHighlightLast);
+			const breadcrumbEl = createBreadcrumbEl(ctx.filePath, ctx.app, ctx.breadcrumbHighlightLast, contentEl.ownerDocument);
 			if (breadcrumbEl) {
 				injectedTitleAnchor.insertAdjacentElement("beforebegin", breadcrumbEl);
 				topAnchor = breadcrumbEl;

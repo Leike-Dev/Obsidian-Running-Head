@@ -10,7 +10,7 @@ import { BREADCRUMB_CLASS } from "./types";
  * @param highlightLast - Whether to apply accent color to the last segment
  * @returns The breadcrumb element, or null if the note is at the vault root
  */
-export function createBreadcrumbEl(filePath: string, app: App, highlightLast: boolean): HTMLElement | null {
+export function createBreadcrumbEl(filePath: string, app: App, highlightLast: boolean, ownerDoc: Document): HTMLElement | null {
 	// Extract ONLY the folder segments (without the filename)
 	// e.g. "Base/Windows/Boot/nota.md" → ["Base", "Windows", "Boot"]
 	// e.g. "nota.md" → [] (vault root — don't show)
@@ -18,7 +18,7 @@ export function createBreadcrumbEl(filePath: string, app: App, highlightLast: bo
 	parts.pop(); // remove the filename
 	if (parts.length === 0) return null;
 
-	const breadcrumb = activeDocument.createElement("div");
+	const breadcrumb = ownerDoc.createElement("div");
 	breadcrumb.classList.add(BREADCRUMB_CLASS);
 
 	parts.forEach((segment, index) => {
