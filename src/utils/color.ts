@@ -50,6 +50,8 @@ export function getAdaptivePillStyles(hex: string, isDarkMode: boolean): { bg: s
 	let textLightness = hsl.l;
 	if (isDarkMode) {
 		textLightness = Math.max(hsl.l, 75); // Ensure it's bright enough to read on dark bg
+	} else {
+		textLightness = Math.min(hsl.l, 40); // Ensure it's dark enough to read on light bg
 	}
 
 	const text = `hsl(${hsl.h}, ${hsl.s}%, ${textLightness}%)`;
