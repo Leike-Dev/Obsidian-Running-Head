@@ -1,4 +1,4 @@
-import { Plugin } from "obsidian";
+import { Plugin, TFile } from "obsidian";
 import { getAdaptivePillStyles } from "./utils/color";
 import { DEFAULT_SETTINGS, RunningHeadSettings, RunningHeadSettingTab } from "./settings";
 import { injectMetadataHeader, removeAllMetadataHeaders } from "./ui/metadata-header";
@@ -65,6 +65,15 @@ export default class RunningHeadPlugin extends Plugin {
 		this.registerMarkdownPostProcessor(() => {
 			this.debouncedInject();
 		});
+
+		// Sync tab link targets when notes are renamed
+		this.registerEvent(
+			this.app.vault.on('rename', (file, oldPath) => {
+				if (file instanceof TFile) {
+					void this.updateTabLinksOnRename(oldPath, file.path);
+				}
+			})
+		);
 
 		// Initial injection on plugin load (after a small delay for the workspace to settle)
 		this.app.workspace.onLayoutReady(() => {
@@ -150,6 +159,27 @@ export default class RunningHeadPlugin extends Plugin {
 	}
 
 	// --- Private helpers ---
+
+	/**
+	 * Update all tab link targets that reference a renamed file.
+	 * This is an efficient operation — only writes settings once if changes are found.
+	 */
+	private async updateTabLinksOnRename(oldPath: string, newPath: string): Promise<void> {
+		let hasChanges = false;
+
+		for (const group of this.settings.tabGroups) {
+			for (const tab of group.tabs) {
+				if (tab.linkTarget === oldPath) {
+					tab.linkTarget = newPath;
+					hasChanges = true;
+				}
+			}
+		}
+
+		if (hasChanges) {
+			await this.saveSettings();
+		}
+	}
 
 	private _injectTimeout: ReturnType<typeof setTimeout> | null = null;
 

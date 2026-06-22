@@ -12,14 +12,35 @@ export interface CustomField {
 	excludedFolder: string;
 }
 
-export interface TabPropertyConfig {
-	/** Unique ID for the tab configuration */
+/** A single tab within a tab group. */
+export interface TabItem {
+	/** Unique ID for this tab */
 	id: string;
-	/** YAML frontmatter property key name (e.g. "tabs-home") */
+	/** Display label for the tab */
+	label: string;
+	/** Lucide icon name (optional, empty string = no icon) */
+	icon: string;
+	/** Target note path resolved from wikilink (e.g. "folder/Dashboard.md") */
+	linkTarget: string;
+}
+
+/** A named group of tabs, stored in plugin settings. */
+export interface TabGroup {
+	/** Unique ID for this group */
+	id: string;
+	/** Group name — used as the frontmatter value to activate this group */
+	name: string;
+	/** Tabs within this group (ordered by array position) */
+	tabs: TabItem[];
+}
+
+/**
+ * @deprecated Kept for migration from older settings. Will be removed.
+ */
+export interface TabPropertyConfig {
+	id: string;
 	property: string;
-	/** Numerical order for rendering priority (lower values render first) */
 	order: number;
-	/** Whether to display icons on tabs from this property */
 	showIcon: boolean;
 }
 
@@ -53,8 +74,13 @@ export interface RunningHeadSettings {
 	badgeFontSize: number;
 	/** User-defined custom fields to display */
 	customFields: CustomField[];
-	/** Configured frontmatter properties to load as tabs */
-	tabsProperties: TabPropertyConfig[];
+	/** @deprecated Legacy tab properties — migrated to tabGroups on load */
+	// eslint-disable-next-line @typescript-eslint/no-deprecated
+	tabsProperties?: TabPropertyConfig[];
+	/** Global frontmatter property key for activating tab groups (e.g. "menu") */
+	tabsPropertyName: string;
+	/** Configured tab groups */
+	tabGroups: TabGroup[];
 	/** Visual style for the tabs navigation bar */
 	tabStyle: TabStyle;
 	/** Custom date format string using Moment.js syntax */
@@ -91,7 +117,8 @@ export const DEFAULT_SETTINGS: RunningHeadSettings = {
 	titleFontSize: 3,
 	badgeFontSize: 0.75,
 	customFields: [],
-	tabsProperties: [],
+	tabsPropertyName: "",
+	tabGroups: [],
 	tabStyle: "underline",
 	customDateFormat: "",
 

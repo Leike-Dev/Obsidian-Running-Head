@@ -18,5 +18,6 @@
 @import './modals/_manager.css';
 @import './modals/_editor.css';
 @import './modals/_data.css';
+@import './modals/_tab-editor.css';
 @import './_settings.css';
 @import './_mobile.css';

@@ -7,6 +7,7 @@ import { formatDate } from "../../utils/date-formatter";
 import type { MetadataHeaderOptions } from "./types";
 import { formatTitleAsDate } from "./title-formatter";
 import { removeAllInjectedElements, injectElementsIntoView } from "./dom-injector";
+import { resolveActiveTabGroup } from "./tabs-builder";
 
 /**
  * Inject (or refresh) the metadata header into all open markdown views.
@@ -70,8 +71,11 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 		return true;
 	};
 
+	// Resolve active tab group from frontmatter
+	const activeTabGroup = resolveActiveTabGroup(frontmatter, settings.tabsPropertyName, settings.tabGroups);
+
 	const hasCustomFields = settings.customFields.some((cf) => isInScope(cf));
-	if (!formattedDate && !formattedLastUpdated && !hasCustomFields && !settings.showBreadcrumb && !settings.formatTitleAsDate) {
+	if (!formattedDate && !formattedLastUpdated && !hasCustomFields && !settings.showBreadcrumb && !settings.formatTitleAsDate && !activeTabGroup) {
 		return;
 	}
 
@@ -149,7 +153,7 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 		layoutStyle: settings.layoutStyle,
 		showBreadcrumb: settings.showBreadcrumb,
 		breadcrumbHighlightLast: settings.breadcrumbHighlightLast,
-		tabsProperties: settings.tabsProperties,
+		activeTabGroup,
 		tabStyle: settings.tabStyle,
 		dateOptions,
 		aboveOptions,

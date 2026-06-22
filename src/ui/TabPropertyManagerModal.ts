@@ -1,11 +1,11 @@
 import { App, Modal, Notice, setIcon } from "obsidian";
 import type RunningHeadPlugin from "../main";
 import { TabPropertyEditorModal } from "./TabPropertyEditorModal";
-import type { TabPropertyConfig } from "../settings";
+import type { TabGroup } from "../settings";
 import { t } from "../lang/helpers";
 
 /**
- * Modal that lists all configured custom tab properties, allowing the user
+ * Modal that lists all configured tab groups, allowing the user
  * to edit or delete them.
  */
 export class TabPropertyManagerModal extends Modal {
@@ -41,14 +41,14 @@ export class TabPropertyManagerModal extends Modal {
 		if (!this.listContainerEl || !this.countEl) return;
 		this.listContainerEl.empty();
 
-		if (!this.plugin.settings.tabsProperties) {
-			this.plugin.settings.tabsProperties = [];
+		if (!this.plugin.settings.tabGroups) {
+			this.plugin.settings.tabGroups = [];
 		}
 
-		const properties = this.plugin.settings.tabsProperties;
-		this.countEl.textContent = t('tab_manager_count').replace('{count}', String(properties.length));
+		const groups = this.plugin.settings.tabGroups;
+		this.countEl.textContent = t('tab_manager_count').replace('{count}', String(groups.length));
 
-		if (properties.length === 0) {
+		if (groups.length === 0) {
 			this.listContainerEl.createDiv({
 				text: t('tab_manager_empty'),
 				cls: "running-head-manager-empty",
@@ -56,32 +56,33 @@ export class TabPropertyManagerModal extends Modal {
 			return;
 		}
 
-		// Render the list of tab properties
-		for (let i = 0; i < properties.length; i++) {
-			if (properties[i]) {
-				this.renderItem(properties[i] as TabPropertyConfig, i);
+		// Render the list of tab groups
+		for (let i = 0; i < groups.length; i++) {
+			if (groups[i]) {
+				this.renderItem(groups[i] as TabGroup, i);
 			}
 		}
 	}
 
-	private renderItem(tabConfig: TabPropertyConfig, index: number): void {
+	private renderItem(group: TabGroup, index: number): void {
 		if (!this.listContainerEl) return;
 
 		const item = this.listContainerEl.createDiv({ cls: "running-head-manager-item" });
 
 		// Info section
 		const infoSection = item.createDiv({ cls: "running-head-manager-item-info" });
-		
-		// Icon indicating status (show icon or not)
+
+		// Group icon
 		const iconSpan = infoSection.createSpan({ cls: "running-head-manager-item-icon" });
-		setIcon(iconSpan, tabConfig.showIcon ? "eye" : "eye-off");
+		setIcon(iconSpan, "layout-list");
 
 		// Vertical divider
 		infoSection.createSpan({ text: "|", cls: "running-head-manager-item-divider" });
-		
-		// Name and ordering
+
+		// Name and tab count
 		const nameRow = infoSection.createDiv({ cls: "running-head-manager-item-name" });
-		nameRow.textContent = `${tabConfig.property} (Order: ${tabConfig.order})`;
+		const tabCount = group.tabs?.length ?? 0;
+		nameRow.textContent = `${group.name} (${tabCount} ${tabCount === 1 ? 'tab' : 'tabs'})`;
 
 		// Action buttons
 		const actionsSection = item.createDiv({ cls: "running-head-manager-actions" });
@@ -102,7 +103,7 @@ export class TabPropertyManagerModal extends Modal {
 					this.onSave?.();
 					new TabPropertyManagerModal(this.app, this.plugin, this.onSave).open();
 				},
-				tabConfig,
+				group,
 				index
 			).open();
 		});
@@ -120,17 +121,17 @@ export class TabPropertyManagerModal extends Modal {
 	}
 
 	/**
-	 * Shows an inline confirmation UI to delete a custom tab property.
+	 * Shows an inline confirmation UI to delete a tab group.
 	 */
 	private showDeleteConfirm(itemEl: HTMLElement, index: number): void {
-		const tabConfig = this.plugin.settings.tabsProperties?.[index];
-		if (!tabConfig) return;
+		const group = this.plugin.settings.tabGroups?.[index];
+		if (!group) return;
 
 		const confirmEl = itemEl.createDiv({ cls: "running-head-manager-confirm" });
 		const confirmMsg = t('delete_confirm')
-			? t('delete_confirm').replace('{name}', tabConfig.property)
-			: `Delete "${tabConfig.property}"?`;
-			
+			? t('delete_confirm').replace('{name}', group.name)
+			: `Delete "${group.name}"?`;
+
 		confirmEl.createSpan({
 			text: confirmMsg,
 			cls: "running-head-manager-confirm-text",
@@ -144,14 +145,14 @@ export class TabPropertyManagerModal extends Modal {
 		});
 		confirmBtn.addEventListener("click", () => {
 			void (async () => {
-				this.plugin.settings.tabsProperties.splice(index, 1);
+				this.plugin.settings.tabGroups.splice(index, 1);
 				await this.plugin.saveSettings();
-				
+
 				const deletedMsg = t('tab_property_deleted')
-					? t('tab_property_deleted').replace('{name}', tabConfig.property)
-					: `Tab property "${tabConfig.property}" removed.`;
+					? t('tab_property_deleted').replace('{name}', group.name)
+					: `Tab group "${group.name}" removed.`;
 				new Notice(deletedMsg);
-				
+
 				this.renderList();
 				this.onSave?.();
 			})();

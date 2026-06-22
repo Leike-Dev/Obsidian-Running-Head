@@ -2,7 +2,7 @@ import type { App } from "obsidian";
 import { BREADCRUMB_CLASS, MetadataHeaderOptions } from "./types";
 import { createBreadcrumbEl } from "./breadcrumb";
 import { createMetadataHeaderEl, removeExistingHeader, createTabsBarEl } from "./dom-builder";
-import type { TabPropertyConfig, TabStyle } from "../../settings";
+import type { TabGroup, TabStyle } from "../../settings";
 
 /**
  * Remove all plugin-injected elements (headers, breadcrumbs, tabs, dummy anchors)
@@ -26,7 +26,9 @@ export interface InjectionContext {
 	layoutStyle: "wiki" | "blog";
 	showBreadcrumb: boolean;
 	breadcrumbHighlightLast: boolean;
-	tabsProperties: TabPropertyConfig[];
+	/** Active tab group resolved from frontmatter (or null if none) */
+	activeTabGroup: TabGroup | null;
+	/** Visual style for the tabs navigation bar */
 	tabStyle: TabStyle;
 	dateOptions: MetadataHeaderOptions;
 	aboveOptions: MetadataHeaderOptions;
@@ -170,8 +172,8 @@ export function injectElementsIntoView(ctx: InjectionContext): void {
 	}
 
 	// Render tabs bar below custom fields
-	if (ctx.tabsProperties && ctx.tabsProperties.length > 0) {
-		const tabsEl = createTabsBarEl(contentEl, ctx.tabsProperties, ctx.frontmatter, ctx.app, ctx.filePath, ctx.tabStyle);
+	if (ctx.activeTabGroup) {
+		const tabsEl = createTabsBarEl(contentEl, ctx.activeTabGroup, ctx.app, ctx.filePath, ctx.tabStyle);
 		if (tabsEl) {
 			tabsAnchor.insertAdjacentElement("afterend", tabsEl);
 		}

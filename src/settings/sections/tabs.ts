@@ -1,11 +1,10 @@
-import { Setting, Notice } from "obsidian";
+import { Setting } from "obsidian";
 import type RunningHeadPlugin from "../../main";
 import type { RunningHeadSettingTab } from "../index";
 import type { TabStyle } from "../types";
 import { t } from "../../lang/helpers";
 import { TabPropertyManagerModal } from "../../ui/TabPropertyManagerModal";
 import { TabPropertyEditorModal } from "../../ui/TabPropertyEditorModal";
-import { IconPickerModal } from "../../ui/IconPickerModal";
 
 export function renderTabsSection(containerEl: HTMLElement, plugin: RunningHeadPlugin, tab: RunningHeadSettingTab) {
 	// SECTION: TABS NAVIGATION
@@ -14,20 +13,34 @@ export function renderTabsSection(containerEl: HTMLElement, plugin: RunningHeadP
 		.setName(t('section_tabs'))
 		.setHeading();
 
-	// Add tab property
+	// Global frontmatter property name
+	new Setting(containerEl)
+		.setName(t('tab_property_global_name'))
+		.setDesc(t('tab_property_global_desc'))
+		.addText((text) =>
+			text
+				.setPlaceholder("Menu")
+				.setValue(plugin.settings.tabsPropertyName)
+				.onChange(async (value) => {
+					plugin.settings.tabsPropertyName = value.trim();
+					await plugin.saveSettings();
+				})
+		);
+
+	// New tab group
 	new Setting(containerEl)
 		.setName(t('add_tab_property_name'))
 		.setDesc(t('add_tab_property_desc'))
 		.addButton((btn) =>
 			btn
-				.setButtonText(t('add_tab_property_button'))
+				.setButtonText(t('tab_group_new_button'))
 				.setCta()
 				.onClick(() => {
 					new TabPropertyEditorModal(plugin.app, plugin, () => tab.display()).open();
 				})
 		);
 
-	// Manage tab properties
+	// Manage tab groups
 	new Setting(containerEl)
 		.setName(t('manage_tab_properties_name'))
 		.setDesc(t('manage_tab_properties_desc'))
@@ -36,28 +49,6 @@ export function renderTabsSection(containerEl: HTMLElement, plugin: RunningHeadP
 				.setButtonText(t('manage_tab_properties_button'))
 				.onClick(() => {
 					new TabPropertyManagerModal(plugin.app, plugin, () => tab.display()).open();
-				})
-		);
-
-	// Icon copier tool
-	new Setting(containerEl)
-		.setName(t('icon_picker_copy_button'))
-		.setDesc(t('icon_picker_copy_desc'))
-		.addButton((btn) =>
-			btn
-				.setButtonText(t('add_button') || "Choose")
-				.onClick(() => {
-					new IconPickerModal(plugin.app, (selectedIcon) => {
-						const tag = `[icon, ${selectedIcon}]`;
-						navigator.clipboard.writeText(tag).then(() => {
-							const msg = t('icon_picker_copy_notice')
-								? t('icon_picker_copy_notice').replace('{tag}', tag)
-								: `Copied ${tag} to clipboard!`;
-							new Notice(msg);
-						}).catch(() => {
-							new Notice(t('clipboard_copy_failed'));
-						});
-					}).open();
 				})
 		);
 
