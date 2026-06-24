@@ -180,7 +180,7 @@ export const es = {
 	'tab_property_global_name': 'Propiedad del frontmatter',
 	'tab_property_global_desc': 'Clave YAML usada para activar un grupo de pestañas en las notas.',
 	'add_tab_property_name': 'Nuevo grupo de pestañas',
-	'add_tab_property_desc': 'Crea un grupo de pestañas con nombre para usar como navegación.',
+	'add_tab_property_desc': 'Cree un grupo de pestañas con nombre para usar como navegación.',
 	'tab_group_new_button': 'Crear',
 	'manage_tab_properties_name': 'Gestionar grupos de pestañas',
 	'manage_tab_properties_desc': 'Edite o elimine los grupos de pestañas configurados.',

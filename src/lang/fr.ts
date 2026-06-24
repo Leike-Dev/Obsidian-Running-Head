@@ -180,7 +180,7 @@ export const fr = {
 	'tab_property_global_name': 'Propriété du frontmatter',
 	'tab_property_global_desc': 'Clé YAML utilisée pour activer un groupe d\'onglets dans les notes.',
 	'add_tab_property_name': 'Nouveau groupe d\'onglets',
-	'add_tab_property_desc': 'Crée un groupe d\'onglets nommé à utiliser comme navigation.',
+	'add_tab_property_desc': 'Créez un groupe d\'onglets nommé à utiliser comme navigation.',
 	'tab_group_new_button': 'Créer',
 	'manage_tab_properties_name': 'Gérer les groupes d\'onglets',
 	'manage_tab_properties_desc': 'Modifier ou supprimer les groupes d\'onglets configurés.',

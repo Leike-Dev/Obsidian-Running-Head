@@ -188,7 +188,7 @@ export const ptBR = {
 	'tab_property_global_name': 'Propriedade do frontmatter',
 	'tab_property_global_desc': 'Chave YAML usada para ativar um grupo de abas nas notas.',
 	'add_tab_property_name': 'Novo grupo de abas',
-	'add_tab_property_desc': 'Cria um grupo nomeado de abas para usar como navegação.',
+	'add_tab_property_desc': 'Crie um grupo nomeado de abas para usar como navegação.',
 	'tab_group_new_button': 'Criar',
 	'manage_tab_properties_name': 'Gerenciar grupos de abas',
 	'manage_tab_properties_desc': 'Edite ou remova os grupos de abas configurados.',
