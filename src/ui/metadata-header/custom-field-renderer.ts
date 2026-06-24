@@ -1,6 +1,7 @@
 import { setIcon } from "obsidian";
 import { WIKI_LINK_RE, MetadataHeaderOptions, AppWithPlugins } from "./types";
 import type { CustomField } from "../../settings";
+import { t } from "../../lang/helpers";
 
 /** Pre-compiled regex for detecting external URLs. */
 const EXTERNAL_URL_RE = /^https?:\/\//i;
@@ -164,11 +165,11 @@ function renderBooleanBadge(wrapper: HTMLElement, value: boolean, showLabel: boo
 	if (value) {
 		pillEl.classList.add("is-true");
 		setIcon(pillEl.createSpan({ cls: "running-head-icon" }), "circle-check");
-		pillEl.createSpan({ cls: "multi-select-pill-content", text: showLabel ? label : "True" });
+		pillEl.createSpan({ cls: "multi-select-pill-content", text: showLabel ? label : t('boolean_true') });
 	} else {
 		pillEl.classList.add("is-false");
 		setIcon(pillEl.createSpan({ cls: "running-head-icon" }), "circle-x");
-		pillEl.createSpan({ cls: "multi-select-pill-content", text: showLabel ? label : "False" });
+		pillEl.createSpan({ cls: "multi-select-pill-content", text: showLabel ? label : t('boolean_false') });
 	}
 }
 

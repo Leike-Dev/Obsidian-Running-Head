@@ -10,7 +10,7 @@ export class IconPickerModal extends FuzzySuggestModal<string> {
 	constructor(app: App, onChoose: (icon: string) => void) {
 		super(app);
 		this.onChoose = onChoose;
-		this.setPlaceholder(t('icon_picker_placeholder') || "Search for an icon...");
+		this.setPlaceholder(t('icon_picker_placeholder'));
 	}
 
 	getItems(): string[] {

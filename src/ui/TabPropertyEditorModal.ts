@@ -59,7 +59,7 @@ export class TabPropertyEditorModal extends Modal {
 			.setName(t('tab_group_name_label'))
 			.addText((text) =>
 				text
-					.setPlaceholder("Home")
+					.setPlaceholder(t('tab_group_name_placeholder'))
 					.setValue(this.groupName)
 					.onChange((value) => {
 						this.groupName = value;
@@ -101,7 +101,9 @@ export class TabPropertyEditorModal extends Modal {
 		const header = listWrapper.createDiv({ cls: "running-head-tab-list-header" });
 		header.createSpan({ text: t('tab_group_tabs_label'), cls: "running-head-tab-list-title" });
 		
-		const tabCountStr = this.tabs.length === 1 ? '1 aba' : `${this.tabs.length} abas`;
+		const tabCountStr = this.tabs.length === 1
+			? t('tab_count_singular').replace('{count}', '1')
+			: t('tab_count_plural').replace('{count}', String(this.tabs.length));
 		header.createSpan({ text: tabCountStr, cls: "running-head-tab-list-count" });
 
 		// List of tabs
@@ -134,7 +136,7 @@ export class TabPropertyEditorModal extends Modal {
 		const row = container.createDiv({ cls: "running-head-tab-row" });
 
 		// Drag handle
-		const dragHandle = row.createDiv({ cls: "clickable-icon running-head-tab-drag-handle", attr: { "aria-label": t('tab_group_move_up') || "Drag to reorder" } });
+		const dragHandle = row.createDiv({ cls: "clickable-icon running-head-tab-drag-handle", attr: { "aria-label": t('tab_group_move_up') } });
 		setIcon(dragHandle, "menu");
 		this.initDrag(dragHandle, row, container, index);
 
@@ -159,7 +161,7 @@ export class TabPropertyEditorModal extends Modal {
 		// Name input
 		const nameWrapper = row.createDiv({ cls: "running-head-tab-input-wrapper" });
 		const nameInput = new TextComponent(nameWrapper)
-			.setPlaceholder(t('tab_item_label_name') || "Name")
+			.setPlaceholder(t('tab_item_label_name'))
 			.setValue(tab.label)
 			.onChange((value) => { tab.label = value; });
 		nameInput.inputEl.addClass("running-head-tab-input");
@@ -167,7 +169,7 @@ export class TabPropertyEditorModal extends Modal {
 		// Link input (FileSuggest)
 		const linkWrapper = row.createDiv({ cls: "running-head-tab-input-wrapper" });
 		const linkInput = new SearchComponent(linkWrapper)
-			.setPlaceholder(t('tab_item_link_name') || "Link")
+			.setPlaceholder(t('tab_item_link_name'))
 			.onChange((value) => { tab.linkTarget = value; });
 		linkInput.inputEl.addClass("running-head-tab-input");
 
@@ -184,7 +186,7 @@ export class TabPropertyEditorModal extends Modal {
 		});
 
 		// Delete button
-		const deleteBtn = row.createEl("button", { cls: "running-head-tab-delete-btn clickable-icon", attr: { "aria-label": t('delete_field_tooltip') || "Delete" } });
+		const deleteBtn = row.createEl("button", { cls: "running-head-tab-delete-btn clickable-icon", attr: { "aria-label": t('delete_field_tooltip') } });
 		setIcon(deleteBtn, "trash");
 		deleteBtn.addEventListener("click", () => {
 			this.tabs.splice(index, 1);
@@ -279,11 +281,11 @@ export class TabPropertyEditorModal extends Modal {
 			const tab = this.tabs[i];
 			if (!tab) continue;
 			if (!tab.label.trim()) {
-				new Notice(`Aba ${i + 1} precisa de um nome.`);
+				new Notice(t('tab_item_name_required_indexed').replace('{index}', String(i + 1)));
 				return;
 			}
 			if (!tab.linkTarget.trim()) {
-				new Notice(`Aba ${i + 1} precisa de um link.`);
+				new Notice(t('tab_item_link_required_indexed').replace('{index}', String(i + 1)));
 				return;
 			}
 		}
@@ -297,10 +299,7 @@ export class TabPropertyEditorModal extends Modal {
 			(g, index) => g.name.toLowerCase() === name.toLowerCase() && index !== this.editIndex
 		);
 		if (isDuplicate) {
-			const msg = t('field_already_exists')
-				? t('field_already_exists').replace('{key}', name)
-				: `Group "${name}" already exists!`;
-			new Notice(msg);
+			new Notice(t('tab_group_already_exists').replace('{name}', name));
 			return;
 		}
 

@@ -3,8 +3,6 @@ export const en = {
 	// SETTINGS — Section headings
 	// ================================================================
 	'section_title': 'Header and appearance',
-	'section_appearance': 'Appearance',
-	'section_frontmatter_properties': 'Properties',
 	'section_date': 'Date and reading',
 	'section_custom_fields': 'Custom fields',
 
@@ -148,6 +146,8 @@ export const en = {
 	'min_read': 'min read',
 	'last_updated': 'Last updated',
 	'field_already_exists': 'Field "{key}" already exists.',
+	'boolean_true': 'True',
+	'boolean_false': 'False',
 
 // ================================================================
 	// SETTINGS — Scroll Progress
@@ -156,6 +156,7 @@ export const en = {
 	'scroll_progress_bar_desc': 'Displays a reading progress bar at the top of the note.',
 	'scroll_progress_color_name': 'Progress bar color',
 	'scroll_progress_color_desc': 'Progress bar color. Empty = default accent color.',
+	'reset_color_tooltip': 'Reset',
 
 	// ================================================================
 	// DATA MANAGEMENT (IMPORT/EXPORT)
@@ -185,16 +186,18 @@ export const en = {
 	// ================================================================
 	'section_tabs': 'Tabs navigation',
 	'tab_property_global_name': 'Frontmatter property',
-	'tab_property_global_desc': 'YAML key used to activate a tab group in notes. The value must match a group name.',
+	'tab_property_global_desc': 'YAML key used to activate a tab group in notes.',
 	'add_tab_property_name': 'New tab group',
 	'add_tab_property_desc': 'Create a named group of tabs to use as navigation.',
-	'tab_group_new_button': 'New',
+	'tab_group_new_button': 'Create',
 	'manage_tab_properties_name': 'Manage tab groups',
 	'manage_tab_properties_desc': 'Edit or remove configured tab groups.',
 	'manage_tab_properties_button': 'Manage',
 	'tab_editor_title_add': 'New tab group',
 	'tab_editor_title_edit': 'Edit tab group',
 	'tab_group_name_label': 'Group name',
+	'tab_group_name_placeholder': 'Home',
+	'tab_property_placeholder': 'Menu',
 
 	'tab_group_name_required': 'Enter a name for this tab group.',
 	'tab_group_tabs_label': 'Tabs',
@@ -202,25 +205,20 @@ export const en = {
 	'tab_group_add_tab': 'Add tab',
 	'tab_group_no_tabs': 'No tabs added yet.',
 	'tab_group_move_up': 'Move up',
-	'tab_group_move_down': 'Move down',
 	'tab_property_added': 'Tab group "{key}" created.',
 	'tab_property_updated': 'Tab group "{key}" updated.',
 	'tab_property_deleted': 'Tab group "{name}" removed.',
+	'tab_group_already_exists': 'Group "{name}" already exists.',
+	'tab_count_singular': '{count} tab',
+	'tab_count_plural': '{count} tabs',
+	'tab_item_name_required_indexed': 'Tab {index} needs a name.',
+	'tab_item_link_required_indexed': 'Tab {index} needs a link.',
 	'tab_manager_title': 'Manage tab groups',
 	'tab_manager_count': '{count} tab group(s)',
 	'tab_manager_empty': 'No tab groups configured yet.',
-	'tab_item_editor_title_add': 'Add tab',
-	'tab_item_editor_title_edit': 'Edit tab',
 	'tab_item_label_name': 'Tab name',
-	'tab_item_label_desc': 'Display label for this tab.',
-	'tab_item_label_required': 'Enter a name for this tab.',
-	'tab_item_icon_name': 'Icon',
-	'tab_item_icon_desc': 'Optional Lucide icon displayed before the tab name.',
 	'tab_item_icon_choose': 'Choose',
-	'tab_item_icon_change': 'Change',
 	'tab_item_link_name': 'Link',
-	'tab_item_link_desc': 'Note to open when this tab is clicked.',
-	'tab_item_link_required': 'Select a note for this tab.',
 	'icon_picker_placeholder': 'Search for an icon...',
 	'tab_style_name': 'Tab style',
 	'tab_style_desc': 'Visual style for the tab navigation bar.',

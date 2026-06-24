@@ -162,7 +162,7 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 		.addExtraButton((btn) =>
 			btn
 				.setIcon("reset")
-				.setTooltip("Reset")
+				.setTooltip(t('reset_color_tooltip'))
 				.onClick(async () => {
 					plugin.settings.breadcrumbHighlightColor = "";
 					await plugin.saveSettings();
@@ -187,7 +187,7 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 		.addExtraButton((btn) =>
 			btn
 				.setIcon("reset")
-				.setTooltip("Reset")
+				.setTooltip(t('reset_color_tooltip'))
 				.onClick(async () => {
 					plugin.settings.scrollProgressColor = "";
 					await plugin.saveSettings();
@@ -214,7 +214,7 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 		.addExtraButton((btn) =>
 			btn
 				.setIcon("reset")
-				.setTooltip("Reset")
+				.setTooltip(t('reset_color_tooltip'))
 				.onClick(async () => {
 					plugin.settings.lastUpdatedBadgeColor = "";
 					await plugin.saveSettings();

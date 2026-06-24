@@ -82,7 +82,10 @@ export class TabPropertyManagerModal extends Modal {
 		// Name and tab count
 		const nameRow = infoSection.createDiv({ cls: "running-head-manager-item-name" });
 		const tabCount = group.tabs?.length ?? 0;
-		nameRow.textContent = `${group.name} (${tabCount} ${tabCount === 1 ? 'tab' : 'tabs'})`;
+		const tabCountStr = tabCount === 1
+			? t('tab_count_singular').replace('{count}', '1')
+			: t('tab_count_plural').replace('{count}', String(tabCount));
+		nameRow.textContent = `${group.name} (${tabCountStr})`;
 
 		// Action buttons
 		const actionsSection = item.createDiv({ cls: "running-head-manager-actions" });
@@ -90,7 +93,7 @@ export class TabPropertyManagerModal extends Modal {
 		// Edit button
 		const editBtn = actionsSection.createEl("button", {
 			cls: "clickable-icon",
-			attr: { "aria-label": t('edit_field_tooltip') || "Edit" },
+			attr: { "aria-label": t('edit_field_tooltip') },
 		});
 		setIcon(editBtn, "pencil");
 		editBtn.addEventListener("click", (e) => {
@@ -111,7 +114,7 @@ export class TabPropertyManagerModal extends Modal {
 		// Delete button
 		const deleteBtn = actionsSection.createEl("button", {
 			cls: "clickable-icon",
-			attr: { "aria-label": t('delete_field_tooltip') || "Delete" },
+			attr: { "aria-label": t('delete_field_tooltip') },
 		});
 		setIcon(deleteBtn, "trash");
 		deleteBtn.addEventListener("click", (e) => {
@@ -128,9 +131,7 @@ export class TabPropertyManagerModal extends Modal {
 		if (!group) return;
 
 		const confirmEl = itemEl.createDiv({ cls: "running-head-manager-confirm" });
-		const confirmMsg = t('delete_confirm')
-			? t('delete_confirm').replace('{name}', group.name)
-			: `Delete "${group.name}"?`;
+		const confirmMsg = t('delete_confirm').replace('{name}', group.name);
 
 		confirmEl.createSpan({
 			text: confirmMsg,
@@ -140,7 +141,7 @@ export class TabPropertyManagerModal extends Modal {
 		const btnGroup = confirmEl.createDiv({ cls: "running-head-manager-confirm-btns" });
 
 		const confirmBtn = btnGroup.createEl("button", {
-			text: t('delete_button') || "Delete",
+			text: t('delete_button'),
 			cls: "mod-warning",
 		});
 		confirmBtn.addEventListener("click", () => {
@@ -148,17 +149,14 @@ export class TabPropertyManagerModal extends Modal {
 				this.plugin.settings.tabGroups.splice(index, 1);
 				await this.plugin.saveSettings();
 
-				const deletedMsg = t('tab_property_deleted')
-					? t('tab_property_deleted').replace('{name}', group.name)
-					: `Tab group "${group.name}" removed.`;
-				new Notice(deletedMsg);
+				new Notice(t('tab_property_deleted').replace('{name}', group.name));
 
 				this.renderList();
 				this.onSave?.();
 			})();
 		});
 
-		const cancelBtn = btnGroup.createEl("button", { text: t('cancel_button') || "Cancel" });
+		const cancelBtn = btnGroup.createEl("button", { text: t('cancel_button') });
 		cancelBtn.addEventListener("click", () => {
 			confirmEl.remove();
 		});

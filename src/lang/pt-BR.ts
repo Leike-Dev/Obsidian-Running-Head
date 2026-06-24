@@ -3,8 +3,6 @@ export const ptBR = {
 	// SETTINGS — Cabeçalhos de seção
 	// ================================================================
 	'section_title': 'Cabeçalho e aparência',
-	'section_appearance': 'Aparência',
-	'section_frontmatter_properties': 'Propriedades',
 	'section_date': 'Data e leitura',
 	'section_custom_fields': 'Campos personalizados',
 
@@ -148,14 +146,17 @@ export const ptBR = {
 	'min_read': 'min de leitura',
 	'last_updated': 'Atualizado em',
 	'field_already_exists': 'O campo "{key}" já existe.',
+	'boolean_true': 'Verdadeiro',
+	'boolean_false': 'Falso',
 
-// ================================================================
+	// ================================================================
 	// SETTINGS — Scroll Progress
 	// ================================================================
 	'scroll_progress_bar_name': 'Barra de progresso de rolagem',
 	'scroll_progress_bar_desc': 'Exibe uma barra de progresso de leitura no topo da nota.',
 	'scroll_progress_color_name': 'Cor da barra de progresso',
 	'scroll_progress_color_desc': 'Cor da barra de progresso. Vazio = cor de destaque padrão.',
+	'reset_color_tooltip': 'Redefinir',
 
 	// ================================================================
 	// DATA MANAGEMENT (IMPORT/EXPORT)
@@ -185,16 +186,18 @@ export const ptBR = {
 	// ================================================================
 	'section_tabs': 'Abas de navegação',
 	'tab_property_global_name': 'Propriedade do frontmatter',
-	'tab_property_global_desc': 'Chave YAML usada para ativar um grupo de abas nas notas. O valor deve corresponder ao nome de um grupo.',
+	'tab_property_global_desc': 'Chave YAML usada para ativar um grupo de abas nas notas.',
 	'add_tab_property_name': 'Novo grupo de abas',
 	'add_tab_property_desc': 'Cria um grupo nomeado de abas para usar como navegação.',
-	'tab_group_new_button': 'Novo',
+	'tab_group_new_button': 'Criar',
 	'manage_tab_properties_name': 'Gerenciar grupos de abas',
 	'manage_tab_properties_desc': 'Edite ou remova os grupos de abas configurados.',
 	'manage_tab_properties_button': 'Gerenciar',
 	'tab_editor_title_add': 'Novo grupo de abas',
 	'tab_editor_title_edit': 'Editar grupo de abas',
 	'tab_group_name_label': 'Nome do grupo',
+	'tab_group_name_placeholder': 'Home',
+	'tab_property_placeholder': 'Menu',
 
 	'tab_group_name_required': 'Insira um nome para este grupo de abas.',
 	'tab_group_tabs_label': 'Abas',
@@ -202,25 +205,20 @@ export const ptBR = {
 	'tab_group_add_tab': 'Adicionar aba',
 	'tab_group_no_tabs': 'Nenhuma aba adicionada ainda.',
 	'tab_group_move_up': 'Mover para cima',
-	'tab_group_move_down': 'Mover para baixo',
 	'tab_property_added': 'Grupo de abas "{key}" criado.',
 	'tab_property_updated': 'Grupo de abas "{key}" atualizado.',
 	'tab_property_deleted': 'Grupo de abas "{name}" removido.',
+	'tab_group_already_exists': 'O grupo "{name}" já existe.',
+	'tab_count_singular': '{count} aba',
+	'tab_count_plural': '{count} abas',
+	'tab_item_name_required_indexed': 'Aba {index} precisa de um nome.',
+	'tab_item_link_required_indexed': 'Aba {index} precisa de um link.',
 	'tab_manager_title': 'Gerenciar grupos de abas',
 	'tab_manager_count': '{count} grupo(s) de abas',
 	'tab_manager_empty': 'Nenhum grupo de abas configurado ainda.',
-	'tab_item_editor_title_add': 'Adicionar aba',
-	'tab_item_editor_title_edit': 'Editar aba',
 	'tab_item_label_name': 'Nome da aba',
-	'tab_item_label_desc': 'Rótulo de exibição desta aba.',
-	'tab_item_label_required': 'Insira um nome para esta aba.',
-	'tab_item_icon_name': 'Ícone',
-	'tab_item_icon_desc': 'Ícone Lucide opcional exibido antes do nome da aba.',
 	'tab_item_icon_choose': 'Escolher',
-	'tab_item_icon_change': 'Alterar',
 	'tab_item_link_name': 'Link',
-	'tab_item_link_desc': 'Nota a abrir quando esta aba for clicada.',
-	'tab_item_link_required': 'Selecione uma nota para esta aba.',
 	'icon_picker_placeholder': 'Buscar por um ícone...',
 	'tab_style_name': 'Estilo da aba',
 	'tab_style_desc': 'Estilo visual da barra de navegação por abas.',

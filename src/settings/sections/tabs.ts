@@ -19,7 +19,7 @@ export function renderTabsSection(containerEl: HTMLElement, plugin: RunningHeadP
 		.setDesc(t('tab_property_global_desc'))
 		.addText((text) =>
 			text
-				.setPlaceholder("Menu")
+				.setPlaceholder(t('tab_property_placeholder'))
 				.setValue(plugin.settings.tabsPropertyName)
 				.onChange(async (value) => {
 					plugin.settings.tabsPropertyName = value.trim();

@@ -150,7 +150,7 @@ export class FieldEditorModal extends Modal {
 
 					const deleteBtn = item.createSpan({ 
 						cls: "running-head-folder-pill-delete", 
-						attr: { "aria-label": t('delete_button') || "Delete" } 
+						attr: { "aria-label": t('delete_button') } 
 					});
 					setIcon(deleteBtn, "x");
 					deleteBtn.addEventListener("click", () => {
@@ -192,7 +192,7 @@ export class FieldEditorModal extends Modal {
 
 		excludedFolderSetting.addButton((btn) => 
 			btn
-				.setButtonText(t('add_field_button') || "Adicionar")
+				.setButtonText(t('add_field_button'))
 				.onClick(() => {
 					if (!excludedFolderInputEl) return;
 					const val = excludedFolderInputEl.value.trim();
@@ -240,7 +240,7 @@ export class FieldEditorModal extends Modal {
 			(f, index) => f.field === key && index !== this.editIndex
 		);
 		if (isDuplicate) {
-			const msg = t('field_already_exists') ? t('field_already_exists').replace('{key}', key) : `A propriedade "${key}" já foi adicionada!`;
+			const msg = t('field_already_exists').replace('{key}', key);
 			new Notice(msg);
 			return;
 		}
