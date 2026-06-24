@@ -5,6 +5,8 @@ export const es = {
 	'section_title': 'Encabezado y apariencia',
 	'section_date': 'Fecha y lectura',
 	'section_custom_fields': 'Campos personalizados',
+	'section_data_management_title': 'Gestión de datos',
+	'section_tabs': 'Navegación por pestañas',
 
 	// ================================================================
 	// SETTINGS — Apariencia
@@ -18,6 +20,11 @@ export const es = {
 	'title_font_size_placeholder': '3',
 	'breadcrumb_toggle_name': 'Ruta de la nota',
 	'breadcrumb_toggle_desc': 'Muestra la ruta de carpetas de la nota encima del título. Oculto en notas de la raíz del vault.',
+	'hide_first_h1_name': 'Ocultar primer encabezado (H1)',
+	'hide_first_h1_desc': 'Oculta visualmente el primer H1 del documento. Útil si usa plugins de sincronización de nombre de archivo y desactivó el título nativo.',
+
+	'format_title_as_date_name': 'Formatear título como fecha',
+	'format_title_as_date_desc': 'Si el nombre del archivo es una fecha (ej. 2026-05-26), formatea el título mostrado según el idioma seleccionado.',
 	'breadcrumb_highlight_name': 'Resaltar carpeta actual',
 	'breadcrumb_highlight_desc': 'Aplica el color de acento al último segmento de la ruta.',
 	'breadcrumb_highlight_color_name': 'Color de resaltado de carpeta',
@@ -28,9 +35,14 @@ export const es = {
 	'layout_style_desc': 'Wiki: metadatos encima del título, ruta debajo. Blog: ruta encima del título, metadatos debajo.',
 	'layout_style_wiki': 'Estilo Wiki',
 	'layout_style_blog': 'Estilo Blog',
-	'header_font_size_name': 'Tamaño de los metadatos',
+	'header_font_size_name': 'Tamaño de los metadados',
 	'header_font_size_desc': 'Por defecto: 0.75.',
 	'header_font_size_placeholder': '0.75',
+	'scroll_progress_bar_name': 'Barra de progreso de desplazamiento',
+	'scroll_progress_bar_desc': 'Muestra una barra de progreso de lectura en la parte superior de la nota.',
+	'scroll_progress_color_name': 'Color de la barra de progreso',
+	'scroll_progress_color_desc': 'Color de la barra de progreso. Vacío = color de acento predeterminado.',
+	'reset_color_tooltip': 'Restablecer',
 
 	// ================================================================
 	// SETTINGS — Propiedades del frontmatter
@@ -120,6 +132,7 @@ export const es = {
 	'field_folder_scope_desc': 'Oculta este campo en notas de las carpetas indicadas. Separe varias carpetas con comas. Vacío = mostrar en todas partes.',
 	'field_folder_scope_placeholder': 'Escriba el nombre de la carpeta...',
 	'field_folder_scope_excluded_label': 'Oculto en',
+	'field_already_exists': 'El campo "{key}" ya existe.',
 
 	// ================================================================
 	// MODAL DEL GESTOR DE CAMPOS
@@ -140,20 +153,12 @@ export const es = {
 	// ================================================================
 	'min_read': 'min de lectura',
 	'last_updated': 'Actualizado',
-	'field_already_exists': 'El campo "{key}" ya existe.',
-
-// ================================================================
-	// SETTINGS — Scroll Progress
-	// ================================================================
-	'scroll_progress_bar_name': 'Barra de progreso de desplazamiento',
-	'scroll_progress_bar_desc': 'Muestra una barra de progreso de lectura en la parte superior de la nota.',
-	'scroll_progress_color_name': 'Color de la barra de progreso',
-	'scroll_progress_color_desc': 'Color de la barra de progreso. Vacío = color de acento predeterminado.',
+	'boolean_true': 'Verdadero',
+	'boolean_false': 'Falso',
 
 	// ================================================================
 	// DATA MANAGEMENT (IMPORT/EXPORT)
 	// ================================================================
-	'section_data_management_title': 'Gestión de datos',
 	'export_title': 'Exportar ajustes',
 	'export_desc': 'Exporta los ajustes actuales del plugin al portapapeles.',
 	'export_button': 'Exportar',
@@ -174,9 +179,8 @@ export const es = {
 	'import_success': '¡Ajustes importados con éxito!',
 
 	// ================================================================
-	// TABS NAVIGATION FEATURE
+	// SETTINGS — Navegación por pestañas
 	// ================================================================
-	'section_tabs': 'Navegación por pestañas',
 	'tab_property_global_name': 'Propiedad del frontmatter',
 	'tab_property_global_desc': 'Clave YAML usada para activar un grupo de pestañas en las notas.',
 	'add_tab_property_name': 'Nuevo grupo de pestañas',
@@ -185,29 +189,42 @@ export const es = {
 	'manage_tab_properties_name': 'Gestionar grupos de pestañas',
 	'manage_tab_properties_desc': 'Edite o elimine los grupos de pestañas configurados.',
 	'manage_tab_properties_button': 'Gestionar',
-	'tab_editor_title_add': 'Nuevo grupo de pestañas',
-	'tab_editor_title_edit': 'Editar grupo de pestañas',
-	'tab_group_name_label': 'Nombre del grupo',
-
-	'tab_group_name_required': 'Introduzca un nombre para este grupo de pestañas.',
-	'tab_group_tabs_label': 'Pestañas',
-
-	'tab_group_add_tab': 'Añadir pestaña',
-	'tab_group_no_tabs': 'Ninguna pestaña añadida aún.',
-	'tab_group_move_up': 'Mover arriba',
-	'tab_property_added': 'Grupo de pestañas "{key}" creado.',
-	'tab_property_updated': 'Grupo de pestañas "{key}" actualizado.',
-	'tab_property_deleted': 'Grupo de pestañas "{name}" eliminado.',
-	'tab_manager_title': 'Gestionar grupos de pestañas',
-	'tab_manager_count': '{count} grupo(s) de pestañas',
-	'tab_manager_empty': 'Ningún grupo de pestañas configurado aún.',
-	'tab_item_label_name': 'Nombre de la pestaña',
-	'tab_item_icon_choose': 'Elegir',
-	'tab_item_link_name': 'Enlace',
-	'icon_picker_placeholder': 'Buscar un icono...',
 	'tab_style_name': 'Estilo de pestaña',
 	'tab_style_desc': 'Estilo visual de la barra de navegación por pestañas.',
 	'tab_style_underline': 'Subrayado',
 	'tab_style_pill': 'Píldora',
 	'tab_style_minimal': 'Minimalista',
+
+	// ================================================================
+	// MODAL DEL EDITOR DE PESTAÑAS
+	// ================================================================
+	'tab_editor_title_add': 'Nuevo grupo de pestañas',
+	'tab_editor_title_edit': 'Editar grupo de pestañas',
+	'tab_group_name_label': 'Nombre del grupo',
+	'tab_group_name_placeholder': 'Home',
+	'tab_property_placeholder': 'Menu',
+	'tab_group_name_required': 'Introduzca un nombre para este grupo de pestañas.',
+	'tab_group_tabs_label': 'Pestañas',
+	'tab_group_add_tab': 'Añadir pestaña',
+	'tab_group_no_tabs': 'Ninguna pestaña añadida aún.',
+	'tab_group_move_up': 'Mover arriba',
+	'tab_property_added': 'Grupo de pestañas "{key}" creado.',
+	'tab_property_updated': 'Grupo de pestañas "{key}" actualizado.',
+	'tab_group_already_exists': 'El grupo "{name}" ya existe.',
+	'tab_item_label_name': 'Nombre de la pestaña',
+	'tab_item_icon_choose': 'Elegir',
+	'tab_item_link_name': 'Enlace',
+	'icon_picker_placeholder': 'Buscar un icono...',
+	'tab_item_name_required_indexed': 'La pestaña {index} necesita un nombre.',
+	'tab_item_link_required_indexed': 'La pestaña {index} necesita un enlace.',
+
+	// ================================================================
+	// MODAL DEL GESTOR DE PESTAÑAS
+	// ================================================================
+	'tab_manager_title': 'Gestionar grupos de pestañas',
+	'tab_manager_count': '{count} grupo(s) de pestañas',
+	'tab_manager_empty': 'Ningún grupo de pestañas configurado aún.',
+	'tab_property_deleted': 'Grupo de pestañas "{name}" eliminado.',
+	'tab_count_singular': '{count} pestaña',
+	'tab_count_plural': '{count} pestañas',
 };

@@ -5,6 +5,8 @@ export const fr = {
 	'section_title': 'En-tête et apparence',
 	'section_date': 'Date et lecture',
 	'section_custom_fields': 'Champs personnalisés',
+	'section_data_management_title': 'Gestion des données',
+	'section_tabs': 'Navigation par onglets',
 
 	// ================================================================
 	// SETTINGS — Apparence
@@ -18,6 +20,11 @@ export const fr = {
 	'title_font_size_placeholder': '3',
 	'breadcrumb_toggle_name': 'Chemin de la note',
 	'breadcrumb_toggle_desc': 'Affiche le chemin de dossiers de la note au-dessus du titre. Masqué pour les notes à la racine du coffre.',
+	'hide_first_h1_name': 'Masquer le premier en-tête (H1)',
+	'hide_first_h1_desc': 'Masque visuellement le premier H1 du document. Utile si vous utilisez des plugins de synchronisation de nom de fichier et avez désactivé le titre natif.',
+
+	'format_title_as_date_name': 'Formater le titre comme date',
+	'format_title_as_date_desc': 'Si le nom du fichier est une date (ex. 2026-05-26), formate le titre affiché selon la langue sélectionnée.',
 	'breadcrumb_highlight_name': 'Mettre en surbrillance le dossier actuel',
 	'breadcrumb_highlight_desc': 'Applique la couleur d\'accentuation au dernier segment du chemin.',
 	'breadcrumb_highlight_color_name': 'Couleur de surbrillance du dossier',
@@ -31,6 +38,11 @@ export const fr = {
 	'header_font_size_name': 'Taille des métadonnées',
 	'header_font_size_desc': 'Par défaut : 0.75.',
 	'header_font_size_placeholder': '0.75',
+	'scroll_progress_bar_name': 'Barre de progression du défilement',
+	'scroll_progress_bar_desc': 'Affiche une barre de progression de lecture en haut de la note.',
+	'scroll_progress_color_name': 'Couleur de la barre de progression',
+	'scroll_progress_color_desc': 'Couleur de la barre de progression. Vide = couleur d\'accentuation par défaut.',
+	'reset_color_tooltip': 'Réinitialiser',
 
 	// ================================================================
 	// SETTINGS — Propriétés du frontmatter
@@ -120,6 +132,7 @@ export const fr = {
 	'field_folder_scope_desc': 'Masque ce champ dans les notes des dossiers indiqués. Séparez plusieurs dossiers par des virgules. Vide = afficher partout.',
 	'field_folder_scope_placeholder': 'Tapez le nom du dossier...',
 	'field_folder_scope_excluded_label': 'Masqué dans',
+	'field_already_exists': 'Le champ "{key}" existe déjà.',
 
 	// ================================================================
 	// MODAL DU GESTIONNAIRE DE CHAMPS
@@ -140,20 +153,12 @@ export const fr = {
 	// ================================================================
 	'min_read': 'min de lecture',
 	'last_updated': 'Mis à jour',
-	'field_already_exists': 'Le champ "{key}" existe déjà.',
-
-// ================================================================
-	// SETTINGS — Scroll Progress
-	// ================================================================
-	'scroll_progress_bar_name': 'Barre de progression du défilement',
-	'scroll_progress_bar_desc': 'Affiche une barre de progression de lecture en haut de la note.',
-	'scroll_progress_color_name': 'Couleur de la barre de progression',
-	'scroll_progress_color_desc': 'Couleur de la barre de progression. Vide = couleur d\'accentuation par défaut.',
+	'boolean_true': 'Vrai',
+	'boolean_false': 'Faux',
 
 	// ================================================================
 	// DATA MANAGEMENT (IMPORT/EXPORT)
 	// ================================================================
-	'section_data_management_title': 'Gestion des données',
 	'export_title': 'Exporter les paramètres',
 	'export_desc': 'Exporte les paramètres actuels du plugin dans le presse-papiers.',
 	'export_button': 'Exporter',
@@ -174,9 +179,8 @@ export const fr = {
 	'import_success': 'Paramètres importés avec succès !',
 
 	// ================================================================
-	// TABS NAVIGATION FEATURE
+	// SETTINGS — Navigation par onglets
 	// ================================================================
-	'section_tabs': 'Navigation par onglets',
 	'tab_property_global_name': 'Propriété du frontmatter',
 	'tab_property_global_desc': 'Clé YAML utilisée pour activer un groupe d\'onglets dans les notes.',
 	'add_tab_property_name': 'Nouveau groupe d\'onglets',
@@ -185,9 +189,20 @@ export const fr = {
 	'manage_tab_properties_name': 'Gérer les groupes d\'onglets',
 	'manage_tab_properties_desc': 'Modifier ou supprimer les groupes d\'onglets configurés.',
 	'manage_tab_properties_button': 'Gérer',
+	'tab_style_name': 'Style d\'onglet',
+	'tab_style_desc': 'Style visuel de la barre de navigation par onglets.',
+	'tab_style_underline': 'Souligné',
+	'tab_style_pill': 'Pastille',
+	'tab_style_minimal': 'Minimaliste',
+
+	// ================================================================
+	// MODAL DE L'ÉDITEUR D'ONGLETS
+	// ================================================================
 	'tab_editor_title_add': 'Nouveau groupe d\'onglets',
 	'tab_editor_title_edit': 'Modifier le groupe d\'onglets',
 	'tab_group_name_label': 'Nom du groupe',
+	'tab_group_name_placeholder': 'Home',
+	'tab_property_placeholder': 'Menu',
 	'tab_group_name_required': 'Saisissez un nom pour ce groupe d\'onglets.',
 	'tab_group_tabs_label': 'Onglets',
 	'tab_group_add_tab': 'Ajouter un onglet',
@@ -195,17 +210,21 @@ export const fr = {
 	'tab_group_move_up': 'Monter',
 	'tab_property_added': 'Groupe d\'onglets "{key}" créé.',
 	'tab_property_updated': 'Groupe d\'onglets "{key}" mis à jour.',
-	'tab_property_deleted': 'Groupe d\'onglets "{name}" supprimé.',
-	'tab_manager_title': 'Gérer les groupes d\'onglets',
-	'tab_manager_count': '{count} groupe(s) d\'onglets',
-	'tab_manager_empty': 'Aucun groupe d\'onglets configuré pour le moment.',
+	'tab_group_already_exists': 'Le groupe "{name}" existe déjà.',
 	'tab_item_label_name': 'Nom de l\'onglet',
 	'tab_item_icon_choose': 'Choisir',
 	'tab_item_link_name': 'Lien',
 	'icon_picker_placeholder': 'Rechercher une icône...',
-	'tab_style_name': 'Style d\'onglet',
-	'tab_style_desc': 'Style visuel de la barre de navigation par onglets.',
-	'tab_style_underline': 'Souligné',
-	'tab_style_pill': 'Pastille',
-	'tab_style_minimal': 'Minimaliste',
+	'tab_item_name_required_indexed': 'L\'onglet {index} a besoin d\'un nom.',
+	'tab_item_link_required_indexed': 'L\'onglet {index} a besoin d\'un lien.',
+
+	// ================================================================
+	// MODAL DU GESTIONNAIRE D'ONGLETS
+	// ================================================================
+	'tab_manager_title': 'Gérer les groupes d\'onglets',
+	'tab_manager_count': '{count} groupe(s) d\'onglets',
+	'tab_manager_empty': 'Aucun groupe d\'onglets configuré pour le moment.',
+	'tab_property_deleted': 'Groupe d\'onglets "{name}" supprimé.',
+	'tab_count_singular': '{count} onglet',
+	'tab_count_plural': '{count} onglets',
 };

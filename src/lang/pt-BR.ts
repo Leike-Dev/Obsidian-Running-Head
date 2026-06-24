@@ -5,6 +5,8 @@ export const ptBR = {
 	'section_title': 'Cabeçalho e aparência',
 	'section_date': 'Data e leitura',
 	'section_custom_fields': 'Campos personalizados',
+	'section_data_management_title': 'Gerenciamento de dados',
+	'section_tabs': 'Abas de navegação',
 
 	// ================================================================
 	// SETTINGS — Aparência
@@ -36,6 +38,11 @@ export const ptBR = {
 	'header_font_size_name': 'Tamanho dos metadados',
 	'header_font_size_desc': 'Padrão: 0.75.',
 	'header_font_size_placeholder': '0.75',
+	'scroll_progress_bar_name': 'Barra de progresso de rolagem',
+	'scroll_progress_bar_desc': 'Exibe uma barra de progresso de leitura no topo da nota.',
+	'scroll_progress_color_name': 'Cor da barra de progresso',
+	'scroll_progress_color_desc': 'Cor da barra de progresso. Vazio = cor de destaque padrão.',
+	'reset_color_tooltip': 'Redefinir',
 
 	// ================================================================
 	// SETTINGS — Propriedades do frontmatter
@@ -125,6 +132,7 @@ export const ptBR = {
 	'field_folder_scope_desc': 'Oculta este campo em notas das pastas informadas. Separe múltiplas pastas por vírgula. Vazio = exibir em todo lugar.',
 	'field_folder_scope_placeholder': 'Digite o nome da pasta...',
 	'field_folder_scope_excluded_label': 'Oculto em',
+	'field_already_exists': 'O campo "{key}" já existe.',
 
 	// ================================================================
 	// MODAL DO GERENCIADOR DE CAMPOS
@@ -145,23 +153,12 @@ export const ptBR = {
 	// ================================================================
 	'min_read': 'min de leitura',
 	'last_updated': 'Atualizado em',
-	'field_already_exists': 'O campo "{key}" já existe.',
 	'boolean_true': 'Verdadeiro',
 	'boolean_false': 'Falso',
 
 	// ================================================================
-	// SETTINGS — Scroll Progress
-	// ================================================================
-	'scroll_progress_bar_name': 'Barra de progresso de rolagem',
-	'scroll_progress_bar_desc': 'Exibe uma barra de progresso de leitura no topo da nota.',
-	'scroll_progress_color_name': 'Cor da barra de progresso',
-	'scroll_progress_color_desc': 'Cor da barra de progresso. Vazio = cor de destaque padrão.',
-	'reset_color_tooltip': 'Redefinir',
-
-	// ================================================================
 	// DATA MANAGEMENT (IMPORT/EXPORT)
 	// ================================================================
-	'section_data_management_title': 'Gerenciamento de dados',
 	'export_title': 'Exportar configurações',
 	'export_desc': 'Exporta as configurações atuais do plugin para a área de transferência.',
 	'export_button': 'Exportar',
@@ -182,9 +179,8 @@ export const ptBR = {
 	'import_success': 'Configurações importadas com sucesso!',
 
 	// ================================================================
-	// TABS NAVIGATION FEATURE
+	// SETTINGS — Abas de navegação
 	// ================================================================
-	'section_tabs': 'Abas de navegação',
 	'tab_property_global_name': 'Propriedade do frontmatter',
 	'tab_property_global_desc': 'Chave YAML usada para ativar um grupo de abas nas notas.',
 	'add_tab_property_name': 'Novo grupo de abas',
@@ -193,36 +189,42 @@ export const ptBR = {
 	'manage_tab_properties_name': 'Gerenciar grupos de abas',
 	'manage_tab_properties_desc': 'Edite ou remova os grupos de abas configurados.',
 	'manage_tab_properties_button': 'Gerenciar',
-	'tab_editor_title_add': 'Novo grupo de abas',
-	'tab_editor_title_edit': 'Editar grupo de abas',
-	'tab_group_name_label': 'Nome do grupo',
-	'tab_group_name_placeholder': 'Home',
-	'tab_property_placeholder': 'Menu',
-
-	'tab_group_name_required': 'Insira um nome para este grupo de abas.',
-	'tab_group_tabs_label': 'Abas',
-
-	'tab_group_add_tab': 'Adicionar aba',
-	'tab_group_no_tabs': 'Nenhuma aba adicionada ainda.',
-	'tab_group_move_up': 'Mover para cima',
-	'tab_property_added': 'Grupo de abas "{key}" criado.',
-	'tab_property_updated': 'Grupo de abas "{key}" atualizado.',
-	'tab_property_deleted': 'Grupo de abas "{name}" removido.',
-	'tab_group_already_exists': 'O grupo "{name}" já existe.',
-	'tab_count_singular': '{count} aba',
-	'tab_count_plural': '{count} abas',
-	'tab_item_name_required_indexed': 'Aba {index} precisa de um nome.',
-	'tab_item_link_required_indexed': 'Aba {index} precisa de um link.',
-	'tab_manager_title': 'Gerenciar grupos de abas',
-	'tab_manager_count': '{count} grupo(s) de abas',
-	'tab_manager_empty': 'Nenhum grupo de abas configurado ainda.',
-	'tab_item_label_name': 'Nome da aba',
-	'tab_item_icon_choose': 'Escolher',
-	'tab_item_link_name': 'Link',
-	'icon_picker_placeholder': 'Buscar por um ícone...',
 	'tab_style_name': 'Estilo da aba',
 	'tab_style_desc': 'Estilo visual da barra de navegação por abas.',
 	'tab_style_underline': 'Sublinhado',
 	'tab_style_pill': 'Pílula',
 	'tab_style_minimal': 'Minimalista',
+
+	// ================================================================
+	// MODAL DO EDITOR DE ABAS
+	// ================================================================
+	'tab_editor_title_add': 'Novo grupo de abas',
+	'tab_editor_title_edit': 'Editar grupo de abas',
+	'tab_group_name_label': 'Nome do grupo',
+	'tab_group_name_placeholder': 'Home',
+	'tab_property_placeholder': 'Menu',
+	'tab_group_name_required': 'Insira um nome para este grupo de abas.',
+	'tab_group_tabs_label': 'Abas',
+	'tab_group_add_tab': 'Adicionar aba',
+	'tab_group_no_tabs': 'Nenhuma aba adicionada ainda.',
+	'tab_group_move_up': 'Mover para cima',
+	'tab_property_added': 'Grupo de abas "{key}" criado.',
+	'tab_property_updated': 'Grupo de abas "{key}" atualizado.',
+	'tab_group_already_exists': 'O grupo "{name}" já existe.',
+	'tab_item_label_name': 'Nome da aba',
+	'tab_item_icon_choose': 'Escolher',
+	'tab_item_link_name': 'Link',
+	'icon_picker_placeholder': 'Buscar por um ícone...',
+	'tab_item_name_required_indexed': 'Aba {index} precisa de um nome.',
+	'tab_item_link_required_indexed': 'Aba {index} precisa de um link.',
+
+	// ================================================================
+	// MODAL DO GERENCIADOR DE ABAS
+	// ================================================================
+	'tab_manager_title': 'Gerenciar grupos de abas',
+	'tab_manager_count': '{count} grupo(s) de abas',
+	'tab_manager_empty': 'Nenhum grupo de abas configurado ainda.',
+	'tab_property_deleted': 'Grupo de abas "{name}" removido.',
+	'tab_count_singular': '{count} aba',
+	'tab_count_plural': '{count} abas',
 };
