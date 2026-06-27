@@ -157,7 +157,6 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 
 	highlightColorSetting = new Setting(colorsContainer)
 		.setName(t('breadcrumb_highlight_color_name'))
-		.setDesc(t('breadcrumb_highlight_color_desc'))
 		.setClass("running-head-color-setting")
 		.addExtraButton((btn) =>
 			btn
@@ -182,7 +181,6 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 
 	scrollColorSetting = new Setting(colorsContainer)
 		.setName(t('scroll_progress_color_name'))
-		.setDesc(t('scroll_progress_color_desc'))
 		.setClass("running-head-color-setting")
 		.addExtraButton((btn) =>
 			btn
@@ -209,7 +207,6 @@ export function renderLayoutSection(containerEl: HTMLElement, plugin: RunningHea
 
 	badgeColorSetting = new Setting(colorsContainer)
 		.setName(t('badge_color_name'))
-		.setDesc(t('badge_color_desc'))
 		.setClass("running-head-color-setting")
 		.addExtraButton((btn) =>
 			btn
