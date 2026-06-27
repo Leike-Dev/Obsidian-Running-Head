@@ -50,6 +50,7 @@ export class TabPropertyEditorModal extends Modal {
 		contentEl.empty();
 
 		this.setTitle(this.editIndex !== null ? t('tab_editor_title_edit') : t('tab_editor_title_add'));
+		this.modalEl.addClass("mod-settings");
 		if (!Platform.isMobile) {
 			this.modalEl.addClass("mod-confirmation");
 		}

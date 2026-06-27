@@ -49,6 +49,7 @@ export class FieldEditorModal extends Modal {
 		contentEl.empty();
 
 		this.setTitle(this.editIndex !== null ? t('field_editor_title_edit') : t('field_editor_title_add'));
+		this.modalEl.addClass("mod-settings");
 		if (!Platform.isMobile) {
 			this.modalEl.addClass("mod-confirmation");
 		}
@@ -174,6 +175,9 @@ export class FieldEditorModal extends Modal {
 			.addText((text) => {
 				text.setPlaceholder(t('field_folder_scope_placeholder'));
 				excludedFolderInputEl = text.inputEl;
+				
+				// Fix squished input size
+				excludedFolderInputEl.setCssStyles({ minWidth: "150px", width: "100%" });
 
 				// Attach inline folder suggestions
 				new FolderSuggest(
@@ -192,24 +196,9 @@ export class FieldEditorModal extends Modal {
 				);
 			});
 			
+		// Garante que a área de controles (onde fica o input) não encolha absurdamente
+		excludedFolderSetting.controlEl.setCssStyles({ flexShrink: "0", minWidth: "150px" });
 		excludedFolderSetting.settingEl.classList.add("running-head-modal-no-border");
-
-		excludedFolderSetting.addButton((btn) => 
-			btn
-				.setButtonText(t('add_field_button'))
-				.onClick(() => {
-					if (!excludedFolderInputEl) return;
-					const val = excludedFolderInputEl.value.trim();
-					if (!val) return;
-					const folders = this.fieldExcludedFolder.split(',').map(f => f.trim()).filter(f => f.length > 0);
-					if (!folders.includes(val)) {
-						folders.push(val);
-						this.fieldExcludedFolder = folders.join(', ');
-						renderFolders();
-					}
-					excludedFolderInputEl.value = "";
-				})
-		);
 
 		// --- Footer buttons ---
 		const buttonContainer = contentEl.createDiv({ cls: "modal-button-container" });
