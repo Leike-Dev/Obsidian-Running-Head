@@ -54,8 +54,11 @@ export class TabPropertyEditorModal extends Modal {
 			this.modalEl.addClass("mod-confirmation");
 		}
 
-		// --- Group name ---
-		new Setting(contentEl)
+		// --- Group 1: Nome ---
+		const group1 = contentEl.createDiv({ cls: "setting-group" });
+		const group1Items = group1.createDiv({ cls: "setting-items" });
+
+		new Setting(group1Items)
 			.setName(t('tab_group_name_label'))
 			.addText((text) =>
 				text
@@ -65,9 +68,6 @@ export class TabPropertyEditorModal extends Modal {
 						this.groupName = value;
 					})
 			);
-
-		// --- Divider ---
-		contentEl.createEl("hr", { cls: "running-head-modal-separator" });
 
 		// --- Tabs list container ---
 		this.listContainerEl = contentEl.createDiv({ cls: "running-head-tab-items-container" });

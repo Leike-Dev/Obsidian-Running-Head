@@ -56,9 +56,11 @@ export class FieldEditorModal extends Modal {
 		// ============================================================
 		// GROUP 1: IDENTIDADE
 		// ============================================================
+		const group1 = contentEl.createDiv({ cls: "setting-group" });
+		const group1Items = group1.createDiv({ cls: "setting-items" });
 
 		// --- Frontmatter key ---
-		new Setting(contentEl)
+		new Setting(group1Items)
 			.setName(t('field_key_name'))
 			.setDesc(t('field_key_desc'))
 			.addText((text) =>
@@ -71,7 +73,7 @@ export class FieldEditorModal extends Modal {
 			);
 
 		// --- Label ---
-		const labelSetting = new Setting(contentEl)
+		const labelSetting = new Setting(group1Items)
 			.setName(t('field_label_name'))
 			.setDesc(t('field_label_desc'))
 			.addText((text) =>
@@ -94,7 +96,7 @@ export class FieldEditorModal extends Modal {
 		updateLabelState(this.fieldShowLabel);
 
 		// --- Show Label Toggle ---
-		new Setting(contentEl)
+		new Setting(group1Items)
 			.setName(t('field_show_label_name'))
 			.setDesc(t('field_show_label_desc'))
 			.addToggle((toggle) =>
@@ -109,9 +111,11 @@ export class FieldEditorModal extends Modal {
 		// ============================================================
 		// GROUP 2: COMPORTAMENTO
 		// ============================================================
+		const group2 = contentEl.createDiv({ cls: "setting-group" });
+		const group2Items = group2.createDiv({ cls: "setting-items" });
 
 		// --- Position ---
-		new Setting(contentEl)
+		new Setting(group2Items)
 			.setName(t('field_position_name'))
 			.setDesc(t('field_position_desc'))
 			.addDropdown((dropdown) =>
@@ -125,11 +129,11 @@ export class FieldEditorModal extends Modal {
 			);
 			
 		// --- Excluded folder ---
-		new Setting(contentEl)
+		const excludedFolderSetting = new Setting(group2Items)
 			.setName(t('field_folder_scope_name'))
 			.setDesc(t('field_folder_scope_desc'));
 			
-		const listContainer = contentEl.createDiv({ cls: "running-head-folder-pills" });
+		const listContainer = group2Items.createDiv({ cls: "running-head-folder-pills" });
 
 		const renderFolders = () => {
 			listContainer.empty();
@@ -166,7 +170,7 @@ export class FieldEditorModal extends Modal {
 
 		let excludedFolderInputEl: HTMLInputElement;
 
-		const excludedFolderSetting = new Setting(contentEl)
+		excludedFolderSetting
 			.addText((text) => {
 				text.setPlaceholder(t('field_folder_scope_placeholder'));
 				excludedFolderInputEl = text.inputEl;
