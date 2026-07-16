@@ -40,13 +40,23 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 	}
 
 	const contentEl = view.contentEl;
+	const settings = plugin.settings;
+
+	// --- Calculate reading time ---
+	let readingTime: number | null = null;
+	if (settings.showReadingTime) {
+		const content = await plugin.app.vault.cachedRead(file);
+		// Check if the DOM is still valid after the async read (user might have switched views)
+		if (!contentEl.isConnected) return;
+		readingTime = calculateReadingTime(content, settings.wordsPerMinute);
+	}
+
 	// Do NOT remove the existing header yet! Wait until after all async operations
 	// to prevent layout shifts and CodeMirror measurement bugs.
 
 	// --- Read frontmatter ---
 	const cache = plugin.app.metadataCache.getFileCache(file);
 	const frontmatter = cache?.frontmatter;
-	const settings = plugin.settings;
 
 	const rawDate = frontmatter?.[settings.dateField] as unknown;
 	const rawUpdated = frontmatter?.[settings.lastUpdatedField] as unknown;
@@ -76,18 +86,18 @@ async function injectMetadataHeaderForView(plugin: RunningHeadPlugin, view: Mark
 
 	const hasCustomFields = settings.customFields.some((cf) => isInScope(cf));
 	if (!formattedDate && !formattedLastUpdated && !hasCustomFields && !settings.showBreadcrumb && !settings.formatTitleAsDate && !activeTabGroup) {
+		removeAllInjectedElements(contentEl);
+		view.containerEl.classList.remove("running-head-active", "running-head-has-custom-title");
 		return;
 	}
 
-	// --- Calculate reading time ---
-	let readingTime: number | null = null;
-	if (settings.showReadingTime) {
-		const content = await plugin.app.vault.cachedRead(file);
-		// Check if the DOM is still valid after the async read (user might have switched notes)
-		if (!contentEl.isConnected) {
-			return;
-		}
-		readingTime = calculateReadingTime(content, settings.wordsPerMinute);
+	// Mark this view as actively using the plugin
+	view.containerEl.classList.add("running-head-active");
+
+	if (settings.formatTitleAsDate) {
+		view.containerEl.classList.add("running-head-has-custom-title");
+	} else {
+		view.containerEl.classList.remove("running-head-has-custom-title");
 	}
 
 	// Apply configurable font sizes via CSS variables

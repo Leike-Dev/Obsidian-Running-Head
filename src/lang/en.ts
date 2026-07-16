@@ -24,7 +24,7 @@ export const en = {
 	'hide_first_h1_desc': 'Visually hides the first H1 in the document. Useful if you use filename sync plugins and disabled the native title.',
 
 	'format_title_as_date_name': 'Format title as date',
-	'format_title_as_date_desc': 'If the filename is a date (e.g. 2026-05-26), it formats the displayed title using the selected locale.',
+	'format_title_as_date_desc': 'If the file name is a date (e.g., 2026-05-26), it formats the displayed title to text using the chosen locale.',
 	'breadcrumb_highlight_name': 'Highlight current folder',
 	'breadcrumb_highlight_desc': 'Applies the accent color to the last segment of the path.',
 	'breadcrumb_highlight_color_name': 'Folder highlight color',

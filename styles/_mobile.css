@@ -6,13 +6,17 @@
 
 /* --- Inline Title --- */
 
-body.is-phone .workspace-leaf-content .inline-title,
-body.is-phone .workspace-leaf-content .markdown-source-view.mod-cm6 .cm-sizer>.inline-title,
-body.is-phone .workspace-leaf-content .markdown-preview-view .markdown-preview-sizer>.inline-title {
+body.is-phone .workspace-leaf-content.running-head-active .inline-title,
+body.is-phone .workspace-leaf-content.running-head-active .running-head-custom-title,
+body.is-phone .workspace-leaf-content.running-head-active .markdown-source-view.mod-cm6 .cm-sizer>.inline-title,
+body.is-phone .workspace-leaf-content.running-head-active .markdown-source-view.mod-cm6 .cm-sizer>.running-head-custom-title,
+body.is-phone .workspace-leaf-content.running-head-active .markdown-preview-view .markdown-preview-sizer>.inline-title,
+body.is-phone .workspace-leaf-content.running-head-active .markdown-preview-view .markdown-preview-sizer>.running-head-custom-title {
     font-size: calc(var(--running-head-title-size, 3em) * 0.6);
 }
 
-body.is-phone .inline-title {
+body.is-phone .workspace-leaf-content.running-head-active .inline-title,
+body.is-phone .workspace-leaf-content.running-head-active .running-head-custom-title {
     line-height: 1.15;
     margin-bottom: 10px;
 }
@@ -67,8 +71,11 @@ body.is-phone .mod-settings .modal-button-container button {
 /* --- Breadcrumb & Top Row gap fix --- */
 
 body.is-phone .workspace-leaf-content .running-head-top-row+.inline-title,
+body.is-phone .workspace-leaf-content .running-head-top-row+.running-head-custom-title,
 body.is-phone .workspace-leaf-content .running-head-breadcrumb+.inline-title,
-body.is-phone .workspace-leaf-content .running-head-metadata-header+.inline-title {
+body.is-phone .workspace-leaf-content .running-head-breadcrumb+.running-head-custom-title,
+body.is-phone .workspace-leaf-content .running-head-metadata-header+.inline-title,
+body.is-phone .workspace-leaf-content .running-head-metadata-header+.running-head-custom-title {
     margin-top: 0.20rem;
     padding-top: 0;
 }

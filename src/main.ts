@@ -62,7 +62,14 @@ export default class RunningHeadPlugin extends Plugin {
 		);
 
 		// Re-inject when reading view finishes rendering sections asynchronously
-		this.registerMarkdownPostProcessor(() => {
+		this.registerMarkdownPostProcessor((el) => {
+			if (el.closest('.markdown-embed')) return;
+
+			const viewContainer = el.closest('.markdown-preview-view');
+			if (viewContainer && (viewContainer.querySelector('.running-head-metadata-header') || viewContainer.querySelector('.running-head-custom-title'))) {
+				return;
+			}
+			
 			this.debouncedInject();
 		});
 
@@ -147,7 +154,7 @@ export default class RunningHeadPlugin extends Plugin {
 		this.updateDynamicStyles();
 		this.updateBodyClasses();
 		// Re-inject to reflect updated settings immediately
-		await injectMetadataHeader(this);
+		this.debouncedInject();
 	}
 
 	updateBodyClasses(): void {

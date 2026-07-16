@@ -12,26 +12,26 @@ body .running-head-hidden,
 }
 
 /* Bulletproof native title hider for Reading Mode (where Obsidian re-renders elements) */
-body .workspace-leaf-content.running-head-has-custom-title .inline-title:not(.running-head-custom-title):not(.running-head-dummy-anchor),
-body .workspace-leaf-content .running-head-has-custom-title .inline-title:not(.running-head-custom-title):not(.running-head-dummy-anchor) {
+body .workspace-leaf-content.running-head-has-custom-title .inline-title:not(.running-head-custom-title),
+body .workspace-leaf-content .running-head-has-custom-title .inline-title:not(.running-head-custom-title) {
     display: none;
 }
 
 /* Increases inline title font size (highly specific to override themes) */
-body .workspace-leaf-content .inline-title,
-body .workspace-leaf-content .running-head-custom-title,
-body .workspace-leaf-content .markdown-source-view.mod-cm6 .cm-sizer>.inline-title,
-body .workspace-leaf-content .markdown-source-view.mod-cm6 .cm-sizer>.running-head-custom-title,
-body .workspace-leaf-content .markdown-preview-view .markdown-preview-sizer>.inline-title,
-body .workspace-leaf-content .markdown-preview-view .markdown-preview-sizer>.running-head-custom-title {
+body .workspace-leaf-content.running-head-active .inline-title,
+body .workspace-leaf-content.running-head-active .running-head-custom-title,
+body .workspace-leaf-content.running-head-active .markdown-source-view.mod-cm6 .cm-sizer>.inline-title,
+body .workspace-leaf-content.running-head-active .markdown-source-view.mod-cm6 .cm-sizer>.running-head-custom-title,
+body .workspace-leaf-content.running-head-active .markdown-preview-view .markdown-preview-sizer>.inline-title,
+body .workspace-leaf-content.running-head-active .markdown-preview-view .markdown-preview-sizer>.running-head-custom-title {
     font-size: var(--running-head-title-size, 3em);
     font-weight: 700;
     padding-top: 0;
 }
 
 /* Fallback line-height and margin (low specificity so themes can override) */
-.inline-title,
-.running-head-custom-title {
+.workspace-leaf-content.running-head-active .inline-title,
+.workspace-leaf-content.running-head-active .running-head-custom-title {
     line-height: 1.2;
     margin-bottom: 20px;
     color: var(--h1-color, var(--text-title-h1, var(--text-normal)));
@@ -40,8 +40,8 @@ body .workspace-leaf-content .markdown-preview-view .markdown-preview-sizer>.run
 }
 
 /* Remove a linha inferior do título da página */
-body:not(.is-phone):not(.inline-title-divider-remove) .app-container .workspace-leaf-content .view-content .inline-title:not(.mk-inline-title),
-body:not(.is-phone):not(.inline-title-divider-remove) .app-container .workspace-leaf-content .markdown-source-view.mod-cm6 .cm-sizer>.inline-title:not(.mk-inline-title) {
+body:not(.is-phone):not(.inline-title-divider-remove) .app-container .workspace-leaf-content.running-head-active .view-content .inline-title:not(.mk-inline-title),
+body:not(.is-phone):not(.inline-title-divider-remove) .app-container .workspace-leaf-content.running-head-active .markdown-source-view.mod-cm6 .cm-sizer>.inline-title:not(.mk-inline-title) {
     border-bottom: none;
     box-shadow: none;
 }
@@ -61,17 +61,17 @@ body:not(.is-phone):not(.inline-title-divider-remove) .app-container .workspace-
    ========================================================================= */
 
 /* Source View / Live Preview */
-body.running-head-hide-first-h1 .app-container .workspace-leaf-content .cm-content > .HyperMD-header-1.HyperMD-header-1 {
+body.running-head-hide-first-h1 .app-container .workspace-leaf-content.running-head-active .cm-content > .HyperMD-header-1.HyperMD-header-1 {
     display: none;
 }
-body.running-head-hide-first-h1 .app-container .workspace-leaf-content .cm-content > .HyperMD-header-1.HyperMD-header-1 ~ .HyperMD-header-1.HyperMD-header-1 {
+body.running-head-hide-first-h1 .app-container .workspace-leaf-content.running-head-active .cm-content > .HyperMD-header-1.HyperMD-header-1 ~ .HyperMD-header-1.HyperMD-header-1 {
     display: block;
 }
 
 /* Reading View */
-body.running-head-hide-first-h1 .app-container .workspace-leaf-content .markdown-preview-view .markdown-preview-sizer > div:has(> h1) {
+body.running-head-hide-first-h1 .app-container .workspace-leaf-content.running-head-active .markdown-preview-view .markdown-preview-sizer > div:has(> h1) {
     display: none;
 }
-body.running-head-hide-first-h1 .app-container .workspace-leaf-content .markdown-preview-view .markdown-preview-sizer > div:has(> h1) ~ div:has(> h1) {
+body.running-head-hide-first-h1 .app-container .workspace-leaf-content.running-head-active .markdown-preview-view .markdown-preview-sizer > div:has(> h1) ~ div:has(> h1) {
     display: block;
 }

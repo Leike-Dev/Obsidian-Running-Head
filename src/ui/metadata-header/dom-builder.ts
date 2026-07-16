@@ -46,16 +46,9 @@ export function createMetadataHeaderEl(container: HTMLElement, options: Metadata
  */
 export function removeExistingHeader(viewContentEl: HTMLElement): void {
 	const existing = viewContentEl.querySelectorAll(`.${HEADER_CLASS}`);
-	existing.forEach((el) => el.remove());
-	const dummies = viewContentEl.querySelectorAll('.running-head-dummy-anchor');
-	dummies.forEach((el) => el.remove());
+	existing.forEach((el) => { if (!el.closest(".markdown-embed")) el.remove(); });
 	const customTitles = viewContentEl.querySelectorAll('.running-head-custom-title');
-	customTitles.forEach((el) => el.remove());
-	const hiddenTitle = viewContentEl.querySelector('.inline-title.running-head-hidden');
-	if (hiddenTitle) hiddenTitle.classList.remove('running-head-hidden');
-	const hiddenProps = viewContentEl.querySelector('.metadata-container.running-head-hidden');
-	if (hiddenProps) hiddenProps.classList.remove('running-head-hidden');
-	viewContentEl.classList.remove('running-head-has-custom-title');
+	customTitles.forEach((el) => { if (!el.closest(".markdown-embed")) el.remove(); });
 }
 
 // Re-export tabs builder for consumers that import from dom-builder

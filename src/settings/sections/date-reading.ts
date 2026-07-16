@@ -61,9 +61,12 @@ export function renderDateSection(containerEl: HTMLElement, plugin: RunningHeadP
 					})
 			);
 
+		const formatTitleDesc = activeDocument.createDocumentFragment();
+		formatTitleDesc.appendText(t('format_title_as_date_desc'));
+		
 		new Setting(containerEl)
 			.setName(t('format_title_as_date_name'))
-			.setDesc(t('format_title_as_date_desc'))
+			.setDesc(formatTitleDesc)
 			.addToggle((toggle) =>
 				toggle
 					.setValue(plugin.settings.formatTitleAsDate)
