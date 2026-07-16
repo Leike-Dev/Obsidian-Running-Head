@@ -52,13 +52,13 @@
     padding: 5px 12px;
     color: var(--text-muted);
     cursor: pointer;
-    text-decoration: none;
+    text-decoration: none !important;
     white-space: nowrap;
     transition: color 0.15s ease, background-color 0.15s ease;
 }
 
 .running-head-tab:hover {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 /* Tab icon wrapper */
