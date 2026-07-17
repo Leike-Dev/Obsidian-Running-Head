@@ -129,7 +129,10 @@ export const zhCN = {
 	'field_folder_scope_desc': '在指定文件夹中的笔记隐藏此字段。',
 	'field_folder_scope_placeholder': '文件夹名称...',
 	'field_folder_scope_excluded_label': '隐藏于',
-	'field_already_exists': '使用此键的字段已存在。',
+	'field_already_exists': '具有此键的字段已存在。',
+	'field_max_items_name': '最大可见项目数',
+	'field_max_items_desc': '设置列表中显示的最大项目数。使用 0 表示无限制。',
+	'field_max_items_placeholder': '0',
 
 	// ================================================================
 	// 字段管理器模态框

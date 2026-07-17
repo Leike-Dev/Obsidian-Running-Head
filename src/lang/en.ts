@@ -131,7 +131,7 @@ export const en = {
 	'field_folder_scope_excluded_label': 'Hidden in',
 	'field_already_exists': 'A field with this key already exists.',
 	'field_max_items_name': 'Max visible items',
-	'field_max_items_desc': 'Limit how many list items are shown. 0 = no limit.',
+	'field_max_items_desc': 'Set the maximum number of items to display in lists. Use 0 for no limit.',
 	'field_max_items_placeholder': '0',
 
 	// ================================================================

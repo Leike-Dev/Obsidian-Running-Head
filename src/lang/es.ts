@@ -130,6 +130,9 @@ export const es = {
 	'field_folder_scope_placeholder': 'Nombre de carpeta...',
 	'field_folder_scope_excluded_label': 'Oculto en',
 	'field_already_exists': 'Ya existe un campo con esta clave.',
+	'field_max_items_name': 'Máximo de elementos visibles',
+	'field_max_items_desc': 'Establece el número máximo de elementos para mostrar en listas. Use 0 para no tener límite.',
+	'field_max_items_placeholder': '0',
 
 	// ================================================================
 	// MODAL DEL GESTOR DE CAMPOS

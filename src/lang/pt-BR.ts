@@ -131,7 +131,7 @@ export const ptBR = {
 	'field_folder_scope_excluded_label': 'Oculto em',
 	'field_already_exists': 'Um campo com esta chave já existe.',
 	'field_max_items_name': 'Máximo de itens visíveis',
-	'field_max_items_desc': 'Limite de itens exibidos em listas. 0 = sem limite.',
+	'field_max_items_desc': 'Define o número máximo de itens exibidos em listas. Use 0 para não impor limite.',
 	'field_max_items_placeholder': '0',
 
 	// ================================================================

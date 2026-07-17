@@ -130,6 +130,9 @@ export const fr = {
 	'field_folder_scope_placeholder': 'Nom du dossier...',
 	'field_folder_scope_excluded_label': 'Masqué dans',
 	'field_already_exists': 'Un champ avec cette clé existe déjà.',
+	'field_max_items_name': 'Éléments visibles maximum',
+	'field_max_items_desc': "Définit le nombre maximum d'éléments à afficher dans les listes. Utilisez 0 pour aucune limite.",
+	'field_max_items_placeholder': '0',
 
 	// ================================================================
 	// MODAL DU GESTIONNAIRE DE CHAMPS
