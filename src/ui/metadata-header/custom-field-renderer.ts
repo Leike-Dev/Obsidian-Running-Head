@@ -155,10 +155,29 @@ function renderPillsOrTags(
 				cls: "multi-select-pill",
 			});
 
-			const pillContent = pillEl.createSpan({
-				cls: "multi-select-pill-content",
+			const mdLinkMatch = /^\[(.*?)\]\((https?:\/\/[^\s]+)\)$/i.exec(item);
+			const isUrl = /^https?:\/\/[^\s]+$/i.test(item);
+			const isExternal = mdLinkMatch || isUrl;
+
+			const pillContent = pillEl.createEl(isExternal ? "a" : "span", {
+				cls: "multi-select-pill-content" + (isExternal ? " external-link" : ""),
 			});
-			pillContent.textContent = item;
+
+			if (mdLinkMatch) {
+				pillContent.setAttribute("href", mdLinkMatch[2]!);
+				pillContent.setAttribute("data-href", mdLinkMatch[2]!);
+				pillContent.setAttribute("target", "_blank");
+				pillContent.setAttribute("rel", "noopener");
+				pillContent.textContent = mdLinkMatch[1]!;
+			} else if (isUrl) {
+				pillContent.setAttribute("href", item);
+				pillContent.setAttribute("data-href", item);
+				pillContent.setAttribute("target", "_blank");
+				pillContent.setAttribute("rel", "noopener");
+				pillContent.textContent = item;
+			} else {
+				pillContent.textContent = item;
+			}
 
 			pillEl.setAttribute("data-value", item);
 			pillEl.setAttribute("data-property-key", cf.field);
