@@ -175,22 +175,19 @@ function renderPillsOrTags(
 		}
 	}
 
-	// --- Overflow toggle pill ---
+	// --- Overflow toggle ---
 	if (shouldTruncate) {
-		const hiddenCount = items.length - maxItems;
-		const togglePill = containerEl.createDiv({ cls: "multi-select-pill running-head-overflow-toggle" });
-		const toggleContent = togglePill.createSpan({ cls: "multi-select-pill-content" });
-		toggleContent.textContent = t('show_more_items').replace('{count}', String(hiddenCount));
+		const toggleEl = containerEl.createSpan({ cls: "running-head-overflow-toggle" });
+		toggleEl.textContent = "…";
 
 		let expanded = false;
-		togglePill.addEventListener("click", () => {
+		toggleEl.addEventListener("click", () => {
 			expanded = !expanded;
 			for (const el of overflowEls) {
 				el.classList.toggle("running-head-overflow-hidden", !expanded);
 			}
-			toggleContent.textContent = expanded
-				? t('collapse_items')
-				: t('show_more_items').replace('{count}', String(hiddenCount));
+			toggleEl.textContent = expanded ? "…" : "…";
+			toggleEl.classList.toggle("is-expanded", expanded);
 		});
 	}
 }

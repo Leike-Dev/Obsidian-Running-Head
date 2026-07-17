@@ -155,8 +155,6 @@ export const ptBR = {
 	'last_updated': 'Atualizado em',
 	'boolean_true': 'Verdadeiro',
 	'boolean_false': 'Falso',
-	'show_more_items': '+{count} mais',
-	'collapse_items': 'Recolher',
 
 	// ================================================================
 	// DATA MANAGEMENT (IMPORT/EXPORT)

@@ -173,9 +173,13 @@
 }
 
 .running-head-overflow-toggle {
+    color: var(--text-muted);
     cursor: pointer;
-    border-style: dashed !important;
-    opacity: 0.75;
+    font-size: 1.1em;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    padding: 0 0.25rem;
+    opacity: 0.6;
     transition: opacity 0.15s ease;
 }
 

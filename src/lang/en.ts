@@ -155,8 +155,6 @@ export const en = {
 	'last_updated': 'Last updated',
 	'boolean_true': 'True',
 	'boolean_false': 'False',
-	'show_more_items': '+{count} more',
-	'collapse_items': 'Collapse',
 
 	// ================================================================
 	// DATA MANAGEMENT (IMPORT/EXPORT)
