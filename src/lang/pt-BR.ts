@@ -130,6 +130,9 @@ export const ptBR = {
 	'field_folder_scope_placeholder': 'Nome da pasta...',
 	'field_folder_scope_excluded_label': 'Oculto em',
 	'field_already_exists': 'Um campo com esta chave já existe.',
+	'field_max_items_name': 'Máximo de itens visíveis',
+	'field_max_items_desc': 'Limite de itens exibidos em listas. 0 = sem limite.',
+	'field_max_items_placeholder': '0',
 
 	// ================================================================
 	// MODAL DO GERENCIADOR DE CAMPOS
@@ -152,6 +155,8 @@ export const ptBR = {
 	'last_updated': 'Atualizado em',
 	'boolean_true': 'Verdadeiro',
 	'boolean_false': 'Falso',
+	'show_more_items': '+{count} mais',
+	'collapse_items': 'Recolher',
 
 	// ================================================================
 	// DATA MANAGEMENT (IMPORT/EXPORT)

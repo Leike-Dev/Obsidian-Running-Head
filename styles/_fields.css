@@ -163,3 +163,22 @@
     height: var(--icon-size, 14px);
     stroke-width: 2px;
 }
+
+/* =========================================================================
+   OVERFLOW TOGGLE (Max Items)
+   ========================================================================= */
+
+.running-head-overflow-hidden {
+    display: none !important;
+}
+
+.running-head-overflow-toggle {
+    cursor: pointer;
+    border-style: dashed !important;
+    opacity: 0.75;
+    transition: opacity 0.15s ease;
+}
+
+.running-head-overflow-toggle:hover {
+    opacity: 1;
+}

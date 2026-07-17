@@ -10,6 +10,8 @@ export interface CustomField {
 	position: "above" | "below";
 	/** Optional folder path where this field should be hidden (e.g. "Base/Windows") */
 	excludedFolder: string;
+	/** Max number of list items to show before truncating (0 = no limit) */
+	maxItems: number;
 }
 
 /** A single tab within a tab group. */

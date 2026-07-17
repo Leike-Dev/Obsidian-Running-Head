@@ -130,6 +130,9 @@ export const en = {
 	'field_folder_scope_placeholder': 'Folder name...',
 	'field_folder_scope_excluded_label': 'Hidden in',
 	'field_already_exists': 'A field with this key already exists.',
+	'field_max_items_name': 'Max visible items',
+	'field_max_items_desc': 'Limit how many list items are shown. 0 = no limit.',
+	'field_max_items_placeholder': '0',
 
 	// ================================================================
 	// FIELD MANAGER MODAL
@@ -152,6 +155,8 @@ export const en = {
 	'last_updated': 'Last updated',
 	'boolean_true': 'True',
 	'boolean_false': 'False',
+	'show_more_items': '+{count} more',
+	'collapse_items': 'Collapse',
 
 	// ================================================================
 	// DATA MANAGEMENT (IMPORT/EXPORT)

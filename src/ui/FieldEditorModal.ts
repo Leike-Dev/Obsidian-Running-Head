@@ -22,6 +22,7 @@ export class FieldEditorModal extends Modal {
 	private fieldShowLabel = false;
 	private fieldPosition: "above" | "below" = "below";
 	private fieldExcludedFolder = "";
+	private fieldMaxItems = 0;
 
 	constructor(
 		app: App,
@@ -41,6 +42,7 @@ export class FieldEditorModal extends Modal {
 			this.fieldShowLabel = editField.showLabel ?? false;
 			this.fieldPosition = editField.position;
 			this.fieldExcludedFolder = editField.excludedFolder ?? "";
+			this.fieldMaxItems = editField.maxItems ?? 0;
 		}
 	}
 
@@ -126,6 +128,20 @@ export class FieldEditorModal extends Modal {
 					.setValue(this.fieldPosition)
 					.onChange((value) => {
 						this.fieldPosition = value as "above" | "below";
+					})
+			);
+
+		// --- Max items ---
+		new Setting(group2Items)
+			.setName(t('field_max_items_name'))
+			.setDesc(t('field_max_items_desc'))
+			.addText((text) =>
+				text
+					.setPlaceholder(t('field_max_items_placeholder'))
+					.setValue(this.fieldMaxItems > 0 ? String(this.fieldMaxItems) : "")
+					.onChange((value) => {
+						const num = parseInt(value, 10);
+						this.fieldMaxItems = isNaN(num) || num < 0 ? 0 : num;
 					})
 			);
 			
@@ -244,6 +260,7 @@ export class FieldEditorModal extends Modal {
 			showLabel: this.fieldShowLabel,
 			position: this.fieldPosition,
 			excludedFolder: this.fieldExcludedFolder.trim(),
+			maxItems: this.fieldMaxItems,
 		};
 
 		if (this.editIndex !== null) {

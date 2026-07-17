@@ -124,23 +124,33 @@ function renderPillsOrTags(
 		labelSpan.textContent = `${label}:`;
 	}
 
+	const maxItems = cf.maxItems ?? 0;
+	const shouldTruncate = maxItems > 0 && items.length > maxItems;
+	const overflowEls: HTMLElement[] = [];
+
 	if (isTagsType) {
 		containerEl.classList.add("running-head-tags-container");
-		for (const item of items) {
+		for (let i = 0; i < items.length; i++) {
+			const item = items[i]!;
 			const tagEl = containerEl.createEl("a", {
 				cls: "tag",
 				href: `#${item}`,
 			});
-			tagEl.textContent = `#${item}`; // Restore native Obsidian markdown hashtag look
+			tagEl.textContent = `#${item}`;
 			tagEl.addEventListener("click", (e) => {
 				e.preventDefault();
 				void options.app.workspace.openLinkText(`#${item}`, options.sourcePath);
 			});
+			if (shouldTruncate && i >= maxItems) {
+				tagEl.classList.add("running-head-overflow-hidden");
+				overflowEls.push(tagEl);
+			}
 		}
 	} else {
 		containerEl.setAttribute("data-property-key", cf.field);
 
-		for (const item of items) {
+		for (let i = 0; i < items.length; i++) {
+			const item = items[i]!;
 			const pillEl = containerEl.createDiv({
 				cls: "multi-select-pill",
 			});
@@ -157,7 +167,31 @@ function renderPillsOrTags(
 			if (typify && typeof typify.processPill === "function") {
 				typify.processPill(pillEl, cf.field);
 			}
+
+			if (shouldTruncate && i >= maxItems) {
+				pillEl.classList.add("running-head-overflow-hidden");
+				overflowEls.push(pillEl);
+			}
 		}
+	}
+
+	// --- Overflow toggle pill ---
+	if (shouldTruncate) {
+		const hiddenCount = items.length - maxItems;
+		const togglePill = containerEl.createDiv({ cls: "multi-select-pill running-head-overflow-toggle" });
+		const toggleContent = togglePill.createSpan({ cls: "multi-select-pill-content" });
+		toggleContent.textContent = t('show_more_items').replace('{count}', String(hiddenCount));
+
+		let expanded = false;
+		togglePill.addEventListener("click", () => {
+			expanded = !expanded;
+			for (const el of overflowEls) {
+				el.classList.toggle("running-head-overflow-hidden", !expanded);
+			}
+			toggleContent.textContent = expanded
+				? t('collapse_items')
+				: t('show_more_items').replace('{count}', String(hiddenCount));
+		});
 	}
 }
 
