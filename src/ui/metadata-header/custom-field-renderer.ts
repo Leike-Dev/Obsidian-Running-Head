@@ -19,6 +19,7 @@ export function renderCustomField(wrapper: HTMLElement, cf: CustomField, options
 
 	const rawValue = options.frontmatter?.[cf.field];
 	if (rawValue == null) return;
+	if (Array.isArray(rawValue) && rawValue.length === 0) return;
 
 	const label = cf.label || cf.field;
 	const showLabel = cf.showLabel ?? false;
