@@ -80,6 +80,12 @@ Add a modern, color-customizable scroll progress bar fixed at the top of your no
 * **🎨 Custom Colors**: Define the colors of the update label, the note path, or the progress bar simply and individually.
 * **🚫 Hide First H1**: Prevent duplicate titles on screen if you use plugins that sync the filename to the first H1.
 * **📅 Format Title as Date**: Turn your note title into a nicely formatted date.
+  > [!NOTE]
+  > For this to work, the note's filename must contain **only** the date (and optionally the time), without any other text.
+  > 
+  > **Supported Formats:**
+  > - `YYYY-MM-DD`, `YYYYMMDD`, `DD-MM-YYYY`, `YYYY.MM.DD`, `DD/MM/YYYY`, etc.
+  > - With time: `YYYY-MM-DD HH:mm`, `YYYYMMDDHHmmss`, `DD-MM-YYYY HH:mm`, etc.
 * **💾 Data Management**: Export complete settings as JSON and import them into another vault or device easily.
 * **🌍 Internationalization**: Interface fully translated into English, Portuguese (Brazil), Spanish, French, and Simplified Chinese. If there are translation errors or improvements, please let me know.
 

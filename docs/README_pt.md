@@ -80,6 +80,12 @@ Adicione uma barra discreta e altamente personalizável no topo da nota para aco
 * **🎨 Cores Personalizadas**: Defina as cores da etiqueta de atualização, do caminho da nota ou da barra de progresso de forma simples e individual.
 * **🚫 Ocultar Primeiro H1**: Evite títulos duplicados na tela se você usa plugins que sincronizam o nome do arquivo com o H1.
 * **📅 Formatar Título como Data**: Transforme o título da sua nota em uma data formatada de forma elegante.
+  > [!NOTE]
+  > Para que isso funcione, o nome do arquivo da nota deve conter **apenas** a data (e opcionalmente a hora), sem nenhum outro texto.
+  > 
+  > **Formatos Suportados:**
+  > - `YYYY-MM-DD`, `YYYYMMDD`, `DD-MM-YYYY`, `YYYY.MM.DD`, `DD/MM/YYYY`, etc.
+  > - Com horário: `YYYY-MM-DD HH:mm`, `YYYYMMDDHHmmss`, `DD-MM-YYYY HH:mm`, etc.
 * **💾 Gerenciamento de Dados**: Exporte as configurações completas como JSON e importe em outro vault ou dispositivo facilmente.
 * **🌍 Internacionalização**: Interface totalmente traduzida para Inglês, Português (Brasil), Espanhol, Frances e Chinês Simplificado (basta usar o Obsidian em um desses idiomas). Se houver erros de tradução ou melhorias, diga-me.
 
