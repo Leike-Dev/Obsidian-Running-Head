@@ -259,7 +259,9 @@ export const ptBR = {
 	'notices_tab_system': 'Sistema',
 
 	'notice_tabs_title': 'Nova estrutura de Abas',
-	'notice_tabs_desc': 'O sistema de abas foi completamente reescrito e as configurações antigas precisam ser refeitas. Para usar: 1) Vá na seção "Navegação por abas" e defina o nome da Propriedade global (ex: `menu`). 2) Crie um Grupo de abas e dê um nome (ex: `projeto`). 3) Adicione suas abas (links) dentro do grupo. 4) No frontmatter da sua nota, adicione a propriedade com o nome do grupo (ex: `menu: projeto`).',
+	'notice_tabs_desc': 'O sistema de abas foi completamente reescrito para maior estabilidade. As configurações antigas não puderam ser migradas, portanto, você precisará reconfigurá-las.',
+	'notice_tabs_tutorial_title': 'Como usar as Novas Abas',
+	'notice_tabs_tutorial_desc': '1) Vá na seção "Navegação por abas" e defina o nome da Propriedade global (ex: `menu`). 2) Crie um Grupo de abas e dê um nome (ex: `projeto`). 3) Adicione suas abas (links) dentro do grupo. 4) No frontmatter da sua nota, adicione a propriedade com o nome do grupo (ex: `menu: projeto`).',
 	'notice_links_title': 'Links clicáveis no cabeçalho',
 	'notice_links_desc': 'Agora você pode usar links no formato Markdown ([nome](url)) ou URLs puras dentro das suas propriedades no frontmatter. O Running Head irá detectá-los e torná-los clicáveis diretamente no cabeçalho da nota!',
 	'notice_h1_title': 'Diga adeus aos títulos duplicados',

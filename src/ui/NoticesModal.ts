@@ -101,6 +101,13 @@ export function getActiveNotices() {
 
 	notices.push({
 		type: 'info',
+		icon: 'info',
+		title: t('notice_tabs_tutorial_title' as Parameters<typeof t>[0]),
+		desc: t('notice_tabs_tutorial_desc' as Parameters<typeof t>[0])
+	});
+
+	notices.push({
+		type: 'info',
 		icon: 'link',
 		title: t('notice_links_title' as Parameters<typeof t>[0]),
 		desc: t('notice_links_desc' as Parameters<typeof t>[0])
