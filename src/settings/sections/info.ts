@@ -2,37 +2,9 @@ import { Setting } from "obsidian";
 import type RunningHeadPlugin from "../../main";
 import type { RunningHeadSettingTab } from "../index";
 import { t } from "../../lang/helpers";
-import { ChangelogModal } from "../../ui/ChangelogModal";
 import { NoticesModal } from "../../ui/NoticesModal";
 
-export function renderInfoSection(containerEl: HTMLElement, plugin: RunningHeadPlugin, tab: RunningHeadSettingTab) {
-	// ================================================================
-	// SECTION: INFORMATION & UPDATES
-	// ================================================================
-	new Setting(containerEl)
-		.setName(t('section_info_title'))
-		.setHeading();
-
-	// CHANGELOG
-	const changelogSetting = new Setting(containerEl)
-		.setName(t('changelog_title'))
-		.setDesc(t('changelog_desc'))
-		.addButton((button) =>
-			button
-				.setButtonText(t('changelog_button'))
-				.onClick(() => {
-					new ChangelogModal(plugin.app, plugin.manifest, () => {
-						tab.display();
-					}).open();
-				})
-		);
-
-	if (plugin.settings.lastSeenVersion !== plugin.manifest.version) {
-		const nameEl = changelogSetting.nameEl;
-		nameEl.setText(t('changelog_title') + " ");
-		nameEl.createSpan({ text: t('changelog_badge_new'), cls: "running-head-changelog-badge-new" });
-	}
-
+export function renderNoticesSection(containerEl: HTMLElement, plugin: RunningHeadPlugin, tab: RunningHeadSettingTab) {
 	// NOTICES
 	const noticesSetting = new Setting(containerEl)
 		.setName(t('notices_title'))

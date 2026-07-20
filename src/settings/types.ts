@@ -93,9 +93,6 @@ export interface RunningHeadSettings {
 
 	/** Whether to attempt to format the custom title as a date using moment.js and hide native title */
 	formatTitleAsDate: boolean;
-
-	/** Last version of the changelog seen by the user */
-	lastSeenVersion: string;
 }
 
 export const DEFAULT_SETTINGS: RunningHeadSettings = {
@@ -124,5 +121,4 @@ export const DEFAULT_SETTINGS: RunningHeadSettings = {
 	hideFirstH1: false,
 
 	formatTitleAsDate: false,
-	lastSeenVersion: "",
 };

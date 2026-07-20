@@ -1,7 +1,6 @@
 import { App, PluginSettingTab } from "obsidian";
 import type RunningHeadPlugin from "../main";
 export * from "./types";
-import { renderInfoSection } from "./sections/info";
 import { renderLayoutSection } from "./sections/layout";
 import { renderFrontmatterSection } from "./sections/frontmatter";
 import { renderDateSection } from "./sections/date-reading";
@@ -9,6 +8,7 @@ import { renderCustomFieldsSection } from "./sections/custom-fields";
 import { renderTabsSection } from "./sections/tabs";
 
 import { renderDataManagementSection } from "./sections/data-management";
+import { renderNoticesSection } from "./sections/info";
 
 export class RunningHeadSettingTab extends PluginSettingTab {
 	plugin: RunningHeadPlugin;
@@ -22,7 +22,7 @@ export class RunningHeadSettingTab extends PluginSettingTab {
 		const { containerEl } = this;
 		containerEl.empty();
 
-		renderInfoSection(containerEl, this.plugin, this);
+		renderNoticesSection(containerEl, this.plugin, this);
 		renderFrontmatterSection(containerEl, this.plugin, this);
 		renderLayoutSection(containerEl, this.plugin, this);
 		renderDateSection(containerEl, this.plugin, this);
