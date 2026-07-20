@@ -82,7 +82,6 @@ Agrega una barra discreta y altamente personalizable en la parte superior de la 
 * **📅 Formatear Título como Fecha**: Transforma el título de tu nota en una fecha bellamente formateada.
   > [!NOTE]
   > Para que esto funcione, el nombre del archivo de la nota debe contener **solo** la fecha (y opcionalmente la hora), sin ningún otro texto.
-  > 
   > **Formatos Soportados:**
   > - `YYYY-MM-DD`, `YYYYMMDD`, `DD-MM-YYYY`, `YYYY.MM.DD`, `DD/MM/YYYY`, etc.
   > - Con hora: `YYYY-MM-DD HH:mm`, `YYYYMMDDHHmmss`, `DD-MM-YYYY HH:mm`, etc.

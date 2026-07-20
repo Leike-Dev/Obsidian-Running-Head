@@ -231,22 +231,6 @@ export const en = {
 	// ================================================================
 	// CHANGELOG & NOTICES
 	// ================================================================
-	'section_info_title': 'Information & Updates',
-	'btn_github': 'View on GitHub',
-	'btn_understand': 'I understand',
-
-	'changelog_title': "What's new?",
-	'changelog_desc': 'See what the latest update brought.',
-	'changelog_button': 'View changelog',
-	'changelog_badge_new': 'New version',
-	'changelog_modal_title': "What's new — Running Head {version}",
-	'changelog_modal_date': 'Updated on {date}',
-	'changelog_error': 'Could not load update history.',
-
-	'group_new': 'New Features',
-	'group_imp': 'Improvements',
-	'group_fix': 'Fixes',
-	'group_brk': 'Breaking Changes',
 
 	'notices_title': 'Plugin notices',
 	'notices_desc': 'Information and alerts about currently active features.',

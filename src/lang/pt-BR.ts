@@ -231,22 +231,6 @@ export const ptBR = {
 	// ================================================================
 	// CHANGELOG & NOTICES
 	// ================================================================
-	'section_info_title': 'Informações & Atualizações',
-	'btn_github': 'Ver no GitHub',
-	'btn_understand': 'Entendi',
-
-	'changelog_title': "O que há de novo?",
-	'changelog_desc': 'Veja o que a última atualização trouxe.',
-	'changelog_button': 'Ver histórico',
-	'changelog_badge_new': 'Nova versão',
-	'changelog_modal_title': "O que há de novo — Running Head {version}",
-	'changelog_modal_date': 'Atualizado em {date}',
-	'changelog_error': 'Não foi possível carregar o histórico de atualizações.',
-
-	'group_new': 'Novos Recursos',
-	'group_imp': 'Melhorias',
-	'group_fix': 'Correções',
-	'group_brk': 'Mudanças Drásticas',
 
 	'notices_title': 'Avisos do plugin',
 	'notices_desc': 'Informações e alertas sobre recursos atualmente ativos.',

@@ -82,7 +82,6 @@
 * **📅 将标题格式化为日期**：将您的笔记标题变成格式优美的日期。
   > [!NOTE]
   > 为使其生效，笔记的文件名必须**仅**包含日期（可选包含时间），不得有任何其他文本。
-  > 
   > **支持的格式：**
   > - `YYYY-MM-DD`, `YYYYMMDD`, `DD-MM-YYYY`, `YYYY.MM.DD`, `DD/MM/YYYY` 等。
   > - 带时间：`YYYY-MM-DD HH:mm`, `YYYYMMDDHHmmss`, `DD-MM-YYYY HH:mm` 等。

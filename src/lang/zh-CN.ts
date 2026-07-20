@@ -244,4 +244,10 @@ export const zhCN = {
 	'notice_list_desc': '为了保持标题的优雅，您现在可以在视觉上截断长列表属性。要使用它，请编辑您的一个自定义字段并填写“项目限制”选项。只需单击标题中的省略号图标 (...) 即可显示所有隐藏的项目。',
 	'notice_format_title_title': '将标题格式化为日期',
 	'notice_format_title_desc': '您现在可以将笔记标题格式化为日期！提示：我们建议在禁用 Obsidian 本机标题（设置 > 外观 > 显示内联标题）的情况下使用此功能。请注意，启用此选项后，将无法手动编辑标题。',
+
+	'notices_title': '插件提示',
+	'notices_desc': '关于当前活动功能的信息和警报。',
+	'notices_empty': '目前没有提示。',
+	'notices_button': '查看提示',
+	'notices_tab_all': '全部',
 };

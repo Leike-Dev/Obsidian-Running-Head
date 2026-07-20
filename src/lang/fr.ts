@@ -244,4 +244,10 @@ export const fr = {
 	'notice_list_desc': 'Pour garder un en-tête élégant, vous pouvez désormais tronquer visuellement les propriétés de liste. Pour l\'utiliser, modifiez l\'un de vos champs personnalisés et remplissez l\'option "Limite d\'éléments". Cliquez simplement sur l\'icône de points de suspension (...) dans l\'en-tête pour révéler tous les éléments masqués.',
 	'notice_format_title_title': 'Formater le titre en tant que date',
 	'notice_format_title_desc': 'Vous pouvez désormais formater le titre de votre note comme une date ! Astuce : Nous vous recommandons d\'utiliser cela avec le titre natif d\'Obsidian désactivé (Paramètres > Apparence > Afficher le titre en ligne). Notez que lorsque cette option est activée, le titre ne peut pas être modifié manuellement.',
+
+	'notices_title': 'Avis du plugin',
+	'notices_desc': 'Informations et alertes sur les fonctionnalités actuellement actives.',
+	'notices_empty': 'Aucun avis pour le moment.',
+	'notices_button': 'Voir les avis',
+	'notices_tab_all': 'Tous',
 };

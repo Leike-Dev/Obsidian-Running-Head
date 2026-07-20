@@ -244,4 +244,10 @@ export const es = {
 	'notice_list_desc': 'Para mantener elegante el encabezado de su nota, ahora puede limitar visualmente las propiedades de lista. Para usarlo, edite uno de sus campos personalizados y complete la opción "Límite de elementos". Solo haga clic en el ícono de puntos suspensivos (...) en el encabezado para revelar todos los elementos ocultos.',
 	'notice_format_title_title': 'Formatear título como fecha',
 	'notice_format_title_desc': '¡Ahora puede formatear el título de su nota como una fecha! Consejo: Recomendamos usar esto con el título nativo de Obsidian desactivado (Configuración > Apariencia > Mostrar título integrado). Tenga en cuenta que cuando esta opción está activada, el título no se puede editar manualmente.',
+
+	'notices_title': 'Avisos del plugin',
+	'notices_desc': 'Información y alertas sobre las funciones actualmente activas.',
+	'notices_empty': 'No hay avisos en este momento.',
+	'notices_button': 'Ver avisos',
+	'notices_tab_all': 'Todos',
 };

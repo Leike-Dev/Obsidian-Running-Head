@@ -82,7 +82,6 @@ Add a modern, color-customizable scroll progress bar fixed at the top of your no
 * **📅 Format Title as Date**: Turn your note title into a nicely formatted date.
   > [!NOTE]
   > For this to work, the note's filename must contain **only** the date (and optionally the time), without any other text.
-  > 
   > **Supported Formats:**
   > - `YYYY-MM-DD`, `YYYYMMDD`, `DD-MM-YYYY`, `YYYY.MM.DD`, `DD/MM/YYYY`, etc.
   > - With time: `YYYY-MM-DD HH:mm`, `YYYYMMDDHHmmss`, `DD-MM-YYYY HH:mm`, etc.

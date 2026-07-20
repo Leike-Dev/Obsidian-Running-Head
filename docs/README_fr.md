@@ -82,7 +82,6 @@ Ajoutez une barre discrète et hautement personnalisable en haut de la note pour
 * **📅 Formater le Titre comme Date** : Transformez le titre de votre note en une date joliment formatée.
   > [!NOTE]
   > Pour que cela fonctionne, le nom du fichier de la note doit contenir **uniquement** la date (et éventuellement l'heure), sans aucun autre texte.
-  > 
   > **Formats Supportés :**
   > - `YYYY-MM-DD`, `YYYYMMDD`, `DD-MM-YYYY`, `YYYY.MM.DD`, `DD/MM/YYYY`, etc.
   > - Avec l'heure : `YYYY-MM-DD HH:mm`, `YYYYMMDDHHmmss`, `DD-MM-YYYY HH:mm`, etc.
