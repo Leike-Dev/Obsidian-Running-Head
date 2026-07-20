@@ -99,7 +99,7 @@ Add a modern, color-customizable scroll progress bar fixed at the top of your no
    updated: 2026-05-29
    ```
 3. **Configure Custom Fields**: Go to plugin settings $\rightarrow$ **Custom Fields** and click **Add** to map any YAML key (e.g. `Author`, `tags`) to the header.
-4. **Create Tabs**: Under **Tabs Navigation**, register a list-based YAML property (e.g. `tabs-home`) and define links to related notes.
+4. **Create Tabs**: Go to **Tabs Navigation**, define a global property name (e.g. `menu`), create a new tab group (e.g. `project`) and add your tabs. Then, in your note's frontmatter, use `menu: project`.
 
 
 

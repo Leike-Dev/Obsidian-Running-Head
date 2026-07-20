@@ -99,7 +99,7 @@ Ajoutez une barre discrète et hautement personnalisable en haut de la note pour
    updated: 2026-05-29
    ```
 3. **Configurer les Champs Personnalisés** : Allez dans Paramètres du plugin $\rightarrow$ **Champs personnalisés** et cliquez sur **Ajouter** pour mapper n'importe quelle clé YAML (ex : `Auteur`, `tags`) à l'en-tête.
-4. **Créer des Onglets** : Sous **Navigation par onglets**, enregistrez une propriété YAML de type liste (ex : `tabs-home`) et définissez les liens des notes associées.
+4. **Créer des Onglets** : Sous **Navigation par onglets**, définissez le nom d'une propriété globale (ex : `menu`), créez un groupe d'onglets (ex : `projet`) et ajoutez vos onglets. Ensuite, dans le frontmatter de votre note, utilisez `menu: projet`.
 
 
 

@@ -99,7 +99,7 @@ Agrega una barra discreta y altamente personalizable en la parte superior de la 
    updated: 2026-05-29
    ```
 3. **Configure Campos Personalizados**: Ve a ajustes del plugin $\rightarrow$ **Campos Personalizados** y haz clic en **Añadir** para mapear cualquier clave YAML (ej. `Autor`, `tags`) al encabezado.
-4. **Cree Pestañas**: En **Navegación por Pestañas**, registra una propiedad YAML de tipo lista (ej. `tabs-home`) y define los enlaces de las notas relacionadas.
+4. **Cree Pestañas**: En **Navegación por Pestañas**, define un nombre de propiedad global (ej. `menu`), crea un grupo de pestañas (ej. `proyecto`) y añade tus pestañas. Luego, en el frontmatter de tu nota, usa `menu: proyecto`.
 
 
 

@@ -99,7 +99,7 @@ Adicione uma barra discreta e altamente personalizável no topo da nota para aco
    updated: 2026-05-29
    ```
 3. **Configure Campos Personalizados**: Vá para as configurações do plugin $\rightarrow$ **Campos Personalizados** e clique em **Adicionar** para mapear qualquer chave YAML (ex: `Autor`, `tags`) ao cabeçalho.
-4. **Crie Abas**: Em **Navegação por Abas**, registre uma propriedade YAML do tipo lista (ex: `tabs-home`) e defina os links das notas relacionadas.
+4. **Crie Abas**: Em **Navegação por Abas**, defina o nome de uma propriedade global (ex: `menu`), crie um grupo de abas (ex: `projeto`) e adicione suas abas. Depois, no frontmatter da sua nota, use `menu: projeto`.
 
 
 
