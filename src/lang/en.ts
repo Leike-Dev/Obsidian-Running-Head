@@ -265,5 +265,5 @@ export const en = {
 	'notice_h1_title': 'Hide duplicate titles',
 	'notice_h1_desc': 'If you use plugins that sync the file name with the note title, you can now toggle "Hide first header (H1)" in the "Header and appearance" settings to prevent duplicate titles.',
 	'notice_list_title': 'Cleaner long lists',
-	'notice_list_desc': 'To keep your header elegant, list properties with many items are now visually truncated. Just click the ellipsis icon (...) to reveal all hidden items.',
+	'notice_list_desc': 'To keep your header elegant, you can now visually truncate long list properties. To use it, edit one of your custom fields and fill in the "Item limit" option. Just click the ellipsis icon (...) in the header to reveal all hidden items.',
 };
