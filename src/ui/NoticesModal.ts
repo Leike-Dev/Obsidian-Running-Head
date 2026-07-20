@@ -18,7 +18,7 @@ export class NoticesModal extends Modal {
 
 		this.setTitle(t('notices_title'));
 
-		const notices = this.getActiveNotices();
+		const notices = getActiveNotices();
 
 		const tagsContainer = contentEl.createDiv({ cls: 'running-head-notices-tags' });
 		const listContainer = contentEl.createDiv({ cls: 'running-head-notices-list' });
@@ -82,20 +82,43 @@ export class NoticesModal extends Modal {
 		renderList();
 	}
 
-	private getActiveNotices() {
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		const notices: any[] = [];
-
-		// For now we don't have any dynamic notices, so we leave it empty.
-		// As requested, it's a placeholder. 
-		// If we had notices, we would push them like:
-		// notices.push({ type: 'info', icon: 'info', title: 'Example', desc: 'Example desc' });
-
-		return notices;
-	}
-
 	onClose() {
 		const { contentEl } = this;
 		contentEl.empty();
 	}
+}
+
+export function getActiveNotices() {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	const notices: any[] = [];
+
+	notices.push({
+		type: 'warning',
+		icon: 'alert-triangle',
+		title: t('notice_tabs_title' as Parameters<typeof t>[0]),
+		desc: t('notice_tabs_desc' as Parameters<typeof t>[0])
+	});
+
+	notices.push({
+		type: 'info',
+		icon: 'link',
+		title: t('notice_links_title' as Parameters<typeof t>[0]),
+		desc: t('notice_links_desc' as Parameters<typeof t>[0])
+	});
+
+	notices.push({
+		type: 'info',
+		icon: 'eye-off',
+		title: t('notice_h1_title' as Parameters<typeof t>[0]),
+		desc: t('notice_h1_desc' as Parameters<typeof t>[0])
+	});
+
+	notices.push({
+		type: 'info',
+		icon: 'list',
+		title: t('notice_list_title' as Parameters<typeof t>[0]),
+		desc: t('notice_list_desc' as Parameters<typeof t>[0])
+	});
+
+	return notices;
 }

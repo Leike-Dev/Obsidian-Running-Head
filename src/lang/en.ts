@@ -257,4 +257,13 @@ export const en = {
 	'notices_tab_info': 'Tips',
 	'notices_tab_warning': 'Warnings',
 	'notices_tab_system': 'System',
+
+	'notice_tabs_title': 'New Tabs Architecture',
+	'notice_tabs_desc': 'The tabs system was completely rewritten for better stability. Old tab configurations could not be migrated, so please visit the "Tabs navigation" settings to set up your tabs again.',
+	'notice_links_title': 'Clickable links in custom fields',
+	'notice_links_desc': 'You can now use Markdown links ([name](url)) or raw URLs inside your frontmatter properties. Running Head will detect them and make them clickable right in the note header!',
+	'notice_h1_title': 'Hide duplicate titles',
+	'notice_h1_desc': 'If you use plugins that sync the file name with the note title, you can now toggle "Hide first header (H1)" in the "Header and appearance" settings to prevent duplicate titles.',
+	'notice_list_title': 'Cleaner long lists',
+	'notice_list_desc': 'To keep your header elegant, list properties with many items are now visually truncated. Just click the ellipsis icon (...) to reveal all hidden items.',
 };

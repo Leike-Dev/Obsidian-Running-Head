@@ -257,4 +257,13 @@ export const ptBR = {
 	'notices_tab_info': 'Dicas',
 	'notices_tab_warning': 'Avisos',
 	'notices_tab_system': 'Sistema',
+
+	'notice_tabs_title': 'Nova estrutura de Abas',
+	'notice_tabs_desc': 'O sistema de abas foi completamente reescrito para maior estabilidade. As configurações antigas não puderam ser migradas, portanto, visite a seção "Navegação por abas" nas configurações para reconfigurar suas abas.',
+	'notice_links_title': 'Links clicáveis no cabeçalho',
+	'notice_links_desc': 'Agora você pode usar links no formato Markdown ([nome](url)) ou URLs puras dentro das suas propriedades no frontmatter. O Running Head irá detectá-los e torná-los clicáveis diretamente no cabeçalho da nota!',
+	'notice_h1_title': 'Diga adeus aos títulos duplicados',
+	'notice_h1_desc': 'Se você usa plugins que sincronizam o nome do arquivo com o título da nota, ative a opção "Ocultar primeiro cabeçalho (H1)" na seção "Cabeçalho e aparência" para evitar títulos duplicados na tela.',
+	'notice_list_title': 'Listas longas mais limpas',
+	'notice_list_desc': 'Para manter a elegância do seu cabeçalho, propriedades do tipo "lista" com muitos itens agora são limitadas visualmente. Basta clicar no ícone de reticências (...) para revelar todos os itens ocultos.',
 };

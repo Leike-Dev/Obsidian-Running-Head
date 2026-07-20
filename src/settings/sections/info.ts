@@ -2,7 +2,7 @@ import { Setting } from "obsidian";
 import type RunningHeadPlugin from "../../main";
 import type { RunningHeadSettingTab } from "../index";
 import { t } from "../../lang/helpers";
-import { NoticesModal } from "../../ui/NoticesModal";
+import { NoticesModal, getActiveNotices } from "../../ui/NoticesModal";
 
 export function renderNoticesSection(containerEl: HTMLElement, plugin: RunningHeadPlugin, tab: RunningHeadSettingTab) {
 	// NOTICES
@@ -24,8 +24,7 @@ export function renderNoticesSection(containerEl: HTMLElement, plugin: RunningHe
 			existingBadge.remove();
 		}
 
-		// For now we don't have notices, so count is 0
-		const activeNoticesCount = 0;
+		const activeNoticesCount = getActiveNotices().length;
 
 		if (activeNoticesCount > 0) {
 			const badgeContainer = activeDocument.createElement("div");
