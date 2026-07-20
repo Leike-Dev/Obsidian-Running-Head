@@ -78,6 +78,8 @@ Ajoutez une barre discrète et hautement personnalisable en haut de la note pour
 ## ⚙️ Fonctionnalités Additionnelles
 
 * **🎨 Couleurs Personnalisées** : Définissez les couleurs du libellé de mise à jour, du chemin de la note ou de la barre de progression de manière simple et individuelle.
+* **🚫 Masquer le Premier H1** : Évitez les titres en double à l'écran si vous utilisez des plugins qui synchronisent le nom de fichier avec le H1.
+* **📅 Formater le Titre comme Date** : Transformez le titre de votre note en une date joliment formatée.
 * **💾 Gestion des Données** : Exportez les paramètres complets sous forme de JSON et importez-les facilement dans un autre coffre ou appareil.
 * **🌍 Internationalisation** : Interface entièrement traduite en anglais, portugais (Brésil), espagnol, français et chinois simplifié (il suffit d'utiliser Obsidian dans l'une de ces langues). Si vous remarquez des erreurs de traduction ou des améliorations possibles, veuillez me le faire savoir.
 

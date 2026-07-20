@@ -78,6 +78,8 @@ Adicione uma barra discreta e altamente personalizável no topo da nota para aco
 ## ⚙️ Recursos Adicionais
 
 * **🎨 Cores Personalizadas**: Defina as cores da etiqueta de atualização, do caminho da nota ou da barra de progresso de forma simples e individual.
+* **🚫 Ocultar Primeiro H1**: Evite títulos duplicados na tela se você usa plugins que sincronizam o nome do arquivo com o H1.
+* **📅 Formatar Título como Data**: Transforme o título da sua nota em uma data formatada de forma elegante.
 * **💾 Gerenciamento de Dados**: Exporte as configurações completas como JSON e importe em outro vault ou dispositivo facilmente.
 * **🌍 Internacionalização**: Interface totalmente traduzida para Inglês, Português (Brasil), Espanhol, Frances e Chinês Simplificado (basta usar o Obsidian em um desses idiomas). Se houver erros de tradução ou melhorias, diga-me.
 
