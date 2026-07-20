@@ -36,15 +36,6 @@ export interface TabGroup {
 	tabs: TabItem[];
 }
 
-/**
- * @deprecated Kept for migration from older settings. Will be removed.
- */
-export interface TabPropertyConfig {
-	id: string;
-	property: string;
-	order: number;
-	showIcon: boolean;
-}
 
 /** Visual style variants for the tabs navigation bar. */
 export type TabStyle = "underline" | "pill" | "minimal";
@@ -76,9 +67,6 @@ export interface RunningHeadSettings {
 	badgeFontSize: number;
 	/** User-defined custom fields to display */
 	customFields: CustomField[];
-	/** @deprecated Legacy tab properties — migrated to tabGroups on load */
-	// eslint-disable-next-line @typescript-eslint/no-deprecated
-	tabsProperties?: TabPropertyConfig[];
 	/** Global frontmatter property key for activating tab groups (e.g. "menu") */
 	tabsPropertyName: string;
 	/** Configured tab groups */

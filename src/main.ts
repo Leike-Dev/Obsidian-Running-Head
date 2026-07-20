@@ -142,11 +142,24 @@ export default class RunningHeadPlugin extends Plugin {
 	}
 
 	async loadSettings(): Promise<void> {
+		const loadedData = (await this.loadData()) || {};
+		let needsCleanup = false;
+
+		// Cleanup obsolete tabsProperties array from old architecture
+		if ("tabsProperties" in loadedData) {
+			delete loadedData.tabsProperties;
+			needsCleanup = true;
+		}
+
 		this.settings = Object.assign(
 			{},
 			DEFAULT_SETTINGS,
-			await this.loadData() as Partial<RunningHeadSettings>
+			loadedData as Partial<RunningHeadSettings>
 		);
+
+		if (needsCleanup) {
+			await this.saveData(this.settings);
+		}
 	}
 
 	async saveSettings(): Promise<void> {
