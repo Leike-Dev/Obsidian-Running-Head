@@ -80,11 +80,11 @@ Ajoutez une barre discrète et hautement personnalisable en haut de la note pour
 * **🎨 Couleurs Personnalisées** : Définissez les couleurs du libellé de mise à jour, du chemin de la note ou de la barre de progression de manière simple et individuelle.
 * **🚫 Masquer le Premier H1** : Évitez les titres en double à l'écran si vous utilisez des plugins qui synchronisent le nom de fichier avec le H1.
 * **📅 Formater le Titre comme Date** : Transformez le titre de votre note en une date joliment formatée.
-  > [!NOTE]
-  > Pour que cela fonctionne, le nom du fichier de la note doit contenir **uniquement** la date (et éventuellement l'heure), sans aucun autre texte.
-  > **Formats Supportés :**
-  > - `YYYY-MM-DD`, `YYYYMMDD`, `DD-MM-YYYY`, `YYYY.MM.DD`, `DD/MM/YYYY`, etc.
-  > - Avec l'heure : `YYYY-MM-DD HH:mm`, `YYYYMMDDHHmmss`, `DD-MM-YYYY HH:mm`, etc.
+> [!NOTE]
+> Pour que cela fonctionne, le nom du fichier de la note doit contenir **uniquement** la date (et éventuellement l'heure), sans aucun autre texte.
+> **Formats Supportés :**
+> - `YYYY-MM-DD`, `YYYYMMDD`, `DD-MM-YYYY`, `YYYY.MM.DD`, `DD/MM/YYYY`, etc.
+> - Avec l'heure : `YYYY-MM-DD HH:mm`, `YYYYMMDDHHmmss`, `DD-MM-YYYY HH:mm`, etc.
 * **💾 Gestion des Données** : Exportez les paramètres complets sous forme de JSON et importez-les facilement dans un autre coffre ou appareil.
 * **🌍 Internationalisation** : Interface entièrement traduite en anglais, portugais (Brésil), espagnol, français et chinois simplifié (il suffit d'utiliser Obsidian dans l'une de ces langues). Si vous remarquez des erreurs de traduction ou des améliorations possibles, veuillez me le faire savoir.
 
