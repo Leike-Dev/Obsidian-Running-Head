@@ -62,7 +62,7 @@ Render any frontmatter property (text, lists, checkboxes) as custom fields or be
 Build sleek navigation headers to jump between related notes using frontmatter properties. Customize tab visual styles (**Underline**, **Pill**, or **Minimal**) and easily add Lucide icons or custom display names.
 
 <div align="center">
-  <video src="https://github.com/user-attachments/assets/b2e47065-132c-41ef-a1cd-2184e8bb6a2b" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
+  <p><em>[Video coming soon]</em></p>
 </div>
 
 
@@ -93,20 +93,6 @@ Add a modern, color-customizable scroll progress bar fixed at the top of your no
 3. **Configure Custom Fields**: Go to plugin settings $\rightarrow$ **Custom Fields** and click **Add** to map any YAML key (e.g. `Author`, `tags`) to the header.
 4. **Create Tabs**: Under **Tabs Navigation**, register a list-based YAML property (e.g. `tabs-home`) and define links to related notes.
 
-### 📝 Tabs YAML Schema Example
-```yaml
-tabs-home:
-  - "[[Home Note]]"
-  - "[icon, home]"
-  - "[name, Dashboard]"
-  - "[[Settings Note]]"
-  - "[icon, settings]"
-  - "[name, Configuration]"
-```
-
-> [!NOTE]
-> - The order of the tags (`[name, ...]`, `[icon, ...]`, and `[[Link]]`) within the YAML list does not matter.
-> - If multiple note links are present in the list, the tab will point to the last link added.
 
 
 ## 📦 Installation

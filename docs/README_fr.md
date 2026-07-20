@@ -62,7 +62,7 @@ Affichez toute propriété du frontmatter (texte, listes, cases à cocher) sous 
 Créez d'élégants en-têtes de navigation pour sauter entre des notes associées en utilisant les propriétés du frontmatter. Personnalisez le style visuel des onglets (**Souligné**, **Pastille** ou **Minimaliste**) et ajoutez des icônes Lucide ou des noms personnalisés facilement.
 
 <div align="center">
-  <video src="https://github.com/user-attachments/assets/b2e47065-132c-41ef-a1cd-2184e8bb6a2b" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
+  <p><em>[Vidéo à venir]</em></p>
 </div>
 
 
@@ -93,17 +93,7 @@ Ajoutez une barre discrète et hautement personnalisable en haut de la note pour
 3. **Configurer les Champs Personnalisés** : Allez dans Paramètres du plugin $\rightarrow$ **Champs personnalisés** et cliquez sur **Ajouter** pour mapper n'importe quelle clé YAML (ex : `Auteur`, `tags`) à l'en-tête.
 4. **Créer des Onglets** : Sous **Navigation par onglets**, enregistrez une propriété YAML de type liste (ex : `tabs-home`) et définissez les liens des notes associées.
 
-### 📝 Exemple de Structure YAML pour les Onglets
-```yaml
-tabs-home:
-  - "[[Note Principale]]"
-  - "[icon, home]"
-  - "[name, Tableau de bord]"
-```
 
-> [!Note]
-> - L'ordre dans lequel vous insérez les éléments de la liste (`[name, ...]`, `[icon, ...]` et `[[Link]]`) n'a pas d'importance pour son fonctionnement.
-> - S'il y a plus d'un lien de note dans la liste de la propriété, l'onglet pointera vers le dernier lien ajouté.
 
 
 ## 📦 Installation

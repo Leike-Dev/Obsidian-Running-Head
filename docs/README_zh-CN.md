@@ -62,7 +62,7 @@
 利用 frontmatter 属性构建优雅的导航页眉，在关联笔记之间轻松跳转。支持自定义标签的视觉样式（**下划线**、**药丸**或**极简**），并可轻松添加 Lucide 图标或自定义显示名称。
 
 <div align="center">
-  <video src="https://github.com/user-attachments/assets/b2e47065-132c-41ef-a1cd-2184e8bb6a2b" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
+  <p><em>[视频即将推出]</em></p>
 </div>
 
 
@@ -93,17 +93,7 @@
 3. **配置自定义字段**：转到插件设置 $\rightarrow$ **自定义字段**，然后点击 **添加** 将任何 YAML 键（例如 `Author`, `tags`）映射到页眉。
 4. **配置标签导航**：在 **标签导航** 下，注册一个列表类型的 YAML 属性（例如 `tabs-home`）并 define 关联笔记链接。
 
-### 📝 标签 YAML 结构示例
-```yaml
-tabs-home:
-  - "[[主页笔记]]"
-  - "[icon, home]"
-  - "[name, 面板]"
-```
 
-> [!Note]
-> - 列表内的标签（`[name, ...]`、`[icon, ...]` 和 `[[Link]]`）的顺序并不影响功能。
-> - 如果列表中存在多个笔记链接，标签将指向最后添加的链接。
 
 
 ## 📦 安装

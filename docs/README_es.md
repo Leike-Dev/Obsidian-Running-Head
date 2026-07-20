@@ -62,7 +62,7 @@ Renderiza cualquier propiedad de frontmatter (texto, listas, casillas de verific
 Crea elegantes encabezados de navegación para saltar entre notas relacionadas usando propiedades de frontmatter. Personaliza el estilo visual de las pestañas (**Subrayado**, **Píldora** o **Minimalista**) y añade iconos de Lucide o nombres personalizados fácilmente.
 
 <div align="center">
-  <video src="https://github.com/user-attachments/assets/b2e47065-132c-41ef-a1cd-2184e8bb6a2b" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
+  <p><em>[Vídeo en breve]</em></p>
 </div>
 
 
@@ -93,17 +93,7 @@ Agrega una barra discreta y altamente personalizable en la parte superior de la 
 3. **Configure Campos Personalizados**: Ve a ajustes del plugin $\rightarrow$ **Campos Personalizados** y haz clic en **Añadir** para mapear cualquier clave YAML (ej. `Autor`, `tags`) al encabezado.
 4. **Cree Pestañas**: En **Navegación por Pestañas**, registra una propiedad YAML de tipo lista (ej. `tabs-home`) y define los enlaces de las notas relacionadas.
 
-### 📝 Ejemplo de Estructura YAML para Pestañas
-```yaml
-tabs-home:
-  - "[[Nota Principal]]"
-  - "[icon, home]"
-  - "[name, Panel]"
-```
 
-> [!Note]
-> - El orden en el que insertas los elementos de la lista (`[name, ...]`, `[icon, ...]` y `[[Link]]`) no importa para su funcionamiento.
-> - Si hay más de un enlace de nota en la lista de la propiedad, la pestaña apuntará al último enlace añadido.
 
 
 ## 📦 Instalación

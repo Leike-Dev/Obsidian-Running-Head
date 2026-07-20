@@ -62,7 +62,7 @@ Renderize qualquer propriedade do frontmatter (texto, listas, caixas de seleçã
 Crie barras de navegação elegantes para alternar entre notas relacionadas usando propriedades de frontmatter. Personalize o estilo visual das abas (**Sublinhado**, **Pílula** ou **Minimalista**) e adicione ícones do Lucide ou nomes personalizados facilmente.
 
 <div align="center">
-  <video src="https://github.com/user-attachments/assets/b2e47065-132c-41ef-a1cd-2184e8bb6a2b" autoplay loop muted playsinline controls style="max-width: 100%;"></video>
+  <p><em>[Vídeo em breve]</em></p>
 </div>
 
 
@@ -93,17 +93,7 @@ Adicione uma barra discreta e altamente personalizável no topo da nota para aco
 3. **Configure Campos Personalizados**: Vá para as configurações do plugin $\rightarrow$ **Campos Personalizados** e clique em **Adicionar** para mapear qualquer chave YAML (ex: `Autor`, `tags`) ao cabeçalho.
 4. **Crie Abas**: Em **Navegação por Abas**, registre uma propriedade YAML do tipo lista (ex: `tabs-home`) e defina os links das notas relacionadas.
 
-### 📝 Exemplo de Estrutura YAML para Abas
-```yaml
-tabs-home:
-  - "[[Nota Principal]]"
-  - "[icon, home]"
-  - "[name, Painel]"
-```
 
-> [!Note]
-> - A ordem em que você insere os itens da lista (`[name, ...]`, `[icon, ...]` e `[[Link]]`) não importa para o funcionamento.
-> - Se houver mais de um link de nota na lista da propriedade, a aba apontará para o último link adicionado.
 
 
 ## 📦 Instalação
