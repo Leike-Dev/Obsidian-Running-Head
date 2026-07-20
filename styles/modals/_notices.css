@@ -111,7 +111,6 @@
     color: var(--text-muted);
     padding: 20px 0;
     margin: 0;
-    border-bottom: 1px solid var(--background-modifier-border);
 }
 
 .running-head-notice-item {
