@@ -268,4 +268,6 @@ export const ptBR = {
 	'notice_h1_desc': 'Se você usa plugins que sincronizam o nome do arquivo com o título da nota, ative a opção "Ocultar primeiro cabeçalho (H1)" na seção "Cabeçalho e aparência" para evitar títulos duplicados na tela.',
 	'notice_list_title': 'Listas longas mais limpas',
 	'notice_list_desc': 'Para manter a elegância do seu cabeçalho, você agora pode limitar visualmente propriedades longas do tipo "lista". Para usar, edite um dos seus campos customizados e preencha a opção "Limite de itens". Basta clicar no ícone de reticências (...) no cabeçalho para revelar todos os itens ocultos.',
+	'notice_format_title_title': 'Formatar título como data',
+	'notice_format_title_desc': 'Você agora pode formatar o título da sua nota como uma data! Dica: Recomendamos usar essa opção com o título nativo do Obsidian desativado (Configurações > Aparência > Mostrar título em linha). Lembre-se que, com essa opção ativa, o título da nota não poderá ser editado manualmente.',
 };

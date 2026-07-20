@@ -127,5 +127,12 @@ export function getActiveNotices() {
 		desc: t('notice_list_desc' as Parameters<typeof t>[0])
 	});
 
+	notices.push({
+		type: 'info',
+		icon: 'calendar-clock',
+		title: t('notice_format_title_title' as Parameters<typeof t>[0]),
+		desc: t('notice_format_title_desc' as Parameters<typeof t>[0])
+	});
+
 	return notices;
 }
