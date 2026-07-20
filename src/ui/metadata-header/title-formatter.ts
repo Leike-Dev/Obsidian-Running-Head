@@ -32,7 +32,7 @@ const DATE_FORMATS = [
 export function formatTitleAsDate(basename: string, dateLocale: string, customDateFormat: string): string {
 	const text = basename.trim();
 
-	let parsedDate = moment(text, DATE_FORMATS, true);
+	let parsedDate: ReturnType<typeof moment> = moment(text, DATE_FORMATS, true);
 
 	if (!parsedDate.isValid()) {
 		const isoDateOnly = /^\d{4}-\d{2}-\d{2}$/;
@@ -53,7 +53,8 @@ export function formatTitleAsDate(basename: string, dateLocale: string, customDa
 		return parsedDate.format(customDateFormat);
 	}
 
-	const matchedFormat = parsedDate.creationData()?.format;
+	const creationData = parsedDate.creationData();
+	const matchedFormat: string | string[] | undefined = creationData?.format as string | string[] | undefined;
 	const hasTime = parsedDate.hours() > 0 || parsedDate.minutes() > 0;
 
 	let includesTime = false;

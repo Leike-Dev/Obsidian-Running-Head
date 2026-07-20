@@ -12,7 +12,7 @@
     height: 3px;
     background-color: var(--rh-scroll-bg, var(--interactive-accent));
     transform-origin: left;
-    transform: scaleX(0);
+    transform: scaleX(var(--rh-scroll-progress, 0));
     z-index: 100;
     pointer-events: none;
 }

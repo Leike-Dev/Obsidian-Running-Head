@@ -40,7 +40,7 @@
 }
 
 /* Individual tab — base shared styles */
-.running-head-tab {
+div.running-head-tabs-container a.running-head-tab {
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -52,13 +52,13 @@
     padding: 5px 12px;
     color: var(--text-muted);
     cursor: pointer;
-    text-decoration: none !important;
+    text-decoration: none;
     white-space: nowrap;
     transition: color 0.15s ease, background-color 0.15s ease;
 }
 
-.running-head-tab:hover {
-    text-decoration: none !important;
+div.running-head-tabs-container a.running-head-tab:hover {
+    text-decoration: none;
 }
 
 /* Tab icon wrapper */

@@ -168,8 +168,9 @@
    OVERFLOW TOGGLE (Max Items)
    ========================================================================= */
 
-.running-head-overflow-hidden {
-    display: none !important;
+.running-head-metadata-header .running-head-custom-pills .multi-select-pill.running-head-overflow-hidden,
+.running-head-metadata-header .running-head-tags-container .tag.running-head-overflow-hidden {
+    display: none;
 }
 
 .running-head-overflow-toggle {

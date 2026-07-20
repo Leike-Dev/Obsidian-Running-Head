@@ -76,7 +76,7 @@ export function createTabsBarEl(
 
 	// Apply overflow-dependent styles only when tabs actually overflow.
 	// Uses requestAnimationFrame to ensure layout has been calculated.
-	requestAnimationFrame(() => {
+	window.requestAnimationFrame(() => {
 		if (tabsWrapper.scrollWidth > tabsWrapper.clientWidth) {
 			tabsWrapper.classList.add("is-overflowing");
 		}

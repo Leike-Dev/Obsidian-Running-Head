@@ -84,7 +84,7 @@ export function injectElementsIntoView(ctx: InjectionContext): void {
 	}
 
 	// 3. Custom Title
-	let customTitleEl: Element | null = null;
+	let customTitleEl: HTMLDivElement | null = null;
 	if (ctx.customTitleText) {
 		customTitleEl = contentEl.ownerDocument.createElement("div");
 		customTitleEl.classList.add("running-head-custom-title");

@@ -1,6 +1,13 @@
 import { App, Modal, setIcon } from 'obsidian';
 import type RunningHeadPlugin from '../main';
-import { t } from '../lang/helpers';
+import { t, TranslationKey } from '../lang/helpers';
+
+interface NoticeItem {
+	type: 'info' | 'warning' | 'system';
+	icon: string;
+	title: string;
+	desc: string;
+}
 
 export class NoticesModal extends Modal {
 	private plugin: RunningHeadPlugin;
@@ -65,12 +72,12 @@ export class NoticesModal extends Modal {
 				});
 			};
 
-			const allLabel = t('notices_tab_all' as Parameters<typeof t>[0]);
+			const allLabel = t('notices_tab_all' as TranslationKey);
 			createTag('all', allLabel, counts['all'] || 0);
 
 			Object.keys(counts).forEach(type => {
 				if (type !== 'all') {
-					const transKey = `notices_tab_${type}` as Parameters<typeof t>[0];
+					const transKey = `notices_tab_${type}` as TranslationKey;
 					const translated = t(transKey);
 					const label = translated !== transKey ? translated : (type.charAt(0).toUpperCase() + type.slice(1));
 					createTag(type, label, counts[type] || 0);
@@ -88,50 +95,49 @@ export class NoticesModal extends Modal {
 	}
 }
 
-export function getActiveNotices() {
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const notices: any[] = [];
+export function getActiveNotices(): NoticeItem[] {
+	const notices: NoticeItem[] = [];
 
 	notices.push({
 		type: 'warning',
 		icon: 'alert-triangle',
-		title: t('notice_tabs_title' as Parameters<typeof t>[0]),
-		desc: t('notice_tabs_desc' as Parameters<typeof t>[0])
+		title: t('notice_tabs_title' as TranslationKey),
+		desc: t('notice_tabs_desc' as TranslationKey)
 	});
 
 	notices.push({
 		type: 'info',
 		icon: 'info',
-		title: t('notice_tabs_tutorial_title' as Parameters<typeof t>[0]),
-		desc: t('notice_tabs_tutorial_desc' as Parameters<typeof t>[0])
+		title: t('notice_tabs_tutorial_title' as TranslationKey),
+		desc: t('notice_tabs_tutorial_desc' as TranslationKey)
 	});
 
 	notices.push({
 		type: 'info',
 		icon: 'link',
-		title: t('notice_links_title' as Parameters<typeof t>[0]),
-		desc: t('notice_links_desc' as Parameters<typeof t>[0])
+		title: t('notice_links_title' as TranslationKey),
+		desc: t('notice_links_desc' as TranslationKey)
 	});
 
 	notices.push({
 		type: 'info',
 		icon: 'eye-off',
-		title: t('notice_h1_title' as Parameters<typeof t>[0]),
-		desc: t('notice_h1_desc' as Parameters<typeof t>[0])
+		title: t('notice_h1_title' as TranslationKey),
+		desc: t('notice_h1_desc' as TranslationKey)
 	});
 
 	notices.push({
 		type: 'info',
 		icon: 'list',
-		title: t('notice_list_title' as Parameters<typeof t>[0]),
-		desc: t('notice_list_desc' as Parameters<typeof t>[0])
+		title: t('notice_list_title' as TranslationKey),
+		desc: t('notice_list_desc' as TranslationKey)
 	});
 
 	notices.push({
 		type: 'info',
 		icon: 'calendar-clock',
-		title: t('notice_format_title_title' as Parameters<typeof t>[0]),
-		desc: t('notice_format_title_desc' as Parameters<typeof t>[0])
+		title: t('notice_format_title_title' as TranslationKey),
+		desc: t('notice_format_title_desc' as TranslationKey)
 	});
 
 	return notices;

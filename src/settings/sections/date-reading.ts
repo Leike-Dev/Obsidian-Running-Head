@@ -41,8 +41,8 @@ export function renderDateSection(containerEl: HTMLElement, plugin: RunningHeadP
 					})
 			);
 
-		const customDateDesc = activeDocument.createDocumentFragment();
-		const customDateDiv = activeDocument.createElement("div");
+		const customDateDesc = document.createDocumentFragment();
+		const customDateDiv = document.createElement("div");
 		customDateDiv.appendChild(sanitizeHTMLToDom(t('custom_date_format_desc')));
 		while (customDateDiv.firstChild) {
 			customDateDesc.appendChild(customDateDiv.firstChild);
@@ -61,7 +61,7 @@ export function renderDateSection(containerEl: HTMLElement, plugin: RunningHeadP
 					})
 			);
 
-		const formatTitleDesc = activeDocument.createDocumentFragment();
+		const formatTitleDesc = document.createDocumentFragment();
 		formatTitleDesc.appendText(t('format_title_as_date_desc'));
 		
 		new Setting(containerEl)

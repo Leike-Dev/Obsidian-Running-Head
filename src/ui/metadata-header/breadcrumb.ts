@@ -19,7 +19,7 @@ export function createBreadcrumbEl(filePath: string, app: App, highlightLast: bo
 	if (parts.length === 0) return null;
 
 	const breadcrumb = ownerDoc.createElement("div");
-	breadcrumb.classList.add(BREADCRUMB_CLASS);
+	breadcrumb.addClass(BREADCRUMB_CLASS);
 
 	parts.forEach((segment, index) => {
 		if (index > 0) {

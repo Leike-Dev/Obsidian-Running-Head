@@ -69,7 +69,7 @@ export class ScrollProgressManager {
 			if (target) {
 				const state = this.states.get(contentEl);
 				if (state && state.frameId === null) {
-					state.frameId = requestAnimationFrame(() => {
+					state.frameId = window.requestAnimationFrame(() => {
 						this.updateProgress(state.progressBar, target);
 						state.frameId = null; // Reset frame ID
 					});
@@ -99,11 +99,8 @@ export class ScrollProgressManager {
 	private injectProgressBar(container: HTMLElement) {
 		if (!container || container.querySelector(`.${PROGRESS_BAR_CLASS}`)) return;
 
-		const progressBar = container.ownerDocument.createElement("div");
-		progressBar.classList.add(PROGRESS_BAR_CLASS);
-		
-		// Insert at the top of contentEl
-		container.appendChild(progressBar);
+		const progressBar = container.createDiv({ cls: PROGRESS_BAR_CLASS });
+		// Element is automatically appended to the end of container by createDiv
 		
 		// Update cached reference if state exists
 		const state = this.states.get(container);
@@ -123,7 +120,7 @@ export class ScrollProgressManager {
 		if (state) {
 			container.removeEventListener("scroll", state.listener, { capture: true });
 			if (state.frameId !== null) {
-				cancelAnimationFrame(state.frameId);
+				window.cancelAnimationFrame(state.frameId);
 			}
 			this.states.delete(container);
 		}
@@ -137,7 +134,7 @@ export class ScrollProgressManager {
 		// If not scrollable, reset progress to 0 and skip calculations
 		if (scrollHeight <= clientHeight) {
 			progressBar.setCssProps({
-				"transform": "scaleX(0)"
+				"--rh-scroll-progress": "0"
 			});
 			return;
 		}
@@ -150,7 +147,7 @@ export class ScrollProgressManager {
 
 		// Use transform scaleX for GPU acceleration (60fps smooth)
 		progressBar.setCssProps({
-			"transform": `scaleX(${progress})`
+			"--rh-scroll-progress": `${progress}`
 		});
 	}
 }

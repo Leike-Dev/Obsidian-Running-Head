@@ -197,7 +197,7 @@ function renderPillsOrTags(
 	// --- Overflow toggle ---
 	if (shouldTruncate) {
 		const toggleEl = containerEl.createSpan({ cls: "running-head-overflow-toggle" });
-		setIcon(toggleEl, "ellipsis");
+		setIcon(toggleEl, "more-horizontal");
 
 		let expanded = false;
 		toggleEl.addEventListener("click", () => {
@@ -206,7 +206,7 @@ function renderPillsOrTags(
 				el.classList.toggle("running-head-overflow-hidden", !expanded);
 			}
 			toggleEl.empty();
-			setIcon(toggleEl, expanded ? "chevron-left" : "ellipsis");
+			setIcon(toggleEl, expanded ? "chevron-left" : "more-horizontal");
 			toggleEl.classList.toggle("is-expanded", expanded);
 		});
 	}

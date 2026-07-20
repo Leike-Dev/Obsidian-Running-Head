@@ -24,7 +24,7 @@ export default class RunningHeadPlugin extends Plugin {
 
 		this.styleEl = activeDocument.createElement("style");
 		this.styleEl.id = "running-head-dynamic-styles";
-		activeDocument.head.appendChild(this.styleEl);
+		document.head.appendChild(this.styleEl);
 		this.updateDynamicStyles();
 		this.updateBodyClasses();
 
@@ -128,7 +128,7 @@ export default class RunningHeadPlugin extends Plugin {
 		}
 		// Cancel any pending debounced injection
 		if (this._injectTimeout !== null) {
-			clearTimeout(this._injectTimeout);
+			window.clearTimeout(this._injectTimeout);
 			this._injectTimeout = null;
 		}
 
@@ -142,7 +142,7 @@ export default class RunningHeadPlugin extends Plugin {
 	}
 
 	async loadSettings(): Promise<void> {
-		const loadedData = (await this.loadData()) || {};
+		const loadedData = ((await this.loadData()) as Record<string, unknown>) || {};
 		let needsCleanup = false;
 
 		// Cleanup obsolete tabsProperties array from old architecture
@@ -201,7 +201,7 @@ export default class RunningHeadPlugin extends Plugin {
 		}
 	}
 
-	private _injectTimeout: ReturnType<typeof setTimeout> | null = null;
+	private _injectTimeout: number | null = null;
 
 	/**
 	 * Debounced injection to avoid excessive DOM manipulation
@@ -209,9 +209,9 @@ export default class RunningHeadPlugin extends Plugin {
 	 */
 	private debouncedInject(): void {
 		if (this._injectTimeout !== null) {
-			clearTimeout(this._injectTimeout);
+			window.clearTimeout(this._injectTimeout);
 		}
-		this._injectTimeout = setTimeout(() => {
+		this._injectTimeout = window.setTimeout(() => {
 			this._injectTimeout = null;
 			void injectMetadataHeader(this);
 		}, 50);
