@@ -1,0 +1,44 @@
+/* ==========================================================================
+ * _base-modal.css
+ * 
+ * Fundamental (DRY) structure shared across all plugin modals.
+ * Defines standard containers for body, footer, and buttons, eliminating CSS 
+ * code repetition when creating or maintaining different pop-ups on screen.
+ * ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Modal Body & Footer (shared across Changelog, Notices, etc.)
+   -------------------------------------------------------------------------- */
+
+.running-head-modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.running-head-modal-foot {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding-top: 16px;
+}
+
+.running-head-btn-group {
+    justify-content: flex-end;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* --------------------------------------------------------------------------
+   Modal Error State
+   -------------------------------------------------------------------------- */
+
+.running-head-modal-error {
+    padding: 20px 22px;
+    font-family: var(--font-interface);
+    font-size: var(--font-ui-small, 13px);
+    color: var(--text-muted);
+    line-height: 1.6;
+}

@@ -227,4 +227,34 @@ export const en = {
 	'tab_property_deleted': 'Tab group "{name}" removed.',
 	'tab_count_singular': '{count} tab',
 	'tab_count_plural': '{count} tabs',
+
+	// ================================================================
+	// CHANGELOG & NOTICES
+	// ================================================================
+	'section_info_title': 'Information & Updates',
+	'btn_github': 'View on GitHub',
+	'btn_understand': 'I understand',
+
+	'changelog_title': "What's new?",
+	'changelog_desc': 'See what the latest update brought.',
+	'changelog_button': 'View changelog',
+	'changelog_badge_new': 'New version',
+	'changelog_modal_title': "What's new — Running Head {version}",
+	'changelog_modal_date': 'Updated on {date}',
+	'changelog_error': 'Could not load update history.',
+
+	'group_new': 'New Features',
+	'group_imp': 'Improvements',
+	'group_fix': 'Fixes',
+	'group_brk': 'Breaking Changes',
+
+	'notices_title': 'Plugin notices',
+	'notices_desc': 'Information and alerts about currently active features.',
+	'notices_empty': 'No notices at the moment.',
+	'notices_button': 'View notices',
+
+	'notices_tab_all': 'All',
+	'notices_tab_info': 'Tips',
+	'notices_tab_warning': 'Warnings',
+	'notices_tab_system': 'System',
 };

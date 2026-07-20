@@ -21,7 +21,8 @@ const localeMap: { [key: string]: Partial<typeof en> } = {
 
 import { getLanguage } from 'obsidian';
 
-const locale = getLanguage() || 'en';
+export const locale = getLanguage() || 'en';
+export type TranslationKey = keyof typeof en;
 
 /**
  * Returns the localized string for the given translation key.

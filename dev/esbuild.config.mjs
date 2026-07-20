@@ -41,6 +41,9 @@ const jsContext = await esbuild.context({
 	},
 	entryPoints: ["src/main.ts"],
 	bundle: true,
+	loader: {
+		".md": "text"
+	},
 	external: [
 		"obsidian",
 		"electron",
