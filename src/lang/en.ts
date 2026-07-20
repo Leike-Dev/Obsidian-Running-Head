@@ -259,7 +259,7 @@ export const en = {
 	'notices_tab_system': 'System',
 
 	'notice_tabs_title': 'New Tabs Architecture',
-	'notice_tabs_desc': 'The tabs system was completely rewritten for better stability. Old tab configurations could not be migrated, so please visit the "Tabs navigation" settings to set up your tabs again.',
+	'notice_tabs_desc': 'The tabs system was completely rewritten and old configurations must be recreated. To use it: 1) Go to the "Tabs navigation" section and define the Global property name (e.g. `menu`). 2) Create a Tab Group and name it (e.g. `project`). 3) Add your tabs (links) inside this group. 4) In your note\'s frontmatter, add the property with the group name (e.g. `menu: project`).',
 	'notice_links_title': 'Clickable links in custom fields',
 	'notice_links_desc': 'You can now use Markdown links ([name](url)) or raw URLs inside your frontmatter properties. Running Head will detect them and make them clickable right in the note header!',
 	'notice_h1_title': 'Hide duplicate titles',
