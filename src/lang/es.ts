@@ -227,4 +227,21 @@ export const es = {
 	'tab_property_deleted': 'Grupo de pestañas "{name}" eliminado.',
 	'tab_count_singular': '{count} pestaña',
 	'tab_count_plural': '{count} pestañas',
+
+	'notices_tab_info': 'Consejos',
+	'notices_tab_warning': 'Advertencias',
+	'notices_tab_system': 'Sistema',
+
+	'notice_tabs_title': 'Nueva arquitectura de pestañas',
+	'notice_tabs_desc': 'El sistema de pestañas ha sido reescrito completamente para mayor estabilidad. Las configuraciones antiguas no pudieron ser migradas, por lo que deberá reconfigurarlas.',
+	'notice_tabs_tutorial_title': 'Cómo usar las nuevas pestañas',
+	'notice_tabs_tutorial_desc': '1) Vaya a la sección "Navegación por pestañas" y defina el nombre de la Propiedad global (ej: `menu`). 2) Cree un Grupo de pestañas y póngale un nombre (ej: `proyecto`). 3) Agregue sus pestañas (enlaces) dentro de este grupo. 4) En el frontmatter de su nota, agregue la propiedad con el nombre del grupo (ej: `menu: proyecto`).',
+	'notice_links_title': 'Enlaces clicables en campos personalizados',
+	'notice_links_desc': 'Ahora puede usar enlaces Markdown ([nombre](url)) o URLs puras dentro de las propiedades del frontmatter. ¡Running Head los detectará y los hará clicables directamente en el encabezado de la nota!',
+	'notice_h1_title': 'Ocultar títulos duplicados',
+	'notice_h1_desc': 'Si usa plugins que sincronizan el nombre del archivo con el título de la nota, ahora puede activar "Ocultar primer encabezado (H1)" en la configuración de "Encabezado y apariencia" para evitar títulos duplicados.',
+	'notice_list_title': 'Listas largas más limpias',
+	'notice_list_desc': 'Para mantener elegante el encabezado de su nota, ahora puede limitar visualmente las propiedades de lista. Para usarlo, edite uno de sus campos personalizados y complete la opción "Límite de elementos". Solo haga clic en el ícono de puntos suspensivos (...) en el encabezado para revelar todos los elementos ocultos.',
+	'notice_format_title_title': 'Formatear título como fecha',
+	'notice_format_title_desc': '¡Ahora puede formatear el título de su nota como una fecha! Consejo: Recomendamos usar esto con el título nativo de Obsidian desactivado (Configuración > Apariencia > Mostrar título integrado). Tenga en cuenta que cuando esta opción está activada, el título no se puede editar manualmente.',
 };

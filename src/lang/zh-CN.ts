@@ -227,4 +227,21 @@ export const zhCN = {
 	'tab_property_deleted': '标签组 "{name}" 已删除。',
 	'tab_count_singular': '{count} 个标签',
 	'tab_count_plural': '{count} 个标签',
+
+	'notices_tab_info': '提示',
+	'notices_tab_warning': '警告',
+	'notices_tab_system': '系统',
+
+	'notice_tabs_title': '新的标签页架构',
+	'notice_tabs_desc': '标签页系统已完全重写以提高稳定性。旧的标签页配置无法迁移，因此您需要重新配置它们。',
+	'notice_tabs_tutorial_title': '如何使用新的标签页',
+	'notice_tabs_tutorial_desc': '1) 转到“标签页导航”部分并定义全局属性名称（例如 `menu`）。2) 创建一个标签组并将其命名（例如 `project`）。3) 在此组中添加您的标签（链接）。4) 在笔记的 frontmatter 中，添加带有组名的属性（例如 `menu: project`）。',
+	'notice_links_title': '自定义字段中的可点击链接',
+	'notice_links_desc': '您现在可以在 frontmatter 属性中使用 Markdown 链接（[名称](url)）或原始 URL。Running Head 将检测它们并使它们在笔记标题中可点击！',
+	'notice_h1_title': '隐藏重复的标题',
+	'notice_h1_desc': '如果您使用将文件名与笔记标题同步的插件，您现在可以在“标题和外观”设置中切换“隐藏第一个标题（H1）”以防止重复的标题。',
+	'notice_list_title': '更简洁的长列表',
+	'notice_list_desc': '为了保持标题的优雅，您现在可以在视觉上截断长列表属性。要使用它，请编辑您的一个自定义字段并填写“项目限制”选项。只需单击标题中的省略号图标 (...) 即可显示所有隐藏的项目。',
+	'notice_format_title_title': '将标题格式化为日期',
+	'notice_format_title_desc': '您现在可以将笔记标题格式化为日期！提示：我们建议在禁用 Obsidian 本机标题（设置 > 外观 > 显示内联标题）的情况下使用此功能。请注意，启用此选项后，将无法手动编辑标题。',
 };

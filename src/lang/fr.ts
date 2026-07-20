@@ -227,4 +227,21 @@ export const fr = {
 	'tab_property_deleted': 'Groupe d\'onglets "{name}" supprimé.',
 	'tab_count_singular': '{count} onglet',
 	'tab_count_plural': '{count} onglets',
+
+	'notices_tab_info': 'Astuces',
+	'notices_tab_warning': 'Avertissements',
+	'notices_tab_system': 'Système',
+
+	'notice_tabs_title': 'Nouvelle architecture des onglets',
+	'notice_tabs_desc': 'Le système d\'onglets a été entièrement réécrit pour une meilleure stabilité. Les anciennes configurations n\'ont pas pu être migrées, vous devrez donc les reconfigurer.',
+	'notice_tabs_tutorial_title': 'Comment utiliser les nouveaux onglets',
+	'notice_tabs_tutorial_desc': '1) Allez dans la section "Navigation par onglets" et définissez le nom de la Propriété globale (ex : `menu`). 2) Créez un Groupe d\'onglets et nommez-le (ex : `projet`). 3) Ajoutez vos onglets (liens) dans ce groupe. 4) Dans le frontmatter de votre note, ajoutez la propriété avec le nom du groupe (ex : `menu: projet`).',
+	'notice_links_title': 'Liens cliquables dans les champs personnalisés',
+	'notice_links_desc': 'Vous pouvez désormais utiliser des liens Markdown ([nom](url)) ou des URL brutes dans les propriétés de votre frontmatter. Running Head les détectera et les rendra cliquables directement dans l\'en-tête de la note !',
+	'notice_h1_title': 'Masquer les titres en double',
+	'notice_h1_desc': 'Si vous utilisez des plugins qui synchronisent le nom du fichier avec le titre de la note, vous pouvez désormais activer "Masquer le premier en-tête (H1)" dans les paramètres "En-tête et apparence" pour éviter les titres en double.',
+	'notice_list_title': 'Listes longues plus claires',
+	'notice_list_desc': 'Pour garder un en-tête élégant, vous pouvez désormais tronquer visuellement les propriétés de liste. Pour l\'utiliser, modifiez l\'un de vos champs personnalisés et remplissez l\'option "Limite d\'éléments". Cliquez simplement sur l\'icône de points de suspension (...) dans l\'en-tête pour révéler tous les éléments masqués.',
+	'notice_format_title_title': 'Formater le titre en tant que date',
+	'notice_format_title_desc': 'Vous pouvez désormais formater le titre de votre note comme une date ! Astuce : Nous vous recommandons d\'utiliser cela avec le titre natif d\'Obsidian désactivé (Paramètres > Apparence > Afficher le titre en ligne). Notez que lorsque cette option est activée, le titre ne peut pas être modifié manuellement.',
 };
