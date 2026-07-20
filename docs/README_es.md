@@ -4,7 +4,7 @@
   <br>
 
   ![License](https://img.shields.io/badge/license-MIT-lightblue.svg)
-  ![Version](https://img.shields.io/badge/version-2.0.1-lightgreen.svg)
+  ![Version](https://img.shields.io/badge/version-2.1.0-lightgreen.svg)
 
 </div>
 
