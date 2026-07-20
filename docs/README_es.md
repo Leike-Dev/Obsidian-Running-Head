@@ -63,7 +63,7 @@ Renderiza cualquier propiedad de frontmatter (texto, listas, casillas de verific
 Crea elegantes encabezados de navegación para saltar entre notas relacionadas usando propiedades de frontmatter. Personaliza el estilo visual de las pestañas (**Subrayado**, **Píldora** o **Minimalista**) y añade iconos de Lucide o nombres personalizados fácilmente.
 
 <div align="center">
-  <p><em>[Vídeo en breve]</em></p>
+  <p><em>(Video próximamente)</em></p>
 </div>
 
 

@@ -63,7 +63,7 @@ Render any frontmatter property (text, lists, checkboxes) as custom fields or be
 Build sleek navigation headers to jump between related notes using frontmatter properties. Customize tab visual styles (**Underline**, **Pill**, or **Minimal**) and easily add Lucide icons or custom display names.
 
 <div align="center">
-  <p><em>[Video coming soon]</em></p>
+  <p><em>(Video coming soon)</em></p>
 </div>
 
 
