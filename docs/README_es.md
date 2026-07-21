@@ -64,9 +64,7 @@ Renderiza cualquier propiedad de frontmatter (texto, listas, casillas de verific
 ### 5. 🗂️ Interactive Tabs Navigation
 Crea elegantes encabezados de navegación para saltar entre notas relacionadas usando propiedades de frontmatter. Personaliza el estilo visual de las pestañas (**Subrayado**, **Píldora** o **Minimalista**) y añade iconos de Lucide o nombres personalizados fácilmente.
 
-<div align="center">
-  <p><em>(Video próximamente)</em></p>
-</div>
+
 
 
 ### 6. 📊 Progreso de Lectura & Integración con Typify

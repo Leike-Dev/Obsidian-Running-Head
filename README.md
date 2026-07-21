@@ -64,9 +64,7 @@ Render any frontmatter property (text, lists, checkboxes) as custom fields or be
 ### 5. 🗂️ Interactive Tabs Navigation
 Build sleek navigation headers to jump between related notes using frontmatter properties. Customize tab visual styles (**Underline**, **Pill**, or **Minimal**) and easily add Lucide icons or custom display names.
 
-<div align="center">
-  <p><em>(Video coming soon)</em></p>
-</div>
+
 
 
 ### 6. 📊 Scroll Progress & Typify Integration
