@@ -108,7 +108,7 @@ Agrega una barra discreta y altamente personalizable en la parte superior de la 
 
 ### Instalación manual
 1. Descarga el último lanzamiento: `main.js`, `manifest.json` y `styles.css`.
-2. Crea una carpeta llamada `running-head` dentro del directorio `<Seu-Vault>/.obsidian/plugins/`.
+2. Crea una carpeta llamada `running-head` dentro del directorio `carpeta-de-su-baul/.obsidian/plugins/`.
 3. Pega los archivos allí.
 4. Recarga Obsidian y activa el plugin en **Ajustes > Plugins de la comunidad**.
 
@@ -116,7 +116,7 @@ Agrega una barra discreta y altamente personalizable en la parte superior de la 
 ## 🛠️ Desarrollo
 
 Si quieres compilar el plugin tú mismo, haz lo siguiente:
-1. Clona este repositorio.
+1. Descarga el código fuente a tu máquina.
 2. Instala las dependencias: `npm install`
 3. Ejecuta `npm run dev` para iniciar la compilación en modo *watch*.
 

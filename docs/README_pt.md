@@ -107,16 +107,16 @@ Adicione uma barra discreta e altamente personalizável no topo da nota para aco
 ## 📦 Instalação
 
 ### Manual Installation
-1. Download the files `main.js`, `manifest.json` and `styles.css` from the latest release.
-2. Create a folder named `running-head` inside `<Your-Vault>/.obsidian/plugins/`.
-3. Move the downloaded files into that folder.
-4. Reload Obsidian and enable the plugin under **Settings → Community plugins**.
+1. Faça o download dos arquivos `main.js`, `manifest.json` e `styles.css` a partir do último release.
+2. Crie uma pasta chamada `running-head` dentro de `pasta-do-seu-cofre/.obsidian/plugins/`.
+3. Mova os arquivos baixados para essa pasta.
+4. Recarregue o Obsidian e ative o plugin em **Configurações → Plugins Comunitários**.
 
 
 ## 🛠️ Desenvolvimento
 
 Para compilar o plugin localmente:
-1. Clone este repositório.
+1. Baixe o código-fonte para a sua máquina.
 2. Instale as dependências: `npm install`
 3. Inicie o servidor de compilação em tempo real: `npm run dev`
 

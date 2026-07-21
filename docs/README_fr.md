@@ -108,7 +108,7 @@ Ajoutez une barre discrète et hautement personnalisable en haut de la note pour
 
 ### Installation manuelle
 1. Téléchargez la dernière version : `main.js`, `manifest.json` et `styles.css`.
-2. Créez un dossier nommé `running-head` dans le répertoire `<Seu-Vault>/.obsidian/plugins/`.
+2. Créez un dossier nommé `running-head` dans le répertoire `votre-dossier-coffre/.obsidian/plugins/`.
 3. Collez-y les fichiers.
 4. Rechargez Obsidian et activez le plugin dans **Paramètres > Plugins communautaires**.
 
@@ -116,7 +116,7 @@ Ajoutez une barre discrète et hautement personnalisable en haut de la note pour
 ## 🛠️ Développement
 
 Si vous souhaitez compiler le plugin vous-même, procédez comme suit :
-1. Clonez ce dépôt.
+1. Téléchargez le code source sur votre machine.
 2. Installez les dépendances : `npm install`
 3. Exécutez `npm run dev` pour lancer la compilation en mode *watch*.
 

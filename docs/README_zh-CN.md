@@ -108,7 +108,7 @@
 
 ### 手动安装
 1. 下载最新版本：`main.js`、`manifest.json` 和 `styles.css`。
-2. 在 `<Your-Vault>/.obsidian/plugins/` 目录中创建一个名为 `running-head` 的文件夹。
+2. 在 `your-vault-folder/.obsidian/plugins/` 目录中创建一个名为 `running-head` 的文件夹。
 3. 将下载的文件粘贴到那里。
 4. 重新加载 Obsidian 并在 **设置 > 第三方插件** 中启用该插件。
 
@@ -116,7 +116,7 @@
 ## 🛠️ 开发
 
 如果您想自己编译该插件，请按以下步骤操作：
-1. 克隆此仓库。
+1. 将源代码下载到您的机器。
 2. 安装依赖项：`npm install`
 3. 运行 `npm run dev` 启动监听模式编译。
 
