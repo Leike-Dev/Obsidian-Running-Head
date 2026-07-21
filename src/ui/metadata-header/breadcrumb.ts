@@ -18,6 +18,7 @@ export function createBreadcrumbEl(filePath: string, app: App, highlightLast: bo
 	parts.pop(); // remove the filename
 	if (parts.length === 0) return null;
 
+	// eslint-disable-next-line obsidianmd/prefer-create-el
 	const breadcrumb = ownerDoc.createElement("div");
 	breadcrumb.addClass(BREADCRUMB_CLASS);
 

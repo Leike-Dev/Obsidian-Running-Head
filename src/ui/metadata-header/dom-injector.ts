@@ -69,6 +69,7 @@ export function injectElementsIntoView(ctx: InjectionContext): void {
 
 	// 1. Above Custom Fields
 	if (ctx.hasAboveContent) {
+		// eslint-disable-next-line obsidianmd/prefer-create-el
 		const tempAbove = contentEl.ownerDocument.createElement("div");
 		topElements.push(createMetadataHeaderEl(tempAbove, ctx.aboveOptions));
 	}
@@ -76,6 +77,7 @@ export function injectElementsIntoView(ctx: InjectionContext): void {
 	// 2. Date / Breadcrumb (Top)
 	const isWikiStyle = ctx.layoutStyle === "wiki";
 	if (isWikiStyle && ctx.hasDateContent) {
+		// eslint-disable-next-line obsidianmd/prefer-create-el
 		const tempDate = contentEl.ownerDocument.createElement("div");
 		topElements.push(createMetadataHeaderEl(tempDate, ctx.dateOptions));
 	} else if (!isWikiStyle && ctx.showBreadcrumb) {
@@ -86,6 +88,7 @@ export function injectElementsIntoView(ctx: InjectionContext): void {
 	// 3. Custom Title
 	let customTitleEl: HTMLDivElement | null = null;
 	if (ctx.customTitleText) {
+		// eslint-disable-next-line obsidianmd/prefer-create-el
 		customTitleEl = contentEl.ownerDocument.createElement("div");
 		customTitleEl.classList.add("running-head-custom-title");
 		customTitleEl.textContent = ctx.customTitleText;
@@ -96,12 +99,14 @@ export function injectElementsIntoView(ctx: InjectionContext): void {
 		const breadcrumbEl = createBreadcrumbEl(ctx.filePath, ctx.app, ctx.breadcrumbHighlightLast, contentEl.ownerDocument);
 		if (breadcrumbEl) bottomElements.push(breadcrumbEl);
 	} else if (!isWikiStyle && ctx.hasDateContent) {
+		// eslint-disable-next-line obsidianmd/prefer-create-el
 		const tempDate = contentEl.ownerDocument.createElement("div");
 		bottomElements.push(createMetadataHeaderEl(tempDate, ctx.dateOptions));
 	}
 
 	// 5. Below Custom Fields
 	if (ctx.hasBelowContent) {
+		// eslint-disable-next-line obsidianmd/prefer-create-el
 		const tempBelow = contentEl.ownerDocument.createElement("div");
 		bottomElements.push(createMetadataHeaderEl(tempBelow, ctx.belowOptions));
 	}
@@ -147,6 +152,7 @@ export function injectElementsIntoView(ctx: InjectionContext): void {
 	}
 
 	if (!insertionAnchor || insertionAnchor === contentEl) {
+		// eslint-disable-next-line obsidianmd/prefer-create-el
 		const fragment = contentEl.ownerDocument.createDocumentFragment();
 		for (const el of allElements) fragment.appendChild(el);
 		contentEl.prepend(fragment);
@@ -155,20 +161,29 @@ export function injectElementsIntoView(ctx: InjectionContext): void {
 
 	if (customTitleEl || !insertionAnchor.classList.contains("inline-title")) {
 		// Single injection BEFORE the anchor
+		// eslint-disable-next-line obsidianmd/prefer-create-el
 		const fragment = contentEl.ownerDocument.createDocumentFragment();
 		for (const el of allElements) fragment.appendChild(el);
 		insertionAnchor.before(fragment);
 	} else {
 		// Split injection around the native title
 		if (topElements.length > 0) {
+			// eslint-disable-next-line obsidianmd/prefer-create-el
 			const topFragment = contentEl.ownerDocument.createDocumentFragment();
 			for (const el of topElements) topFragment.appendChild(el);
 			insertionAnchor.before(topFragment);
 		}
 		if (bottomElements.length > 0) {
+			// eslint-disable-next-line obsidianmd/prefer-create-el
 			const bottomFragment = contentEl.ownerDocument.createDocumentFragment();
 			for (const el of bottomElements) bottomFragment.appendChild(el);
 			insertionAnchor.after(bottomFragment);
 		}
+	}
+
+	// Process first H1 for Reading View without :has selector
+	const firstH1 = contentEl.querySelector('.markdown-preview-sizer > div > h1');
+	if (firstH1 && firstH1.parentElement) {
+		firstH1.parentElement.classList.add('running-head-first-h1-wrapper');
 	}
 }

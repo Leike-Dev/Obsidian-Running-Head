@@ -72,12 +72,12 @@ export class NoticesModal extends Modal {
 				});
 			};
 
-			const allLabel = t('notices_tab_all' as TranslationKey);
+			const allLabel = t('notices_tab_all');
 			createTag('all', allLabel, counts['all'] || 0);
 
 			Object.keys(counts).forEach(type => {
 				if (type !== 'all') {
-					const transKey = `notices_tab_${type}` as TranslationKey;
+					const transKey = `notices_tab_${type}`;
 					const translated = t(transKey);
 					const label = translated !== transKey ? translated : (type.charAt(0).toUpperCase() + type.slice(1));
 					createTag(type, label, counts[type] || 0);
@@ -101,43 +101,43 @@ export function getActiveNotices(): NoticeItem[] {
 	notices.push({
 		type: 'warning',
 		icon: 'alert-triangle',
-		title: t('notice_tabs_title' as TranslationKey),
-		desc: t('notice_tabs_desc' as TranslationKey)
+		title: t('notice_tabs_title'),
+		desc: t('notice_tabs_desc')
 	});
 
 	notices.push({
 		type: 'info',
 		icon: 'info',
-		title: t('notice_tabs_tutorial_title' as TranslationKey),
-		desc: t('notice_tabs_tutorial_desc' as TranslationKey)
+		title: t('notice_tabs_tutorial_title'),
+		desc: t('notice_tabs_tutorial_desc')
 	});
 
 	notices.push({
 		type: 'info',
 		icon: 'link',
-		title: t('notice_links_title' as TranslationKey),
-		desc: t('notice_links_desc' as TranslationKey)
+		title: t('notice_links_title'),
+		desc: t('notice_links_desc')
 	});
 
 	notices.push({
 		type: 'info',
 		icon: 'eye-off',
-		title: t('notice_h1_title' as TranslationKey),
-		desc: t('notice_h1_desc' as TranslationKey)
+		title: t('notice_h1_title'),
+		desc: t('notice_h1_desc')
 	});
 
 	notices.push({
 		type: 'info',
 		icon: 'list',
-		title: t('notice_list_title' as TranslationKey),
-		desc: t('notice_list_desc' as TranslationKey)
+		title: t('notice_list_title'),
+		desc: t('notice_list_desc')
 	});
 
 	notices.push({
 		type: 'info',
 		icon: 'calendar-clock',
-		title: t('notice_format_title_title' as TranslationKey),
-		desc: t('notice_format_title_desc' as TranslationKey)
+		title: t('notice_format_title_title'),
+		desc: t('notice_format_title_desc')
 	});
 
 	return notices;

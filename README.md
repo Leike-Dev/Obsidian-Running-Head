@@ -107,7 +107,7 @@ Add a modern, color-customizable scroll progress bar fixed at the top of your no
 
 ### Manual Installation
 1. Download `main.js`, `manifest.json`, and `styles.css` from the latest release.
-2. Create a folder named `running-head` inside `<Your-Vault>/.obsidian/plugins/`.
+2. Create a folder named `running-head` inside `your-vault-folder/.obsidian/plugins/`.
 3. Move the downloaded files into that folder.
 4. Reload Obsidian and enable the plugin under **Settings → Community plugins**.
 

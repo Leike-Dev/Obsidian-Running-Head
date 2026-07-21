@@ -69,9 +69,6 @@ body.running-head-hide-first-h1 .app-container .workspace-leaf-content.running-h
 }
 
 /* Reading View */
-body.running-head-hide-first-h1 .app-container .workspace-leaf-content.running-head-active .markdown-preview-view .markdown-preview-sizer > div:has(> h1) {
+body.running-head-hide-first-h1 .app-container .workspace-leaf-content.running-head-active .markdown-preview-view .markdown-preview-sizer > .running-head-first-h1-wrapper {
     display: none;
-}
-body.running-head-hide-first-h1 .app-container .workspace-leaf-content.running-head-active .markdown-preview-view .markdown-preview-sizer > div:has(> h1) ~ div:has(> h1) {
-    display: block;
 }

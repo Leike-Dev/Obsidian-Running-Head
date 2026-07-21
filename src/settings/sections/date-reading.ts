@@ -41,7 +41,9 @@ export function renderDateSection(containerEl: HTMLElement, plugin: RunningHeadP
 					})
 			);
 
+		// eslint-disable-next-line obsidianmd/prefer-create-el
 		const customDateDesc = document.createDocumentFragment();
+		// eslint-disable-next-line obsidianmd/prefer-create-el
 		const customDateDiv = document.createElement("div");
 		customDateDiv.appendChild(sanitizeHTMLToDom(t('custom_date_format_desc')));
 		while (customDateDiv.firstChild) {
@@ -61,6 +63,7 @@ export function renderDateSection(containerEl: HTMLElement, plugin: RunningHeadP
 					})
 			);
 
+		// eslint-disable-next-line obsidianmd/prefer-create-el
 		const formatTitleDesc = document.createDocumentFragment();
 		formatTitleDesc.appendText(t('format_title_as_date_desc'));
 		

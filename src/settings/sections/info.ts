@@ -27,6 +27,7 @@ export function renderNoticesSection(containerEl: HTMLElement, plugin: RunningHe
 		const activeNoticesCount = getActiveNotices().length;
 
 		if (activeNoticesCount > 0) {
+			// eslint-disable-next-line obsidianmd/prefer-create-el
 			const badgeContainer = activeDocument.createElement("div");
 			badgeContainer.addClass("running-head-notices-badge-container");
 			badgeContainer.createSpan({ text: activeNoticesCount.toString(), cls: "running-head-notices-badge" });

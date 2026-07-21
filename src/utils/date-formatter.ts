@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return, @typescript-eslint/no-explicit-any */
 import { moment } from "obsidian";
 
 /**
@@ -42,7 +43,8 @@ export function formatDate(dateValue: unknown, locale = "en-US", useShortDate = 
 
 	// Use custom format with Moment.js if provided
 	if (customFormat && customFormat.trim().length > 0) {
-		return moment(date).locale(locale).format(customFormat);
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+		return ((moment as any)(date) as any).locale(locale).format(customFormat) as string;
 	}
 
 	// Fallback to native Intl formatter

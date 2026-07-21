@@ -125,6 +125,6 @@ Para compilar o plugin localmente:
 
 Este plugin foi projetado para trazer uma sensação mais elegante e "publicada" para as notas do seu vault no Obsidian. E como outras vezes, nasceu do meu desejo de customizar meu cofre (às vezes os desejos nos fazem criar coisas incriveis, como também despender horas e horas até ficar do jeito que queremos... rs).
 
-Um agradecimento especial à [Antigravity](https://antigravity.google/) pela inestimável assistência na construção, refatoração e otimização do código-fonte. Mas nada é feito de forma magica, esse plugin foi testado, retestado, virado do avesso para ficar o mais otimizado, leve, bom, bonito e funcional possivel para todos que buscam algo do tipo.
+Um agradecimento especial à [Antigravity](https://antigravity.google/) pela inestimável assistência na construção, refatoração e otimização do código-fonte. Mas nada é feito de forma magica, esse plugin foi testado, retestado, virado do avesso para ficar o mais otimizado, leve, bom, bonito e funcional possivel para as pessoas que buscam algo do tipo.
 
 Se você encontrar algum bug, por favor, abra uma *issue* e farei o possível para consertar. Contribuições via *pull requests* são sempre bem-vidas! 😉

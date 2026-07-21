@@ -28,7 +28,7 @@ export function renderCustomField(wrapper: HTMLElement, cf: CustomField, options
 	let isTagsType = false;
 	let isListType = false;
 
-	const { typeManager, typify } = getUnofficialApis(options.app as AppWithPlugins);
+	const { typeManager, typify } = getUnofficialApis(options.app);
 
 	if (typeManager && typeof typeManager.getAssignedType === "function") {
 		const assignedType = typeManager.getAssignedType(cf.field) || "";
@@ -42,7 +42,7 @@ export function renderCustomField(wrapper: HTMLElement, cf: CustomField, options
 
 	let hasTypifyStyle = false;
 	if (typify && typify.settings?.statusStyles && typeof rawValue !== "object" && !Array.isArray(rawValue)) {
-		const strValue = String(rawValue as string | number | boolean).trim().toLowerCase();
+		const strValue = String(rawValue).trim().toLowerCase();
 		hasTypifyStyle = typify.settings.statusStyles.some((s) => s.name?.toLowerCase() === strValue);
 	}
 
@@ -78,7 +78,7 @@ export function renderCustomField(wrapper: HTMLElement, cf: CustomField, options
 	} else if (typeof rawValue === "object") {
 		value = JSON.stringify(rawValue);
 	} else {
-		value = String(rawValue as boolean | string | number);
+		value = String(rawValue);
 	}
 
 	// --- Wiki links: [[target]] or [[target|alias]] ---
@@ -182,7 +182,7 @@ function renderPillsOrTags(
 			pillEl.setAttribute("data-value", item);
 			pillEl.setAttribute("data-property-key", cf.field);
 
-			const { typify } = getUnofficialApis(options.app as AppWithPlugins);
+			const { typify } = getUnofficialApis(options.app);
 			if (typify && typeof typify.processPill === "function") {
 				typify.processPill(pillEl, cf.field);
 			}
