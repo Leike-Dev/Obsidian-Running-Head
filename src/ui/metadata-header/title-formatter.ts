@@ -41,7 +41,7 @@ const DATE_FORMATS = [
 export function formatTitleAsDate(basename: string, dateLocale: string, customDateFormat: string): string {
 	const text = basename.trim();
 
-	let parsedDate: MomentLike = moment(text, DATE_FORMATS, true);
+	let parsedDate = moment(text, DATE_FORMATS, true) as unknown as MomentLike;
 
 	if (!parsedDate.isValid()) {
 		const isoDateOnly = /^\d{4}-\d{2}-\d{2}$/;
@@ -50,7 +50,8 @@ export function formatTitleAsDate(basename: string, dateLocale: string, customDa
 			: new Date(text);
 
 		if (!isNaN(dateObj.getTime())) {
-			parsedDate = moment(dateObj);
+			const fallbackDate = moment(dateObj) as unknown as MomentLike;
+			parsedDate = fallbackDate;
 		}
 	}
 
