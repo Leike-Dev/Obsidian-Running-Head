@@ -1,3 +1,5 @@
+# Running Head
+
 <div align="center">
   <img src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/banner_1.jpg" alt="Running Head Banner" />
   
@@ -90,7 +92,7 @@ Agrega una barra discreta y altamente personalizable en la parte superior de la 
 * **🌍 Internacionalización**: Interfaz completamente traducida al inglés, portugués (Brasil), español, francés y chino simplificado (basta usar Obsidian en uno de estos idiomas). Si hay errores de traducción o mejoras, por favor házmelo saber.
 
 
-## 🚀 Quick Start
+## ⚡ Uso y Inicio Rápido
 
 1. **Active el Plugin**: Ve a Ajustes del Obsidian $\rightarrow$ Plugins de la comunidad, busca **Running Head** y actívalo.
 2. **Configure Frontmatter**: Configura tus claves YAML para creación (por defecto `date`) y actualización (por defecto `updated`):

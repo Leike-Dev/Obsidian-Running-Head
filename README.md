@@ -1,3 +1,5 @@
+# Running Head
+
 <div align="center">
   <img src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/banner_1.jpg" alt="Running Head Banner" />
   
@@ -79,7 +81,7 @@ Add a modern, color-customizable scroll progress bar fixed at the top of your no
 ## ⚙️ Additional Features
 
 * **🎨 Custom Colors**: Define the colors of the update label, the note path, or the progress bar simply and individually.
-* **🚫 Hide First H1**: Prevent duplicate titles on screen if you use plugins that sync the filename to the first H1.
+* **🙈 Hide First H1**: Prevent duplicate titles on screen if you use plugins that sync the filename to the first H1.
 * **📅 Format Title as Date**: Turn your note title into a nicely formatted date.
 > [!NOTE]
 > For this to work, the note's filename must contain **only** the date (and optionally the time), without any other text.
@@ -90,7 +92,7 @@ Add a modern, color-customizable scroll progress bar fixed at the top of your no
 * **🌍 Internationalization**: Interface fully translated into English, Portuguese (Brazil), Spanish, French, and Simplified Chinese. If there are translation errors or improvements, please let me know.
 
 
-## 🚀 Quick Start
+## 🚀 Usage & Quick Start
 
 1. **Activate the Plugin**: Open Obsidian settings $\rightarrow$ Community Plugins, search for **Running Head**, and enable it.
 2. **Set Dates in Frontmatter**: Configure your YAML keys for creation (default `date`) and update (default `updated`) dates:
@@ -116,8 +118,8 @@ Add a modern, color-customizable scroll progress bar fixed at the top of your no
 
 To build the plugin locally:
 1. Download the source code to your machine.
-2. Install dependencies: `npm install`
-3. Run the development watch server: `npm run dev`
+2. Install the necessary NodeJS packages.
+3. Start the project compilation in watch mode.
 
 
 ## ⚠️ Disclaimer

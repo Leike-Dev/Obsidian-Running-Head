@@ -1,3 +1,5 @@
+# Running Head
+
 <div align="center">
   <img src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/banner_1.jpg" alt="Running Head Banner" />
   
@@ -90,10 +92,10 @@ Adicione uma barra discreta e altamente personalizável no topo da nota para aco
 * **🌍 Internacionalização**: Interface totalmente traduzida para Inglês, Português (Brasil), Espanhol, Frances e Chinês Simplificado (basta usar o Obsidian em um desses idiomas). Se houver erros de tradução ou melhorias, diga-me.
 
 
-## 🚀 Início Rápido
+## ⚡ Uso e Início Rápido
 
 1. **Ative o Plugin**: Abra as configurações do Obsidian $\rightarrow$ Plugins de comunidade, procure por **Running Head** e ative-o.
-2. **Defina Datas no Frontmatter**: Configure suas chaves YAML para criação (padrão `date`) e atualização (padrão `updated`):
+2. **Defina Datas no Frontmatter**: Configure suas chaves YAML para criação (padrão `date`) and atualização (padrão `updated`):
    ```yaml
    date: 2026-05-29
    updated: 2026-05-29
@@ -106,7 +108,7 @@ Adicione uma barra discreta e altamente personalizável no topo da nota para aco
 
 ## 📦 Instalação
 
-### Manual Installation
+### Instalação Manual
 1. Faça o download dos arquivos `main.js`, `manifest.json` e `styles.css` a partir do último release.
 2. Crie uma pasta chamada `running-head` dentro de `pasta-do-seu-cofre/.obsidian/plugins/`.
 3. Mova os arquivos baixados para essa pasta.

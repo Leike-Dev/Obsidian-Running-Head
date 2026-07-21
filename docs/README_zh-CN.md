@@ -1,3 +1,5 @@
+# Running Head
+
 <div align="center">
   <img src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/banner_1.jpg" alt="Running Head Banner" />
   
@@ -90,7 +92,7 @@
 * **🌍 国际化**：界面已完全翻译为英语、葡萄牙语（巴西）、西班牙语、法语和简体中文（只需在其中一种语言下使用 Obsidian）。如果您发现翻译错误或有改进建议，请告诉我。
 
 
-## 🚀 快速开始
+## ⚡ 使用与快速开始
 
 1. **启用插件**：转到 Obsidian 设置 $\rightarrow$ 第三方插件，搜索 **Running Head** 并启用。
 2. **在 Frontmatter 中设置日期**：配置您的 YAML 键以用于创建（默认 `date`） and 更新（默认 `updated`）：

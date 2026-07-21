@@ -1,3 +1,5 @@
+# Running Head
+
 <div align="center">
   <img src="https://github.com/Leike-Dev/obsidian-running-head/raw/main/docs/assets/images/banner_1.jpg" alt="Running Head Banner" />
   
@@ -78,7 +80,7 @@ Ajoutez une barre discrète et hautement personnalisable en haut de la note pour
 
 ## ⚙️ Fonctionnalités Additionnelles
 
-* **🎨 Couleurs Personnalisées** : Définissez les couleurs du libellé de mise à jour, du chemin de la note ou de la barre de progression de manière simple et individuelle.
+* **🎨 Couleurs Personnalisées** : Définissez les couleurs du libellé de mise à jour, du chemin de la note ou de la progression de manière simple et individuelle.
 * **🚫 Masquer le Premier H1** : Évitez les titres en double à l'écran si vous utilisez des plugins qui synchronisent le nom de fichier avec le H1.
 * **📅 Formater le Titre comme Date** : Transformez le titre de votre note en une date joliment formatée.
 > [!NOTE]
@@ -90,7 +92,7 @@ Ajoutez une barre discrète et hautement personnalisable en haut de la note pour
 * **🌍 Internationalisation** : Interface entièrement traduite en anglais, portugais (Brésil), espagnol, français et chinois simplifié (il suffit d'utiliser Obsidian dans l'une de ces langues). Si vous remarquez des erreurs de traduction ou des améliorations possibles, veuillez me le faire savoir.
 
 
-## 🚀 Quick Start
+## 🚀 Usage & Quick Start
 
 1. **Activer le Plugin** : Allez dans les Paramètres d'Obsidian $\rightarrow$ Plugins communautaires, recherchez **Running Head**, et activez-le.
 2. **Configurer Frontmatter** : Définissez vos clés YAML pour la création (par défaut `date`) et la mise à jour (par défaut `updated`) :
