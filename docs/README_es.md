@@ -64,9 +64,6 @@ Renderiza cualquier propiedad de frontmatter (texto, listas, casillas de verific
 ### 5. 🗂️ Interactive Tabs Navigation
 Crea elegantes encabezados de navegación para saltar entre notas relacionadas usando propiedades de frontmatter. Personaliza el estilo visual de las pestañas (**Subrayado**, **Píldora** o **Minimalista**) y añade iconos de Lucide o nombres personalizados fácilmente.
 
-
-
-
 ### 6. 📊 Progreso de Lectura & Integración con Typify
 Agrega una barra discreta y altamente personalizable en la parte superior de la nota para rastrear tu posición de lectura en tiempo real. Running Head también se integra perfectamente con el plugin **[Typify](https://github.com/Leike-Dev/Obsidian-Typify)** para herdar colores y estilos de píldoras automáticamente.
 

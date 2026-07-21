@@ -64,9 +64,6 @@ Affichez toute propriété du frontmatter (texte, listes, cases à cocher) sous 
 ### 5. 🗂️ Navigation par Onglets Interactive
 Créez d'élégants en-têtes de navigation pour sauter entre des notes associées en utilisant les propriétés du frontmatter. Personnalisez le style visuel des onglets (**Souligné**, **Pastille** ou **Minimaliste**) et ajoutez des icônes Lucide ou des noms personnalisés facilement.
 
-
-
-
 ### 6. 📊 Progression de Défilement & Intégration Typify
 Ajoutez une barre discrète et hautement personnalisable en haut de la note pour suivre votre progression de lecture en temps réel. Running Head s'intègre également parfaitement avec le plugin **[Typify](https://github.com/Leike-Dev/Obsidian-Typify)** pour hériter automatiquement de superbes styles de pilules colorées.
 

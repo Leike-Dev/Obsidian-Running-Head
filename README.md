@@ -64,9 +64,6 @@ Render any frontmatter property (text, lists, checkboxes) as custom fields or be
 ### 5. 🗂️ Interactive Tabs Navigation
 Build sleek navigation headers to jump between related notes using frontmatter properties. Customize tab visual styles (**Underline**, **Pill**, or **Minimal**) and easily add Lucide icons or custom display names.
 
-
-
-
 ### 6. 📊 Scroll Progress & Typify Integration
 Add a modern, color-customizable scroll progress bar fixed at the top of your note. Running Head also seamlessly integrates with the **[Typify](https://github.com/Leike-Dev/Obsidian-Typify)** plugin to automatically inherit premium colored pill styles.
 
