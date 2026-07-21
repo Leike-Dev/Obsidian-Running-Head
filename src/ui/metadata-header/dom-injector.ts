@@ -69,16 +69,14 @@ export function injectElementsIntoView(ctx: InjectionContext): void {
 
 	// 1. Above Custom Fields
 	if (ctx.hasAboveContent) {
-		// eslint-disable-next-line obsidianmd/prefer-create-el
-		const tempAbove = contentEl.ownerDocument.createElement("div");
+		const tempAbove = createDiv();
 		topElements.push(createMetadataHeaderEl(tempAbove, ctx.aboveOptions));
 	}
 
 	// 2. Date / Breadcrumb (Top)
 	const isWikiStyle = ctx.layoutStyle === "wiki";
 	if (isWikiStyle && ctx.hasDateContent) {
-		// eslint-disable-next-line obsidianmd/prefer-create-el
-		const tempDate = contentEl.ownerDocument.createElement("div");
+		const tempDate = createDiv();
 		topElements.push(createMetadataHeaderEl(tempDate, ctx.dateOptions));
 	} else if (!isWikiStyle && ctx.showBreadcrumb) {
 		const breadcrumbEl = createBreadcrumbEl(ctx.filePath, ctx.app, ctx.breadcrumbHighlightLast, contentEl.ownerDocument);
@@ -88,10 +86,7 @@ export function injectElementsIntoView(ctx: InjectionContext): void {
 	// 3. Custom Title
 	let customTitleEl: HTMLDivElement | null = null;
 	if (ctx.customTitleText) {
-		// eslint-disable-next-line obsidianmd/prefer-create-el
-		customTitleEl = contentEl.ownerDocument.createElement("div");
-		customTitleEl.classList.add("running-head-custom-title");
-		customTitleEl.textContent = ctx.customTitleText;
+		customTitleEl = createDiv({ cls: "running-head-custom-title", text: ctx.customTitleText });
 	}
 
 	// 4. Date / Breadcrumb (Bottom)
@@ -99,15 +94,13 @@ export function injectElementsIntoView(ctx: InjectionContext): void {
 		const breadcrumbEl = createBreadcrumbEl(ctx.filePath, ctx.app, ctx.breadcrumbHighlightLast, contentEl.ownerDocument);
 		if (breadcrumbEl) bottomElements.push(breadcrumbEl);
 	} else if (!isWikiStyle && ctx.hasDateContent) {
-		// eslint-disable-next-line obsidianmd/prefer-create-el
-		const tempDate = contentEl.ownerDocument.createElement("div");
+		const tempDate = createDiv();
 		bottomElements.push(createMetadataHeaderEl(tempDate, ctx.dateOptions));
 	}
 
 	// 5. Below Custom Fields
 	if (ctx.hasBelowContent) {
-		// eslint-disable-next-line obsidianmd/prefer-create-el
-		const tempBelow = contentEl.ownerDocument.createElement("div");
+		const tempBelow = createDiv();
 		bottomElements.push(createMetadataHeaderEl(tempBelow, ctx.belowOptions));
 	}
 
@@ -152,8 +145,7 @@ export function injectElementsIntoView(ctx: InjectionContext): void {
 	}
 
 	if (!insertionAnchor || insertionAnchor === contentEl) {
-		// eslint-disable-next-line obsidianmd/prefer-create-el
-		const fragment = contentEl.ownerDocument.createDocumentFragment();
+		const fragment = createFragment();
 		for (const el of allElements) fragment.appendChild(el);
 		contentEl.prepend(fragment);
 		return;
@@ -161,21 +153,18 @@ export function injectElementsIntoView(ctx: InjectionContext): void {
 
 	if (customTitleEl || !insertionAnchor.classList.contains("inline-title")) {
 		// Single injection BEFORE the anchor
-		// eslint-disable-next-line obsidianmd/prefer-create-el
-		const fragment = contentEl.ownerDocument.createDocumentFragment();
+		const fragment = createFragment();
 		for (const el of allElements) fragment.appendChild(el);
 		insertionAnchor.before(fragment);
 	} else {
 		// Split injection around the native title
 		if (topElements.length > 0) {
-			// eslint-disable-next-line obsidianmd/prefer-create-el
-			const topFragment = contentEl.ownerDocument.createDocumentFragment();
+			const topFragment = createFragment();
 			for (const el of topElements) topFragment.appendChild(el);
 			insertionAnchor.before(topFragment);
 		}
 		if (bottomElements.length > 0) {
-			// eslint-disable-next-line obsidianmd/prefer-create-el
-			const bottomFragment = contentEl.ownerDocument.createDocumentFragment();
+			const bottomFragment = createFragment();
 			for (const el of bottomElements) bottomFragment.appendChild(el);
 			insertionAnchor.after(bottomFragment);
 		}

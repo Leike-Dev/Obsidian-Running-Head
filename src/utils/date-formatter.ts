@@ -1,5 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return, @typescript-eslint/no-explicit-any */
 import { moment } from "obsidian";
+
+interface MomentLike {
+	locale(l: string): { format(f: string): string };
+}
 
 /**
  * Format a date value from frontmatter into a human-readable string.
@@ -43,8 +46,7 @@ export function formatDate(dateValue: unknown, locale = "en-US", useShortDate = 
 
 	// Use custom format with Moment.js if provided
 	if (customFormat && customFormat.trim().length > 0) {
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
-		return ((moment as any)(date) as any).locale(locale).format(customFormat) as string;
+		return (moment(date) as unknown as MomentLike).locale(locale).format(customFormat);
 	}
 
 	// Fallback to native Intl formatter

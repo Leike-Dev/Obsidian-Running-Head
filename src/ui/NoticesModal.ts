@@ -78,7 +78,7 @@ export class NoticesModal extends Modal {
 			Object.keys(counts).forEach(type => {
 				if (type !== 'all') {
 					const transKey = `notices_tab_${type}`;
-					const translated = t(transKey);
+					const translated = t(transKey as TranslationKey);
 					const label = translated !== transKey ? translated : (type.charAt(0).toUpperCase() + type.slice(1));
 					createTag(type, label, counts[type] || 0);
 				}

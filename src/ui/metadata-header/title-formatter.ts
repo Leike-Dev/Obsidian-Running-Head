@@ -1,5 +1,13 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return, @typescript-eslint/no-explicit-any */
 import { moment } from "obsidian";
+
+interface MomentLike {
+	isValid(): boolean;
+	format(f?: string): string;
+	locale(l: string): MomentLike;
+	hours(): number;
+	minutes(): number;
+	creationData(): { format?: unknown };
+}
 
 /** Date formats supported for parsing note titles as dates. */
 const DATE_FORMATS = [
@@ -33,7 +41,7 @@ const DATE_FORMATS = [
 export function formatTitleAsDate(basename: string, dateLocale: string, customDateFormat: string): string {
 	const text = basename.trim();
 
-	let parsedDate: ReturnType<typeof moment> = moment(text, DATE_FORMATS, true);
+	let parsedDate = moment(text, DATE_FORMATS, true) as unknown as MomentLike;
 
 	if (!parsedDate.isValid()) {
 		const isoDateOnly = /^\d{4}-\d{2}-\d{2}$/;
@@ -42,7 +50,7 @@ export function formatTitleAsDate(basename: string, dateLocale: string, customDa
 			: new Date(text);
 
 		if (!isNaN(dateObj.getTime())) {
-			parsedDate = moment(dateObj);
+			parsedDate = moment(dateObj) as unknown as MomentLike;
 		}
 	}
 
@@ -55,7 +63,7 @@ export function formatTitleAsDate(basename: string, dateLocale: string, customDa
 	}
 
 	const creationData = parsedDate.creationData();
-	const matchedFormat: string | string[] | undefined = creationData?.format as string | string[] | undefined;
+	const matchedFormat = creationData?.format;
 	const hasTime = parsedDate.hours() > 0 || parsedDate.minutes() > 0;
 
 	let includesTime = false;
