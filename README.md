@@ -115,7 +115,7 @@ Add a modern, color-customizable scroll progress bar fixed at the top of your no
 ## 🛠️ Development
 
 To build the plugin locally:
-1. Clone this repository.
+1. Download the source code to your machine.
 2. Install dependencies: `npm install`
 3. Run the development watch server: `npm run dev`
 

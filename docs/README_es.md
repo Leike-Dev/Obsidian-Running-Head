@@ -127,4 +127,4 @@ Este plugin fue diseñado para darle una sensación más elegante y "publicada" 
 
 Agradecimiento especial a [Antigravity](https://antigravity.google/) por la inestimable asistencia en la construcción, refactorización y optimización del código fuente. Pero nada se hace por arte de magia, este plugin fue probado, vuelto a probar, volteado de adentro hacia afuera para que sea lo más optimizado, liviano, bueno, hermoso y funcional posible para todos los que buscan algo como esto.
 
-Si encuentras algún error, por favor abre un *issue* y haré todo lo posible por solucionarlo. ¡Las contribuciones mediante *pull requests* siempre son bienvenidas! 😉
+Si encuentras algún error, por favor abre un *issue* y haré lo máximo posible por solucionarlo. ¡Las contribuciones mediante *pull requests* siempre son bienvenidas! 😉
