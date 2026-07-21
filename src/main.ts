@@ -17,12 +17,9 @@ export default class RunningHeadPlugin extends Plugin {
 	public settings!: RunningHeadSettings;
 	public scrollProgressManager!: ScrollProgressManager;
 
-	private styleEl!: HTMLStyleElement;
-
 	async onload(): Promise<void> {
 		await this.loadSettings();
 
-		this.styleEl = activeDocument.head.createEl("style", { attr: { id: "running-head-dynamic-styles" } });
 		this.updateDynamicStyles();
 		this.updateBodyClasses();
 
@@ -90,40 +87,41 @@ export default class RunningHeadPlugin extends Plugin {
 	}
 
 	updateDynamicStyles(): void {
-		if (!this.styleEl) return;
-
-		let css = "";
-		
-		// Helper to generate CSS for a theme
-		const genThemeStyles = (isDark: boolean) => {
-			let themeCss = "";
+		const applyThemeStyles = (isDark: boolean, prefix: string) => {
 			if (this.settings.lastUpdatedBadgeColor) {
 				const badge = getAdaptivePillStyles(this.settings.lastUpdatedBadgeColor, isDark);
-				themeCss += `--rh-badge-bg: ${badge.bg};\n`;
-				themeCss += `--rh-badge-text: ${badge.text};\n`;
+				document.body.style.setProperty(`--rh-badge-bg-${prefix}`, badge.bg);
+				document.body.style.setProperty(`--rh-badge-text-${prefix}`, badge.text);
+			} else {
+				document.body.style.removeProperty(`--rh-badge-bg-${prefix}`);
+				document.body.style.removeProperty(`--rh-badge-text-${prefix}`);
 			}
 			if (this.settings.breadcrumbHighlightColor) {
-				// For text link, we just adapt text color
 				const link = getAdaptivePillStyles(this.settings.breadcrumbHighlightColor, isDark);
-				themeCss += `--rh-breadcrumb-text: ${link.text};\n`;
+				document.body.style.setProperty(`--rh-breadcrumb-text-${prefix}`, link.text);
+			} else {
+				document.body.style.removeProperty(`--rh-breadcrumb-text-${prefix}`);
 			}
 			if (this.settings.scrollProgressColor) {
 				const scroll = getAdaptivePillStyles(this.settings.scrollProgressColor, isDark);
-				themeCss += `--rh-scroll-bg: ${scroll.text};\n`;
+				document.body.style.setProperty(`--rh-scroll-bg-${prefix}`, scroll.text);
+			} else {
+				document.body.style.removeProperty(`--rh-scroll-bg-${prefix}`);
 			}
-			return themeCss;
 		};
 
-		css += `body.theme-light {\n${genThemeStyles(false)}}\n`;
-		css += `body.theme-dark {\n${genThemeStyles(true)}}\n`;
-
-		this.styleEl.textContent = css;
+		applyThemeStyles(false, 'light');
+		applyThemeStyles(true, 'dark');
 	}
 
 	onunload(): void {
-		if (this.styleEl) {
-			this.styleEl.remove();
-		}
+		// Clean up inline styles
+		['light', 'dark'].forEach(prefix => {
+			document.body.style.removeProperty(`--rh-badge-bg-${prefix}`);
+			document.body.style.removeProperty(`--rh-badge-text-${prefix}`);
+			document.body.style.removeProperty(`--rh-breadcrumb-text-${prefix}`);
+			document.body.style.removeProperty(`--rh-scroll-bg-${prefix}`);
+		});
 		// Cancel any pending debounced injection
 		if (this._injectTimeout !== null) {
 			window.clearTimeout(this._injectTimeout);

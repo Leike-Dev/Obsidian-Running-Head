@@ -72,3 +72,17 @@ body.running-head-hide-first-h1 .app-container .workspace-leaf-content.running-h
 body.running-head-hide-first-h1 .app-container .workspace-leaf-content.running-head-active .markdown-preview-view .markdown-preview-sizer > .running-head-first-h1-wrapper {
     display: none;
 }
+
+body.theme-light {
+    --rh-badge-bg: var(--rh-badge-bg-light, color-mix(in srgb, var(--color-accent) 15%, transparent));
+    --rh-badge-text: var(--rh-badge-text-light, var(--color-accent));
+    --rh-breadcrumb-text: var(--rh-breadcrumb-text-light, var(--interactive-accent));
+    --rh-scroll-bg: var(--rh-scroll-bg-light, var(--interactive-accent));
+}
+
+body.theme-dark {
+    --rh-badge-bg: var(--rh-badge-bg-dark, color-mix(in srgb, var(--color-accent) 15%, transparent));
+    --rh-badge-text: var(--rh-badge-text-dark, var(--color-accent));
+    --rh-breadcrumb-text: var(--rh-breadcrumb-text-dark, var(--interactive-accent));
+    --rh-scroll-bg: var(--rh-scroll-bg-dark, var(--interactive-accent));
+}
