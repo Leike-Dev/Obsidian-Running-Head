@@ -1,7 +1,7 @@
 {
 	"id": "running-head",
 	"name": "Running Head",
-	"version": "2.1.0",
+	"version": "2.1.1",
 	"minAppVersion": "1.8.7",
 	"description": "Transform your notes with elegant blog-style metadata headers — dates, reading time, custom fields, breadcrumb navigation, tabs navigation, and seamless Typify integration.",
 	"author": "Flavio Azurita",

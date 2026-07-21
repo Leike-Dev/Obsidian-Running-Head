@@ -6,7 +6,7 @@
   <br>
 
   ![License](https://img.shields.io/badge/license-MIT-lightblue.svg)
-  ![Version](https://img.shields.io/badge/version-2.1.0-lightgreen.svg)
+  ![Version](https://img.shields.io/badge/version-2.1.1-lightgreen.svg)
   [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=flat&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/azurita_a)
 
 </div>

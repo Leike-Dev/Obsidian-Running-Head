@@ -42,7 +42,7 @@ export function renderCustomField(wrapper: HTMLElement, cf: CustomField, options
 
 	let hasTypifyStyle = false;
 	if (typify && typify.settings?.statusStyles && typeof rawValue !== "object" && !Array.isArray(rawValue)) {
-		const strValue = String(rawValue).trim().toLowerCase();
+		const strValue = String(rawValue as string | number | boolean).trim().toLowerCase();
 		hasTypifyStyle = typify.settings.statusStyles.some((s) => s.name?.toLowerCase() === strValue);
 	}
 
@@ -78,7 +78,7 @@ export function renderCustomField(wrapper: HTMLElement, cf: CustomField, options
 	} else if (typeof rawValue === "object") {
 		value = JSON.stringify(rawValue);
 	} else {
-		value = String(rawValue);
+		value = String(rawValue as string | number | boolean);
 	}
 
 	// --- Wiki links: [[target]] or [[target|alias]] ---
